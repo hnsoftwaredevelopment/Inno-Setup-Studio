@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>Inno Setup Studio</AssemblyName>
+    <RootNamespace>Studio.App</RootNamespace>
+    <OutputPath>../../Builds/$(Configuration)/</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="../Studio.Core/Studio.Core.csproj" /></ItemGroup>
+</Project>

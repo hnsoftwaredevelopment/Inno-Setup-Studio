@@ -1,0 +1,109 @@
+<Window x:Class="Studio.App.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:views="clr-namespace:Studio.App.Views"
+        Title="Inno Setup Studio" Width="1360" Height="860" MinWidth="1120" MinHeight="680" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.New" Executed="New_Executed" />
+        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
+        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
+        <CommandBinding Command="ApplicationCommands.SaveAs" Executed="SaveAs_Executed" />
+    </Window.CommandBindings>
+    <Grid x:Name="Workspace">
+        <Grid.RowDefinitions><RowDefinition Height="76" /><RowDefinition Height="*" /><RowDefinition Height="36" /></Grid.RowDefinitions>
+        <Border Background="White" BorderBrush="{StaticResource Line}" BorderThickness="0,0,0,1" Padding="24,14">
+            <DockPanel LastChildFill="False">
+                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                    <Border Background="{StaticResource Accent}" Width="38" Height="38" CornerRadius="6" Margin="0,0,12,0">
+                        <TextBlock Text="IS" Foreground="White" FontWeight="SemiBold" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="Inno Setup Studio" FontSize="18" FontWeight="SemiBold" />
+                        <TextBlock Text="Visuele ontwerper voor Inno Setup 7.1" FontSize="11" Style="{StaticResource MutedText}" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Content="_Nieuw" Command="ApplicationCommands.New" ToolTip="Nieuw voorbeeldproject (Ctrl+N)" Margin="0,0,8,0" />
+                    <Button Content="_Openen" Command="ApplicationCommands.Open" ToolTip="Project openen (Ctrl+O)" Margin="0,0,8,0" />
+                    <Button Content="Opslaan _als" Command="ApplicationCommands.SaveAs" Margin="0,0,8,0" />
+                    <Button Content="Op_slaan" Command="ApplicationCommands.Save" Style="{StaticResource AccentButton}" ToolTip="Project opslaan (Ctrl+S)" />
+                </StackPanel>
+            </DockPanel>
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="222" MinWidth="180" /><ColumnDefinition Width="5" /><ColumnDefinition Width="*" MinWidth="400" /><ColumnDefinition Width="5" /><ColumnDefinition Width="292" MinWidth="240" /></Grid.ColumnDefinitions>
+            <Border Background="White" Padding="16,24" BorderBrush="{StaticResource Line}" BorderThickness="0,0,1,0">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Bottom" Margin="0,24,0,0">
+                        <TextBlock Text="EERSTE VERSIE" Style="{StaticResource SectionLabel}" />
+                        <TextBlock Text="Ontwerpen en bewaren. Scriptgeneratie en bouwen volgen later." Style="{StaticResource MutedText}" FontSize="12" />
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="PAGINA’S" Style="{StaticResource SectionLabel}" />
+                        <ListBox ItemsSource="{Binding PageChoices}" SelectedValuePath="Index" SelectedValue="{Binding PageIndex}" IsEnabled="{Binding IsDesign}" AutomationProperties.Name="Pagina’s">
+                            <ListBox.ItemTemplate><DataTemplate><StackPanel>
+                                <TextBlock Text="{Binding Name}" /><TextBlock Text="{Binding Description}" FontSize="11" FontWeight="Normal" Foreground="{StaticResource Muted}" Margin="0,4,0,0" />
+                            </StackPanel></DataTemplate></ListBox.ItemTemplate>
+                        </ListBox>
+                        <Border Height="1" Background="{StaticResource Line}" Margin="0,24" />
+                        <TextBlock Text="ELEMENTEN" Style="{StaticResource SectionLabel}" />
+                        <ListBox ItemsSource="{Binding Elements}" SelectedValuePath="Kind" SelectedValue="{Binding SelectedElement}" DisplayMemberPath="Name" IsEnabled="{Binding IsDesign}" AutomationProperties.Name="Elementen" />
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="Transparent" AutomationProperties.Name="Breedte paginapaneel" />
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                <StackPanel Margin="24,24,24,16">
+                    <TextBlock Text="{Binding PageName}" FontSize="23" FontWeight="SemiBold" />
+                    <TextBlock Text="{Binding PageDescription}" Style="{StaticResource MutedText}" Margin="0,5,0,0" />
+                </StackPanel>
+                <Border Grid.Row="1" Background="White" BorderBrush="{StaticResource Line}" BorderThickness="0,1" Padding="16,10">
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="Zoom" Style="{StaticResource MutedText}" VerticalAlignment="Center" Margin="12,0,8,0" />
+                            <Slider Width="94" Minimum="0.5" Maximum="1.5" TickFrequency="0.1" IsSnapToTickEnabled="True" Value="{Binding Zoom}" VerticalAlignment="Center" AutomationProperties.Name="Zoom" />
+                            <TextBlock Text="{Binding Zoom, StringFormat={}{0:P0}}" Width="42" TextAlignment="Right" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton Content="Ontwerpen" GroupName="Mode" IsChecked="{Binding IsDesign, Mode=OneWay}" Checked="Design_Checked" VerticalAlignment="Center" Margin="0,0,16,0" />
+                            <RadioButton Content="Uitproberen" GroupName="Mode" IsChecked="{Binding IsPreview, Mode=OneWay}" Checked="Preview_Checked" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+                <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Background="#E9EDF0" Padding="24">
+                    <views:WizardPreview HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <views:WizardPreview.LayoutTransform><ScaleTransform ScaleX="{Binding Zoom}" ScaleY="{Binding Zoom}" /></views:WizardPreview.LayoutTransform>
+                    </views:WizardPreview>
+                </ScrollViewer>
+                <Border Grid.Row="3" Background="#F6F7F8" Padding="24,12" BorderBrush="{StaticResource Line}" BorderThickness="0,1,0,0">
+                    <TextBlock Text="Ontwerpvoorbeeld · De uiteindelijke weergave wordt door Inno Setup bepaald." Style="{StaticResource MutedText}" FontSize="11" />
+                </Border>
+            </Grid>
+            <GridSplitter Grid.Column="3" Width="5" HorizontalAlignment="Stretch" Background="Transparent" AutomationProperties.Name="Breedte eigenschappenpaneel" />
+            <Border Grid.Column="4" Background="White" BorderBrush="{StaticResource Line}" BorderThickness="1,0,0,0" Padding="24">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <TextBlock Text="EIGENSCHAPPEN" Style="{StaticResource SectionLabel}" />
+                        <TextBlock Text="{Binding SelectedElementName}" FontSize="22" FontWeight="SemiBold" />
+                        <TextBlock Text="{Binding Origin}" Style="{StaticResource MutedText}" Margin="0,8,0,24" />
+                        <Label Content="_Tekst" Target="{Binding ElementName=PropertyTextBox}" Padding="0" Margin="0,0,0,8" />
+                        <TextBox x:Name="PropertyTextBox" Text="{Binding PropertyText, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEdit}" TextWrapping="Wrap" AcceptsReturn="True" MinHeight="84" MaxHeight="240" VerticalScrollBarVisibility="Auto" MaxLength="4096" AutomationProperties.Name="Tekst van geselecteerd element" />
+                        <Button Content="Herstellen naar basisontwerp" Click="Reset_Click" IsEnabled="{Binding CanReset}" Margin="0,12,0,0" Padding="8" />
+                        <Border Height="1" Background="{StaticResource Line}" Margin="0,24" />
+                        <TextBlock Text="ZO WERKT OVERERVEN" Style="{StaticResource SectionLabel}" />
+                        <TextBlock Text="Pas gedeelde knopteksten aan in Basisontwerp. Wijzig een tekst op een pagina om alleen daar af te wijken." Style="{StaticResource MutedText}" />
+                        <TextBlock Text="Herstellen neemt de actuele basistekst weer over. Een bewust lege tekst blijft een eigen waarde." Style="{StaticResource MutedText}" Margin="0,12,0,0" />
+                        <Border Background="#F2F5F6" Padding="12" Margin="0,24,0,0" CornerRadius="4">
+                            <TextBlock Text="In Uitproberen bedienen de knoppen de voorbeeldpagina’s. Er wordt niets geïnstalleerd." Style="{StaticResource MutedText}" FontSize="12" />
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+        <Border Grid.Row="2" Background="White" BorderBrush="{StaticResource Line}" BorderThickness="0,1,0,0" Padding="16,8">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Right" Text="{Binding DocumentState}" Foreground="{StaticResource Muted}" FontSize="11" Margin="16,0,0,0" />
+                <TextBlock Text="{Binding Status}" TextTrimming="CharacterEllipsis" FontSize="11" Foreground="{StaticResource Muted}" />
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>
