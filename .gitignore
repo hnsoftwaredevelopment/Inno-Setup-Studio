@@ -1,0 +1,8 @@
+**/bin/
+**/obj/
+.vs/
+Builds/
+artifacts/
+*.user
+*.suo
+*.tmp
