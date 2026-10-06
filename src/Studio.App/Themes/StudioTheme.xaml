@@ -47,6 +47,7 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
     </Style>
     <Style TargetType="ListBoxItem">
+        <Setter Property="AutomationProperties.Name" Value="{Binding Name}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" /><Setter Property="Padding" Value="12,10" />
         <Setter Property="Margin" Value="0,2" /><Setter Property="Foreground" Value="{StaticResource Ink}" />
         <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ListBoxItem">

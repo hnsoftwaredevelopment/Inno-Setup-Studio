@@ -38,6 +38,12 @@ public partial class MainWindow : Window
     private void Design_Checked(object sender, RoutedEventArgs e) { if (_editor is not null) _editor.IsPreview = false; }
     private void Preview_Checked(object sender, RoutedEventArgs e) { if (_editor is not null) _editor.IsPreview = true; }
     private void Reset_Click(object sender, RoutedEventArgs e) => _editor.ResetProperty();
+    private void ChooseDirectory_Click(object sender, RoutedEventArgs e)
+    {
+        if (!_editor.CanEdit || !_editor.IsDirectorySelected) return;
+        var path = FolderPicker.Pick(this, _editor.DirectoryText, "Standaard installatiemap kiezen");
+        if (path is not null) _editor.PropertyText = path;
+    }
 
     private async void New_Executed(object sender, ExecutedRoutedEventArgs e)
     {
@@ -109,7 +115,7 @@ public partial class MainWindow : Window
         _ = Dispatcher.BeginInvoke(new Action(Close));
     }
 
-    private static bool IsFileError(Exception error) => error is IOException or UnauthorizedAccessException or ArgumentException or NotSupportedException;
+    private static bool IsFileError(Exception error) => error is IOException or InvalidDataException or UnauthorizedAccessException or ArgumentException or NotSupportedException;
     private void ShowFileError(string action, Exception error)
     {
         _editor.SetStatus($"{action} is niet gelukt. Het huidige project blijft beschikbaar.");

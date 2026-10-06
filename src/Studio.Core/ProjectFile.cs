@@ -68,6 +68,10 @@ public static class ProjectFile
                 || page.ButtonOverrides is null
                 || page.ButtonOverrides.Any(p => p.Key is not (ElementKind.Back or ElementKind.Next or ElementKind.Cancel) || p.Value is null))
                 throw new InvalidDataException("De pagina-inhoud is ongeldig voor deze versie van Studio.");
+            if (page.Kind == PageKind.Destination
+                && (page.Destination is not { } settings || string.IsNullOrWhiteSpace(settings.DefaultDirectory)
+                    || settings.DefaultDirectory.Any(char.IsControl) || settings.BrowseCaption is null || settings.BrowseTooltip is null))
+                throw new InvalidDataException("Vul een standaard installatiemap in op één regel en controleer de Bladeren-knop.");
         }
     }
 }

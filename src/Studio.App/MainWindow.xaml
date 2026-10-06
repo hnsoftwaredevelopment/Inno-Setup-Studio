@@ -85,13 +85,21 @@
                         <TextBlock Text="EIGENSCHAPPEN" Style="{StaticResource SectionLabel}" />
                         <TextBlock Text="{Binding SelectedElementName}" FontSize="22" FontWeight="SemiBold" />
                         <TextBlock Text="{Binding Origin}" Style="{StaticResource MutedText}" Margin="0,8,0,24" />
-                        <Label Content="_Tekst" Target="{Binding ElementName=PropertyTextBox}" Padding="0" Margin="0,0,0,8" />
-                        <TextBox x:Name="PropertyTextBox" Text="{Binding PropertyText, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEdit}" TextWrapping="Wrap" AcceptsReturn="True" MinHeight="84" MaxHeight="240" VerticalScrollBarVisibility="Auto" MaxLength="4096" AutomationProperties.Name="Tekst van geselecteerd element" />
-                        <Button Content="Herstellen naar basisontwerp" Click="Reset_Click" IsEnabled="{Binding CanReset}" Margin="0,12,0,0" Padding="8" />
+                        <Label Content="{Binding PropertyLabel}" Target="{Binding ElementName=PropertyTextBox}" Padding="0" Margin="0,0,0,8" />
+                        <TextBox x:Name="PropertyTextBox" Text="{Binding PropertyText, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEdit}" TextWrapping="Wrap" AcceptsReturn="{Binding AllowsMultiline}" MinHeight="84" MaxHeight="240" VerticalScrollBarVisibility="Auto" MaxLength="4096" AutomationProperties.Name="Tekst van geselecteerd element" />
+                        <TextBlock Text="{Binding PropertyHint}" Style="{StaticResource MutedText}" FontSize="12" Margin="0,12,0,0" />
+                        <Button Content="Map kiezen..." Click="ChooseDirectory_Click" IsEnabled="{Binding CanEdit}" Visibility="{Binding IsDirectorySelected, Converter={StaticResource Visibility}}" Margin="0,12,0,0" />
+                        <StackPanel Visibility="{Binding IsBrowseSelected, Converter={StaticResource Visibility}}" Margin="0,16,0,0">
+                            <Label Content="_Tooltip" Target="{Binding ElementName=TooltipBox}" Padding="0" Margin="0,0,0,8" />
+                            <TextBox x:Name="TooltipBox" Text="{Binding BrowseTooltip, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEdit}" MaxLength="4096" TextWrapping="Wrap" AutomationProperties.Name="Tooltip van Bladeren" />
+                        </StackPanel>
+                        <Button Content="Herstellen naar basisontwerp" Click="Reset_Click" IsEnabled="{Binding CanReset}" Visibility="{Binding ShowInheritance, Converter={StaticResource Visibility}}" Margin="0,12,0,0" Padding="8" />
                         <Border Height="1" Background="{StaticResource Line}" Margin="0,24" />
+                        <StackPanel Visibility="{Binding ShowInheritance, Converter={StaticResource Visibility}}">
                         <TextBlock Text="ZO WERKT OVERERVEN" Style="{StaticResource SectionLabel}" />
                         <TextBlock Text="Pas gedeelde knopteksten aan in Basisontwerp. Wijzig een tekst op een pagina om alleen daar af te wijken." Style="{StaticResource MutedText}" />
                         <TextBlock Text="Herstellen neemt de actuele basistekst weer over. Een bewust lege tekst blijft een eigen waarde." Style="{StaticResource MutedText}" Margin="0,12,0,0" />
+                        </StackPanel>
                         <Border Background="#F2F5F6" Padding="12" Margin="0,24,0,0" CornerRadius="4">
                             <TextBlock Text="In Uitproberen bedienen de knoppen de voorbeeldpagina’s. Er wordt niets geïnstalleerd." Style="{StaticResource MutedText}" FontSize="12" />
                         </Border>

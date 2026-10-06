@@ -1,6 +1,6 @@
 namespace Studio.Core;
 
-public enum ElementKind { Title, Body, Back, Next, Cancel }
+public enum ElementKind { Title, Body, Back, Next, Cancel, Directory, Browse }
 public enum PageKind { Welcome, Destination }
 
 public sealed class StudioPage
@@ -10,6 +10,14 @@ public sealed class StudioPage
     public string Title { get; set; } = "";
     public string Body { get; set; } = "";
     public Dictionary<ElementKind, string> ButtonOverrides { get; set; } = [];
+    public DestinationSettings? Destination { get; set; }
+}
+
+public sealed class DestinationSettings
+{
+    public string DefaultDirectory { get; set; } = @"{autopf}\Mijn applicatie";
+    public string BrowseCaption { get; set; } = "Bladeren...";
+    public string BrowseTooltip { get; set; } = "Kies een andere installatiemap";
 }
 
 public sealed class StudioProject
@@ -35,7 +43,7 @@ public sealed class StudioProject
             new() { Kind = PageKind.Welcome, Name = "Welkom", Title = "Welkom bij de installatie van Mijn applicatie",
                 Body = "Deze wizard helpt u Mijn applicatie op uw computer te installeren.\n\nKlik op Verder om door te gaan." },
             new() { Kind = PageKind.Destination, Name = "Installatiemap", Title = "Kies de installatiemap",
-                Body = "Waar wilt u Mijn applicatie installeren?" }
+                Body = "Waar wilt u Mijn applicatie installeren?", Destination = new() }
         ]
     };
 }

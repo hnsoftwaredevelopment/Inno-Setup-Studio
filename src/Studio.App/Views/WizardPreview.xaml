@@ -52,9 +52,18 @@
                         <Button Style="{StaticResource Element}" Tag="{x:Static core:ElementKind.Body}" Click="Element_Click" Margin="0,14,0,0" AutomationProperties.Name="Beschrijving selecteren">
                             <TextBlock Text="{Binding PreviewBody}" TextWrapping="Wrap" LineHeight="19" />
                         </Button>
-                        <StackPanel Margin="8,20,8,0" Visibility="{Binding IsDestination, Converter={StaticResource Visibility}}">
-                            <TextBlock Text="Installatiemap (voorbeeld)" Margin="0,0,0,6" Foreground="#555555" />
-                            <Border BorderBrush="#ACACAC" BorderThickness="1" Padding="8"><TextBlock Text="C:\Program Files\Mijn applicatie" Foreground="Black" /></Border>
+                        <StackPanel Margin="0,20,0,0" Visibility="{Binding IsDestination, Converter={StaticResource Visibility}}">
+                            <TextBlock Text="Installatiemap" Margin="8,0,0,6" Foreground="#555555" />
+                            <Grid>
+                                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                <Button Style="{StaticResource Element}" Tag="{x:Static core:ElementKind.Directory}" Click="Element_Click" HorizontalContentAlignment="Stretch"
+                                        Visibility="{Binding IsDesign, Converter={StaticResource Visibility}}" AutomationProperties.Name="Installatiemap selecteren">
+                                    <Border BorderBrush="#ACACAC" BorderThickness="1" Padding="6"><TextBlock Text="{Binding DirectoryText}" TextTrimming="CharacterEllipsis" ToolTip="{Binding DirectoryText}" /></Border>
+                                </Button>
+                                <TextBox Text="{Binding TrialDirectory, UpdateSourceTrigger=PropertyChanged}" Margin="8" Padding="6" Visibility="{Binding IsPreview, Converter={StaticResource Visibility}}" AutomationProperties.Name="Installatiemap uitproberen" />
+                                <Button Grid.Column="1" Style="{StaticResource Navigation}" Tag="{x:Static core:ElementKind.Browse}" Content="{Binding BrowseCaption}" ToolTip="{Binding BrowseTooltip}" Click="Element_Click" AutomationProperties.Name="Bladeren" />
+                            </Grid>
+                            <TextBlock Text="Inno Setup vult constanten in op de doelcomputer." Foreground="#666666" FontSize="10" TextWrapping="Wrap" Margin="8,6,8,0" />
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>

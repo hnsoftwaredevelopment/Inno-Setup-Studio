@@ -12,8 +12,13 @@ public partial class WizardPreview : UserControl
     public WizardPreview() => InitializeComponent();
     private void Element_Click(object sender, RoutedEventArgs e)
     {
-        if (DataContext is EditorSession editor && sender is Button { Tag: ElementKind element })
-            editor.Activate(element);
+        if (DataContext is not EditorSession editor || sender is not Button { Tag: ElementKind element }) return;
+        if (editor.IsPreview && element == ElementKind.Browse)
+        {
+            var path = FolderPicker.Pick(Window.GetWindow(this), editor.DirectoryText, "Installatiemap kiezen — uitproberen");
+            if (path is not null) editor.SetTrialDirectory(path);
+        }
+        else editor.Activate(element);
     }
 }
 

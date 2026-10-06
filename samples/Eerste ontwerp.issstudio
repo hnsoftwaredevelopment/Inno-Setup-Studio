@@ -1,0 +1,32 @@
+{
+  "Format": "HN.InnoSetupStudio.VisualProject",
+  "Version": 1,
+  "Name": "Mijn applicatie",
+  "Buttons": {
+    "Back": "\u003C Terug",
+    "Next": "Verder \u003E",
+    "Cancel": "Annuleren"
+  },
+  "Pages": [
+    {
+      "Kind": "Welcome",
+      "Name": "Welkom",
+      "Title": "Welkom bij de installatie van Mijn applicatie",
+      "Body": "Deze wizard helpt u Mijn applicatie op uw computer te installeren.\n\nKlik op Verder om door te gaan.",
+      "ButtonOverrides": {},
+      "Destination": null
+    },
+    {
+      "Kind": "Destination",
+      "Name": "Installatiemap",
+      "Title": "Kies de installatiemap",
+      "Body": "Waar wilt u Mijn applicatie installeren?",
+      "ButtonOverrides": {},
+      "Destination": {
+        "DefaultDirectory": "{autopf}\\HN Software\\Mijn applicatie",
+        "BrowseCaption": "Kies map...",
+        "BrowseTooltip": "Kies een andere installatiemap"
+      }
+    }
+  ]
+}
