@@ -152,4 +152,5 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="BuildNoMessages" xml:space="preserve"><value>Es gibt noch keine Buildmeldungen für dieses Projekt.</value></data>
   <data name="CompilerWarning" xml:space="preserve"><value>Warnung</value></data>
   <data name="CompilerError" xml:space="preserve"><value>Fehler</value></data>
+  <data name="ExportExistingProtected" xml:space="preserve"><value>Diese .iss-Datei weicht vom aktuellen Export ab und bleibt erhalten. Wählen Sie einen neuen Dateinamen für den Export.</value></data>
 </root>

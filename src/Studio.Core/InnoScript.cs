@@ -65,11 +65,17 @@ public static class InnoScript
         var fullPath = Path.GetFullPath(path);
         if (string.Equals(fullPath, ResolveSource(project.InstallFile.Source, projectDirectory), StringComparison.OrdinalIgnoreCase))
             throw Error("ExportCannotReplaceSource");
+        if (File.Exists(fullPath))
+        {
+            if (await File.ReadAllTextAsync(fullPath) == script) return;
+            throw Error("ExportExistingProtected");
+        }
         var temporaryPath = fullPath + $".{Guid.NewGuid():N}.tmp";
         try
         {
             await File.WriteAllTextAsync(temporaryPath, script, new UTF8Encoding(encoderShouldEmitUTF8Identifier: true));
-            File.Move(temporaryPath, fullPath, overwrite: true);
+            // Never replace a file that appeared while the temporary script was being written.
+            File.Move(temporaryPath, fullPath, overwrite: false);
         }
         finally { if (File.Exists(temporaryPath)) File.Delete(temporaryPath); }
     }

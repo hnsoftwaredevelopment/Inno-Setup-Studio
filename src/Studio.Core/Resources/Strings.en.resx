@@ -152,4 +152,5 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="BuildNoMessages" xml:space="preserve"><value>There are no build messages for this project yet.</value></data>
   <data name="CompilerWarning" xml:space="preserve"><value>Warning</value></data>
   <data name="CompilerError" xml:space="preserve"><value>Error</value></data>
+  <data name="ExportExistingProtected" xml:space="preserve"><value>This .iss file differs from the current export and will be preserved. Choose a new filename to export the project.</value></data>
 </root>

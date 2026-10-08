@@ -62,3 +62,7 @@ Het meegeleverde voorbeeldproject bevat de door de gebruiker geteste waarden: pr
 5. Sla een project met een relatieve bron via Opslaan als in een andere map op. Heropen de kopie en exporteer: hetzelfde bronbestand moet worden gebruikt en AppId moet gelijk blijven. Open ook je bestaande formaat-2-project en controleer dat applicatiegegevens en ontwerp behouden zijn. Bewaar de eerste migratie bij voorkeur als kopie; de oude app kan formaat 3 niet openen.
 
 Voor deze slice is compileren voldoende. Echte installatie-/deïnstallatiecontrole hoort bij de latere milestoneproef. Het gebruikersakkoord is ontvangen; deze slice en haar documentatie worden samen gecommit en gepusht. De milestone blijft open.
+
+## Wijziging vanaf M01-S06
+
+De hierboven beschreven overschrijfbevestiging hoort bij de oorspronkelijke S02-stand. Vanaf [M01-S06](M01-S06-Eenvoudige-installer-afronden.md) blijft een bestaande afwijkende .iss behouden en wordt export naar een andere naam gevraagd; identieke inhoud blijft ongewijzigd.

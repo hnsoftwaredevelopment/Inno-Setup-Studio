@@ -32,9 +32,11 @@ De Release-app staat in `Builds\Release\Inno Setup Studio.exe`. Distributie vere
 
 ## Verificatie
 
-Op 8 oktober 2026: 106 tests geslaagd, waaronder vijf echte compilatieproeven met ISCC 7.1.0; Release-build zonder fouten of waarschuwingen. De gebruiker heeft M01-S02 volledig getest en geaccepteerd. Ook M01-S03 is door de gebruiker getest in Studio en in de gecompileerde, uitgevoerde installer en geaccepteerd. M01-S04 is door de gebruiker volledig getest en geaccepteerd. M01-S05 voegt live bouwmeldingen, annuleren en een opgeslagen uitvoernaam toe. Nieuwe projecten beginnen met mysetup; oude projecten behouden setup met een waarschuwing. Formaat 4 bewaart de naam en leest de eerdere formaten. M01-S05 is door de gebruiker handmatig getest en geaccepteerd. Zie [M01-S05 en teststappen](docs/slices/M01-S05-Bouwmeldingen-en-annuleren.md). M01-S01 en de eerdere Studio-taalbasis zijn eveneens geaccepteerd.
+Op 8 oktober 2026: 108 tests geslaagd, waaronder zes echte compilatieproeven met ISCC 7.1.0; Release-build zonder fouten of waarschuwingen. De gebruiker heeft M01-S02 volledig getest en geaccepteerd. Ook M01-S03 is door de gebruiker getest in Studio en in de gecompileerde, uitgevoerde installer en geaccepteerd. M01-S04 is door de gebruiker volledig getest en geaccepteerd. M01-S05 voegt live bouwmeldingen, annuleren en een opgeslagen uitvoernaam toe. Nieuwe projecten beginnen met mysetup; oude projecten behouden setup met een waarschuwing. Formaat 4 bewaart de naam en leest de eerdere formaten. M01-S05 is door de gebruiker handmatig getest en geaccepteerd. Zie [M01-S05 en teststappen](docs/slices/M01-S05-Bouwmeldingen-en-annuleren.md). M01-S01 en de eerdere Studio-taalbasis zijn eveneens geaccepteerd.
 
 De compilatietests gebruiken de standaardinstallatie van Inno Setup 7. Als die ontbreekt, worden de compilerafhankelijke tests met een expliciete reden overgeslagen. Ze bouwen een installer, maar starten die niet. De andere tests vereisen geen compiler.
+
+M01-S06 beschermt bestaande afwijkende .iss-bestanden tegen vervangen. Een lokale SVG-eindproef staat in samples/SVGViewerDemo/SVG Viewer M01-proef.issstudio; de gebruiker heeft de eindproef uitgevoerd en M01 volledig geaccepteerd. Dit project installeert één bestand; volledige bestandsverzamelingen volgen in M04. Zie [M01-S06 en eindproef](docs/slices/M01-S06-Eenvoudige-installer-afronden.md). De aanvullende SVG-compilatietest vereist de lokaal aangeleverde executable; bij ontbreken wordt die test met uitleg overgeslagen.
 
 ## Documentatie en planning
 

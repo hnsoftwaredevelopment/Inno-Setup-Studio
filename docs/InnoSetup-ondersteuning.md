@@ -22,6 +22,8 @@ M01-S04 voegt ontdekken/kiezen van ISCC, versiecontrole en bouwen van een opgesl
 
 M01-S05 voegt een opgeslagen OutputBaseFilename, native JSONL-bouwmeldingen en annuleren toe. De koppelingen zijn met ISCC 7.1.0 getest; de gebruiker heeft de handmatige tests uitgevoerd en M01-S05 geaccepteerd. [Detailregistratie en teststappen](slices/M01-S05-Bouwmeldingen-en-annuleren.md).
 
+M01-S06 voegt exportbescherming en de lokale SVG-eindproef toe. Zelfstandige compilatie met 7.1.0 is geslaagd; de gebruiker heeft de eindproef afgerond en verse installatie/deïnstallatie binnen de M01-scope geaccepteerd. [Eindproef en beperkingen](slices/M01-S06-Eenvoudige-installer-afronden.md).
+
 ## Functionele dekking
 
 V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële scripting. De aangegeven bediening is beoogd, niet allemaal al gerealiseerd.

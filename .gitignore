@@ -9,3 +9,5 @@ artifacts/
 *.tmp
 /samples/Eerste installer/*.iss
 /samples/Eerste installer/output/
+/samples/SVGViewerDemo/*.iss
+/samples/SVGViewerDemo/output/

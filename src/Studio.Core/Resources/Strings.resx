@@ -152,4 +152,5 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="BuildNoMessages" xml:space="preserve"><value>Er zijn nog geen bouwmeldingen voor dit project.</value></data>
   <data name="CompilerWarning" xml:space="preserve"><value>Waarschuwing</value></data>
   <data name="CompilerError" xml:space="preserve"><value>Fout</value></data>
+  <data name="ExportExistingProtected" xml:space="preserve"><value>Dit .iss-bestand wijkt af van de huidige export en blijft behouden. Kies een nieuwe bestandsnaam om het project te exporteren.</value></data>
 </root>

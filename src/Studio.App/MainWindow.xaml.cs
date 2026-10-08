@@ -100,7 +100,7 @@ public partial class MainWindow : Window
         try { _ = InnoScript.Generate(_editor.Project, projectDirectory); }
         catch (Exception error) when (IsFileError(error)) { ShowFileError("Export", error); return; }
         var dialog = new SaveFileDialog { Title = Text["ExportScript"], Filter = Text["ScriptFilter"],
-            DefaultExt = ".iss", AddExtension = true, OverwritePrompt = true, FileName = "installer.iss",
+            DefaultExt = ".iss", AddExtension = true, OverwritePrompt = false, FileName = "installer.iss",
             InitialDirectory = projectDirectory ?? "" };
         if (dialog.ShowDialog(this) != true) return;
         SetBusy(true);

@@ -1,6 +1,6 @@
 # Slices — Inno Setup Studio
 
-Status: planning geaccepteerd op 8 oktober 2026. Een vinkje betekent geaccepteerd, niet alleen geschreven of gebouwd. M00, M01-S01, M01-S02, M01-S03, M01-S04 en M01-S05 zijn geaccepteerd.
+Status: planning geaccepteerd op 8 oktober 2026. Een vinkje betekent geaccepteerd, niet alleen geschreven of gebouwd. M00, M01-S01, M01-S02, M01-S03, M01-S04, M01-S05 en M01-S06 zijn geaccepteerd; M01 is als geheel geaccepteerd.
 
 Milestoneresultaten en FR-koppelingen: [Milestones](../docs/Milestones.md). Werkwijze en controles: [Werkwijze](../docs/Werkwijze.md). Voortgang van de proefversie: [Historie](../docs/historie/Proefversie.md).
 
@@ -34,7 +34,7 @@ Bestandsgroepen: Core/project/opslag; App/projecteigenschappen; generator/compil
 | [x] | M01-S03 Huidig ontwerp exporteren | Twee huidige pagina's en standaardpad worden correct vertaald; gedeelde en lokale tekstafwijkingen werken of worden aantoonbaar begrensd; knoprollen blijven correct. | B/T/C/I; S02 |
 | [x] | M01-S04 Compiler kiezen en bouwen | Ontdekken/handmatig kiezen en versiecontrole werken; Bouw compileert een herkenbare projectstand; de resulterende uitvoer is vindbaar. | B/T/C/U; S03 |
 | [x] | M01-S05 Bouwmeldingen en annuleren | Fouten/waarschuwingen zijn zichtbaar; annuleren stopt gecontroleerd; een mislukte build presenteert geen oud bestand als nieuw resultaat. | B/T/C/U; S04 |
-| [ ] | M01-S06 Eenvoudige installer afronden | Uitvoer wordt niet ongemerkt overschreven bij handmatige wijzigingen; dezelfde export werkt buiten Studio; gebruiker controleert verse installatie en deïnstallatie. | B/T/C/I, milestonecheck; S05 |
+| [x] | M01-S06 Eenvoudige installer afronden | Uitvoer wordt niet ongemerkt overschreven bij handmatige wijzigingen; dezelfde export werkt buiten Studio; gebruiker controleert verse installatie en deïnstallatie. | B/T/C/I, milestonecheck; S05 |
 
 M01-S03 onderzoekt juist de bestaande previewbeloften. Als een property niet regulier werkt, wordt haar beperking vastgelegd vóór verdere uitbreiding.
 
@@ -156,7 +156,9 @@ M01-S03 is geïmplementeerd op m01-eerste-installer: Release-build geslaagd en 7
 
 M01-S04 is op verzoek geïmplementeerd: compiler ontdekken/kiezen, 7.1-versiecontrole, opgeslagen project bouwen en afzonderlijke uitvoermappen. Release-build geslaagd; 83 tests geslaagd, inclusief drie ISCC-compilatieproeven. [Scope en testinstructies](../docs/slices/M01-S04-Compiler-kiezen-en-bouwen.md). De gebruiker heeft alle teststappen en aanvullende controles doorlopen en de slice geaccepteerd. De geaccepteerde stand is gepubliceerd als commit 33d8c33.
 
-M01-S05 is op verzoek geïmplementeerd: live bouwmeldingen, annuleren, native waarschuwingen/fouten en opgeslagen uitvoernaam (formaat 4). Release-build geslaagd; 106 tests geslaagd, inclusief vijf echte compilatietests met ISCC 7.1.0. [Scope en testinstructies](../docs/slices/M01-S05-Bouwmeldingen-en-annuleren.md). De gebruiker heeft de handmatige tests uitgevoerd en deze slice geaccepteerd. De geaccepteerde stand wordt gepubliceerd. Volgende slice: M01-S06, eenvoudige installer afronden; begin na opdracht van de gebruiker.
+M01-S05 is op verzoek geïmplementeerd: live bouwmeldingen, annuleren, native waarschuwingen/fouten en opgeslagen uitvoernaam (formaat 4). Release-build geslaagd; 106 tests geslaagd, inclusief vijf echte compilatietests met ISCC 7.1.0. [Scope en testinstructies](../docs/slices/M01-S05-Bouwmeldingen-en-annuleren.md). De gebruiker heeft de handmatige tests uitgevoerd en deze slice geaccepteerd. De geaccepteerde stand is gepubliceerd als commit ee2eb8f.
+
+M01-S06 is op verzoek geïmplementeerd: expliciete bescherming van afwijkende exports en een lokale SVG-eindproef met afzonderlijke identiteit. Release-build zonder fouten/waarschuwingen; 108 tests geslaagd, inclusief zelfstandige SVG-compilatie. [Teststappen en afbakening](../docs/slices/M01-S06-Eenvoudige-installer-afronden.md). De gebruiker heeft alle tests afgerond, S06 en de gehele M01-milestone geaccepteerd en opdracht gegeven voor merge en start van M02.
 
 ## Genoteerd voor latere uitwerking
 
