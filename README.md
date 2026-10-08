@@ -12,7 +12,7 @@ De eerste WPF-werkplek werkt: Basisontwerp, Welkom en Installatiemap, direct sel
 
 De Studio-interface is beschikbaar in Nederlands, Engels en Duits. Rechtsboven wisselt **Studio-taal** direct van taal; de keuze wordt per Windows-gebruiker onthouden. Installerinhoud blijft onafhankelijk van deze keuze. Zie [meertaligheid en ResXManager](docs/Meertaligheid.md).
 
-Scriptgeneratie, compilerkoppeling en meertalige installers volgen later. Zie [de specificatie](docs/Productspecificatie.md).
+Scriptgeneratie, compilerkoppeling en meertalige installers volgen later. Het beoogde eindproduct is beschreven in de [productspecificatie](docs/Productspecificatie.md), momenteel een concept voor review.
 
 ## Bouwen en starten
 
@@ -30,6 +30,24 @@ De Release-app staat in `Builds\Release\Inno Setup Studio.exe`. Distributie vere
 
 Op 8 oktober 2026: 31 Core-tests geslaagd; Release-build zonder fouten of waarschuwingen. Handmatig gecontroleerd: live taalwissel, behoud van installerinhoud en selectie, Duitse en Engelse weergave en behoud van de taal na herstart.
 
-## Documentatie
+## Documentatie en planning
+
+**Inno Setup is the limit.** De productdekking volgt reguliere instellingen en gedocumenteerde native mogelijkheden van de ondersteunde Inno Setup-versie.
+
+| Document | Doel |
+|---|---|
+| [Productspecificatie](docs/Productspecificatie.md) | Eindproduct, huidige basis, grenzen en reviewpunten |
+| [Ondersteuningsmatrix](docs/InnoSetup-ondersteuning.md) | Koppeling naar Inno Setup en werkelijk verificatieniveau |
+| [Milestones](docs/Milestones.md) | Resultaten en afhankelijkheden per milestone |
+| [Slices](tasks/todo.md) | Testbare stappen en acceptatiestatus |
+| [Ontwikkelplan](tasks/plan.md) | Technische richting en risico's |
+| [Werkwijze](docs/Werkwijze.md) | Review, tests, commit/push en merge |
+| [Meertaligheid](docs/Meertaligheid.md) | Huidige resx-/ResXManager-opzet |
+| [Historie](docs/historie/Proefversie.md) | Oorspronkelijke proefplanning |
+| [Werkinstructies](AGENTS.md) | Afspraken voor vervolgsessies |
+
+Iedere milestone gebruikt een eigen branch met dezelfde technische naam. Slices worden pas na gebruikersakkoord gecommit en gepusht. Een milestone wordt gemerged na acceptatie van haar volledige resultaat. De gebruiker doet de visuele en echte installatieproeven.
+
+De nieuwe roadmap is een voorstel. De voortgang en acceptatiestatus staan in de slicelijst.
 
 Markdown wordt gespiegeld naar `C:\Devops\Obsidian\markdown\Development\HNSoftwareDevelopment\Inno Setup Studio`, met behoud van relatieve paden.
