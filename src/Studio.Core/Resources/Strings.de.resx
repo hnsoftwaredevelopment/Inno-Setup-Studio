@@ -107,5 +107,25 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="ApplicationIdHint" xml:space="preserve"><value>Behalten Sie diese ID für neue Versionen derselben Anwendung bei. Ändern Sie sie nur für eine andere Anwendung. Maximal 127 Zeichen.</value></data>
   <data name="ApplicationDetailsHint" xml:space="preserve"><value>Diese Angaben gelten für das gesamte Projekt. AppId bleibt bei einer neuen Version gleich. Eigene Assistententexte und der Installationspfad werden nicht automatisch angepasst.</value></data>
   <data name="InvalidApplicationDetails" xml:space="preserve"><value>Geben Sie Produktname, Anwendungs-ID und Version jeweils in einer Zeile ein. Die Anwendungs-ID darf höchstens 127 Zeichen enthalten. Die Änderungen wurden nicht gespeichert.</value></data>
-  <data name="StatusMigrated" xml:space="preserve"><value>Altes Projekt geöffnet: Anwendungs-ID und Version ergänzt. Speichern Sie das neue Projektformat.</value></data>
+  <data name="StatusMigrated" xml:space="preserve"><value>Altes Projekt geöffnet und im Speicher aktualisiert. Speichern Sie das neue Projektformat.</value></data>
+  <data name="InstallFileHeading" xml:space="preserve"><value>Dateiregel</value></data>
+  <data name="SourceFileLabel" xml:space="preserve"><value>Quelldatei</value></data>
+  <data name="ChooseSourceFile" xml:space="preserve"><value>Datei auswählen…</value></data>
+  <data name="FileDestinationLabel" xml:space="preserve"><value>Zielordner für diese Datei</value></data>
+  <data name="InstallFileHint" xml:space="preserve"><value>Eine lokale Datei; Platzhalter werden noch nicht unterstützt. Relative Quellpfade beziehen sich auf den Projektordner. Ziel: {app} oder beispielsweise {app}\Data.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>Der Export enthält Anwendungsdaten, den Standardinstallationspfad und eine Datei. Der Installer ist vorläufig auf Niederländisch; eigene Assistententexte folgen im nächsten Schritt.</value></data>
+  <data name="ExportScript" xml:space="preserve"><value>ISS exportieren</value></data>
+  <data name="SourceFileFilter" xml:space="preserve"><value>Alle Dateien (*.*)|*.*</value></data>
+  <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup-Skript (*.iss)|*.iss</value></data>
+  <data name="StatusExported" xml:space="preserve"><value>Skript exportiert. Sie können diese Datei mit Inno Setup 7.1 kompilieren.</value></data>
+  <data name="ExportFailed" xml:space="preserve"><value>Export fehlgeschlagen</value></data>
+  <data name="StatusExportFailed" xml:space="preserve"><value>Der Export ist fehlgeschlagen. Ihr Projekt bleibt geöffnet.</value></data>
+  <data name="InvalidFileRule" xml:space="preserve"><value>Prüfen Sie die Dateiregel: Quelle und Ziel müssen jeweils in einer Zeile stehen; das Ziel darf nicht leer sein.</value></data>
+  <data name="ExportSourceInvalid" xml:space="preserve"><value>Wählen Sie eine lokale Quelldatei ohne Platzhalter, Steuerzeichen oder ungültige Pfadzeichen.</value></data>
+  <data name="ExportSourceMissing" xml:space="preserve"><value>Die Quelldatei fehlt oder ist nicht zugänglich. Prüfen Sie den Pfad oder wählen Sie die Datei erneut aus.</value></data>
+  <data name="ExportSourceNeedsProject" xml:space="preserve"><value>Speichern Sie das Projekt zuerst, um einen relativen Quellpfad zu verwenden, oder wählen Sie einen absoluten Quellpfad.</value></data>
+  <data name="ExportDestinationInvalid" xml:space="preserve"><value>Verwenden Sie {app} oder einen Unterordner wie {app}\Data, ohne Platzhalter, weitere Konstanten oder . und .. als Ordnernamen.</value></data>
+  <data name="ExportPreprocessorUnsupported" xml:space="preserve"><value>Präprozessorausdrücke ({#…}) werden in diesem Export noch nicht unterstützt. Skripting folgt in einem späteren Meilenstein.</value></data>
+  <data name="ExportExtensionInvalid" xml:space="preserve"><value>Exportieren Sie in eine Datei mit der Erweiterung .iss.</value></data>
+  <data name="ExportCannotReplaceSource" xml:space="preserve"><value>Das Skript darf die gewählte Quelldatei nicht ersetzen. Wählen Sie einen anderen Exportnamen.</value></data>
 </root>

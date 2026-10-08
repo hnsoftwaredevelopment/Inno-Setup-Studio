@@ -17,7 +17,7 @@ De instellingen sluiten aan op [AppId](https://jrsoftware.org/ishelp/topic_setup
 
 ## Projectformaat en bestaande bestanden
 
-De projectformaatversie is nu 2. Het bestaande veld Name blijft de productnaam; AppId en AppVersion zijn toegevoegd. Version is de projectformaatversie en staat los van AppVersion.
+Bij oplevering van deze slice werd de projectformaatversie 2. Het bestaande veld Name blijft de productnaam; AppId en AppVersion zijn toegevoegd. Version is de projectformaatversie en staat los van AppVersion. [M01-S02](M01-S02-Bestandsregel-en-export.md) breidt het formaat uit naar versie 3 met behoud van deze gegevens.
 
 Formaat 1 wordt bij openen alleen in het geheugen gemigreerd. Pagina's, gedeelde knoppen, afwijkingen, installatiepad en Bladeren-instellingen blijven behouden. De nieuwe AppId wordt deterministisch afgeleid van de oorspronkelijke JSON-inhoud (SHA-256, eerste 16 bytes als GUID); de beginversie is 1.0. Zo krijgt hetzelfde oude bestand bij opnieuw openen vóór opslaan dezelfde identiteit, ook als het is gekopieerd naar een ander pad. Externe inhoudswijzigingen vóór de eerste opslag kunnen deze afgeleide identiteit veranderen.
 

@@ -14,7 +14,9 @@ De Studio-interface is beschikbaar in Nederlands, Engels en Duits. Rechtsboven w
 
 Het uitklapbare paneel **Applicatiegegevens** boven de ontwerpruimte bevat productnaam, AppId en versie. Die worden met het project opgeslagen. Oude projecten worden bij openen in het geheugen bijgewerkt en pas bij opslaan naar het nieuwe formaat geschreven. Zie [M01-S01 en teststappen](docs/slices/M01-S01-Applicatiegegevens.md).
 
-Scriptgeneratie, compilerkoppeling en meertalige installers volgen later. Het beoogde eindproduct is beschreven in de geaccepteerde [productspecificatie](docs/Productspecificatie.md).
+Het paneel **Bestandsregel** bevat één lokaal bronbestand en een doelmap binnen {app}. **Exporteer .iss** schrijft een zelfstandig compileerbaar script met applicatiegegevens, het standaard installatiepad, een vaste Nederlandse installer en deze bestandsregel. Eigen wizardteksten volgen in M01-S03; compilerbediening vanuit Studio en meertalige installers volgen later. Zie [M01-S02 en teststappen](docs/slices/M01-S02-Bestandsregel-en-export.md).
+
+Het beoogde eindproduct is beschreven in de geaccepteerde [productspecificatie](docs/Productspecificatie.md).
 
 ## Bouwen en starten
 
@@ -30,7 +32,9 @@ De Release-app staat in `Builds\Release\Inno Setup Studio.exe`. Distributie vere
 
 ## Verificatie
 
-Op 8 oktober 2026: 45 Core-tests geslaagd; Release-build zonder fouten of waarschuwingen. De gebruiker heeft M01-S01 volledig getest en geaccepteerd. De eerdere Studio-taalbasis is eveneens door de gebruiker beoordeeld.
+Op 8 oktober 2026: 72 tests geslaagd, waaronder twee echte compilatieproeven met ISCC 7.1.0; Release-build zonder fouten of waarschuwingen. De gebruiker heeft M01-S02 volledig getest en geaccepteerd. De compilerwaarschuwing over de huidige uitvoernaam setup.exe is vastgelegd voor de latere naaminstelling en bouwmeldingen. M01-S01 en de eerdere Studio-taalbasis zijn eveneens geaccepteerd.
+
+De compilatietests gebruiken de standaardinstallatie van Inno Setup 7. Als die ontbreekt, worden alleen deze twee tests met een expliciete reden overgeslagen. Ze bouwen een installer, maar starten die niet. De andere tests vereisen geen compiler.
 
 ## Documentatie en planning
 

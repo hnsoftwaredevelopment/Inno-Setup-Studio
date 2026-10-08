@@ -6,3 +6,5 @@ artifacts/
 *.user
 *.suo
 *.tmp
+/samples/Eerste installer/*.iss
+/samples/Eerste installer/output/

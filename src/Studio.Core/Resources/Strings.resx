@@ -107,5 +107,25 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="ApplicationIdHint" xml:space="preserve"><value>Behoud deze ID bij nieuwe versies van dezelfde applicatie. Wijzig haar alleen voor een andere applicatie. Maximaal 127 tekens.</value></data>
   <data name="ApplicationDetailsHint" xml:space="preserve"><value>Deze gegevens gelden voor het hele project. AppId blijft gelijk bij een nieuwe versie. Eigen wizardteksten en het installatiepad worden niet automatisch aangepast.</value></data>
   <data name="InvalidApplicationDetails" xml:space="preserve"><value>Vul productnaam, applicatie-ID en versie in op één regel. De applicatie-ID mag maximaal 127 tekens bevatten. De wijzigingen zijn niet opgeslagen.</value></data>
-  <data name="StatusMigrated" xml:space="preserve"><value>Oud project geopend: applicatie-ID en versie toegevoegd. Sla op om het nieuwe projectformaat te bewaren.</value></data>
+  <data name="StatusMigrated" xml:space="preserve"><value>Oud project geopend en in het geheugen bijgewerkt. Sla op om het nieuwe projectformaat te bewaren.</value></data>
+  <data name="InstallFileHeading" xml:space="preserve"><value>Bestandsregel</value></data>
+  <data name="SourceFileLabel" xml:space="preserve"><value>Bronbestand</value></data>
+  <data name="ChooseSourceFile" xml:space="preserve"><value>Bestand kiezen…</value></data>
+  <data name="FileDestinationLabel" xml:space="preserve"><value>Doelmap voor dit bestand</value></data>
+  <data name="InstallFileHint" xml:space="preserve"><value>Eén lokaal bestand; nog geen wildcards. Relatieve bronpaden zijn gebaseerd op de projectmap. Doel: {app} of bijvoorbeeld {app}\Data.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>De export bevat applicatiegegevens, het standaard installatiepad en één bestand. De installer is voorlopig Nederlands; eigen wizardteksten volgen in de volgende slice.</value></data>
+  <data name="ExportScript" xml:space="preserve"><value>Exporteer .iss</value></data>
+  <data name="SourceFileFilter" xml:space="preserve"><value>Alle bestanden (*.*)|*.*</value></data>
+  <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup-script (*.iss)|*.iss</value></data>
+  <data name="StatusExported" xml:space="preserve"><value>Script geëxporteerd. Je kunt dit bestand met Inno Setup 7.1 compileren.</value></data>
+  <data name="ExportFailed" xml:space="preserve"><value>Exporteren mislukt</value></data>
+  <data name="StatusExportFailed" xml:space="preserve"><value>Exporteren is niet gelukt. Je project blijft geopend.</value></data>
+  <data name="InvalidFileRule" xml:space="preserve"><value>Controleer de bestandsregel: bron en doelmap moeten op één regel staan; de doelmap mag niet leeg zijn.</value></data>
+  <data name="ExportSourceInvalid" xml:space="preserve"><value>Kies één lokaal bronbestand zonder wildcards, controletekens of ongeldige padtekens.</value></data>
+  <data name="ExportSourceMissing" xml:space="preserve"><value>Het bronbestand bestaat niet of is niet toegankelijk. Controleer het pad of kies het bestand opnieuw.</value></data>
+  <data name="ExportSourceNeedsProject" xml:space="preserve"><value>Sla het project eerst op om een relatief bronpad te gebruiken, of kies een absoluut bronpad.</value></data>
+  <data name="ExportDestinationInvalid" xml:space="preserve"><value>Gebruik {app} of een submap zoals {app}\Data, zonder wildcards, andere constanten of . en .. als mapnamen.</value></data>
+  <data name="ExportPreprocessorUnsupported" xml:space="preserve"><value>Preprocessoruitdrukkingen ({#…}) zijn nog niet toegestaan in deze export. Scripting volgt in een latere milestone.</value></data>
+  <data name="ExportExtensionInvalid" xml:space="preserve"><value>Exporteer naar een bestand met de extensie .iss.</value></data>
+  <data name="ExportCannotReplaceSource" xml:space="preserve"><value>Het script mag het gekozen bronbestand niet vervangen. Kies een andere exportnaam.</value></data>
 </root>

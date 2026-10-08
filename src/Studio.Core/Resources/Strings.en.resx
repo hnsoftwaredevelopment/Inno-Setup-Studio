@@ -107,5 +107,25 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="ApplicationIdHint" xml:space="preserve"><value>Keep this ID for new versions of the same application. Change it only for a different application. Maximum 127 characters.</value></data>
   <data name="ApplicationDetailsHint" xml:space="preserve"><value>These details apply to the entire project. AppId stays the same for a new version. Custom wizard text and the installation path are not updated automatically.</value></data>
   <data name="InvalidApplicationDetails" xml:space="preserve"><value>Enter a product name, application ID and version, each on a single line. The application ID may contain at most 127 characters. The changes have not been saved.</value></data>
-  <data name="StatusMigrated" xml:space="preserve"><value>Legacy project opened: application ID and version added. Save to retain the new project format.</value></data>
+  <data name="StatusMigrated" xml:space="preserve"><value>Legacy project opened and upgraded in memory. Save to retain the new project format.</value></data>
+  <data name="InstallFileHeading" xml:space="preserve"><value>File rule</value></data>
+  <data name="SourceFileLabel" xml:space="preserve"><value>Source file</value></data>
+  <data name="ChooseSourceFile" xml:space="preserve"><value>Choose file…</value></data>
+  <data name="FileDestinationLabel" xml:space="preserve"><value>Destination folder for this file</value></data>
+  <data name="InstallFileHint" xml:space="preserve"><value>One local file; wildcards are not supported yet. Relative source paths use the project folder. Destination: {app} or, for example, {app}\Data.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>The export includes application details, the default installation folder and one file. The installer is currently Dutch; custom wizard text follows in the next slice.</value></data>
+  <data name="ExportScript" xml:space="preserve"><value>Export .iss</value></data>
+  <data name="SourceFileFilter" xml:space="preserve"><value>All files (*.*)|*.*</value></data>
+  <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup script (*.iss)|*.iss</value></data>
+  <data name="StatusExported" xml:space="preserve"><value>Script exported. You can compile this file with Inno Setup 7.1.</value></data>
+  <data name="ExportFailed" xml:space="preserve"><value>Export failed</value></data>
+  <data name="StatusExportFailed" xml:space="preserve"><value>The export failed. Your project remains open.</value></data>
+  <data name="InvalidFileRule" xml:space="preserve"><value>Check the file rule: source and destination must each be on a single line; the destination may not be empty.</value></data>
+  <data name="ExportSourceInvalid" xml:space="preserve"><value>Choose one local source file without wildcards, control characters or invalid path characters.</value></data>
+  <data name="ExportSourceMissing" xml:space="preserve"><value>The source file does not exist or is inaccessible. Check the path or choose the file again.</value></data>
+  <data name="ExportSourceNeedsProject" xml:space="preserve"><value>Save the project first to use a relative source path, or choose an absolute source path.</value></data>
+  <data name="ExportDestinationInvalid" xml:space="preserve"><value>Use {app} or a subfolder such as {app}\Data, without wildcards, other constants or . and .. as folder names.</value></data>
+  <data name="ExportPreprocessorUnsupported" xml:space="preserve"><value>Preprocessor expressions ({#…}) are not supported in this export yet. Scripting follows in a later milestone.</value></data>
+  <data name="ExportExtensionInvalid" xml:space="preserve"><value>Export to a file with the .iss extension.</value></data>
+  <data name="ExportCannotReplaceSource" xml:space="preserve"><value>The script may not replace the selected source file. Choose a different export name.</value></data>
 </root>

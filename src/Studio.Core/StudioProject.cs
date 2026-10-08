@@ -24,11 +24,12 @@ public sealed class StudioProject
 {
     public const string FormatId = "HN.InnoSetupStudio.VisualProject";
     public string Format { get; set; } = FormatId;
-    public const int CurrentVersion = 2;
+    public const int CurrentVersion = 3;
     public int Version { get; set; } = CurrentVersion;
     public string Name { get; set; } = "Mijn applicatie";
     public string AppId { get; set; } = Guid.NewGuid().ToString("B");
     public string AppVersion { get; set; } = "1.0";
+    public InstallFileSettings InstallFile { get; set; } = new();
     [System.Text.Json.Serialization.JsonIgnore]
     public bool WasMigrated { get; internal set; }
     public Dictionary<ElementKind, string> Buttons { get; set; } = new()
@@ -51,4 +52,10 @@ public sealed class StudioProject
                 Body = "Waar wilt u Mijn applicatie installeren?", Destination = new() }
         ]
     };
+}
+
+public sealed class InstallFileSettings
+{
+    public string Source { get; set; } = "";
+    public string Destination { get; set; } = "{app}";
 }

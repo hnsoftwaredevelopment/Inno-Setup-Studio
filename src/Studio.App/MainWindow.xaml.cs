@@ -77,6 +77,39 @@ public partial class MainWindow : Window
     private async void Save_Executed(object sender, ExecutedRoutedEventArgs e) { if (!_busy) await SaveAsync(false); }
     private async void SaveAs_Executed(object sender, ExecutedRoutedEventArgs e) { if (!_busy) await SaveAsync(true); }
 
+    internal void ChooseSourceFile()
+    {
+        if (_busy || !_editor.IsDesign) return;
+        var projectDirectory = _path is null ? null : Path.GetDirectoryName(_path);
+        var dialog = new OpenFileDialog { Title = Text["ChooseSourceFile"], Filter = Text["SourceFileFilter"],
+            CheckFileExists = true, InitialDirectory = projectDirectory ?? "" };
+        if (dialog.ShowDialog(this) != true) return;
+        var relative = projectDirectory is null ? null : Path.GetRelativePath(projectDirectory, dialog.FileName);
+        _editor.SourceFile = relative is not null && !Path.IsPathRooted(relative) && !relative.StartsWith(".." + Path.DirectorySeparatorChar, StringComparison.Ordinal)
+            ? relative : dialog.FileName;
+    }
+
+    private async void Export_Click(object sender, RoutedEventArgs e)
+    {
+        if (_busy || !_editor.IsDesign) return;
+        var projectDirectory = _path is null ? null : Path.GetDirectoryName(_path);
+        // Validate before asking where to write, so missing input cannot replace existing output.
+        try { _ = InnoScript.Generate(_editor.Project, projectDirectory); }
+        catch (Exception error) when (IsFileError(error)) { ShowFileError("Export", error); return; }
+        var dialog = new SaveFileDialog { Title = Text["ExportScript"], Filter = Text["ScriptFilter"],
+            DefaultExt = ".iss", AddExtension = true, OverwritePrompt = true, FileName = "installer.iss",
+            InitialDirectory = projectDirectory ?? "" };
+        if (dialog.ShowDialog(this) != true) return;
+        SetBusy(true);
+        try
+        {
+            await InnoScript.ExportAsync(dialog.FileName, _editor.Project, projectDirectory);
+            _editor.SetStatus("StatusExported");
+        }
+        catch (Exception error) when (IsFileError(error)) { ShowFileError("Export", error); }
+        finally { SetBusy(false); }
+    }
+
     private async Task<bool> SaveAsync(bool saveAs)
     {
         var path = _path;
@@ -95,7 +128,7 @@ public partial class MainWindow : Window
         SetBusy(true);
         try
         {
-            await ProjectFile.SaveAsync(path, _editor.Project);
+            await ProjectFile.SaveAsync(path, _editor.Project, _path is null ? null : Path.GetDirectoryName(_path));
             _path = path;
             _editor.MarkSaved();
             return true;

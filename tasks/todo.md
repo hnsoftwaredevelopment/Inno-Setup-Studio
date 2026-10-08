@@ -1,6 +1,6 @@
 # Slices — Inno Setup Studio
 
-Status: planning geaccepteerd op 8 oktober 2026. Een vinkje betekent geaccepteerd, niet alleen geschreven of gebouwd. M00 en M01-S01 zijn geaccepteerd.
+Status: planning geaccepteerd op 8 oktober 2026. Een vinkje betekent geaccepteerd, niet alleen geschreven of gebouwd. M00, M01-S01 en M01-S02 zijn geaccepteerd.
 
 Milestoneresultaten en FR-koppelingen: [Milestones](../docs/Milestones.md). Werkwijze en controles: [Werkwijze](../docs/Werkwijze.md). Voortgang van de proefversie: [Historie](../docs/historie/Proefversie.md).
 
@@ -30,7 +30,7 @@ Bestandsgroepen: Core/project/opslag; App/projecteigenschappen; generator/compil
 | Acceptatie | Slice / resultaat | Toetsbare criteria | Controle / afhankelijk |
 |---|---|---|---|
 | [x] | M01-S01 Applicatiegegevens | Productnaam, AppId en versie zijn bewerkbaar en bewaard; proefprojecten openen zonder gegevensverlies; AppId blijft stabiel. | B/T/U; M00 |
-| [ ] | M01-S02 Eerste bestandsregel en export | Een lokale bron en doelmap zijn instelbaar; .iss bevat juiste metadata en bestandsregel; export compileert buiten Studio en meldt ontbrekende bron. | B/T/C/U; S01 |
+| [x] | M01-S02 Eerste bestandsregel en export | Een lokale bron en doelmap zijn instelbaar; .iss bevat juiste metadata en bestandsregel; export compileert buiten Studio en meldt ontbrekende bron. | B/T/C/U; S01 |
 | [ ] | M01-S03 Huidig ontwerp exporteren | Twee huidige pagina's en standaardpad worden correct vertaald; gedeelde en lokale tekstafwijkingen werken of worden aantoonbaar begrensd; knoprollen blijven correct. | B/T/C/I; S02 |
 | [ ] | M01-S04 Compiler kiezen en bouwen | Ontdekken/handmatig kiezen en versiecontrole werken; Bouw compileert een herkenbare projectstand; de resulterende uitvoer is vindbaar. | B/T/C/U; S03 |
 | [ ] | M01-S05 Bouwmeldingen en annuleren | Fouten/waarschuwingen zijn zichtbaar; annuleren stopt gecontroleerd; een mislukte build presenteert geen oud bestand als nieuw resultaat. | B/T/C/U; S04 |
@@ -38,7 +38,11 @@ Bestandsgroepen: Core/project/opslag; App/projecteigenschappen; generator/compil
 
 M01-S03 onderzoekt juist de bestaande previewbeloften. Als een property niet regulier werkt, wordt haar beperking vastgelegd vóór verdere uitbreiding.
 
-M01-S01 is geïmplementeerd op m01-eerste-installer: 45 tests geslaagd en Release-build zonder fouten of waarschuwingen. [Testinstructies en formaatmigratie](../docs/slices/M01-S01-Applicatiegegevens.md). De gebruiker heeft alles getest en op 8 oktober 2026 akkoord gegeven. Deze geaccepteerde stand wordt als één slice gepubliceerd.
+M01-S01 is geaccepteerd en gepubliceerd als commit 5d7be9c op m01-eerste-installer. Bij oplevering slaagden 45 tests en de Release-build. [Testinstructies en formaatmigratie](../docs/slices/M01-S01-Applicatiegegevens.md).
+
+M01-S02 is geïmplementeerd: 72 tests geslaagd, waaronder twee compilatieproeven met ISCC 7.1.0, en een Release-build zonder fouten of waarschuwingen. De gebruiker heeft alle controles uitgevoerd en op 8 oktober 2026 akkoord gegeven. [Resultaat en gebruikerscontrole](../docs/slices/M01-S02-Bestandsregel-en-export.md). De geaccepteerde stand wordt gepubliceerd.
+
+Open vervolg bij M01-S04/S05: maak de installeruitvoernaam instelbaar met een standaard anders dan setup.exe; waarschuw bij keuze van setup.exe en toon de bijbehorende oorspronkelijke compilerwaarschuwing. Deze waarschuwing is door de gebruiker bij S02 gemeld en bewust uitgesteld tot de naaminstelling.
 
 ## M02 — m02-installertalen
 
@@ -148,6 +152,6 @@ Bestandsgroepen: Core/geschiedenis/migraties; App/toegankelijkheid/status; tests
 
 ## Actuele volgende handeling
 
-De geaccepteerde M01-S01 wordt gecommit en gepusht op m01-eerste-installer. De volgende implementatieslice is M01-S02: eerste bestandsregel en export. M01 wordt pas na acceptatie van alle slices gemerged.
+De geaccepteerde M01-S02 wordt gecommit en gepusht op m01-eerste-installer. De volgende implementatieslice is M01-S03: export van het huidige wizardontwerp. M01 wordt pas na acceptatie van alle slices gemerged.
 
 De gebruiker heeft opdracht gegeven om met de eerste slice te beginnen.

@@ -104,6 +104,18 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
         set { if (!IsDesign || value == Project.AppVersion) return; Project.AppVersion = value; IsDirty = true; Refresh(); }
     }
 
+    public string SourceFile
+    {
+        get => Project.InstallFile.Source;
+        set { if (!IsDesign || value == SourceFile) return; Project.InstallFile.Source = value; IsDirty = true; Refresh(); }
+    }
+
+    public string FileDestination
+    {
+        get => Project.InstallFile.Destination;
+        set { if (!IsDesign || value == FileDestination) return; Project.InstallFile.Destination = value; IsDirty = true; Refresh(); }
+    }
+
     public IReadOnlyList<ElementChoice> AllElements { get; }
     private readonly IReadOnlyList<ElementChoice> _baseElements;
     private readonly IReadOnlyList<ElementChoice> _welcomeElements;

@@ -68,7 +68,7 @@ public class ApplicationDetailsTests
             var original = await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory, "Fixtures", "LegacyProject.issstudio"));
             await File.WriteAllTextAsync(path, original);
             var project = await ProjectFile.LoadAsync(path);
-            Assert.Equal(2, project.Version);
+            Assert.Equal(StudioProject.CurrentVersion, project.Version);
             Assert.Equal("1.0", project.AppVersion);
             Assert.Equal(project.AppId, (await ProjectFile.LoadAsync(path)).AppId);
             Assert.Equal(original, await File.ReadAllTextAsync(path));
@@ -84,6 +84,7 @@ public class ApplicationDetailsTests
             saved["Version"] = 1;
             saved.Remove("AppId");
             saved.Remove("AppVersion");
+            saved.Remove("InstallFile");
             Assert.True(JsonNode.DeepEquals(JsonNode.Parse(original), saved));
             using var reopened = new EditorSession(restored);
             Assert.False(reopened.IsDirty);

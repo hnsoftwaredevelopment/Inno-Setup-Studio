@@ -14,7 +14,7 @@ De matrix maakt onderscheid tussen een Studio-functie en bewezen installeronders
 | Runtime gecontroleerd | Relevante werking in echte installer door gebruiker gecontroleerd |
 | Uitgesloten | Buiten afgesproken productgrens |
 
-De huidige basis heeft geen scriptgenerator. Daarom heeft nog geen onderstaande installerfunctie het niveau Compiler gecontroleerd of Runtime gecontroleerd.
+M01-S02 bevat de eerste scriptgenerator. Applicatiegegevens, het standaardpad, een vaste Nederlandse taalbron en één lokale bestandsregel zijn met ISCC 7.1.0 gecompileerd en door de gebruiker getest en geaccepteerd. De gemelde waarschuwing over setup.exe is vastgelegd; nog geen installerfunctie is Runtime gecontroleerd. Zie [detailregistratie en bewijs](slices/M01-S02-Bestandsregel-en-export.md).
 
 ## Functionele dekking
 
@@ -22,9 +22,9 @@ V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële sc
 
 | Bereik | Beoogde bediening | Inno Setup-koppeling en bron | Milestone | Nu |
 |---|---|---|---|---|
-| Productidentiteit en versie | V | [AppName](https://jrsoftware.org/ishelp/topic_setup_appname.htm), [AppId](https://jrsoftware.org/ishelp/topic_setup_appid.htm), [AppVersion](https://jrsoftware.org/ishelp/topic_setup_appversion.htm) | M01 | Studio-basis; M01-S01 geaccepteerd |
+| Productidentiteit en versie | V | [AppName](https://jrsoftware.org/ishelp/topic_setup_appname.htm), [AppId](https://jrsoftware.org/ishelp/topic_setup_appid.htm), [AppVersion](https://jrsoftware.org/ishelp/topic_setup_appversion.htm) | M01 | Compiler gecontroleerd; editor geaccepteerd in M01-S01 |
 | Uitgever en overige productmetadata | V, G | [Setup](https://jrsoftware.org/ishelp/topic_setupsection.htm) | M07 | Gepland |
-| Bestanden en bestandsopties | V, G | [Files](https://jrsoftware.org/ishelp/topic_filessection.htm) | M01, M04, M07 | Gepland |
+| Bestanden en bestandsopties | V, G | [Files](https://jrsoftware.org/ishelp/topic_filessection.htm) | M01, M04, M07 | Compiler gecontroleerd voor één lokaal bestand binnen {app}; overige opties gepland |
 | Mapregels en mapopties | V, G | [Dirs](https://jrsoftware.org/ishelp/topic_dirssection.htm) | M04, M07 | Gepland |
 | Snelkoppelingen en metadata | V, G | [Icons](https://jrsoftware.org/ishelp/topic_iconssection.htm) | M04, M07 | Gepland |
 | Installatietypen | V, G | [Types](https://jrsoftware.org/ishelp/topic_typessection.htm) | M04 | Gepland |
@@ -50,7 +50,7 @@ V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële sc
 | Ondertekening | G | [SignTool](https://jrsoftware.org/ishelp/topic_setup_signtool.htm) | M07 | Gepland |
 | Eigen runtimecode | S | [Pascal Script](https://jrsoftware.org/ishelp/topic_scriptintro.htm) | M08 | Gepland |
 | Eigen compileertijdinvoer | S | [Preprocessor](https://jrsoftware.org/ishelp/topic_isppoverview.htm) | M08 | Gepland |
-| Genereren en ISCC-proces | V | [Compiler command line](https://jrsoftware.org/ishelp/topic_compilercmdline.htm) | M01 | Gepland |
+| Genereren en ISCC-proces | V | [Compiler command line](https://jrsoftware.org/ishelp/topic_compilercmdline.htm) | M01 | Eerste export compiler gecontroleerd; ISCC-bediening vanuit Studio gepland |
 
 De reguliere secties hierboven vormen de eindscope. Niet-verouderde parameters die geen apart visueel veld krijgen worden in M07 via een gecontroleerde geavanceerde weergave bereikbaar. Een afzonderlijke catalogus legt vóór implementatie de concrete 7.1-dekking vast. Het doel is geen oncontroleerbaar vrij tekstvak dat iedere sleutel automatisch als ondersteund bestempelt.
 
