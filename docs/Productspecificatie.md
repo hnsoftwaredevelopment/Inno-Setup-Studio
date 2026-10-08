@@ -1,6 +1,6 @@
 # Productspecificatie — Inno Setup Studio
 
-Status: gecorrigeerd naar de gebruikersverduidelijking van 6 oktober 2026. Productrichting vastgesteld; technische uitwerking volgt.
+Status: productrichting vastgesteld op 6 oktober 2026. De eerste visuele werkplek is gebouwd; op 8 oktober 2026 is Studio-meertaligheid toegevoegd. Scriptgeneratie en compilerkoppeling volgen later.
 
 ## Doel en positie
 
@@ -57,11 +57,17 @@ Een eigen installatie-engine of installerinterface, Visual Studio-extensie en In
 - `samples/`: kleine voorbeeldprojecten.
 - `docs/`: specificaties en bevindingen.
 
-Deze structuur is een voorstel; er zijn nog geen broncodeprojecten aangemaakt.
+De huidige implementatie bevat Core en App. De preview staat voorlopig in App; aparte Preview- en InnoSetup-projecten volgen alleen als hun omvang dat rechtvaardigt.
+
+## Studio-meertaligheid
+
+De werkplek is beschikbaar in Nederlands, Engels en Duits via standaard `.resx`-bestanden, te beheren met ResXManager in Visual Studio. Nederlands is de neutrale taal en terugval. Wisselen werkt direct; de keuze wordt per gebruiker buiten het installerproject opgeslagen.
+
+Installerlocalisatie staat hiervan los en volgt later op basis van de taalbestanden van Inno Setup. De Studio-gebruiker bepaalt dan welke installertalen het project ondersteunt. Een Studio-taalwissel verandert nooit installerinhoud. Zie [de technische uitwerking](Meertaligheid.md).
 
 ## Bouw- en testcommando’s
 
-Er is nu nog niets te bouwen of te starten. Beoogde opdrachten vanuit de projectroot, pas uitvoerbaar na het aanmaken van de solution:
+Uitvoerbare opdrachten vanuit de projectroot met de .NET 10 SDK op Windows:
 
 ```powershell
 dotnet build '.\Inno Setup Studio.slnx'

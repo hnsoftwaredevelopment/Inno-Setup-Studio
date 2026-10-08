@@ -26,3 +26,14 @@ Geen scriptgeneratie of compilerkoppeling in deze stap. De interface benoemt dat
 ## Risico’s
 
 De preview is een benadering van Inno Setup, geen pixelgarantie. Daarom blijft die beperking zichtbaar. Opslag moet eerst het volledige document valideren en via een tijdelijk bestand vervangen. Annuleren bij openen of sluiten mag wijzigingen niet verliezen.
+
+## Uitbreiding — Studio-meertaligheid
+
+De gebruiker heeft opdracht gegeven de basis voor Nederlands, Engels en Duits nu te bouwen, los van toekomstige installerlocalisatie.
+
+1. Neutrale Nederlandse en Engelse/Duitse resources, taalservice en persoonlijke instelling.
+2. Live bindings voor de werkplek, editorstatus en meldingen; projectinhoud en selectie behouden.
+3. Controles op volledige vertalingen, terugval, opslag, uitprobeergedrag en herstart.
+4. Handleiding voor ResXManager en synchronisatie naar Obsidian.
+
+Gerealiseerd op 8 oktober 2026. De resources staan in Core zodat zowel editorlogica als WPF dezelfde teksten gebruiken zonder WPF-afhankelijkheid in Core. De WPF-markup-extensie maakt hiervan live bindings. De eerste stap en de taaluitbreiding zijn lokaal gecontroleerd; scriptgeneratie blijft de volgende productfase.
