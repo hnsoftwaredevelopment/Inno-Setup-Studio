@@ -27,6 +27,8 @@ public class ProjectFileTests
     [Theory]
     [InlineData("null")]
     [InlineData("{}")]
+    [InlineData("{\"Format\":\"HN.InnoSetupStudio.VisualProject\",\"Version\":null}")]
+    [InlineData("{\"Format\":\"HN.InnoSetupStudio.VisualProject\",\"Version\":\"2\"}")]
     [InlineData("{\"Format\":\"HN.InnoSetupStudio.VisualProject\",\"Version\":999}")]
     [InlineData("{\"Format\":\"HN.InnoSetupStudio.VisualProject\",\"Version\":1,\"Pages\":null}")]
     public async Task InvalidOrForeignDocumentsAreRejected(string content)

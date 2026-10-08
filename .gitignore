@@ -3,6 +3,11 @@
 .vs/
 Builds/
 artifacts/
+**/.studio-builds/
 *.user
 *.suo
 *.tmp
+/samples/Eerste installer/*.iss
+/samples/Eerste installer/output/
+/samples/SVGViewerDemo/*.iss
+/samples/SVGViewerDemo/output/

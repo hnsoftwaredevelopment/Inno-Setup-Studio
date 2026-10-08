@@ -100,5 +100,57 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="MissingProjectData" xml:space="preserve"><value>In diesem Projekt fehlen erforderliche Seiten oder Schaltflächeneinstellungen.</value></data>
   <data name="InvalidPage" xml:space="preserve"><value>Der Seiteninhalt ist für diese Version von Studio ungültig.</value></data>
   <data name="InvalidDirectory" xml:space="preserve"><value>Geben Sie einen Standardinstallationsordner in einer Zeile ein und prüfen Sie die Durchsuchen-Schaltfläche.</value></data>
+  <data name="ApplicationDetails" xml:space="preserve"><value>Anwendungsdaten</value></data>
+  <data name="ProductNameLabel" xml:space="preserve"><value>Produktname</value></data>
+  <data name="ApplicationIdLabel" xml:space="preserve"><value>Anwendungs-ID (AppId)</value></data>
+  <data name="ApplicationVersionLabel" xml:space="preserve"><value>Version</value></data>
+  <data name="ApplicationIdHint" xml:space="preserve"><value>Behalten Sie diese ID für neue Versionen derselben Anwendung bei. Ändern Sie sie nur für eine andere Anwendung. Maximal 127 Zeichen.</value></data>
+  <data name="ApplicationDetailsHint" xml:space="preserve"><value>Diese Angaben gelten für das gesamte Projekt. AppId bleibt bei einer neuen Version gleich. Eigene Assistententexte und der Installationspfad werden nicht automatisch angepasst.</value></data>
+  <data name="InvalidApplicationDetails" xml:space="preserve"><value>Geben Sie Produktname, Anwendungs-ID und Version jeweils in einer Zeile ein. Die Anwendungs-ID darf höchstens 127 Zeichen enthalten. Die Änderungen wurden nicht gespeichert.</value></data>
+  <data name="StatusMigrated" xml:space="preserve"><value>Altes Projekt geöffnet und im Speicher aktualisiert. Speichern Sie das neue Projektformat.</value></data>
+  <data name="InstallFileHeading" xml:space="preserve"><value>Dateiregel</value></data>
+  <data name="SourceFileLabel" xml:space="preserve"><value>Quelldatei</value></data>
+  <data name="ChooseSourceFile" xml:space="preserve"><value>Datei auswählen…</value></data>
+  <data name="FileDestinationLabel" xml:space="preserve"><value>Zielordner für diese Datei</value></data>
+  <data name="InstallFileHint" xml:space="preserve"><value>Eine lokale Datei; Platzhalter werden noch nicht unterstützt. Relative Quellpfade beziehen sich auf den Projektordner. Ziel: {app} oder beispielsweise {app}\Data.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>Der Export enthält Anwendungsdaten, eine Datei und die Texte für Willkommen und Zielordner einschließlich abweichender Schaltflächentexte und Durchsuchen-Tooltip. Der Installer ist vorläufig auf Niederländisch. Inno Setup bestimmt das Layout und die weiteren Schritte.</value></data>
+  <data name="ExportScript" xml:space="preserve"><value>ISS exportieren</value></data>
+  <data name="SourceFileFilter" xml:space="preserve"><value>Alle Dateien (*.*)|*.*</value></data>
+  <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup-Skript (*.iss)|*.iss</value></data>
+  <data name="StatusExported" xml:space="preserve"><value>Skript exportiert. Sie können diese Datei mit Inno Setup 7.1 kompilieren.</value></data>
+  <data name="ExportFailed" xml:space="preserve"><value>Export fehlgeschlagen</value></data>
+  <data name="StatusExportFailed" xml:space="preserve"><value>Der Export ist fehlgeschlagen. Ihr Projekt bleibt geöffnet.</value></data>
+  <data name="InvalidFileRule" xml:space="preserve"><value>Prüfen Sie die Dateiregel: Quelle und Ziel müssen jeweils in einer Zeile stehen; das Ziel darf nicht leer sein.</value></data>
+  <data name="ExportSourceInvalid" xml:space="preserve"><value>Wählen Sie eine lokale Quelldatei ohne Platzhalter, Steuerzeichen oder ungültige Pfadzeichen.</value></data>
+  <data name="ExportSourceMissing" xml:space="preserve"><value>Die Quelldatei fehlt oder ist nicht zugänglich. Prüfen Sie den Pfad oder wählen Sie die Datei erneut aus.</value></data>
+  <data name="ExportSourceNeedsProject" xml:space="preserve"><value>Speichern Sie das Projekt zuerst, um einen relativen Quellpfad zu verwenden, oder wählen Sie einen absoluten Quellpfad.</value></data>
+  <data name="ExportDestinationInvalid" xml:space="preserve"><value>Verwenden Sie {app} oder einen Unterordner wie {app}\Data, ohne Platzhalter, weitere Konstanten oder . und .. als Ordnernamen.</value></data>
+  <data name="ExportPreprocessorUnsupported" xml:space="preserve"><value>Präprozessorausdrücke ({#…}) werden in diesem Export noch nicht unterstützt. Skripting folgt in einem späteren Meilenstein.</value></data>
+  <data name="ExportExtensionInvalid" xml:space="preserve"><value>Exportieren Sie in eine Datei mit der Erweiterung .iss.</value></data>
+  <data name="ExportCannotReplaceSource" xml:space="preserve"><value>Das Skript darf die gewählte Quelldatei nicht ersetzen. Wählen Sie einen anderen Exportnamen.</value></data>
+  <data name="CompilerHeading" xml:space="preserve"><value>Compiler und Build</value></data>
+  <data name="ChooseCompiler" xml:space="preserve"><value>Compiler auswählen…</value></data>
+  <data name="CheckCompiler" xml:space="preserve"><value>Erneut prüfen</value></data>
+  <data name="BuildInstaller" xml:space="preserve"><value>Installer erstellen</value></data>
+  <data name="OpenBuildFolder" xml:space="preserve"><value>Ausgabeordner öffnen</value></data>
+  <data name="CompilerUnchecked" xml:space="preserve"><value>Compiler wurde noch nicht geprüft.</value></data>
+  <data name="CompilerMissing" xml:space="preserve"><value>Kein Compiler gefunden. Wählen Sie ISCC.exe von Inno Setup 7.1.</value></data>
+  <data name="CompilerInvalid" xml:space="preserve"><value>Compiler fehlt, reagiert nicht oder ist nicht Inno Setup 7.1. Wählen Sie die richtige ISCC.exe.</value></data>
+  <data name="CompilerReady" xml:space="preserve"><value>Compiler bereit. Version:</value></data>
+  <data name="BuildRunning" xml:space="preserve"><value>Das gespeicherte Projekt wird erstellt…</value></data>
+  <data name="BuildSucceeded" xml:space="preserve"><value>Installer für das gespeicherte Projekt erstellt:</value></data>
+  <data name="BuildFailed" xml:space="preserve"><value>Build fehlgeschlagen. Es ist kein neuer Installer verfügbar.</value></data>
+  <data name="CompilerBuildError" xml:space="preserve"><value>Der Build konnte nicht abgeschlossen werden. Prüfen Sie Compiler und Projektdaten.</value></data>
+  <data name="OutputNameLabel" xml:space="preserve"><value>Installer-Dateiname (ohne .exe)</value></data>
+  <data name="SetupNameWarning" xml:space="preserve"><value>Inno Setup rät von setup.exe ab, weil Windows für diesen Namen DLL-Dateien unsicher lädt. Wählen Sie beispielsweise mysetup.</value></data>
+  <data name="InvalidOutputName" xml:space="preserve"><value>Geben Sie einen gültigen Windows-Dateinamen ohne .exe, Pfad, Konstanten oder reservierten Namen ein.</value></data>
+  <data name="BuildMessages" xml:space="preserve"><value>Buildmeldungen</value></data>
+  <data name="CancelBuild" xml:space="preserve"><value>Build abbrechen</value></data>
+  <data name="BuildCanceling" xml:space="preserve"><value>Der Compiler wird gestoppt…</value></data>
+  <data name="BuildCanceled" xml:space="preserve"><value>Build abgebrochen. Es ist kein neuer Installer verfügbar.</value></data>
+  <data name="BuildSucceededWithWarnings" xml:space="preserve"><value>Installer mit Warnungen erstellt. Prüfen Sie die Buildmeldungen.</value></data>
+  <data name="BuildNoMessages" xml:space="preserve"><value>Es gibt noch keine Buildmeldungen für dieses Projekt.</value></data>
+  <data name="CompilerWarning" xml:space="preserve"><value>Warnung</value></data>
+  <data name="CompilerError" xml:space="preserve"><value>Fehler</value></data>
+  <data name="ExportExistingProtected" xml:space="preserve"><value>Diese .iss-Datei weicht vom aktuellen Export ab und bleibt erhalten. Wählen Sie einen neuen Dateinamen für den Export.</value></data>
 </root>
-

@@ -12,7 +12,11 @@ De eerste WPF-werkplek werkt: Basisontwerp, Welkom en Installatiemap, direct sel
 
 De Studio-interface is beschikbaar in Nederlands, Engels en Duits. Rechtsboven wisselt **Studio-taal** direct van taal; de keuze wordt per Windows-gebruiker onthouden. Installerinhoud blijft onafhankelijk van deze keuze. Zie [meertaligheid en ResXManager](docs/Meertaligheid.md).
 
-Scriptgeneratie, compilerkoppeling en meertalige installers volgen later. Het beoogde eindproduct is beschreven in de [productspecificatie](docs/Productspecificatie.md), momenteel een concept voor review.
+Het uitklapbare paneel **Applicatiegegevens** boven de ontwerpruimte bevat productnaam, AppId en versie. Die worden met het project opgeslagen. Oude projecten worden bij openen in het geheugen bijgewerkt en pas bij opslaan naar het nieuwe formaat geschreven. Zie [M01-S01 en teststappen](docs/slices/M01-S01-Applicatiegegevens.md).
+
+Het paneel **Bestandsregel** bevat één lokaal bronbestand en een doelmap binnen {app}. **Exporteer .iss** schrijft een zelfstandig compileerbaar script met applicatiegegevens, het standaard installatiepad, een vaste Nederlandse installer en deze bestandsregel. De teksten van Welkom en Installatiemap, gedeelde knoppen, pagina-afwijkingen en Bladeren-tooltip worden eveneens geëxporteerd. Het paneel Compiler en bouwen kan nu ISCC kiezen, versie 7.1 controleren en het opgeslagen project bouwen. Meertalige installers volgen later. Zie [M01-S04 en teststappen](docs/slices/M01-S04-Compiler-kiezen-en-bouwen.md). Zie [M01-S03 en teststappen](docs/slices/M01-S03-Wizardontwerp-export.md). Zie [M01-S02 en teststappen](docs/slices/M01-S02-Bestandsregel-en-export.md).
+
+Het beoogde eindproduct is beschreven in de geaccepteerde [productspecificatie](docs/Productspecificatie.md).
 
 ## Bouwen en starten
 
@@ -24,11 +28,15 @@ dotnet test '.\Inno Setup Studio.slnx' -c Release
 dotnet run --project '.\src\Studio.App\Studio.App.csproj'
 ```
 
-De Release-app staat in `Builds\Release\Inno Setup Studio.exe`. Distributie vereist de volledige uitvoermap, inclusief de `en`- en `de`-submappen. Inno Setup is voor de huidige ontwerpwerkplek nog niet nodig; de toekomstige compilerkoppeling gebruikt de apart geïnstalleerde Inno Setup 7.1.
+De Release-app staat in `Builds\Release\Inno Setup Studio.exe`. Distributie vereist de volledige uitvoermap, inclusief de `en`- en `de`-submappen. Inno Setup is voor de huidige ontwerpwerkplek nog niet nodig; bouwen vanuit Studio gebruikt de apart geïnstalleerde Inno Setup 7.1.
 
 ## Verificatie
 
-Op 8 oktober 2026: 31 Core-tests geslaagd; Release-build zonder fouten of waarschuwingen. Handmatig gecontroleerd: live taalwissel, behoud van installerinhoud en selectie, Duitse en Engelse weergave en behoud van de taal na herstart.
+Op 8 oktober 2026: 108 tests geslaagd, waaronder zes echte compilatieproeven met ISCC 7.1.0; Release-build zonder fouten of waarschuwingen. De gebruiker heeft M01-S02 volledig getest en geaccepteerd. Ook M01-S03 is door de gebruiker getest in Studio en in de gecompileerde, uitgevoerde installer en geaccepteerd. M01-S04 is door de gebruiker volledig getest en geaccepteerd. M01-S05 voegt live bouwmeldingen, annuleren en een opgeslagen uitvoernaam toe. Nieuwe projecten beginnen met mysetup; oude projecten behouden setup met een waarschuwing. Formaat 4 bewaart de naam en leest de eerdere formaten. M01-S05 is door de gebruiker handmatig getest en geaccepteerd. Zie [M01-S05 en teststappen](docs/slices/M01-S05-Bouwmeldingen-en-annuleren.md). M01-S01 en de eerdere Studio-taalbasis zijn eveneens geaccepteerd.
+
+De compilatietests gebruiken de standaardinstallatie van Inno Setup 7. Als die ontbreekt, worden de compilerafhankelijke tests met een expliciete reden overgeslagen. Ze bouwen een installer, maar starten die niet. De andere tests vereisen geen compiler.
+
+M01-S06 beschermt bestaande afwijkende .iss-bestanden tegen vervangen. Een lokale SVG-eindproef staat in samples/SVGViewerDemo/SVG Viewer M01-proef.issstudio; de gebruiker heeft de eindproef uitgevoerd en M01 volledig geaccepteerd. Dit project installeert één bestand; volledige bestandsverzamelingen volgen in M04. Zie [M01-S06 en eindproef](docs/slices/M01-S06-Eenvoudige-installer-afronden.md). De aanvullende SVG-compilatietest vereist de lokaal aangeleverde executable; bij ontbreken wordt die test met uitleg overgeslagen.
 
 ## Documentatie en planning
 
@@ -48,6 +56,6 @@ Op 8 oktober 2026: 31 Core-tests geslaagd; Release-build zonder fouten of waarsc
 
 Iedere milestone gebruikt een eigen branch met dezelfde technische naam. Slices worden pas na gebruikersakkoord gecommit en gepusht. Een milestone wordt gemerged na acceptatie van haar volledige resultaat. De gebruiker doet de visuele en echte installatieproeven.
 
-De nieuwe roadmap is een voorstel. De voortgang en acceptatiestatus staan in de slicelijst.
+De roadmap is geaccepteerd en M00 is gepubliceerd en gemerged. De voortgang en acceptatiestatus staan in de slicelijst.
 
 Markdown wordt gespiegeld naar `C:\Devops\Obsidian\markdown\Development\HNSoftwareDevelopment\Inno Setup Studio`, met behoud van relatieve paden.

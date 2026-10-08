@@ -20,6 +20,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         SetProject(StudioProject.CreateExample(), null);
+        Loaded += async (_, _) => await RefreshCompilerAsync();
         Text.PropertyChanged += LanguageChanged;
         Closed += (_, _) => { Text.PropertyChanged -= LanguageChanged; _editor.Dispose(); };
     }
@@ -31,11 +32,13 @@ public partial class MainWindow : Window
         _editor = new EditorSession(project, Text);
         _editor.PropertyChanged += EditorChanged;
         DataContext = _editor;
+        ClearBuildResult();
         UpdateTitle();
     }
 
     private void LanguageChanged(object? sender, PropertyChangedEventArgs e)
     {
+        UpdateCompilerState();
         try { StudioPreferences.SaveLanguage(StudioPreferences.DefaultPath, Text.Language); }
         catch (Exception error) when (IsFileError(error))
         {
@@ -77,13 +80,46 @@ public partial class MainWindow : Window
     private async void Save_Executed(object sender, ExecutedRoutedEventArgs e) { if (!_busy) await SaveAsync(false); }
     private async void SaveAs_Executed(object sender, ExecutedRoutedEventArgs e) { if (!_busy) await SaveAsync(true); }
 
+    internal void ChooseSourceFile()
+    {
+        if (_busy || !_editor.IsDesign) return;
+        var projectDirectory = _path is null ? null : Path.GetDirectoryName(_path);
+        var dialog = new OpenFileDialog { Title = Text["ChooseSourceFile"], Filter = Text["SourceFileFilter"],
+            CheckFileExists = true, InitialDirectory = projectDirectory ?? "" };
+        if (dialog.ShowDialog(this) != true) return;
+        var relative = projectDirectory is null ? null : Path.GetRelativePath(projectDirectory, dialog.FileName);
+        _editor.SourceFile = relative is not null && !Path.IsPathRooted(relative) && !relative.StartsWith(".." + Path.DirectorySeparatorChar, StringComparison.Ordinal)
+            ? relative : dialog.FileName;
+    }
+
+    private async void Export_Click(object sender, RoutedEventArgs e)
+    {
+        if (_busy || !_editor.IsDesign) return;
+        var projectDirectory = _path is null ? null : Path.GetDirectoryName(_path);
+        // Validate before asking where to write, so missing input cannot replace existing output.
+        try { _ = InnoScript.Generate(_editor.Project, projectDirectory); }
+        catch (Exception error) when (IsFileError(error)) { ShowFileError("Export", error); return; }
+        var dialog = new SaveFileDialog { Title = Text["ExportScript"], Filter = Text["ScriptFilter"],
+            DefaultExt = ".iss", AddExtension = true, OverwritePrompt = false, FileName = "installer.iss",
+            InitialDirectory = projectDirectory ?? "" };
+        if (dialog.ShowDialog(this) != true) return;
+        SetBusy(true);
+        try
+        {
+            await InnoScript.ExportAsync(dialog.FileName, _editor.Project, projectDirectory);
+            _editor.SetStatus("StatusExported");
+        }
+        catch (Exception error) when (IsFileError(error)) { ShowFileError("Export", error); }
+        finally { SetBusy(false); }
+    }
+
     private async Task<bool> SaveAsync(bool saveAs)
     {
         var path = _path;
         if (path is null || saveAs)
         {
             var dialog = new SaveFileDialog { Filter = Text["ProjectFilter"], Title = Text["SaveTitle"], DefaultExt = ".issstudio", AddExtension = true,
-                FileName = path is null ? _editor.Project.Name + ".issstudio" : Path.GetFileName(path) };
+                FileName = path is null ? SuggestedFileName(_editor.Project.Name) : Path.GetFileName(path) };
             if (dialog.ShowDialog(this) != true) return false;
             path = dialog.FileName;
         }
@@ -95,7 +131,7 @@ public partial class MainWindow : Window
         SetBusy(true);
         try
         {
-            await ProjectFile.SaveAsync(path, _editor.Project);
+            await ProjectFile.SaveAsync(path, _editor.Project, _path is null ? null : Path.GetDirectoryName(_path));
             _path = path;
             _editor.MarkSaved();
             return true;
@@ -128,6 +164,12 @@ public partial class MainWindow : Window
     }
 
     private static bool IsFileError(Exception error) => error is IOException or InvalidDataException or UnauthorizedAccessException or ArgumentException or NotSupportedException;
+    private static string SuggestedFileName(string productName)
+    {
+        var invalid = Path.GetInvalidFileNameChars();
+        var name = new string(productName.Take(120).Select(c => invalid.Contains(c) ? '_' : c).ToArray()).TrimEnd(' ', '.');
+        return (string.IsNullOrWhiteSpace(name) ? "Project" : name) + ".issstudio";
+    }
     private void ShowFileError(string action, Exception error)
     {
         _editor.SetStatus("Status" + action + "Failed");

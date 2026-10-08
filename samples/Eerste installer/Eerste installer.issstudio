@@ -1,0 +1,38 @@
+{
+  "Format": "HN.InnoSetupStudio.VisualProject",
+  "Version": 3,
+  "Name": "Test applicatie",
+  "AppId": "{d762e9c2-2861-441f-a558-243ff58ecf12}",
+  "AppVersion": "1.1",
+  "InstallFile": {
+    "Source": "Lees mij.txt",
+    "Destination": "{app}\\Documentatie"
+  },
+  "Buttons": {
+    "Back": "\u003C Terug",
+    "Next": "Verder...",
+    "Cancel": "Annuleren"
+  },
+  "Pages": [
+    {
+      "Kind": "Welcome",
+      "Name": "Welkom",
+      "Title": "Welkom bij de installatie van Mijn applicatie",
+      "Body": "Deze wizard helpt u Mijn applicatie op uw computer te installeren.\n\nKlik op Verder om door te gaan.",
+      "ButtonOverrides": {},
+      "Destination": null
+    },
+    {
+      "Kind": "Destination",
+      "Name": "Installatiemap",
+      "Title": "Kies de installatiemap",
+      "Body": "Waar wilt u Mijn applicatie installeren?",
+      "ButtonOverrides": {},
+      "Destination": {
+        "DefaultDirectory": "{autopf}\\Mijn applicatie",
+        "BrowseCaption": "Bladeren...",
+        "BrowseTooltip": "Kies een andere installatiemap"
+      }
+    }
+  ]
+}

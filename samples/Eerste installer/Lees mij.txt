@@ -1,0 +1,5 @@
+Dit is een klein testbestand voor de eerste export uit Inno Setup Studio.
+
+De bestandsregel plaatst dit bestand in de submap Documentatie van de gekozen
+installatiemap. Er worden geen programma's gestart of registerregels toegevoegd
+door deze bestandsregel.

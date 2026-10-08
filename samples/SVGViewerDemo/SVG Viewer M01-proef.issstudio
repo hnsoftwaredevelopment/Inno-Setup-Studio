@@ -1,0 +1,39 @@
+{
+  "Format": "HN.InnoSetupStudio.VisualProject",
+  "Version": 4,
+  "Name": "SVG Viewer M01-proef",
+  "AppId": "{a7a61c46-37b5-43a0-9947-e11e03e23d83}",
+  "AppVersion": "1.0",
+  "OutputBaseFileName": "SVGViewer-M01-Setup",
+  "InstallFile": {
+    "Source": "Source\\SVGViewer.exe",
+    "Destination": "{app}"
+  },
+  "Buttons": {
+    "Back": "< Terug",
+    "Next": "Verder >",
+    "Cancel": "Annuleren"
+  },
+  "Pages": [
+    {
+      "Kind": "Welcome",
+      "Name": "Welkom",
+      "Title": "Welkom bij de installatie van de SVG Viewer",
+      "Body": "Deze wizard helpt u de SVG Viewer op uw computer te installeren.\n\nKlik op Verder om door te gaan.",
+      "ButtonOverrides": {},
+      "Destination": null
+    },
+    {
+      "Kind": "Destination",
+      "Name": "Installatiemap",
+      "Title": "Kies de installatiemap",
+      "Body": "Waar wilt u de SVG Viewer installeren?",
+      "ButtonOverrides": {},
+      "Destination": {
+        "DefaultDirectory": "{autopf}\\SVG Viewer M01-proef",
+        "BrowseCaption": "Bladeren...",
+        "BrowseTooltip": "Kies een andere installatiemap"
+      }
+    }
+  ]
+}

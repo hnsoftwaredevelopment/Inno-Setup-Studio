@@ -31,14 +31,16 @@ Er komen geen extra installatie-engine, eigen installer-runtime, externe schermb
 | Werkplek | Basisontwerp, Welkom en Installatiemap; selectie en zoomen | Volledig paginabeheer en installatieonderdelen |
 | Eigenschappen | Teksten, standaardpad, browse-tekst en tooltip | Ondersteunde eigenschappen per pagina en element |
 | Overerving | Gedeelde knopteksten en lokale afwijkingen in het Studio-model | Export en werkelijk installerbewijs, inclusief talen en knoprollen |
-| Projecten | Openen/opslaan van versie 1 van .issstudio | Productinstellingen, uitbreiding, migraties en undo/redo |
+| Projecten | Applicatiegegevens, één bestandsregel en formaat 3 van .issstudio; migratie van formaat 1 en 2 | Verdere productinstellingen, uitbreiding en undo/redo |
 | Taal van Studio | Nederlands, Engels en Duits via resx | Alle nieuwe interfaceonderdelen in deze talen |
 | Installertalen | Nederlandse voorbeeldteksten | Taalbestanden, taalkeuze, vertalingen en onafhankelijke previewtaal |
 | Uitproberen | Navigatie en tijdelijke mapkeuze | Simulatie van ondersteunde pagina's en keuzes |
-| Genereren en bouwen | Nog niet aanwezig | .iss-export, ISCC-koppeling en bouwmeldingen |
+| Genereren en bouwen | Eerste .iss-export van applicatiegegevens en één bestand; compilatie buiten Studio getest | Wizardexport, verdere secties, ISCC-koppeling en bouwmeldingen |
 | Echte installer | Nog niet geleverd door Studio | Gecontroleerde installatie, update en deïnstallatie |
 
 De eerder gerapporteerde 31 Core-tests en geslaagde Release-build horen bij de proefversie. Ze bewijzen nog geen correcte .iss-export of installer.
+
+Bij M01-S02 slagen 72 tests, inclusief twee compilatieproeven met ISCC 7.1.0. Dit bewijst de eerste export, niet de uitgevoerde installatie of volledige wizardovereenkomst. De acceptatiestatus staat in de slicelijst.
 
 ## 4. Projecten en bestanden — FR-01
 

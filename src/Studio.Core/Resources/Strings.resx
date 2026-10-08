@@ -100,5 +100,57 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="MissingProjectData" xml:space="preserve"><value>Dit project mist de vereiste pagina’s of knopinstellingen.</value></data>
   <data name="InvalidPage" xml:space="preserve"><value>De pagina-inhoud is ongeldig voor deze versie van Studio.</value></data>
   <data name="InvalidDirectory" xml:space="preserve"><value>Vul een standaard installatiemap in op één regel en controleer de Bladeren-knop.</value></data>
+  <data name="ApplicationDetails" xml:space="preserve"><value>Applicatiegegevens</value></data>
+  <data name="ProductNameLabel" xml:space="preserve"><value>Productnaam</value></data>
+  <data name="ApplicationIdLabel" xml:space="preserve"><value>Applicatie-ID (AppId)</value></data>
+  <data name="ApplicationVersionLabel" xml:space="preserve"><value>Versie</value></data>
+  <data name="ApplicationIdHint" xml:space="preserve"><value>Behoud deze ID bij nieuwe versies van dezelfde applicatie. Wijzig haar alleen voor een andere applicatie. Maximaal 127 tekens.</value></data>
+  <data name="ApplicationDetailsHint" xml:space="preserve"><value>Deze gegevens gelden voor het hele project. AppId blijft gelijk bij een nieuwe versie. Eigen wizardteksten en het installatiepad worden niet automatisch aangepast.</value></data>
+  <data name="InvalidApplicationDetails" xml:space="preserve"><value>Vul productnaam, applicatie-ID en versie in op één regel. De applicatie-ID mag maximaal 127 tekens bevatten. De wijzigingen zijn niet opgeslagen.</value></data>
+  <data name="StatusMigrated" xml:space="preserve"><value>Oud project geopend en in het geheugen bijgewerkt. Sla op om het nieuwe projectformaat te bewaren.</value></data>
+  <data name="InstallFileHeading" xml:space="preserve"><value>Bestandsregel</value></data>
+  <data name="SourceFileLabel" xml:space="preserve"><value>Bronbestand</value></data>
+  <data name="ChooseSourceFile" xml:space="preserve"><value>Bestand kiezen…</value></data>
+  <data name="FileDestinationLabel" xml:space="preserve"><value>Doelmap voor dit bestand</value></data>
+  <data name="InstallFileHint" xml:space="preserve"><value>Eén lokaal bestand; nog geen wildcards. Relatieve bronpaden zijn gebaseerd op de projectmap. Doel: {app} of bijvoorbeeld {app}\Data.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>De export bevat applicatiegegevens, één bestand en de teksten van Welkom en Installatiemap, inclusief knopafwijkingen en Bladeren-tooltip. De installer is voorlopig Nederlands. Inno Setup bepaalt de indeling en de overige stappen.</value></data>
+  <data name="ExportScript" xml:space="preserve"><value>Exporteer .iss</value></data>
+  <data name="SourceFileFilter" xml:space="preserve"><value>Alle bestanden (*.*)|*.*</value></data>
+  <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup-script (*.iss)|*.iss</value></data>
+  <data name="StatusExported" xml:space="preserve"><value>Script geëxporteerd. Je kunt dit bestand met Inno Setup 7.1 compileren.</value></data>
+  <data name="ExportFailed" xml:space="preserve"><value>Exporteren mislukt</value></data>
+  <data name="StatusExportFailed" xml:space="preserve"><value>Exporteren is niet gelukt. Je project blijft geopend.</value></data>
+  <data name="InvalidFileRule" xml:space="preserve"><value>Controleer de bestandsregel: bron en doelmap moeten op één regel staan; de doelmap mag niet leeg zijn.</value></data>
+  <data name="ExportSourceInvalid" xml:space="preserve"><value>Kies één lokaal bronbestand zonder wildcards, controletekens of ongeldige padtekens.</value></data>
+  <data name="ExportSourceMissing" xml:space="preserve"><value>Het bronbestand bestaat niet of is niet toegankelijk. Controleer het pad of kies het bestand opnieuw.</value></data>
+  <data name="ExportSourceNeedsProject" xml:space="preserve"><value>Sla het project eerst op om een relatief bronpad te gebruiken, of kies een absoluut bronpad.</value></data>
+  <data name="ExportDestinationInvalid" xml:space="preserve"><value>Gebruik {app} of een submap zoals {app}\Data, zonder wildcards, andere constanten of . en .. als mapnamen.</value></data>
+  <data name="ExportPreprocessorUnsupported" xml:space="preserve"><value>Preprocessoruitdrukkingen ({#…}) zijn nog niet toegestaan in deze export. Scripting volgt in een latere milestone.</value></data>
+  <data name="ExportExtensionInvalid" xml:space="preserve"><value>Exporteer naar een bestand met de extensie .iss.</value></data>
+  <data name="ExportCannotReplaceSource" xml:space="preserve"><value>Het script mag het gekozen bronbestand niet vervangen. Kies een andere exportnaam.</value></data>
+  <data name="CompilerHeading" xml:space="preserve"><value>Compiler en bouwen</value></data>
+  <data name="ChooseCompiler" xml:space="preserve"><value>Compiler kiezen…</value></data>
+  <data name="CheckCompiler" xml:space="preserve"><value>Opnieuw controleren</value></data>
+  <data name="BuildInstaller" xml:space="preserve"><value>Bouw installer</value></data>
+  <data name="OpenBuildFolder" xml:space="preserve"><value>Open uitvoermap</value></data>
+  <data name="CompilerUnchecked" xml:space="preserve"><value>Compiler nog niet gecontroleerd.</value></data>
+  <data name="CompilerMissing" xml:space="preserve"><value>Geen compiler gevonden. Kies ISCC.exe van Inno Setup 7.1.</value></data>
+  <data name="CompilerInvalid" xml:space="preserve"><value>Compiler ontbreekt, reageert niet of is geen Inno Setup 7.1. Kies de juiste ISCC.exe.</value></data>
+  <data name="CompilerReady" xml:space="preserve"><value>Compiler gereed. Versie:</value></data>
+  <data name="BuildRunning" xml:space="preserve"><value>De opgeslagen projectstand wordt gebouwd…</value></data>
+  <data name="BuildSucceeded" xml:space="preserve"><value>Installer gebouwd voor het opgeslagen project:</value></data>
+  <data name="BuildFailed" xml:space="preserve"><value>Bouwen mislukt. Er is geen nieuwe installer beschikbaar.</value></data>
+  <data name="CompilerBuildError" xml:space="preserve"><value>Bouwen kon niet worden voltooid. Controleer de compiler en projectgegevens.</value></data>
+  <data name="OutputNameLabel" xml:space="preserve"><value>Naam installerbestand (zonder .exe)</value></data>
+  <data name="SetupNameWarning" xml:space="preserve"><value>De naam setup.exe wordt afgeraden door Inno Setup vanwege onveilig laden van DLL-bestanden door Windows. Kies bijvoorbeeld mysetup.</value></data>
+  <data name="InvalidOutputName" xml:space="preserve"><value>Geef een geldige Windows-bestandsnaam op zonder .exe, pad, constanten of gereserveerde naam.</value></data>
+  <data name="BuildMessages" xml:space="preserve"><value>Bouwmeldingen</value></data>
+  <data name="CancelBuild" xml:space="preserve"><value>Bouw annuleren</value></data>
+  <data name="BuildCanceling" xml:space="preserve"><value>De compiler wordt gestopt…</value></data>
+  <data name="BuildCanceled" xml:space="preserve"><value>Bouw geannuleerd. Er is geen nieuwe installer beschikbaar.</value></data>
+  <data name="BuildSucceededWithWarnings" xml:space="preserve"><value>Installer gebouwd met waarschuwingen. Bekijk de bouwmeldingen.</value></data>
+  <data name="BuildNoMessages" xml:space="preserve"><value>Er zijn nog geen bouwmeldingen voor dit project.</value></data>
+  <data name="CompilerWarning" xml:space="preserve"><value>Waarschuwing</value></data>
+  <data name="CompilerError" xml:space="preserve"><value>Fout</value></data>
+  <data name="ExportExistingProtected" xml:space="preserve"><value>Dit .iss-bestand wijkt af van de huidige export en blijft behouden. Kies een nieuwe bestandsnaam om het project te exporteren.</value></data>
 </root>
-

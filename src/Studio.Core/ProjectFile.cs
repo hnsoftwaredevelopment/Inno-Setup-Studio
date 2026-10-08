@@ -24,9 +24,39 @@ public static class ProjectFile
                 || !json.RootElement.TryGetProperty("Format", out _)
                 || !json.RootElement.TryGetProperty("Version", out _))
                 throw InvalidProject("NotStudioProject");
-            var project = json.RootElement.Deserialize<StudioProject>(Options);
+            var root = json.RootElement;
+            if (root.GetProperty("Version").ValueKind != JsonValueKind.Number
+                || !root.GetProperty("Version").TryGetInt32(out var version)
+                || version is not (1 or 2 or 3 or StudioProject.CurrentVersion))
+                throw InvalidProject("UnsupportedProject");
+            if (version >= 2
+                && (!root.TryGetProperty("AppId", out _) || !root.TryGetProperty("AppVersion", out _)))
+                throw InvalidProject("InvalidApplicationDetails");
+            if (version >= 3 && !root.TryGetProperty("InstallFile", out _))
+                throw InvalidProject("InvalidFileRule");
+            if (version < 3 && root.TryGetProperty("InstallFile", out _))
+                throw InvalidProject("UnsupportedProject");
+            if (version == StudioProject.CurrentVersion && !root.TryGetProperty("OutputBaseFileName", out _))
+                throw InvalidProject("InvalidOutputName");
+            if (version < 4 && root.TryGetProperty("OutputBaseFileName", out _))
+                throw InvalidProject("UnsupportedProject");
+            var project = root.Deserialize<StudioProject>(Options)!;
+            if (version == 1)
+            {
+                // Derive identity from legacy content so reopening an unsaved migration is stable.
+                var hash = System.Security.Cryptography.SHA256.HashData(JsonSerializer.SerializeToUtf8Bytes(root));
+                project.AppId = new Guid(hash.AsSpan(0, 16)).ToString("B");
+                project.AppVersion = "1.0";
+            }
+            if (version < StudioProject.CurrentVersion)
+            {
+                if (version < 3) project.InstallFile = new();
+                project.OutputBaseFileName = "setup";
+                project.Version = StudioProject.CurrentVersion;
+                project.WasMigrated = true;
+            }
             Validate(project);
-            return project!;
+            return project;
         }
         catch (JsonException error)
         {
@@ -34,16 +64,26 @@ public static class ProjectFile
         }
     }
 
-    public static async Task SaveAsync(string path, StudioProject project)
+    public static async Task SaveAsync(string path, StudioProject project, string? originalProjectDirectory = null)
     {
         Validate(project);
-        var bytes = JsonSerializer.SerializeToUtf8Bytes(project, Options);
+        var source = project.InstallFile.Source;
+        var storedSource = source;
+        if (!string.IsNullOrWhiteSpace(source) && !Path.IsPathRooted(source) && originalProjectDirectory is not null)
+        {
+            var originalSource = Path.GetFullPath(source, originalProjectDirectory);
+            storedSource = Path.GetRelativePath(Path.GetDirectoryName(Path.GetFullPath(path))!, originalSource);
+        }
+        var json = JsonSerializer.SerializeToNode(project, Options)!;
+        json["InstallFile"]!["Source"] = storedSource;
+        var bytes = JsonSerializer.SerializeToUtf8Bytes(json, Options);
         if (bytes.Length > MaxBytes) throw InvalidProject("ProjectTooLarge");
         var temporaryPath = path + $".{Guid.NewGuid():N}.tmp";
         try
         {
             await File.WriteAllBytesAsync(temporaryPath, bytes);
             File.Move(temporaryPath, path, overwrite: true);
+            project.InstallFile.Source = storedSource;
         }
         finally
         {
@@ -60,10 +100,17 @@ public static class ProjectFile
         return error;
     }
 
-    private static void Validate(StudioProject? project)
+    internal static void Validate(StudioProject? project)
     {
-        if (project is null || project.Format != StudioProject.FormatId || project.Version != 1)
+        if (project is null || project.Format != StudioProject.FormatId || project.Version != StudioProject.CurrentVersion)
             throw InvalidProject("UnsupportedProject");
+        if (!IsSingleLine(project.Name) || !IsSingleLine(project.AppId) || project.AppId.Length > 127
+            || !IsSingleLine(project.AppVersion))
+            throw InvalidProject("InvalidApplicationDetails");
+        if (!InstallerOutput.IsValid(project.OutputBaseFileName)) throw InvalidProject("InvalidOutputName");
+        if (project.InstallFile is not { } file || file.Source is null || file.Source.Any(char.IsControl)
+            || !IsSingleLine(file.Destination))
+            throw InvalidProject("InvalidFileRule");
         if (string.IsNullOrWhiteSpace(project.Name) || project.Buttons is null || project.Buttons.Count != 3
             || new[] { ElementKind.Back, ElementKind.Next, ElementKind.Cancel }.Any(k => !project.Buttons.ContainsKey(k))
             || project.Buttons.Values.Any(v => v is null)
@@ -83,4 +130,7 @@ public static class ProjectFile
                 throw InvalidProject("InvalidDirectory");
         }
     }
+
+    private static bool IsSingleLine(string? value) =>
+        !string.IsNullOrWhiteSpace(value) && !value.Any(char.IsControl);
 }

@@ -39,6 +39,8 @@ Eindcriteria: export compileert met 7.1.0 binnen én buiten Studio; ontbrekende 
 
 Dit is het vroege controlepunt voor de technische haalbaarheid van de huidige preview. De eerste export gebruikt een expliciete taal die bij de huidige projectinhoud past; nieuwe Engelse beginwaarden en een volledige taalkeuze volgen in M02.
 
+M01 is als geheel door de gebruiker geaccepteerd na de eindproef van S06. De gebruiker heeft opdracht gegeven voor merge naar main en start van M02.
+
 ## M02 — m02-installertalen
 
 Resultaat: talen uit Inno Setup kiezen, eigen vertalingen bewaren, de previewtaal apart wisselen en dezelfde talen in de echte installer krijgen.

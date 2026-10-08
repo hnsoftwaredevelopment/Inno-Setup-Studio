@@ -14,7 +14,15 @@ De matrix maakt onderscheid tussen een Studio-functie en bewezen installeronders
 | Runtime gecontroleerd | Relevante werking in echte installer door gebruiker gecontroleerd |
 | Uitgesloten | Buiten afgesproken productgrens |
 
-De huidige basis heeft geen scriptgenerator. Daarom heeft nog geen onderstaande installerfunctie het niveau Compiler gecontroleerd of Runtime gecontroleerd.
+M01-S02 bevat de eerste scriptgenerator. Applicatiegegevens, het standaardpad, een vaste Nederlandse taalbron en één lokale bestandsregel zijn met ISCC 7.1.0 gecompileerd en door de gebruiker getest en geaccepteerd. De gemelde waarschuwing over setup.exe is nu verwerkt bij M01-S05; runtimebewijs voor de huidige wizardteksten is vastgelegd bij M01-S03. Zie [detailregistratie en bewijs](slices/M01-S02-Bestandsregel-en-export.md).
+
+M01-S03 voegt native tekstexport voor Welkom en Installatiemap toe, met gedeelde en lokale knopteksten en Bladeren-tooltip. Deze eigenschappen zijn Runtime gecontroleerd: de gebruiker heeft Studio en de gecompileerde, uitgevoerde installer getest en M01-S03 geaccepteerd. Zie [propertycatalogus, bereik en grenzen](slices/M01-S03-Wizardontwerp-export.md).
+
+M01-S04 voegt ontdekken/kiezen van ISCC, versiecontrole en bouwen van een opgeslagen projectstand toe. Procesargumenten en afzonderlijke uitvoermappen zijn met ISCC 7.1.0 getest. [Detailregistratie en teststappen](slices/M01-S04-Compiler-kiezen-en-bouwen.md).
+
+M01-S05 voegt een opgeslagen OutputBaseFilename, native JSONL-bouwmeldingen en annuleren toe. De koppelingen zijn met ISCC 7.1.0 getest; de gebruiker heeft de handmatige tests uitgevoerd en M01-S05 geaccepteerd. [Detailregistratie en teststappen](slices/M01-S05-Bouwmeldingen-en-annuleren.md).
+
+M01-S06 voegt exportbescherming en de lokale SVG-eindproef toe. Zelfstandige compilatie met 7.1.0 is geslaagd; de gebruiker heeft de eindproef afgerond en verse installatie/deïnstallatie binnen de M01-scope geaccepteerd. [Eindproef en beperkingen](slices/M01-S06-Eenvoudige-installer-afronden.md).
 
 ## Functionele dekking
 
@@ -22,8 +30,9 @@ V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële sc
 
 | Bereik | Beoogde bediening | Inno Setup-koppeling en bron | Milestone | Nu |
 |---|---|---|---|---|
-| Productidentiteit, versie, uitgever | V, G | [Setup](https://jrsoftware.org/ishelp/topic_setupsection.htm) | M01, M07 | Gepland |
-| Bestanden en bestandsopties | V, G | [Files](https://jrsoftware.org/ishelp/topic_filessection.htm) | M01, M04, M07 | Gepland |
+| Productidentiteit en versie | V | [AppName](https://jrsoftware.org/ishelp/topic_setup_appname.htm), [AppId](https://jrsoftware.org/ishelp/topic_setup_appid.htm), [AppVersion](https://jrsoftware.org/ishelp/topic_setup_appversion.htm) | M01 | Compiler gecontroleerd; editor geaccepteerd in M01-S01 |
+| Uitgever en overige productmetadata | V, G | [Setup](https://jrsoftware.org/ishelp/topic_setupsection.htm) | M07 | Gepland |
+| Bestanden en bestandsopties | V, G | [Files](https://jrsoftware.org/ishelp/topic_filessection.htm) | M01, M04, M07 | Compiler gecontroleerd voor één lokaal bestand binnen {app}; overige opties gepland |
 | Mapregels en mapopties | V, G | [Dirs](https://jrsoftware.org/ishelp/topic_dirssection.htm) | M04, M07 | Gepland |
 | Snelkoppelingen en metadata | V, G | [Icons](https://jrsoftware.org/ishelp/topic_iconssection.htm) | M04, M07 | Gepland |
 | Installatietypen | V, G | [Types](https://jrsoftware.org/ishelp/topic_typessection.htm) | M04 | Gepland |
@@ -42,14 +51,14 @@ V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële sc
 | Taalgedrag en lettertypen | V, G | [LangOptions](https://jrsoftware.org/ishelp/topic_langoptionssection.htm) | M02, M07 | Gepland |
 | Standaardwizard en zichtbaarheid | V | [Wizard Pages](https://jrsoftware.org/ishelp/topic_wizardpages.htm) | M03, M04, M05 | Studio-basis voor twee pagina's |
 | Stijlen en wizardafbeeldingen | V, G | [WizardStyle](https://jrsoftware.org/ishelp/topic_setup_wizardstyle.htm) | M06 | Gepland |
-| Pagina-afwijkingen via native eigenschappen | V, S | [Support Classes](https://jrsoftware.org/ishelp/topic_scriptclasses.htm), [Event Functions](https://jrsoftware.org/ishelp/topic_scriptevents.htm) | M01, M03, M06 | Studio-basis; per eigenschap bewijs nodig |
+| Pagina-afwijkingen via native eigenschappen | V, S | [Support Classes](https://jrsoftware.org/ishelp/topic_scriptclasses.htm), [Event Functions](https://jrsoftware.org/ishelp/topic_scriptevents.htm) | M01, M03, M06 | Runtime gecontroleerd voor de teksten van Welkom en Installatiemap; zie M01-S03 |
 | Eigen standaardinvoerpagina's | V, S | [Custom Wizard Pages](https://jrsoftware.org/ishelp/topic_scriptpages.htm) | M08 | Gepland |
 | Native bestandsdownload en archiefextractie | G | [Files-opties](https://jrsoftware.org/ishelp/topic_filessection.htm) | M07 | Gepland |
 | Publieke verificatiesleutels | G | [ISSigKeys](https://jrsoftware.org/ishelp/topic_issigkeyssection.htm) | M07 | Gepland |
 | Ondertekening | G | [SignTool](https://jrsoftware.org/ishelp/topic_setup_signtool.htm) | M07 | Gepland |
 | Eigen runtimecode | S | [Pascal Script](https://jrsoftware.org/ishelp/topic_scriptintro.htm) | M08 | Gepland |
 | Eigen compileertijdinvoer | S | [Preprocessor](https://jrsoftware.org/ishelp/topic_isppoverview.htm) | M08 | Gepland |
-| Genereren en ISCC-proces | V | [Compiler command line](https://jrsoftware.org/ishelp/topic_compilercmdline.htm) | M01 | Gepland |
+| Genereren en ISCC-proces | V | [Compiler command line](https://jrsoftware.org/ishelp/topic_compilercmdline.htm) | M01 | Compiler gecontroleerd: export en bouwen vanuit Studio met 7.1-versiegate; M01-S04 geaccepteerd; JSONL-meldingen en annuleren compiler gecontroleerd en gebruikerscontrole geaccepteerd in M01-S05 |
 
 De reguliere secties hierboven vormen de eindscope. Niet-verouderde parameters die geen apart visueel veld krijgen worden in M07 via een gecontroleerde geavanceerde weergave bereikbaar. Een afzonderlijke catalogus legt vóór implementatie de concrete 7.1-dekking vast. Het doel is geen oncontroleerbaar vrij tekstvak dat iedere sleutel automatisch als ondersteund bestempelt.
 
