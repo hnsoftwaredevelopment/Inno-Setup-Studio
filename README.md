@@ -12,7 +12,9 @@ De eerste WPF-werkplek werkt: Basisontwerp, Welkom en Installatiemap, direct sel
 
 De Studio-interface is beschikbaar in Nederlands, Engels en Duits. Rechtsboven wisselt **Studio-taal** direct van taal; de keuze wordt per Windows-gebruiker onthouden. Installerinhoud blijft onafhankelijk van deze keuze. Zie [meertaligheid en ResXManager](docs/Meertaligheid.md).
 
-Scriptgeneratie, compilerkoppeling en meertalige installers volgen later. Het beoogde eindproduct is beschreven in de [productspecificatie](docs/Productspecificatie.md), momenteel een concept voor review.
+Het uitklapbare paneel **Applicatiegegevens** boven de ontwerpruimte bevat productnaam, AppId en versie. Die worden met het project opgeslagen. Oude projecten worden bij openen in het geheugen bijgewerkt en pas bij opslaan naar het nieuwe formaat geschreven. Zie [M01-S01 en teststappen](docs/slices/M01-S01-Applicatiegegevens.md).
+
+Scriptgeneratie, compilerkoppeling en meertalige installers volgen later. Het beoogde eindproduct is beschreven in de geaccepteerde [productspecificatie](docs/Productspecificatie.md).
 
 ## Bouwen en starten
 
@@ -28,7 +30,7 @@ De Release-app staat in `Builds\Release\Inno Setup Studio.exe`. Distributie vere
 
 ## Verificatie
 
-Op 8 oktober 2026: 31 Core-tests geslaagd; Release-build zonder fouten of waarschuwingen. Handmatig gecontroleerd: live taalwissel, behoud van installerinhoud en selectie, Duitse en Engelse weergave en behoud van de taal na herstart.
+Op 8 oktober 2026: 45 Core-tests geslaagd; Release-build zonder fouten of waarschuwingen. De gebruiker heeft M01-S01 volledig getest en geaccepteerd. De eerdere Studio-taalbasis is eveneens door de gebruiker beoordeeld.
 
 ## Documentatie en planning
 
@@ -48,6 +50,6 @@ Op 8 oktober 2026: 31 Core-tests geslaagd; Release-build zonder fouten of waarsc
 
 Iedere milestone gebruikt een eigen branch met dezelfde technische naam. Slices worden pas na gebruikersakkoord gecommit en gepusht. Een milestone wordt gemerged na acceptatie van haar volledige resultaat. De gebruiker doet de visuele en echte installatieproeven.
 
-De nieuwe roadmap is een voorstel. De voortgang en acceptatiestatus staan in de slicelijst.
+De roadmap is geaccepteerd en M00 is gepubliceerd en gemerged. De voortgang en acceptatiestatus staan in de slicelijst.
 
 Markdown wordt gespiegeld naar `C:\Devops\Obsidian\markdown\Development\HNSoftwareDevelopment\Inno Setup Studio`, met behoud van relatieve paden.

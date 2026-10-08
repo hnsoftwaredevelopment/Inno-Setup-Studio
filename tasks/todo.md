@@ -1,6 +1,6 @@
 # Slices — Inno Setup Studio
 
-Status: planning geaccepteerd op 8 oktober 2026. Een vinkje betekent geaccepteerd, niet alleen geschreven of gebouwd. M00 is geaccepteerd; M01-S01 is de eerste implementatieslice.
+Status: planning geaccepteerd op 8 oktober 2026. Een vinkje betekent geaccepteerd, niet alleen geschreven of gebouwd. M00 en M01-S01 zijn geaccepteerd.
 
 Milestoneresultaten en FR-koppelingen: [Milestones](../docs/Milestones.md). Werkwijze en controles: [Werkwijze](../docs/Werkwijze.md). Voortgang van de proefversie: [Historie](../docs/historie/Proefversie.md).
 
@@ -21,7 +21,7 @@ Bestanden: docs/, tasks/, README.md en AGENTS.md. Dit is documentatie; geen appl
 | [x] | M00-S01 Product en grenzen | Eindfuncties en huidige basis zijn onderscheiden; Inno Setup-grens is controleerbaar; vier reviewpunten zijn besproken. | D, gebruikersreview; huidige basis |
 | [x] | M00-S02 Planning en werkwijze | Milestones/slices hebben resultaten en controles; branch-/akkoordproces staat vast; omgang met bestaande lokale commits is besloten vóór publicatie. | D, gebruikersreview; S01 |
 
-Huidige stand: beide documentatieslices zijn door de gebruiker geaccepteerd. Publicatie omvat ook de eerder beoordeelde Studio-taalbasis (d0bbc09 en 2ef4ccc); daarna wordt M00 afgerond en M01-S01 gestart.
+Huidige stand: beide documentatieslices zijn door de gebruiker geaccepteerd, gepubliceerd op m00-productspecificatie en gemerged naar main (37ac314). Publicatie omvat ook de eerder beoordeelde Studio-taalbasis (d0bbc09 en 2ef4ccc).
 
 ## M01 — m01-eerste-installer
 
@@ -29,7 +29,7 @@ Bestandsgroepen: Core/project/opslag; App/projecteigenschappen; generator/compil
 
 | Acceptatie | Slice / resultaat | Toetsbare criteria | Controle / afhankelijk |
 |---|---|---|---|
-| [ ] | M01-S01 Applicatiegegevens | Productnaam, AppId en versie zijn bewerkbaar en bewaard; proefprojecten openen zonder gegevensverlies; AppId blijft stabiel. | B/T/U; M00 |
+| [x] | M01-S01 Applicatiegegevens | Productnaam, AppId en versie zijn bewerkbaar en bewaard; proefprojecten openen zonder gegevensverlies; AppId blijft stabiel. | B/T/U; M00 |
 | [ ] | M01-S02 Eerste bestandsregel en export | Een lokale bron en doelmap zijn instelbaar; .iss bevat juiste metadata en bestandsregel; export compileert buiten Studio en meldt ontbrekende bron. | B/T/C/U; S01 |
 | [ ] | M01-S03 Huidig ontwerp exporteren | Twee huidige pagina's en standaardpad worden correct vertaald; gedeelde en lokale tekstafwijkingen werken of worden aantoonbaar begrensd; knoprollen blijven correct. | B/T/C/I; S02 |
 | [ ] | M01-S04 Compiler kiezen en bouwen | Ontdekken/handmatig kiezen en versiecontrole werken; Bouw compileert een herkenbare projectstand; de resulterende uitvoer is vindbaar. | B/T/C/U; S03 |
@@ -37,6 +37,8 @@ Bestandsgroepen: Core/project/opslag; App/projecteigenschappen; generator/compil
 | [ ] | M01-S06 Eenvoudige installer afronden | Uitvoer wordt niet ongemerkt overschreven bij handmatige wijzigingen; dezelfde export werkt buiten Studio; gebruiker controleert verse installatie en deïnstallatie. | B/T/C/I, milestonecheck; S05 |
 
 M01-S03 onderzoekt juist de bestaande previewbeloften. Als een property niet regulier werkt, wordt haar beperking vastgelegd vóór verdere uitbreiding.
+
+M01-S01 is geïmplementeerd op m01-eerste-installer: 45 tests geslaagd en Release-build zonder fouten of waarschuwingen. [Testinstructies en formaatmigratie](../docs/slices/M01-S01-Applicatiegegevens.md). De gebruiker heeft alles getest en op 8 oktober 2026 akkoord gegeven. Deze geaccepteerde stand wordt als één slice gepubliceerd.
 
 ## M02 — m02-installertalen
 
@@ -146,6 +148,6 @@ Bestandsgroepen: Core/geschiedenis/migraties; App/toegankelijkheid/status; tests
 
 ## Actuele volgende handeling
 
-M00 afronden en M01-S01 uitvoeren op m01-eerste-installer. De nieuwe codeslice wordt gebouwd en getest en blijft daarna ongecommit totdat de gebruiker haar heeft beoordeeld.
+De geaccepteerde M01-S01 wordt gecommit en gepusht op m01-eerste-installer. De volgende implementatieslice is M01-S02: eerste bestandsregel en export. M01 wordt pas na acceptatie van alle slices gemerged.
 
 De gebruiker heeft opdracht gegeven om met de eerste slice te beginnen.

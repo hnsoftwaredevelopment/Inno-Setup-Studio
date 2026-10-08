@@ -22,7 +22,8 @@ V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële sc
 
 | Bereik | Beoogde bediening | Inno Setup-koppeling en bron | Milestone | Nu |
 |---|---|---|---|---|
-| Productidentiteit, versie, uitgever | V, G | [Setup](https://jrsoftware.org/ishelp/topic_setupsection.htm) | M01, M07 | Gepland |
+| Productidentiteit en versie | V | [AppName](https://jrsoftware.org/ishelp/topic_setup_appname.htm), [AppId](https://jrsoftware.org/ishelp/topic_setup_appid.htm), [AppVersion](https://jrsoftware.org/ishelp/topic_setup_appversion.htm) | M01 | Studio-basis; M01-S01 geaccepteerd |
+| Uitgever en overige productmetadata | V, G | [Setup](https://jrsoftware.org/ishelp/topic_setupsection.htm) | M07 | Gepland |
 | Bestanden en bestandsopties | V, G | [Files](https://jrsoftware.org/ishelp/topic_filessection.htm) | M01, M04, M07 | Gepland |
 | Mapregels en mapopties | V, G | [Dirs](https://jrsoftware.org/ishelp/topic_dirssection.htm) | M04, M07 | Gepland |
 | Snelkoppelingen en metadata | V, G | [Icons](https://jrsoftware.org/ishelp/topic_iconssection.htm) | M04, M07 | Gepland |

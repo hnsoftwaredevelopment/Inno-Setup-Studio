@@ -100,5 +100,12 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="MissingProjectData" xml:space="preserve"><value>This project is missing required pages or button settings.</value></data>
   <data name="InvalidPage" xml:space="preserve"><value>The page content is invalid for this version of Studio.</value></data>
   <data name="InvalidDirectory" xml:space="preserve"><value>Enter a default installation folder on one line and check the Browse button.</value></data>
+  <data name="ApplicationDetails" xml:space="preserve"><value>Application details</value></data>
+  <data name="ProductNameLabel" xml:space="preserve"><value>Product name</value></data>
+  <data name="ApplicationIdLabel" xml:space="preserve"><value>Application ID (AppId)</value></data>
+  <data name="ApplicationVersionLabel" xml:space="preserve"><value>Version</value></data>
+  <data name="ApplicationIdHint" xml:space="preserve"><value>Keep this ID for new versions of the same application. Change it only for a different application. Maximum 127 characters.</value></data>
+  <data name="ApplicationDetailsHint" xml:space="preserve"><value>These details apply to the entire project. AppId stays the same for a new version. Custom wizard text and the installation path are not updated automatically.</value></data>
+  <data name="InvalidApplicationDetails" xml:space="preserve"><value>Enter a product name, application ID and version, each on a single line. The application ID may contain at most 127 characters. The changes have not been saved.</value></data>
+  <data name="StatusMigrated" xml:space="preserve"><value>Legacy project opened: application ID and version added. Save to retain the new project format.</value></data>
 </root>
-

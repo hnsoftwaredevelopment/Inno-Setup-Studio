@@ -83,7 +83,7 @@ public partial class MainWindow : Window
         if (path is null || saveAs)
         {
             var dialog = new SaveFileDialog { Filter = Text["ProjectFilter"], Title = Text["SaveTitle"], DefaultExt = ".issstudio", AddExtension = true,
-                FileName = path is null ? _editor.Project.Name + ".issstudio" : Path.GetFileName(path) };
+                FileName = path is null ? SuggestedFileName(_editor.Project.Name) : Path.GetFileName(path) };
             if (dialog.ShowDialog(this) != true) return false;
             path = dialog.FileName;
         }
@@ -128,6 +128,12 @@ public partial class MainWindow : Window
     }
 
     private static bool IsFileError(Exception error) => error is IOException or InvalidDataException or UnauthorizedAccessException or ArgumentException or NotSupportedException;
+    private static string SuggestedFileName(string productName)
+    {
+        var invalid = Path.GetInvalidFileNameChars();
+        var name = new string(productName.Take(120).Select(c => invalid.Contains(c) ? '_' : c).ToArray()).TrimEnd(' ', '.');
+        return (string.IsNullOrWhiteSpace(name) ? "Project" : name) + ".issstudio";
+    }
     private void ShowFileError(string action, Exception error)
     {
         _editor.SetStatus("Status" + action + "Failed");

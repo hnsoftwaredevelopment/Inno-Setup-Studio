@@ -32,6 +32,8 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
     public EditorSession(StudioProject project, StudioLocalizer? text = null)
     {
         Project = project;
+        IsDirty = project.WasMigrated;
+        if (project.WasMigrated) _statusKey = "StatusMigrated";
         Text = text ?? new StudioLocalizer();
         PageChoices = [new(0, "BaseDesign", Text),
             .. project.Pages.Select((p, i) => new PageChoice(i + 1,
@@ -83,6 +85,24 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
         : !IsButton ? Text["OriginPage"]
         : CurrentPage!.ButtonOverrides.ContainsKey(SelectedElement) ? Text["OriginOverride"] : Text["OriginInherited"];
     public string DocumentState => IsDirty ? Text["Unsaved"] : Text["Unchanged"];
+
+    public string ProductName
+    {
+        get => Project.Name;
+        set { if (!IsDesign || value == Project.Name) return; Project.Name = value; IsDirty = true; Refresh(); }
+    }
+
+    public string ApplicationId
+    {
+        get => Project.AppId;
+        set { if (!IsDesign || value == Project.AppId) return; Project.AppId = value; IsDirty = true; Refresh(); }
+    }
+
+    public string ApplicationVersion
+    {
+        get => Project.AppVersion;
+        set { if (!IsDesign || value == Project.AppVersion) return; Project.AppVersion = value; IsDirty = true; Refresh(); }
+    }
 
     public IReadOnlyList<ElementChoice> AllElements { get; }
     private readonly IReadOnlyList<ElementChoice> _baseElements;
@@ -212,7 +232,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
         }
     }
 
-    public void MarkSaved() { IsDirty = false; SetStatus("StatusSaved"); }
+    public void MarkSaved() { Project.WasMigrated = false; IsDirty = false; SetStatus("StatusSaved"); }
     public void SetStatus(string resourceKey) { _statusKey = resourceKey; Refresh(); }
     private void LanguageChanged(object? sender, PropertyChangedEventArgs e)
     {

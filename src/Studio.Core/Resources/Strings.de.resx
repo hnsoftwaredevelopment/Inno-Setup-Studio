@@ -100,5 +100,12 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="MissingProjectData" xml:space="preserve"><value>In diesem Projekt fehlen erforderliche Seiten oder Schaltflächeneinstellungen.</value></data>
   <data name="InvalidPage" xml:space="preserve"><value>Der Seiteninhalt ist für diese Version von Studio ungültig.</value></data>
   <data name="InvalidDirectory" xml:space="preserve"><value>Geben Sie einen Standardinstallationsordner in einer Zeile ein und prüfen Sie die Durchsuchen-Schaltfläche.</value></data>
+  <data name="ApplicationDetails" xml:space="preserve"><value>Anwendungsdaten</value></data>
+  <data name="ProductNameLabel" xml:space="preserve"><value>Produktname</value></data>
+  <data name="ApplicationIdLabel" xml:space="preserve"><value>Anwendungs-ID (AppId)</value></data>
+  <data name="ApplicationVersionLabel" xml:space="preserve"><value>Version</value></data>
+  <data name="ApplicationIdHint" xml:space="preserve"><value>Behalten Sie diese ID für neue Versionen derselben Anwendung bei. Ändern Sie sie nur für eine andere Anwendung. Maximal 127 Zeichen.</value></data>
+  <data name="ApplicationDetailsHint" xml:space="preserve"><value>Diese Angaben gelten für das gesamte Projekt. AppId bleibt bei einer neuen Version gleich. Eigene Assistententexte und der Installationspfad werden nicht automatisch angepasst.</value></data>
+  <data name="InvalidApplicationDetails" xml:space="preserve"><value>Geben Sie Produktname, Anwendungs-ID und Version jeweils in einer Zeile ein. Die Anwendungs-ID darf höchstens 127 Zeichen enthalten. Die Änderungen wurden nicht gespeichert.</value></data>
+  <data name="StatusMigrated" xml:space="preserve"><value>Altes Projekt geöffnet: Anwendungs-ID und Version ergänzt. Speichern Sie das neue Projektformat.</value></data>
 </root>
-

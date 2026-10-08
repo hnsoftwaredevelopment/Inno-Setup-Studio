@@ -35,6 +35,9 @@
                     <Button Content="{loc:Loc SaveAs}" Command="ApplicationCommands.SaveAs" Margin="0,0,8,0" />
                     <Button Content="{loc:Loc Save}" Command="ApplicationCommands.Save" Style="{StaticResource AccentButton}" ToolTip="{loc:Loc SaveTip}" />
                 </StackPanel>
+                <Expander Header="{loc:Loc ApplicationDetails}" Margin="0,12,0,0" AutomationProperties.Name="{loc:Loc ApplicationDetails}">
+                    <views:ApplicationDetails Margin="0,12,0,0" />
+                </Expander>
             </StackPanel>
         </Border>
         <Grid Grid.Row="1">

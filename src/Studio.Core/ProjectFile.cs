@@ -24,9 +24,26 @@ public static class ProjectFile
                 || !json.RootElement.TryGetProperty("Format", out _)
                 || !json.RootElement.TryGetProperty("Version", out _))
                 throw InvalidProject("NotStudioProject");
-            var project = json.RootElement.Deserialize<StudioProject>(Options);
+            var root = json.RootElement;
+            if (root.GetProperty("Version").ValueKind != JsonValueKind.Number
+                || !root.GetProperty("Version").TryGetInt32(out var version)
+                || version is not (1 or StudioProject.CurrentVersion))
+                throw InvalidProject("UnsupportedProject");
+            if (version == StudioProject.CurrentVersion
+                && (!root.TryGetProperty("AppId", out _) || !root.TryGetProperty("AppVersion", out _)))
+                throw InvalidProject("InvalidApplicationDetails");
+            var project = root.Deserialize<StudioProject>(Options)!;
+            if (version == 1)
+            {
+                // Derive identity from legacy content so reopening an unsaved migration is stable.
+                var hash = System.Security.Cryptography.SHA256.HashData(JsonSerializer.SerializeToUtf8Bytes(root));
+                project.AppId = new Guid(hash.AsSpan(0, 16)).ToString("B");
+                project.AppVersion = "1.0";
+                project.Version = StudioProject.CurrentVersion;
+                project.WasMigrated = true;
+            }
             Validate(project);
-            return project!;
+            return project;
         }
         catch (JsonException error)
         {
@@ -62,8 +79,11 @@ public static class ProjectFile
 
     private static void Validate(StudioProject? project)
     {
-        if (project is null || project.Format != StudioProject.FormatId || project.Version != 1)
+        if (project is null || project.Format != StudioProject.FormatId || project.Version != StudioProject.CurrentVersion)
             throw InvalidProject("UnsupportedProject");
+        if (!IsSingleLine(project.Name) || !IsSingleLine(project.AppId) || project.AppId.Length > 127
+            || !IsSingleLine(project.AppVersion))
+            throw InvalidProject("InvalidApplicationDetails");
         if (string.IsNullOrWhiteSpace(project.Name) || project.Buttons is null || project.Buttons.Count != 3
             || new[] { ElementKind.Back, ElementKind.Next, ElementKind.Cancel }.Any(k => !project.Buttons.ContainsKey(k))
             || project.Buttons.Values.Any(v => v is null)
@@ -83,4 +103,7 @@ public static class ProjectFile
                 throw InvalidProject("InvalidDirectory");
         }
     }
+
+    private static bool IsSingleLine(string? value) =>
+        !string.IsNullOrWhiteSpace(value) && !value.Any(char.IsControl);
 }

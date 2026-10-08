@@ -100,5 +100,12 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="MissingProjectData" xml:space="preserve"><value>Dit project mist de vereiste pagina’s of knopinstellingen.</value></data>
   <data name="InvalidPage" xml:space="preserve"><value>De pagina-inhoud is ongeldig voor deze versie van Studio.</value></data>
   <data name="InvalidDirectory" xml:space="preserve"><value>Vul een standaard installatiemap in op één regel en controleer de Bladeren-knop.</value></data>
+  <data name="ApplicationDetails" xml:space="preserve"><value>Applicatiegegevens</value></data>
+  <data name="ProductNameLabel" xml:space="preserve"><value>Productnaam</value></data>
+  <data name="ApplicationIdLabel" xml:space="preserve"><value>Applicatie-ID (AppId)</value></data>
+  <data name="ApplicationVersionLabel" xml:space="preserve"><value>Versie</value></data>
+  <data name="ApplicationIdHint" xml:space="preserve"><value>Behoud deze ID bij nieuwe versies van dezelfde applicatie. Wijzig haar alleen voor een andere applicatie. Maximaal 127 tekens.</value></data>
+  <data name="ApplicationDetailsHint" xml:space="preserve"><value>Deze gegevens gelden voor het hele project. AppId blijft gelijk bij een nieuwe versie. Eigen wizardteksten en het installatiepad worden niet automatisch aangepast.</value></data>
+  <data name="InvalidApplicationDetails" xml:space="preserve"><value>Vul productnaam, applicatie-ID en versie in op één regel. De applicatie-ID mag maximaal 127 tekens bevatten. De wijzigingen zijn niet opgeslagen.</value></data>
+  <data name="StatusMigrated" xml:space="preserve"><value>Oud project geopend: applicatie-ID en versie toegevoegd. Sla op om het nieuwe projectformaat te bewaren.</value></data>
 </root>
-
