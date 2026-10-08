@@ -17,6 +17,12 @@ public partial class MainWindow
     private BuildOutputWindow? _buildOutput;
     private readonly List<CompilerMessage> _buildMessages = [];
     private string _buildStateKey = "BuildNoMessages";
+    private readonly List<string> _additionalLanguageSources = [];
+    private void LanguageSources_Click(object sender, RoutedEventArgs e)
+    {
+        if (_busy) return;
+        new LanguageSourcesWindow(_compilerPath, _additionalLanguageSources) { Owner = this }.ShowDialog();
+    }
 
     private void UpdateCompilerState()
     {

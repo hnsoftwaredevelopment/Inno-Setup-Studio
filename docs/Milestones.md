@@ -39,7 +39,7 @@ Eindcriteria: export compileert met 7.1.0 binnen én buiten Studio; ontbrekende 
 
 Dit is het vroege controlepunt voor de technische haalbaarheid van de huidige preview. De eerste export gebruikt een expliciete taal die bij de huidige projectinhoud past; nieuwe Engelse beginwaarden en een volledige taalkeuze volgen in M02.
 
-M01 is als geheel door de gebruiker geaccepteerd na de eindproef van S06. De gebruiker heeft opdracht gegeven voor merge naar main en start van M02.
+M01 is als geheel door de gebruiker geaccepteerd na de eindproef van S06. M01 is gemerged en main gepusht als e14824e. M02 is gestart op m02-installertalen; S01 is na gebruikerscontrole geaccepteerd.
 
 ## M02 — m02-installertalen
 

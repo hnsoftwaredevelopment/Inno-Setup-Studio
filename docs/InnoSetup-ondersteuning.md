@@ -24,6 +24,8 @@ M01-S05 voegt een opgeslagen OutputBaseFilename, native JSONL-bouwmeldingen en a
 
 M01-S06 voegt exportbescherming en de lokale SVG-eindproef toe. Zelfstandige compilatie met 7.1.0 is geslaagd; de gebruiker heeft de eindproef afgerond en verse installatie/deïnstallatie binnen de M01-scope geaccepteerd. [Eindproef en beperkingen](slices/M01-S06-Eenvoudige-installer-afronden.md).
 
+M02-S01 leest de taalbronnen bij ISCC 7.1.0 en aanvullende zelfstandige .isl-bestanden. Alle lokale compilerbronnen zijn ingelezen zonder wijziging; de broninspectie en aangepaste taallijst zijn door de gebruiker geaccepteerd. Alleen broninspectie is gebouwd; projecttalen, vertalingen en previewkeuze blijven gepland. [Detailregistratie](slices/M02-S01-Beschikbare-taalbronnen.md).
+
 ## Functionele dekking
 
 V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële scripting. De aangegeven bediening is beoogd, niet allemaal al gerealiseerd.

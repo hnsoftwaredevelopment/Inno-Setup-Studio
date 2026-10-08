@@ -62,6 +62,7 @@
                             <Button Content="{loc:Loc BuildInstaller}" Click="Build_Click" IsEnabled="{Binding IsDesign}" Margin="0,0,8,0" />
                             <Button x:Name="OpenBuildFolder" Content="{loc:Loc OpenBuildFolder}" Click="OpenBuildFolder_Click" IsEnabled="False" />
                             <Button Content="{loc:Loc BuildMessages}" Click="BuildMessages_Click" Margin="8,0,0,0" />
+                            <Button Content="{loc:Loc LanguageSources}" Click="LanguageSources_Click" Margin="8,0,0,0" />
                         </WrapPanel>
                         <TextBox x:Name="BuildResult" IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0" Margin="0,6,0,0" />
                     </StackPanel>

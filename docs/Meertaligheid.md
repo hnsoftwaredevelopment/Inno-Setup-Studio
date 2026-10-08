@@ -65,3 +65,7 @@ Standaard Windows-onderdelen van bestands- en mapdialogen en knoppen van Windows
 Tests controleren de drie talen, volledige resourcegroepen, terugval, instellingsopslag, vertaalbare validatiefouten en taalwissels tijdens bewerken en uitproberen. Het geserialiseerde installerproject moet daarbij exact gelijk blijven en de bestaande wijzigingsstatus en selectie moeten behouden blijven.
 
 Tijdens visuele controle is een herhaalde selectienotificatie gevonden die een stack overflow kon veroorzaken. De selectie negeert nu ongewijzigde waarden en de elementenlijsten zijn stabiel. Een regressietest controleert de terugkoppeling van bindings.
+
+## Start van M02
+
+M02-S01 voegt een alleen-lezen overzicht van Inno Setup-taalbronnen toe. Dat staat los van Studio-resx en verandert nog geen project- of previewtaal. [Bronoverzicht, grenzen en teststappen](slices/M02-S01-Beschikbare-taalbronnen.md). Projecttalen en de aparte Voorbeeldtaal volgen in M02-S02.

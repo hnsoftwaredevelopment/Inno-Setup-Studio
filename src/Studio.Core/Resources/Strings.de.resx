@@ -153,4 +153,58 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="CompilerWarning" xml:space="preserve"><value>Warnung</value></data>
   <data name="CompilerError" xml:space="preserve"><value>Fehler</value></data>
   <data name="ExportExistingProtected" xml:space="preserve"><value>Diese .iss-Datei weicht vom aktuellen Export ab und bleibt erhalten. Wählen Sie einen neuen Dateinamen für den Export.</value></data>
+  <data name="LanguageSources" xml:space="preserve"><value>Installer-Sprachquellen</value></data>
+  <data name="AddLanguageSource" xml:space="preserve"><value>Sprachdatei hinzufügen…</value></data>
+  <data name="ReloadLanguageSources" xml:space="preserve"><value>Neu einlesen</value></data>
+  <data name="LanguageSourcesScope" xml:space="preserve"><value>Nur Quellenübersicht. Projekt- und Vorschausprachen werden im nächsten Schritt auswählbar. Quelldateien werden nicht geändert.</value></data>
+  <data name="LanguageSourcePath" xml:space="preserve"><value>Pfad der Sprachdatei</value></data>
+  <data name="LanguageSourceEntries" xml:space="preserve"><value>Spracheinstellungen und Texte</value></data>
+  <data name="LanguageSourceSection" xml:space="preserve"><value>Abschnitt</value></data>
+  <data name="LanguageSourceKey" xml:space="preserve"><value>Schlüssel</value></data>
+  <data name="LanguageSourceValue" xml:space="preserve"><value>Wert</value></data>
+  <data name="LanguageSourceProblems" xml:space="preserve"><value>Quellenmeldungen</value></data>
+  <data name="LanguageSourcesLoading" xml:space="preserve"><value>Sprachdateien werden eingelesen…</value></data>
+  <data name="LanguageSourcesLoaded" xml:space="preserve"><value>{0} Sprachquellen eingelesen. Keine Quellenprobleme gefunden.</value></data>
+  <data name="LanguageSourceDetails" xml:space="preserve"><value>LanguageID: ${0} · Rechts nach links: {1} · Messages: {2} · CustomMessages: {3}</value></data>
+  <data name="LanguageSourceYes" xml:space="preserve"><value>Ja</value></data>
+  <data name="LanguageSourceNo" xml:space="preserve"><value>Nein</value></data>
+  <data name="LanguageSourceTooLarge" xml:space="preserve"><value>Die Sprachdatei überschreitet das unterstützte Limit von 1 MB.</value></data>
+  <data name="LanguageSourceInvalid" xml:space="preserve"><value>Dies ist keine unterstützte eigenständige Sprachquelle. Prüfen Sie LangOptions, LanguageName, LanguageID und Messages.</value></data>
+  <data name="LanguageSourceEncoding" xml:space="preserve"><value>Verwenden Sie UTF-8 oder eine ältere Sprachquelle mit einer expliziten unterstützten LanguageCodePage.</value></data>
+  <data name="LanguageSourceScriptUnsupported" xml:space="preserve"><value>Sprachquellen mit Präprozessorcode werden noch nicht unterstützt. Studio führt diesen Code nicht aus.</value></data>
+  <data name="LanguageSourceMissing" xml:space="preserve"><value>Die Sprachdatei oder der Sprachenordner fehlt.</value></data>
+  <data name="LanguageSourceUnreadable" xml:space="preserve"><value>Die Sprachdatei oder der Sprachenordner kann nicht gelesen werden.</value></data>
+  <data name="InstallerLanguageName_0409" xml:space="preserve"><value>Englisch</value></data>
+  <data name="InstallerLanguageName_0401" xml:space="preserve"><value>Arabisch</value></data>
+  <data name="InstallerLanguageName_042B" xml:space="preserve"><value>Armenisch</value></data>
+  <data name="InstallerLanguageName_0416" xml:space="preserve"><value>Portugiesisch (Brasilien)</value></data>
+  <data name="InstallerLanguageName_0402" xml:space="preserve"><value>Bulgarisch</value></data>
+  <data name="InstallerLanguageName_0403" xml:space="preserve"><value>Katalanisch</value></data>
+  <data name="InstallerLanguageName_0804" xml:space="preserve"><value>Chinesisch (vereinfacht)</value></data>
+  <data name="InstallerLanguageName_0404" xml:space="preserve"><value>Chinesisch (traditionell)</value></data>
+  <data name="InstallerLanguageName_0483" xml:space="preserve"><value>Korsisch</value></data>
+  <data name="InstallerLanguageName_0405" xml:space="preserve"><value>Tschechisch</value></data>
+  <data name="InstallerLanguageName_0406" xml:space="preserve"><value>Dänisch</value></data>
+  <data name="InstallerLanguageName_0413" xml:space="preserve"><value>Niederländisch</value></data>
+  <data name="InstallerLanguageName_040B" xml:space="preserve"><value>Finnisch</value></data>
+  <data name="InstallerLanguageName_040C" xml:space="preserve"><value>Französisch</value></data>
+  <data name="InstallerLanguageName_0407" xml:space="preserve"><value>Deutsch</value></data>
+  <data name="InstallerLanguageName_040D" xml:space="preserve"><value>Hebräisch</value></data>
+  <data name="InstallerLanguageName_040E" xml:space="preserve"><value>Ungarisch</value></data>
+  <data name="InstallerLanguageName_0410" xml:space="preserve"><value>Italienisch</value></data>
+  <data name="InstallerLanguageName_0411" xml:space="preserve"><value>Japanisch</value></data>
+  <data name="InstallerLanguageName_0412" xml:space="preserve"><value>Koreanisch</value></data>
+  <data name="InstallerLanguageName_0427" xml:space="preserve"><value>Litauisch</value></data>
+  <data name="InstallerLanguageName_0414" xml:space="preserve"><value>Norwegisch (Bokmål)</value></data>
+  <data name="InstallerLanguageName_0415" xml:space="preserve"><value>Polnisch</value></data>
+  <data name="InstallerLanguageName_0816" xml:space="preserve"><value>Portugiesisch (Portugal)</value></data>
+  <data name="InstallerLanguageName_0419" xml:space="preserve"><value>Russisch</value></data>
+  <data name="InstallerLanguageName_041B" xml:space="preserve"><value>Slowakisch</value></data>
+  <data name="InstallerLanguageName_0424" xml:space="preserve"><value>Slowenisch</value></data>
+  <data name="InstallerLanguageName_0C0A" xml:space="preserve"><value>Spanisch</value></data>
+  <data name="InstallerLanguageName_041D" xml:space="preserve"><value>Schwedisch</value></data>
+  <data name="InstallerLanguageName_0449" xml:space="preserve"><value>Tamil</value></data>
+  <data name="InstallerLanguageName_041E" xml:space="preserve"><value>Thailändisch</value></data>
+  <data name="InstallerLanguageName_041F" xml:space="preserve"><value>Türkisch</value></data>
+  <data name="InstallerLanguageName_0422" xml:space="preserve"><value>Ukrainisch</value></data>
 </root>

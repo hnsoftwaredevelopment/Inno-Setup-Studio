@@ -50,7 +50,7 @@ Bestandsgroepen: Core/taalbronnen/project/migratie; App/talen/preview/eigenschap
 
 | Acceptatie | Slice / resultaat | Toetsbare criteria | Controle / afhankelijk |
 |---|---|---|---|
-| [ ] | M02-S01 Beschikbare taalbronnen | Default.isl en gevonden taalbestanden worden ingelezen zonder wijziging; extra isl kan worden gekozen; ontbrekende/ongeldige bron geeft uitleg. | B/T/U; M01 |
+| [x] | M02-S01 Beschikbare taalbronnen | Default.isl en gevonden taalbestanden worden ingelezen zonder wijziging; extra isl kan worden gekozen; ontbrekende/ongeldige bron geeft uitleg. | B/T/U; M01 |
 | [ ] | M02-S02 Projecttalen en previewkeuze | Ingeschakelde talen en volgorde worden bewaard; nieuwe projecten beginnen Engels en oude Nederlandse waarden blijven Nederlands; Voorbeeldtaal staat los van Studio-taal. | B/T/U; S01 |
 | [ ] | M02-S03 Eigen teksten per taal | Standaard, gedeeld en lokaal hebben zichtbare herkomst; herstellen verwijdert de juiste afwijking; lege/ontbrekende eigen vertalingen volgen de vooraf vastgelegde terugvalregel. | B/T/U; S02 |
 | [ ] | M02-S04 Vertaaloverzicht | Meerdere projecttalen zijn naast elkaar te bewerken; placeholders en ontbrekende teksten worden gemeld; taal uitschakelen/verwijderen verliest geen tekst ongemerkt. | B/T/U; S03 |
@@ -158,8 +158,12 @@ M01-S04 is op verzoek geïmplementeerd: compiler ontdekken/kiezen, 7.1-versiecon
 
 M01-S05 is op verzoek geïmplementeerd: live bouwmeldingen, annuleren, native waarschuwingen/fouten en opgeslagen uitvoernaam (formaat 4). Release-build geslaagd; 106 tests geslaagd, inclusief vijf echte compilatietests met ISCC 7.1.0. [Scope en testinstructies](../docs/slices/M01-S05-Bouwmeldingen-en-annuleren.md). De gebruiker heeft de handmatige tests uitgevoerd en deze slice geaccepteerd. De geaccepteerde stand is gepubliceerd als commit ee2eb8f.
 
-M01-S06 is op verzoek geïmplementeerd: expliciete bescherming van afwijkende exports en een lokale SVG-eindproef met afzonderlijke identiteit. Release-build zonder fouten/waarschuwingen; 108 tests geslaagd, inclusief zelfstandige SVG-compilatie. [Teststappen en afbakening](../docs/slices/M01-S06-Eenvoudige-installer-afronden.md). De gebruiker heeft alle tests afgerond, S06 en de gehele M01-milestone geaccepteerd en opdracht gegeven voor merge en start van M02.
+M01-S06 is op verzoek geïmplementeerd: expliciete bescherming van afwijkende exports en een lokale SVG-eindproef met afzonderlijke identiteit. Release-build zonder fouten/waarschuwingen; 108 tests geslaagd, inclusief zelfstandige SVG-compilatie. [Teststappen en afbakening](../docs/slices/M01-S06-Eenvoudige-installer-afronden.md). De gebruiker heeft alle tests afgerond en S06 en de gehele M01-milestone geaccepteerd. S06 is gepubliceerd als 6c84951; M01 is gemerged en main gepusht als e14824e.
+
+M02-S01 is op verzoek geïmplementeerd op m02-installertalen: beschikbare taalbronnen lezen, inspecteren en aanvullende .isl kiezen. Release-build zonder fouten/waarschuwingen; 117 tests geslaagd. Alle geïnstalleerde taalbronnen zijn gelezen en hun hashes blijven gelijk. [Scope en testinstructies](../docs/slices/M02-S01-Beschikbare-taalbronnen.md). De gebruiker heeft de slice geaccepteerd, inclusief vertaalde namen, alfabetische sortering en herkenning van identieke kopieën. Na die aanpassingen slaagden 27 gerichte tests en de Release-build. S02 volgt na opdracht.
 
 ## Genoteerd voor latere uitwerking
 
 Bij M02-S03 (eigen teksten per taal): onderzoek verwijzingen in titel- en bodyteksten naar algemene projectgegevens, bijvoorbeeld de productnaam/AppName. Doel: een naamwijziging hoeft niet handmatig in iedere tekst herhaald te worden. De productnaam is al instelbaar onder Applicatiegegevens; tekstverwijzingen zijn nog niet geïmplementeerd. De gebruikerssuggestie verandert de volgorde van de geaccepteerde slices niet. Syntax, toegestane verwijzingen en de reguliere Inno Setup-vertaling worden in die slice vastgesteld; {AppName} is nu geen ondersteunde tekstexpressie.
+
+Voor de latere gebruikersdocumentatie (M09-S04): beschrijf eigen .isl-bronnen, LanguageName, de officiële LanguageID of 0 wanneer geen ID bestaat, UTF-8 en LanguageCodePage=0, en het onderscheid tussen een bron toevoegen en een installertaal inschakelen. Vermeld dat een numeriek toegestane ID niet automatisch een geldige Windows-taal-ID is en dat gedeeltelijke overridebestanden nu geen zelfstandige catalogustaal zijn. De gebruiker heeft verzocht deze uitleg later uit te werken.

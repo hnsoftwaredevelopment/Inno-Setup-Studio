@@ -153,4 +153,58 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="CompilerWarning" xml:space="preserve"><value>Waarschuwing</value></data>
   <data name="CompilerError" xml:space="preserve"><value>Fout</value></data>
   <data name="ExportExistingProtected" xml:space="preserve"><value>Dit .iss-bestand wijkt af van de huidige export en blijft behouden. Kies een nieuwe bestandsnaam om het project te exporteren.</value></data>
+  <data name="LanguageSources" xml:space="preserve"><value>Installertaalbronnen</value></data>
+  <data name="AddLanguageSource" xml:space="preserve"><value>Taalbestand toevoegen…</value></data>
+  <data name="ReloadLanguageSources" xml:space="preserve"><value>Opnieuw inlezen</value></data>
+  <data name="LanguageSourcesScope" xml:space="preserve"><value>Alleen bronoverzicht. Talen voor het project en de preview kiezen volgt in de volgende slice. Bronbestanden worden niet gewijzigd.</value></data>
+  <data name="LanguageSourcePath" xml:space="preserve"><value>Pad taalbestand</value></data>
+  <data name="LanguageSourceEntries" xml:space="preserve"><value>Taalinstellingen en teksten</value></data>
+  <data name="LanguageSourceSection" xml:space="preserve"><value>Sectie</value></data>
+  <data name="LanguageSourceKey" xml:space="preserve"><value>Sleutel</value></data>
+  <data name="LanguageSourceValue" xml:space="preserve"><value>Waarde</value></data>
+  <data name="LanguageSourceProblems" xml:space="preserve"><value>Bronmeldingen</value></data>
+  <data name="LanguageSourcesLoading" xml:space="preserve"><value>Taalbestanden worden ingelezen…</value></data>
+  <data name="LanguageSourcesLoaded" xml:space="preserve"><value>{0} taalbronnen ingelezen. Geen bronproblemen gevonden.</value></data>
+  <data name="LanguageSourceDetails" xml:space="preserve"><value>LanguageID: ${0} · Rechts-naar-links: {1} · Messages: {2} · CustomMessages: {3}</value></data>
+  <data name="LanguageSourceYes" xml:space="preserve"><value>Ja</value></data>
+  <data name="LanguageSourceNo" xml:space="preserve"><value>Nee</value></data>
+  <data name="LanguageSourceTooLarge" xml:space="preserve"><value>Het taalbestand is groter dan de ondersteunde 1 MB.</value></data>
+  <data name="LanguageSourceInvalid" xml:space="preserve"><value>Dit is geen ondersteunde zelfstandige taalbron. Controleer LangOptions, LanguageName, LanguageID en Messages.</value></data>
+  <data name="LanguageSourceEncoding" xml:space="preserve"><value>Gebruik UTF-8 of een oudere taalbron met een expliciete ondersteunde LanguageCodePage.</value></data>
+  <data name="LanguageSourceScriptUnsupported" xml:space="preserve"><value>Taalbronnen met preprocessorcode zijn nog niet ondersteund. Studio voert die code niet uit.</value></data>
+  <data name="LanguageSourceMissing" xml:space="preserve"><value>Het taalbestand of de talenmap ontbreekt.</value></data>
+  <data name="LanguageSourceUnreadable" xml:space="preserve"><value>Het taalbestand of de talenmap kan niet worden gelezen.</value></data>
+  <data name="InstallerLanguageName_0409" xml:space="preserve"><value>Engels</value></data>
+  <data name="InstallerLanguageName_0401" xml:space="preserve"><value>Arabisch</value></data>
+  <data name="InstallerLanguageName_042B" xml:space="preserve"><value>Armeens</value></data>
+  <data name="InstallerLanguageName_0416" xml:space="preserve"><value>Portugees (Brazilië)</value></data>
+  <data name="InstallerLanguageName_0402" xml:space="preserve"><value>Bulgaars</value></data>
+  <data name="InstallerLanguageName_0403" xml:space="preserve"><value>Catalaans</value></data>
+  <data name="InstallerLanguageName_0804" xml:space="preserve"><value>Chinees (vereenvoudigd)</value></data>
+  <data name="InstallerLanguageName_0404" xml:space="preserve"><value>Chinees (traditioneel)</value></data>
+  <data name="InstallerLanguageName_0483" xml:space="preserve"><value>Corsicaans</value></data>
+  <data name="InstallerLanguageName_0405" xml:space="preserve"><value>Tsjechisch</value></data>
+  <data name="InstallerLanguageName_0406" xml:space="preserve"><value>Deens</value></data>
+  <data name="InstallerLanguageName_0413" xml:space="preserve"><value>Nederlands</value></data>
+  <data name="InstallerLanguageName_040B" xml:space="preserve"><value>Fins</value></data>
+  <data name="InstallerLanguageName_040C" xml:space="preserve"><value>Frans</value></data>
+  <data name="InstallerLanguageName_0407" xml:space="preserve"><value>Duits</value></data>
+  <data name="InstallerLanguageName_040D" xml:space="preserve"><value>Hebreeuws</value></data>
+  <data name="InstallerLanguageName_040E" xml:space="preserve"><value>Hongaars</value></data>
+  <data name="InstallerLanguageName_0410" xml:space="preserve"><value>Italiaans</value></data>
+  <data name="InstallerLanguageName_0411" xml:space="preserve"><value>Japans</value></data>
+  <data name="InstallerLanguageName_0412" xml:space="preserve"><value>Koreaans</value></data>
+  <data name="InstallerLanguageName_0427" xml:space="preserve"><value>Litouws</value></data>
+  <data name="InstallerLanguageName_0414" xml:space="preserve"><value>Noors (Bokmål)</value></data>
+  <data name="InstallerLanguageName_0415" xml:space="preserve"><value>Pools</value></data>
+  <data name="InstallerLanguageName_0816" xml:space="preserve"><value>Portugees (Portugal)</value></data>
+  <data name="InstallerLanguageName_0419" xml:space="preserve"><value>Russisch</value></data>
+  <data name="InstallerLanguageName_041B" xml:space="preserve"><value>Slowaaks</value></data>
+  <data name="InstallerLanguageName_0424" xml:space="preserve"><value>Sloveens</value></data>
+  <data name="InstallerLanguageName_0C0A" xml:space="preserve"><value>Spaans</value></data>
+  <data name="InstallerLanguageName_041D" xml:space="preserve"><value>Zweeds</value></data>
+  <data name="InstallerLanguageName_0449" xml:space="preserve"><value>Tamil</value></data>
+  <data name="InstallerLanguageName_041E" xml:space="preserve"><value>Thais</value></data>
+  <data name="InstallerLanguageName_041F" xml:space="preserve"><value>Turks</value></data>
+  <data name="InstallerLanguageName_0422" xml:space="preserve"><value>Oekraïens</value></data>
 </root>
