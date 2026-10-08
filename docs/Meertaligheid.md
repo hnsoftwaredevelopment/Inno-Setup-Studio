@@ -1,5 +1,7 @@
 # Meertaligheid van Studio
 
+Dit document beschrijft de huidige Studio-implementatie. De toekomstige installertalen en aparte Voorbeeldtaal zijn gespecificeerd in [Productspecificatie, FR-08](Productspecificatie.md#11-studio-taal-en-installertalen--fr-08) en gepland in [M02](Milestones.md#m02--m02-installertalen). Ze zijn nog niet gebouwd.
+
 ## Twee onafhankelijke talen
 
 De Studio-taal bepaalt navigatie, eigenschappen, toelichtingen, meldingen en door Studio ingestelde dialoogtitels. Beschikbaar zijn Nederlands (`nl`), Engels (`en`) en Duits (`de`). Nederlands is de standaard en terugvaltaal.
