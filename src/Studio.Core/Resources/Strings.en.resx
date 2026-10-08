@@ -113,7 +113,7 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="ChooseSourceFile" xml:space="preserve"><value>Choose file…</value></data>
   <data name="FileDestinationLabel" xml:space="preserve"><value>Destination folder for this file</value></data>
   <data name="InstallFileHint" xml:space="preserve"><value>One local file; wildcards are not supported yet. Relative source paths use the project folder. Destination: {app} or, for example, {app}\Data.</value></data>
-  <data name="ExportScopeHint" xml:space="preserve"><value>The export includes application details, the default installation folder and one file. The installer is currently Dutch; custom wizard text follows in the next slice.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>The export includes application details, one file and the Welcome and Destination texts, including button overrides and the Browse tooltip. The installer is currently Dutch. Inno Setup determines the layout and remaining steps.</value></data>
   <data name="ExportScript" xml:space="preserve"><value>Export .iss</value></data>
   <data name="SourceFileFilter" xml:space="preserve"><value>All files (*.*)|*.*</value></data>
   <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup script (*.iss)|*.iss</value></data>

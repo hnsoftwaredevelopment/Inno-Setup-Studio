@@ -46,7 +46,7 @@ public class InnoCompilerTests
 
     [InnoCompilerFact]
     [Trait("Category", "InnoCompiler")]
-    public async Task ExportCompilesOutsideStudioWithUnicodeQuotesSemicolonBracesAndGuidIdentity()
+    public async Task ExportCompilesOutsideStudioWithSpecialCharactersAndCustomWizardText()
     {
         var folder = Path.Combine(Path.GetTempPath(), "Studio-compiler-" + Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(folder);
@@ -59,6 +59,14 @@ public class InnoCompilerTests
             project.AppVersion = "2026.10-beta";
             project.InstallFile.Source = source;
             project.InstallFile.Destination = @"{app}\Données; 2026";
+            project.Pages[0].Title = "Welkom O'Brien — {edition}";
+            project.Pages[0].Body = "Eerste regel\r\nTweede regel\n{#1+1} 50% [name] 'tekst'; end;";
+            project.Pages[0].ButtonOverrides[ElementKind.Next] = "&Start >";
+            project.Pages[1].Title = "Données: kies een map";
+            project.Pages[1].Body = "Regel één\nRegel twee";
+            project.Pages[1].ButtonOverrides[ElementKind.Cancel] = "Stop";
+            project.Pages[1].Destination!.BrowseCaption = "&Kiezen...";
+            project.Pages[1].Destination!.BrowseTooltip = "# Kies O'Brien {#1+1}\nEen andere map";
             var exportDirectory = Directory.CreateDirectory(Path.Combine(folder, "export elsewhere")).FullName;
             var script = Path.Combine(exportDirectory, "test.iss");
             await InnoScript.ExportAsync(script, project, folder);

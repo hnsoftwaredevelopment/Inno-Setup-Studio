@@ -14,7 +14,9 @@ De matrix maakt onderscheid tussen een Studio-functie en bewezen installeronders
 | Runtime gecontroleerd | Relevante werking in echte installer door gebruiker gecontroleerd |
 | Uitgesloten | Buiten afgesproken productgrens |
 
-M01-S02 bevat de eerste scriptgenerator. Applicatiegegevens, het standaardpad, een vaste Nederlandse taalbron en één lokale bestandsregel zijn met ISCC 7.1.0 gecompileerd en door de gebruiker getest en geaccepteerd. De gemelde waarschuwing over setup.exe is vastgelegd; nog geen installerfunctie is Runtime gecontroleerd. Zie [detailregistratie en bewijs](slices/M01-S02-Bestandsregel-en-export.md).
+M01-S02 bevat de eerste scriptgenerator. Applicatiegegevens, het standaardpad, een vaste Nederlandse taalbron en één lokale bestandsregel zijn met ISCC 7.1.0 gecompileerd en door de gebruiker getest en geaccepteerd. De gemelde waarschuwing over setup.exe is vastgelegd; runtimebewijs voor de huidige wizardteksten is vastgelegd bij M01-S03. Zie [detailregistratie en bewijs](slices/M01-S02-Bestandsregel-en-export.md).
+
+M01-S03 voegt native tekstexport voor Welkom en Installatiemap toe, met gedeelde en lokale knopteksten en Bladeren-tooltip. Deze eigenschappen zijn Runtime gecontroleerd: de gebruiker heeft Studio en de gecompileerde, uitgevoerde installer getest en M01-S03 geaccepteerd. Zie [propertycatalogus, bereik en grenzen](slices/M01-S03-Wizardontwerp-export.md).
 
 ## Functionele dekking
 
@@ -43,7 +45,7 @@ V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële sc
 | Taalgedrag en lettertypen | V, G | [LangOptions](https://jrsoftware.org/ishelp/topic_langoptionssection.htm) | M02, M07 | Gepland |
 | Standaardwizard en zichtbaarheid | V | [Wizard Pages](https://jrsoftware.org/ishelp/topic_wizardpages.htm) | M03, M04, M05 | Studio-basis voor twee pagina's |
 | Stijlen en wizardafbeeldingen | V, G | [WizardStyle](https://jrsoftware.org/ishelp/topic_setup_wizardstyle.htm) | M06 | Gepland |
-| Pagina-afwijkingen via native eigenschappen | V, S | [Support Classes](https://jrsoftware.org/ishelp/topic_scriptclasses.htm), [Event Functions](https://jrsoftware.org/ishelp/topic_scriptevents.htm) | M01, M03, M06 | Studio-basis; per eigenschap bewijs nodig |
+| Pagina-afwijkingen via native eigenschappen | V, S | [Support Classes](https://jrsoftware.org/ishelp/topic_scriptclasses.htm), [Event Functions](https://jrsoftware.org/ishelp/topic_scriptevents.htm) | M01, M03, M06 | Runtime gecontroleerd voor de teksten van Welkom en Installatiemap; zie M01-S03 |
 | Eigen standaardinvoerpagina's | V, S | [Custom Wizard Pages](https://jrsoftware.org/ishelp/topic_scriptpages.htm) | M08 | Gepland |
 | Native bestandsdownload en archiefextractie | G | [Files-opties](https://jrsoftware.org/ishelp/topic_filessection.htm) | M07 | Gepland |
 | Publieke verificatiesleutels | G | [ISSigKeys](https://jrsoftware.org/ishelp/topic_issigkeyssection.htm) | M07 | Gepland |

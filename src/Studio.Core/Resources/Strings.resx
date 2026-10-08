@@ -113,7 +113,7 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="ChooseSourceFile" xml:space="preserve"><value>Bestand kiezen…</value></data>
   <data name="FileDestinationLabel" xml:space="preserve"><value>Doelmap voor dit bestand</value></data>
   <data name="InstallFileHint" xml:space="preserve"><value>Eén lokaal bestand; nog geen wildcards. Relatieve bronpaden zijn gebaseerd op de projectmap. Doel: {app} of bijvoorbeeld {app}\Data.</value></data>
-  <data name="ExportScopeHint" xml:space="preserve"><value>De export bevat applicatiegegevens, het standaard installatiepad en één bestand. De installer is voorlopig Nederlands; eigen wizardteksten volgen in de volgende slice.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>De export bevat applicatiegegevens, één bestand en de teksten van Welkom en Installatiemap, inclusief knopafwijkingen en Bladeren-tooltip. De installer is voorlopig Nederlands. Inno Setup bepaalt de indeling en de overige stappen.</value></data>
   <data name="ExportScript" xml:space="preserve"><value>Exporteer .iss</value></data>
   <data name="SourceFileFilter" xml:space="preserve"><value>Alle bestanden (*.*)|*.*</value></data>
   <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup-script (*.iss)|*.iss</value></data>

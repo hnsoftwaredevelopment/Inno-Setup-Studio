@@ -1,6 +1,6 @@
 # Slices — Inno Setup Studio
 
-Status: planning geaccepteerd op 8 oktober 2026. Een vinkje betekent geaccepteerd, niet alleen geschreven of gebouwd. M00, M01-S01 en M01-S02 zijn geaccepteerd.
+Status: planning geaccepteerd op 8 oktober 2026. Een vinkje betekent geaccepteerd, niet alleen geschreven of gebouwd. M00, M01-S01, M01-S02 en M01-S03 zijn geaccepteerd.
 
 Milestoneresultaten en FR-koppelingen: [Milestones](../docs/Milestones.md). Werkwijze en controles: [Werkwijze](../docs/Werkwijze.md). Voortgang van de proefversie: [Historie](../docs/historie/Proefversie.md).
 
@@ -31,7 +31,7 @@ Bestandsgroepen: Core/project/opslag; App/projecteigenschappen; generator/compil
 |---|---|---|---|
 | [x] | M01-S01 Applicatiegegevens | Productnaam, AppId en versie zijn bewerkbaar en bewaard; proefprojecten openen zonder gegevensverlies; AppId blijft stabiel. | B/T/U; M00 |
 | [x] | M01-S02 Eerste bestandsregel en export | Een lokale bron en doelmap zijn instelbaar; .iss bevat juiste metadata en bestandsregel; export compileert buiten Studio en meldt ontbrekende bron. | B/T/C/U; S01 |
-| [ ] | M01-S03 Huidig ontwerp exporteren | Twee huidige pagina's en standaardpad worden correct vertaald; gedeelde en lokale tekstafwijkingen werken of worden aantoonbaar begrensd; knoprollen blijven correct. | B/T/C/I; S02 |
+| [x] | M01-S03 Huidig ontwerp exporteren | Twee huidige pagina's en standaardpad worden correct vertaald; gedeelde en lokale tekstafwijkingen werken of worden aantoonbaar begrensd; knoprollen blijven correct. | B/T/C/I; S02 |
 | [ ] | M01-S04 Compiler kiezen en bouwen | Ontdekken/handmatig kiezen en versiecontrole werken; Bouw compileert een herkenbare projectstand; de resulterende uitvoer is vindbaar. | B/T/C/U; S03 |
 | [ ] | M01-S05 Bouwmeldingen en annuleren | Fouten/waarschuwingen zijn zichtbaar; annuleren stopt gecontroleerd; een mislukte build presenteert geen oud bestand als nieuw resultaat. | B/T/C/U; S04 |
 | [ ] | M01-S06 Eenvoudige installer afronden | Uitvoer wordt niet ongemerkt overschreven bij handmatige wijzigingen; dezelfde export werkt buiten Studio; gebruiker controleert verse installatie en deïnstallatie. | B/T/C/I, milestonecheck; S05 |
@@ -40,7 +40,7 @@ M01-S03 onderzoekt juist de bestaande previewbeloften. Als een property niet reg
 
 M01-S01 is geaccepteerd en gepubliceerd als commit 5d7be9c op m01-eerste-installer. Bij oplevering slaagden 45 tests en de Release-build. [Testinstructies en formaatmigratie](../docs/slices/M01-S01-Applicatiegegevens.md).
 
-M01-S02 is geïmplementeerd: 72 tests geslaagd, waaronder twee compilatieproeven met ISCC 7.1.0, en een Release-build zonder fouten of waarschuwingen. De gebruiker heeft alle controles uitgevoerd en op 8 oktober 2026 akkoord gegeven. [Resultaat en gebruikerscontrole](../docs/slices/M01-S02-Bestandsregel-en-export.md). De geaccepteerde stand wordt gepubliceerd.
+M01-S02 is geïmplementeerd: 72 tests geslaagd, waaronder twee compilatieproeven met ISCC 7.1.0, en een Release-build zonder fouten of waarschuwingen. De gebruiker heeft alle controles uitgevoerd en op 8 oktober 2026 akkoord gegeven. [Resultaat en gebruikerscontrole](../docs/slices/M01-S02-Bestandsregel-en-export.md). De geaccepteerde stand is gepubliceerd als commit 71f21cf.
 
 Open vervolg bij M01-S04/S05: maak de installeruitvoernaam instelbaar met een standaard anders dan setup.exe; waarschuw bij keuze van setup.exe en toon de bijbehorende oorspronkelijke compilerwaarschuwing. Deze waarschuwing is door de gebruiker bij S02 gemeld en bewust uitgesteld tot de naaminstelling.
 
@@ -152,6 +152,10 @@ Bestandsgroepen: Core/geschiedenis/migraties; App/toegankelijkheid/status; tests
 
 ## Actuele volgende handeling
 
-De geaccepteerde M01-S02 wordt gecommit en gepusht op m01-eerste-installer. De volgende implementatieslice is M01-S03: export van het huidige wizardontwerp. M01 wordt pas na acceptatie van alle slices gemerged.
+M01-S03 is geïmplementeerd op m01-eerste-installer: Release-build geslaagd en 75 tests geslaagd, inclusief twee ISCC 7.1.0-compilatieproeven. [Native vertaling, beperkingen en gebruikerscontrole](../docs/slices/M01-S03-Wizardontwerp-export.md). De gebruiker heeft Studio getest, de export gecompileerd en uitgevoerd en op 8 oktober 2026 akkoord gegeven. Deze geaccepteerde slice wordt gepubliceerd. M01 wordt pas na acceptatie van alle slices gemerged.
 
-De gebruiker heeft opdracht gegeven om met de eerste slice te beginnen.
+Volgende slice: M01-S04, compiler kiezen en bouwen. Begin daarmee na opdracht van de gebruiker.
+
+## Genoteerd voor latere uitwerking
+
+Bij M02-S03 (eigen teksten per taal): onderzoek verwijzingen in titel- en bodyteksten naar algemene projectgegevens, bijvoorbeeld de productnaam/AppName. Doel: een naamwijziging hoeft niet handmatig in iedere tekst herhaald te worden. De productnaam is al instelbaar onder Applicatiegegevens; tekstverwijzingen zijn nog niet geïmplementeerd. De gebruikerssuggestie verandert de volgorde van de geaccepteerde slices niet. Syntax, toegestane verwijzingen en de reguliere Inno Setup-vertaling worden in die slice vastgesteld; {AppName} is nu geen ondersteunde tekstexpressie.

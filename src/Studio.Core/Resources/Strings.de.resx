@@ -113,7 +113,7 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="ChooseSourceFile" xml:space="preserve"><value>Datei auswählen…</value></data>
   <data name="FileDestinationLabel" xml:space="preserve"><value>Zielordner für diese Datei</value></data>
   <data name="InstallFileHint" xml:space="preserve"><value>Eine lokale Datei; Platzhalter werden noch nicht unterstützt. Relative Quellpfade beziehen sich auf den Projektordner. Ziel: {app} oder beispielsweise {app}\Data.</value></data>
-  <data name="ExportScopeHint" xml:space="preserve"><value>Der Export enthält Anwendungsdaten, den Standardinstallationspfad und eine Datei. Der Installer ist vorläufig auf Niederländisch; eigene Assistententexte folgen im nächsten Schritt.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>Der Export enthält Anwendungsdaten, eine Datei und die Texte für Willkommen und Zielordner einschließlich abweichender Schaltflächentexte und Durchsuchen-Tooltip. Der Installer ist vorläufig auf Niederländisch. Inno Setup bestimmt das Layout und die weiteren Schritte.</value></data>
   <data name="ExportScript" xml:space="preserve"><value>ISS exportieren</value></data>
   <data name="SourceFileFilter" xml:space="preserve"><value>Alle Dateien (*.*)|*.*</value></data>
   <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup-Skript (*.iss)|*.iss</value></data>
