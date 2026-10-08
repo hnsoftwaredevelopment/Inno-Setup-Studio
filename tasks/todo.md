@@ -1,6 +1,6 @@
 # Slices — Inno Setup Studio
 
-Status: planning geaccepteerd op 8 oktober 2026. Een vinkje betekent geaccepteerd, niet alleen geschreven of gebouwd. M00, M01-S01, M01-S02, M01-S03 en M01-S04 zijn geaccepteerd.
+Status: planning geaccepteerd op 8 oktober 2026. Een vinkje betekent geaccepteerd, niet alleen geschreven of gebouwd. M00, M01-S01, M01-S02, M01-S03, M01-S04 en M01-S05 zijn geaccepteerd.
 
 Milestoneresultaten en FR-koppelingen: [Milestones](../docs/Milestones.md). Werkwijze en controles: [Werkwijze](../docs/Werkwijze.md). Voortgang van de proefversie: [Historie](../docs/historie/Proefversie.md).
 
@@ -33,7 +33,7 @@ Bestandsgroepen: Core/project/opslag; App/projecteigenschappen; generator/compil
 | [x] | M01-S02 Eerste bestandsregel en export | Een lokale bron en doelmap zijn instelbaar; .iss bevat juiste metadata en bestandsregel; export compileert buiten Studio en meldt ontbrekende bron. | B/T/C/U; S01 |
 | [x] | M01-S03 Huidig ontwerp exporteren | Twee huidige pagina's en standaardpad worden correct vertaald; gedeelde en lokale tekstafwijkingen werken of worden aantoonbaar begrensd; knoprollen blijven correct. | B/T/C/I; S02 |
 | [x] | M01-S04 Compiler kiezen en bouwen | Ontdekken/handmatig kiezen en versiecontrole werken; Bouw compileert een herkenbare projectstand; de resulterende uitvoer is vindbaar. | B/T/C/U; S03 |
-| [ ] | M01-S05 Bouwmeldingen en annuleren | Fouten/waarschuwingen zijn zichtbaar; annuleren stopt gecontroleerd; een mislukte build presenteert geen oud bestand als nieuw resultaat. | B/T/C/U; S04 |
+| [x] | M01-S05 Bouwmeldingen en annuleren | Fouten/waarschuwingen zijn zichtbaar; annuleren stopt gecontroleerd; een mislukte build presenteert geen oud bestand als nieuw resultaat. | B/T/C/U; S04 |
 | [ ] | M01-S06 Eenvoudige installer afronden | Uitvoer wordt niet ongemerkt overschreven bij handmatige wijzigingen; dezelfde export werkt buiten Studio; gebruiker controleert verse installatie en deïnstallatie. | B/T/C/I, milestonecheck; S05 |
 
 M01-S03 onderzoekt juist de bestaande previewbeloften. Als een property niet regulier werkt, wordt haar beperking vastgelegd vóór verdere uitbreiding.
@@ -42,7 +42,7 @@ M01-S01 is geaccepteerd en gepubliceerd als commit 5d7be9c op m01-eerste-install
 
 M01-S02 is geïmplementeerd: 72 tests geslaagd, waaronder twee compilatieproeven met ISCC 7.1.0, en een Release-build zonder fouten of waarschuwingen. De gebruiker heeft alle controles uitgevoerd en op 8 oktober 2026 akkoord gegeven. [Resultaat en gebruikerscontrole](../docs/slices/M01-S02-Bestandsregel-en-export.md). De geaccepteerde stand is gepubliceerd als commit 71f21cf.
 
-Open vervolg bij M01-S04/S05: maak de installeruitvoernaam instelbaar met een standaard anders dan setup.exe; waarschuw bij keuze van setup.exe en toon de bijbehorende oorspronkelijke compilerwaarschuwing. Deze waarschuwing is door de gebruiker bij S02 gemeld en bewust uitgesteld tot de naaminstelling.
+De bij S02 gemelde setup.exe-waarschuwing is verwerkt in M01-S05: instelbare uitvoernaam, standaard mysetup voor nieuwe projecten en zichtbare Studio- én native compilerwaarschuwing bij setup. De gebruiker heeft M01-S05 geaccepteerd.
 
 ## M02 — m02-installertalen
 
@@ -154,7 +154,9 @@ Bestandsgroepen: Core/geschiedenis/migraties; App/toegankelijkheid/status; tests
 
 M01-S03 is geïmplementeerd op m01-eerste-installer: Release-build geslaagd en 75 tests geslaagd, inclusief twee ISCC 7.1.0-compilatieproeven. [Native vertaling, beperkingen en gebruikerscontrole](../docs/slices/M01-S03-Wizardontwerp-export.md). De gebruiker heeft Studio getest, de export gecompileerd en uitgevoerd en op 8 oktober 2026 akkoord gegeven. Deze geaccepteerde slice is gepubliceerd als commit 95c94d3. M01 wordt pas na acceptatie van alle slices gemerged.
 
-M01-S04 is op verzoek geïmplementeerd: compiler ontdekken/kiezen, 7.1-versiecontrole, opgeslagen project bouwen en afzonderlijke uitvoermappen. Release-build geslaagd; 83 tests geslaagd, inclusief drie ISCC-compilatieproeven. [Scope en testinstructies](../docs/slices/M01-S04-Compiler-kiezen-en-bouwen.md). De gebruiker heeft alle teststappen en aanvullende controles doorlopen en de slice geaccepteerd. De geaccepteerde stand wordt gepubliceerd.
+M01-S04 is op verzoek geïmplementeerd: compiler ontdekken/kiezen, 7.1-versiecontrole, opgeslagen project bouwen en afzonderlijke uitvoermappen. Release-build geslaagd; 83 tests geslaagd, inclusief drie ISCC-compilatieproeven. [Scope en testinstructies](../docs/slices/M01-S04-Compiler-kiezen-en-bouwen.md). De gebruiker heeft alle teststappen en aanvullende controles doorlopen en de slice geaccepteerd. De geaccepteerde stand is gepubliceerd als commit 33d8c33.
+
+M01-S05 is op verzoek geïmplementeerd: live bouwmeldingen, annuleren, native waarschuwingen/fouten en opgeslagen uitvoernaam (formaat 4). Release-build geslaagd; 106 tests geslaagd, inclusief vijf echte compilatietests met ISCC 7.1.0. [Scope en testinstructies](../docs/slices/M01-S05-Bouwmeldingen-en-annuleren.md). De gebruiker heeft de handmatige tests uitgevoerd en deze slice geaccepteerd. De geaccepteerde stand wordt gepubliceerd. Volgende slice: M01-S06, eenvoudige installer afronden; begin na opdracht van de gebruiker.
 
 ## Genoteerd voor latere uitwerking
 

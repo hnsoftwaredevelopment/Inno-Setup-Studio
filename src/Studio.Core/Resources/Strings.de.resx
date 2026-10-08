@@ -141,4 +141,15 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="BuildSucceeded" xml:space="preserve"><value>Installer für das gespeicherte Projekt erstellt:</value></data>
   <data name="BuildFailed" xml:space="preserve"><value>Build fehlgeschlagen. Es ist kein neuer Installer verfügbar.</value></data>
   <data name="CompilerBuildError" xml:space="preserve"><value>Der Build konnte nicht abgeschlossen werden. Prüfen Sie Compiler und Projektdaten.</value></data>
+  <data name="OutputNameLabel" xml:space="preserve"><value>Installer-Dateiname (ohne .exe)</value></data>
+  <data name="SetupNameWarning" xml:space="preserve"><value>Inno Setup rät von setup.exe ab, weil Windows für diesen Namen DLL-Dateien unsicher lädt. Wählen Sie beispielsweise mysetup.</value></data>
+  <data name="InvalidOutputName" xml:space="preserve"><value>Geben Sie einen gültigen Windows-Dateinamen ohne .exe, Pfad, Konstanten oder reservierten Namen ein.</value></data>
+  <data name="BuildMessages" xml:space="preserve"><value>Buildmeldungen</value></data>
+  <data name="CancelBuild" xml:space="preserve"><value>Build abbrechen</value></data>
+  <data name="BuildCanceling" xml:space="preserve"><value>Der Compiler wird gestoppt…</value></data>
+  <data name="BuildCanceled" xml:space="preserve"><value>Build abgebrochen. Es ist kein neuer Installer verfügbar.</value></data>
+  <data name="BuildSucceededWithWarnings" xml:space="preserve"><value>Installer mit Warnungen erstellt. Prüfen Sie die Buildmeldungen.</value></data>
+  <data name="BuildNoMessages" xml:space="preserve"><value>Es gibt noch keine Buildmeldungen für dieses Projekt.</value></data>
+  <data name="CompilerWarning" xml:space="preserve"><value>Warnung</value></data>
+  <data name="CompilerError" xml:space="preserve"><value>Fehler</value></data>
 </root>

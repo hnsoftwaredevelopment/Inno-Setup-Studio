@@ -44,6 +44,14 @@
                 </Expander>
                 <Expander Header="{loc:Loc CompilerHeading}" Margin="0,8,0,0">
                     <StackPanel Margin="0,10,0,0">
+                        <Label Content="{loc:Loc OutputNameLabel}" Target="{Binding ElementName=OutputName}" Padding="0" Margin="0,0,0,6" />
+                        <TextBox x:Name="OutputName" Text="{Binding OutputBaseFileName, UpdateSourceTrigger=PropertyChanged}" MaxLength="120"
+                                 IsReadOnly="{Binding IsPreview}" AutomationProperties.Name="{loc:Loc OutputNameLabel}" />
+                        <TextBlock Text="{loc:Loc SetupNameWarning}" TextWrapping="Wrap" Foreground="#9B5700" Margin="0,6,0,8">
+                            <TextBlock.Style><Style TargetType="TextBlock"><Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers><DataTrigger Binding="{Binding HasSetupNameWarning}" Value="True"><Setter Property="Visibility" Value="Visible" /></DataTrigger></Style.Triggers>
+                            </Style></TextBlock.Style>
+                        </TextBlock>
                         <DockPanel>
                             <Button DockPanel.Dock="Right" Content="{loc:Loc ChooseCompiler}" Click="ChooseCompiler_Click" Margin="8,0,0,0" />
                             <Button DockPanel.Dock="Right" Content="{loc:Loc CheckCompiler}" Click="CheckCompiler_Click" Margin="8,0,0,0" />
@@ -53,6 +61,7 @@
                         <WrapPanel>
                             <Button Content="{loc:Loc BuildInstaller}" Click="Build_Click" IsEnabled="{Binding IsDesign}" Margin="0,0,8,0" />
                             <Button x:Name="OpenBuildFolder" Content="{loc:Loc OpenBuildFolder}" Click="OpenBuildFolder_Click" IsEnabled="False" />
+                            <Button Content="{loc:Loc BuildMessages}" Click="BuildMessages_Click" Margin="8,0,0,0" />
                         </WrapPanel>
                         <TextBox x:Name="BuildResult" IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0" Margin="0,6,0,0" />
                     </StackPanel>

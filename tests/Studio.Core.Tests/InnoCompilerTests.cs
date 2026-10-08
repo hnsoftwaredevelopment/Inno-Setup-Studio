@@ -39,7 +39,7 @@ public class InnoCompilerTests
             try { await process.WaitForExitAsync(timeout.Token); }
             catch (OperationCanceledException) { process.Kill(entireProcessTree: true); await process.WaitForExitAsync(); throw; }
             Assert.True(process.ExitCode == 0, await output + await errors);
-            Assert.True(File.Exists(Path.Combine(folder, "output", "setup.exe")));
+            Assert.True(File.Exists(Path.Combine(folder, "output", project.OutputBaseFileName + ".exe")));
         }
         finally { Directory.Delete(folder, recursive: true); }
     }
@@ -84,7 +84,7 @@ public class InnoCompilerTests
             try { await process.WaitForExitAsync(timeout.Token); }
             catch (OperationCanceledException) { process.Kill(entireProcessTree: true); await process.WaitForExitAsync(); throw; }
             Assert.True(process.ExitCode == 0, await output + await errors);
-            Assert.True(File.Exists(Path.Combine(exportDirectory, "output", "setup.exe")));
+            Assert.True(File.Exists(Path.Combine(exportDirectory, "output", project.OutputBaseFileName + ".exe")));
             Assert.Equal("Small test payload", await File.ReadAllTextAsync(source));
         }
         finally { Directory.Delete(folder, recursive: true); }

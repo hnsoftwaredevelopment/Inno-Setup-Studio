@@ -27,14 +27,18 @@ public static class ProjectFile
             var root = json.RootElement;
             if (root.GetProperty("Version").ValueKind != JsonValueKind.Number
                 || !root.GetProperty("Version").TryGetInt32(out var version)
-                || version is not (1 or 2 or StudioProject.CurrentVersion))
+                || version is not (1 or 2 or 3 or StudioProject.CurrentVersion))
                 throw InvalidProject("UnsupportedProject");
             if (version >= 2
                 && (!root.TryGetProperty("AppId", out _) || !root.TryGetProperty("AppVersion", out _)))
                 throw InvalidProject("InvalidApplicationDetails");
-            if (version == StudioProject.CurrentVersion && !root.TryGetProperty("InstallFile", out _))
+            if (version >= 3 && !root.TryGetProperty("InstallFile", out _))
                 throw InvalidProject("InvalidFileRule");
-            if (version < StudioProject.CurrentVersion && root.TryGetProperty("InstallFile", out _))
+            if (version < 3 && root.TryGetProperty("InstallFile", out _))
+                throw InvalidProject("UnsupportedProject");
+            if (version == StudioProject.CurrentVersion && !root.TryGetProperty("OutputBaseFileName", out _))
+                throw InvalidProject("InvalidOutputName");
+            if (version < 4 && root.TryGetProperty("OutputBaseFileName", out _))
                 throw InvalidProject("UnsupportedProject");
             var project = root.Deserialize<StudioProject>(Options)!;
             if (version == 1)
@@ -46,7 +50,8 @@ public static class ProjectFile
             }
             if (version < StudioProject.CurrentVersion)
             {
-                project.InstallFile = new();
+                if (version < 3) project.InstallFile = new();
+                project.OutputBaseFileName = "setup";
                 project.Version = StudioProject.CurrentVersion;
                 project.WasMigrated = true;
             }
@@ -102,6 +107,7 @@ public static class ProjectFile
         if (!IsSingleLine(project.Name) || !IsSingleLine(project.AppId) || project.AppId.Length > 127
             || !IsSingleLine(project.AppVersion))
             throw InvalidProject("InvalidApplicationDetails");
+        if (!InstallerOutput.IsValid(project.OutputBaseFileName)) throw InvalidProject("InvalidOutputName");
         if (project.InstallFile is not { } file || file.Source is null || file.Source.Any(char.IsControl)
             || !IsSingleLine(file.Destination))
             throw InvalidProject("InvalidFileRule");

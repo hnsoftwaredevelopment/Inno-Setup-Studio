@@ -13,11 +13,16 @@ public partial class MainWindow
     private string? _compilerVersion;
     private string? _buildDirectory;
     private string _compilerStateKey = "CompilerUnchecked";
+    private CancellationTokenSource? _buildCancellation;
+    private BuildOutputWindow? _buildOutput;
+    private readonly List<CompilerMessage> _buildMessages = [];
+    private string _buildStateKey = "BuildNoMessages";
 
     private void UpdateCompilerState()
     {
         CompilerLocation.Text = _compilerPath ?? "";
         CompilerState.Text = Text[_compilerStateKey] + (_compilerVersion is null ? "" : " " + _compilerVersion);
+        _buildOutput?.SetState(Text[_buildStateKey], _buildCancellation is null ? null : () => _buildCancellation?.Cancel());
     }
 
     private void ClearBuildResult()
@@ -25,6 +30,10 @@ public partial class MainWindow
         _buildDirectory = null;
         BuildResult.Text = "";
         OpenBuildFolder.IsEnabled = false;
+        _buildMessages.Clear();
+        _buildStateKey = "BuildNoMessages";
+        _buildOutput?.Reset();
+        _buildOutput?.SetState(Text[_buildStateKey], null);
     }
 
     private async Task RefreshCompilerAsync()
@@ -79,30 +88,65 @@ public partial class MainWindow
         var directory = Path.GetDirectoryName(_path!)!;
         SetBusy(true);
         BuildResult.Text = Text["BuildRunning"];
+        _buildStateKey = "BuildRunning";
+        using var cancellation = new CancellationTokenSource();
+        _buildCancellation = cancellation;
+        ShowBuildMessages();
         try
         {
             // Generate synchronously before awaiting: the workspace is locked for this saved snapshot.
             var script = InnoScript.Generate(_editor.Project, directory);
-            var result = await CompilerService.BuildAsync(_compilerPath, script, directory);
+            var progress = new Progress<CompilerMessage>(message =>
+            {
+                if (!ReferenceEquals(_buildCancellation, cancellation)) return;
+                _buildMessages.Add(message);
+                _buildOutput?.Append(message);
+            });
+            var result = await CompilerService.BuildAsync(_compilerPath, script, directory, _editor.OutputBaseFileName, progress, cancellation.Token);
             _compilerVersion = result.Version;
             _compilerStateKey = "CompilerReady";
             _buildDirectory = result.Directory;
             OpenBuildFolder.IsEnabled = true;
-            BuildResult.Text = Text[result.InstallerPath is null ? "BuildFailed" : "BuildSucceeded"]
+            _buildStateKey = result.Canceled ? "BuildCanceled" : result.InstallerPath is null ? "BuildFailed"
+                : result.Messages.Any(m => m.Severity == CompilerMessageSeverity.Warning) ? "BuildSucceededWithWarnings" : "BuildSucceeded";
+            BuildResult.Text = Text[_buildStateKey]
                 + Environment.NewLine + (_path ?? "") + Environment.NewLine
                 + (result.InstallerPath ?? result.ScriptPath);
-            if (result.InstallerPath is null)
-                MessageBox.Show(this, Text["BuildFailed"] + Environment.NewLine + result.Log,
-                    Text["BuildInstaller"], MessageBoxButton.OK, MessageBoxImage.Warning);
+            _buildMessages.Clear();
+            _buildMessages.AddRange(result.Messages);
+            _buildOutput?.Reset();
+            foreach (var message in _buildMessages) _buildOutput?.Append(message);
+        }
+        catch (OperationCanceledException)
+        {
+            _buildStateKey = "BuildCanceled";
+            BuildResult.Text = Text[_buildStateKey];
         }
         catch (Exception error) when (IsCompilerError(error))
         {
+            _buildStateKey = "BuildFailed";
             BuildResult.Text = Text["BuildFailed"];
             var key = ProjectFile.ErrorResourceKey(error);
-            MessageBox.Show(this, key is null ? Text["CompilerBuildError"] + Environment.NewLine + error.Message : Text[key],
-                Text["BuildInstaller"], MessageBoxButton.OK, MessageBoxImage.Warning);
+            var message = new CompilerMessage(CompilerMessageSeverity.Error,
+                key is null ? Text["CompilerBuildError"] + Environment.NewLine + error.Message : Text[key], null, null, error.Message);
+            _buildMessages.Add(message);
+            _buildOutput?.Append(message);
         }
-        finally { UpdateCompilerState(); SetBusy(false); }
+        finally { _buildCancellation = null; UpdateCompilerState(); SetBusy(false); }
+    }
+
+    private void BuildMessages_Click(object sender, RoutedEventArgs e) => ShowBuildMessages();
+    private void ShowBuildMessages()
+    {
+        if (_buildOutput is null)
+        {
+            _buildOutput = new BuildOutputWindow { Owner = this };
+            _buildOutput.Closed += (_, _) => _buildOutput = null;
+            foreach (var message in _buildMessages) _buildOutput.Append(message);
+            _buildOutput.Show();
+        }
+        _buildOutput.SetState(Text[_buildStateKey], _buildCancellation is null ? null : () => _buildCancellation?.Cancel());
+        _buildOutput.Activate();
     }
 
     private void OpenBuildFolder_Click(object sender, RoutedEventArgs e)

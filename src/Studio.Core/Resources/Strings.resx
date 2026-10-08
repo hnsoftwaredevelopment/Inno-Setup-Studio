@@ -141,4 +141,15 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="BuildSucceeded" xml:space="preserve"><value>Installer gebouwd voor het opgeslagen project:</value></data>
   <data name="BuildFailed" xml:space="preserve"><value>Bouwen mislukt. Er is geen nieuwe installer beschikbaar.</value></data>
   <data name="CompilerBuildError" xml:space="preserve"><value>Bouwen kon niet worden voltooid. Controleer de compiler en projectgegevens.</value></data>
+  <data name="OutputNameLabel" xml:space="preserve"><value>Naam installerbestand (zonder .exe)</value></data>
+  <data name="SetupNameWarning" xml:space="preserve"><value>De naam setup.exe wordt afgeraden door Inno Setup vanwege onveilig laden van DLL-bestanden door Windows. Kies bijvoorbeeld mysetup.</value></data>
+  <data name="InvalidOutputName" xml:space="preserve"><value>Geef een geldige Windows-bestandsnaam op zonder .exe, pad, constanten of gereserveerde naam.</value></data>
+  <data name="BuildMessages" xml:space="preserve"><value>Bouwmeldingen</value></data>
+  <data name="CancelBuild" xml:space="preserve"><value>Bouw annuleren</value></data>
+  <data name="BuildCanceling" xml:space="preserve"><value>De compiler wordt gestopt…</value></data>
+  <data name="BuildCanceled" xml:space="preserve"><value>Bouw geannuleerd. Er is geen nieuwe installer beschikbaar.</value></data>
+  <data name="BuildSucceededWithWarnings" xml:space="preserve"><value>Installer gebouwd met waarschuwingen. Bekijk de bouwmeldingen.</value></data>
+  <data name="BuildNoMessages" xml:space="preserve"><value>Er zijn nog geen bouwmeldingen voor dit project.</value></data>
+  <data name="CompilerWarning" xml:space="preserve"><value>Waarschuwing</value></data>
+  <data name="CompilerError" xml:space="preserve"><value>Fout</value></data>
 </root>

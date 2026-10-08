@@ -31,7 +31,7 @@ public static class InnoScript
             "DisableWelcomePage=no",
             "DisableDirPage=no",
             "OutputDir=output",
-            "OutputBaseFilename=setup",
+            "OutputBaseFilename=" + SetupValue(project.OutputBaseFileName),
             "",
             "[Languages]",
             "Name: \"dutch\"; MessagesFile: \"compiler:Languages\\Dutch.isl\"",

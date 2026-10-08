@@ -106,6 +106,7 @@ public sealed class ScriptExportTests : IDisposable
         var legacy = JsonNode.Parse(JsonSerializer.Serialize(originalProject, options))!.AsObject();
         legacy["Version"] = 2;
         legacy.Remove("InstallFile");
+        legacy.Remove("OutputBaseFileName");
         var path = Path.Combine(_folder, "legacy.issstudio");
         var content = legacy.ToJsonString();
         await File.WriteAllTextAsync(path, content);

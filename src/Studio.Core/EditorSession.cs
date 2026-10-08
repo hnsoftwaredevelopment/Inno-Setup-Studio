@@ -104,6 +104,13 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
         set { if (!IsDesign || value == Project.AppVersion) return; Project.AppVersion = value; IsDirty = true; Refresh(); }
     }
 
+    public string OutputBaseFileName
+    {
+        get => Project.OutputBaseFileName;
+        set { if (!IsDesign || value == OutputBaseFileName) return; Project.OutputBaseFileName = value; IsDirty = true; Refresh(); }
+    }
+    public bool HasSetupNameWarning => InstallerOutput.IsSetup(OutputBaseFileName);
+
     public string SourceFile
     {
         get => Project.InstallFile.Source;

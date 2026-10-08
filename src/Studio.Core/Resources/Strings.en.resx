@@ -141,4 +141,15 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="BuildSucceeded" xml:space="preserve"><value>Installer built for the saved project:</value></data>
   <data name="BuildFailed" xml:space="preserve"><value>Build failed. No new installer is available.</value></data>
   <data name="CompilerBuildError" xml:space="preserve"><value>The build could not be completed. Check the compiler and project details.</value></data>
+  <data name="OutputNameLabel" xml:space="preserve"><value>Installer filename (without .exe)</value></data>
+  <data name="SetupNameWarning" xml:space="preserve"><value>Inno Setup advises against setup.exe because Windows loads DLL files unsafely for this name. Choose mysetup, for example.</value></data>
+  <data name="InvalidOutputName" xml:space="preserve"><value>Enter a valid Windows filename without .exe, a path, constants or a reserved name.</value></data>
+  <data name="BuildMessages" xml:space="preserve"><value>Build messages</value></data>
+  <data name="CancelBuild" xml:space="preserve"><value>Cancel build</value></data>
+  <data name="BuildCanceling" xml:space="preserve"><value>Stopping the compiler…</value></data>
+  <data name="BuildCanceled" xml:space="preserve"><value>Build canceled. No new installer is available.</value></data>
+  <data name="BuildSucceededWithWarnings" xml:space="preserve"><value>Installer built with warnings. Review the build messages.</value></data>
+  <data name="BuildNoMessages" xml:space="preserve"><value>There are no build messages for this project yet.</value></data>
+  <data name="CompilerWarning" xml:space="preserve"><value>Warning</value></data>
+  <data name="CompilerError" xml:space="preserve"><value>Error</value></data>
 </root>
