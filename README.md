@@ -14,7 +14,7 @@ De Studio-interface is beschikbaar in Nederlands, Engels en Duits. Rechtsboven w
 
 Het uitklapbare paneel **Applicatiegegevens** boven de ontwerpruimte bevat productnaam, AppId en versie. Die worden met het project opgeslagen. Oude projecten worden bij openen in het geheugen bijgewerkt en pas bij opslaan naar het nieuwe formaat geschreven. Zie [M01-S01 en teststappen](docs/slices/M01-S01-Applicatiegegevens.md).
 
-Het paneel **Bestandsregel** bevat één lokaal bronbestand en een doelmap binnen {app}. **Exporteer .iss** schrijft een zelfstandig compileerbaar script met applicatiegegevens, het standaard installatiepad, een vaste Nederlandse installer en deze bestandsregel. De teksten van Welkom en Installatiemap, gedeelde knoppen, pagina-afwijkingen en Bladeren-tooltip worden eveneens geëxporteerd. Compilerbediening vanuit Studio en meertalige installers volgen later. Zie [M01-S03 en teststappen](docs/slices/M01-S03-Wizardontwerp-export.md). Zie [M01-S02 en teststappen](docs/slices/M01-S02-Bestandsregel-en-export.md).
+Het paneel **Bestandsregel** bevat één lokaal bronbestand en een doelmap binnen {app}. **Exporteer .iss** schrijft een zelfstandig compileerbaar script met applicatiegegevens, het standaard installatiepad, een vaste Nederlandse installer en deze bestandsregel. De teksten van Welkom en Installatiemap, gedeelde knoppen, pagina-afwijkingen en Bladeren-tooltip worden eveneens geëxporteerd. Het paneel Compiler en bouwen kan nu ISCC kiezen, versie 7.1 controleren en het opgeslagen project bouwen. Meertalige installers volgen later. Zie [M01-S04 en teststappen](docs/slices/M01-S04-Compiler-kiezen-en-bouwen.md). Zie [M01-S03 en teststappen](docs/slices/M01-S03-Wizardontwerp-export.md). Zie [M01-S02 en teststappen](docs/slices/M01-S02-Bestandsregel-en-export.md).
 
 Het beoogde eindproduct is beschreven in de geaccepteerde [productspecificatie](docs/Productspecificatie.md).
 
@@ -28,13 +28,13 @@ dotnet test '.\Inno Setup Studio.slnx' -c Release
 dotnet run --project '.\src\Studio.App\Studio.App.csproj'
 ```
 
-De Release-app staat in `Builds\Release\Inno Setup Studio.exe`. Distributie vereist de volledige uitvoermap, inclusief de `en`- en `de`-submappen. Inno Setup is voor de huidige ontwerpwerkplek nog niet nodig; de toekomstige compilerkoppeling gebruikt de apart geïnstalleerde Inno Setup 7.1.
+De Release-app staat in `Builds\Release\Inno Setup Studio.exe`. Distributie vereist de volledige uitvoermap, inclusief de `en`- en `de`-submappen. Inno Setup is voor de huidige ontwerpwerkplek nog niet nodig; bouwen vanuit Studio gebruikt de apart geïnstalleerde Inno Setup 7.1.
 
 ## Verificatie
 
-Op 8 oktober 2026: 75 tests geslaagd, waaronder twee echte compilatieproeven met ISCC 7.1.0; Release-build zonder fouten of waarschuwingen. De gebruiker heeft M01-S02 volledig getest en geaccepteerd. Ook M01-S03 is door de gebruiker getest in Studio en in de gecompileerde, uitgevoerde installer en geaccepteerd. De compilerwaarschuwing over de huidige uitvoernaam setup.exe is vastgelegd voor de latere naaminstelling en bouwmeldingen. M01-S01 en de eerdere Studio-taalbasis zijn eveneens geaccepteerd.
+Op 8 oktober 2026: 83 tests geslaagd, waaronder drie echte compilatieproeven met ISCC 7.1.0; Release-build zonder fouten of waarschuwingen. De gebruiker heeft M01-S02 volledig getest en geaccepteerd. Ook M01-S03 is door de gebruiker getest in Studio en in de gecompileerde, uitgevoerde installer en geaccepteerd. M01-S04 is door de gebruiker volledig getest en geaccepteerd. De compilerwaarschuwing over de huidige uitvoernaam setup.exe is vastgelegd voor de latere naaminstelling en bouwmeldingen. M01-S01 en de eerdere Studio-taalbasis zijn eveneens geaccepteerd.
 
-De compilatietests gebruiken de standaardinstallatie van Inno Setup 7. Als die ontbreekt, worden alleen deze twee tests met een expliciete reden overgeslagen. Ze bouwen een installer, maar starten die niet. De andere tests vereisen geen compiler.
+De compilatietests gebruiken de standaardinstallatie van Inno Setup 7. Als die ontbreekt, worden alleen deze drie tests met een expliciete reden overgeslagen. Ze bouwen een installer, maar starten die niet. De andere tests vereisen geen compiler.
 
 ## Documentatie en planning
 

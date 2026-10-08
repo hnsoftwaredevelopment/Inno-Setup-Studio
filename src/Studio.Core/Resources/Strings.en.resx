@@ -128,4 +128,17 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="ExportPreprocessorUnsupported" xml:space="preserve"><value>Preprocessor expressions ({#…}) are not supported in this export yet. Scripting follows in a later milestone.</value></data>
   <data name="ExportExtensionInvalid" xml:space="preserve"><value>Export to a file with the .iss extension.</value></data>
   <data name="ExportCannotReplaceSource" xml:space="preserve"><value>The script may not replace the selected source file. Choose a different export name.</value></data>
+  <data name="CompilerHeading" xml:space="preserve"><value>Compiler and build</value></data>
+  <data name="ChooseCompiler" xml:space="preserve"><value>Choose compiler…</value></data>
+  <data name="CheckCompiler" xml:space="preserve"><value>Check again</value></data>
+  <data name="BuildInstaller" xml:space="preserve"><value>Build installer</value></data>
+  <data name="OpenBuildFolder" xml:space="preserve"><value>Open output folder</value></data>
+  <data name="CompilerUnchecked" xml:space="preserve"><value>Compiler has not been checked.</value></data>
+  <data name="CompilerMissing" xml:space="preserve"><value>No compiler found. Choose ISCC.exe from Inno Setup 7.1.</value></data>
+  <data name="CompilerInvalid" xml:space="preserve"><value>Compiler is missing, unresponsive or is not Inno Setup 7.1. Choose the correct ISCC.exe.</value></data>
+  <data name="CompilerReady" xml:space="preserve"><value>Compiler ready. Version:</value></data>
+  <data name="BuildRunning" xml:space="preserve"><value>Building the saved project…</value></data>
+  <data name="BuildSucceeded" xml:space="preserve"><value>Installer built for the saved project:</value></data>
+  <data name="BuildFailed" xml:space="preserve"><value>Build failed. No new installer is available.</value></data>
+  <data name="CompilerBuildError" xml:space="preserve"><value>The build could not be completed. Check the compiler and project details.</value></data>
 </root>

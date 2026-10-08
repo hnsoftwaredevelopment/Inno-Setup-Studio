@@ -128,4 +128,17 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="ExportPreprocessorUnsupported" xml:space="preserve"><value>Präprozessorausdrücke ({#…}) werden in diesem Export noch nicht unterstützt. Skripting folgt in einem späteren Meilenstein.</value></data>
   <data name="ExportExtensionInvalid" xml:space="preserve"><value>Exportieren Sie in eine Datei mit der Erweiterung .iss.</value></data>
   <data name="ExportCannotReplaceSource" xml:space="preserve"><value>Das Skript darf die gewählte Quelldatei nicht ersetzen. Wählen Sie einen anderen Exportnamen.</value></data>
+  <data name="CompilerHeading" xml:space="preserve"><value>Compiler und Build</value></data>
+  <data name="ChooseCompiler" xml:space="preserve"><value>Compiler auswählen…</value></data>
+  <data name="CheckCompiler" xml:space="preserve"><value>Erneut prüfen</value></data>
+  <data name="BuildInstaller" xml:space="preserve"><value>Installer erstellen</value></data>
+  <data name="OpenBuildFolder" xml:space="preserve"><value>Ausgabeordner öffnen</value></data>
+  <data name="CompilerUnchecked" xml:space="preserve"><value>Compiler wurde noch nicht geprüft.</value></data>
+  <data name="CompilerMissing" xml:space="preserve"><value>Kein Compiler gefunden. Wählen Sie ISCC.exe von Inno Setup 7.1.</value></data>
+  <data name="CompilerInvalid" xml:space="preserve"><value>Compiler fehlt, reagiert nicht oder ist nicht Inno Setup 7.1. Wählen Sie die richtige ISCC.exe.</value></data>
+  <data name="CompilerReady" xml:space="preserve"><value>Compiler bereit. Version:</value></data>
+  <data name="BuildRunning" xml:space="preserve"><value>Das gespeicherte Projekt wird erstellt…</value></data>
+  <data name="BuildSucceeded" xml:space="preserve"><value>Installer für das gespeicherte Projekt erstellt:</value></data>
+  <data name="BuildFailed" xml:space="preserve"><value>Build fehlgeschlagen. Es ist kein neuer Installer verfügbar.</value></data>
+  <data name="CompilerBuildError" xml:space="preserve"><value>Der Build konnte nicht abgeschlossen werden. Prüfen Sie Compiler und Projektdaten.</value></data>
 </root>

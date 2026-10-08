@@ -128,4 +128,17 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="ExportPreprocessorUnsupported" xml:space="preserve"><value>Preprocessoruitdrukkingen ({#…}) zijn nog niet toegestaan in deze export. Scripting volgt in een latere milestone.</value></data>
   <data name="ExportExtensionInvalid" xml:space="preserve"><value>Exporteer naar een bestand met de extensie .iss.</value></data>
   <data name="ExportCannotReplaceSource" xml:space="preserve"><value>Het script mag het gekozen bronbestand niet vervangen. Kies een andere exportnaam.</value></data>
+  <data name="CompilerHeading" xml:space="preserve"><value>Compiler en bouwen</value></data>
+  <data name="ChooseCompiler" xml:space="preserve"><value>Compiler kiezen…</value></data>
+  <data name="CheckCompiler" xml:space="preserve"><value>Opnieuw controleren</value></data>
+  <data name="BuildInstaller" xml:space="preserve"><value>Bouw installer</value></data>
+  <data name="OpenBuildFolder" xml:space="preserve"><value>Open uitvoermap</value></data>
+  <data name="CompilerUnchecked" xml:space="preserve"><value>Compiler nog niet gecontroleerd.</value></data>
+  <data name="CompilerMissing" xml:space="preserve"><value>Geen compiler gevonden. Kies ISCC.exe van Inno Setup 7.1.</value></data>
+  <data name="CompilerInvalid" xml:space="preserve"><value>Compiler ontbreekt, reageert niet of is geen Inno Setup 7.1. Kies de juiste ISCC.exe.</value></data>
+  <data name="CompilerReady" xml:space="preserve"><value>Compiler gereed. Versie:</value></data>
+  <data name="BuildRunning" xml:space="preserve"><value>De opgeslagen projectstand wordt gebouwd…</value></data>
+  <data name="BuildSucceeded" xml:space="preserve"><value>Installer gebouwd voor het opgeslagen project:</value></data>
+  <data name="BuildFailed" xml:space="preserve"><value>Bouwen mislukt. Er is geen nieuwe installer beschikbaar.</value></data>
+  <data name="CompilerBuildError" xml:space="preserve"><value>Bouwen kon niet worden voltooid. Controleer de compiler en projectgegevens.</value></data>
 </root>

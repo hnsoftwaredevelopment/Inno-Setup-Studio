@@ -20,6 +20,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         SetProject(StudioProject.CreateExample(), null);
+        Loaded += async (_, _) => await RefreshCompilerAsync();
         Text.PropertyChanged += LanguageChanged;
         Closed += (_, _) => { Text.PropertyChanged -= LanguageChanged; _editor.Dispose(); };
     }
@@ -31,11 +32,13 @@ public partial class MainWindow : Window
         _editor = new EditorSession(project, Text);
         _editor.PropertyChanged += EditorChanged;
         DataContext = _editor;
+        ClearBuildResult();
         UpdateTitle();
     }
 
     private void LanguageChanged(object? sender, PropertyChangedEventArgs e)
     {
+        UpdateCompilerState();
         try { StudioPreferences.SaveLanguage(StudioPreferences.DefaultPath, Text.Language); }
         catch (Exception error) when (IsFileError(error))
         {

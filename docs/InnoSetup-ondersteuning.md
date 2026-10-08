@@ -18,6 +18,8 @@ M01-S02 bevat de eerste scriptgenerator. Applicatiegegevens, het standaardpad, e
 
 M01-S03 voegt native tekstexport voor Welkom en Installatiemap toe, met gedeelde en lokale knopteksten en Bladeren-tooltip. Deze eigenschappen zijn Runtime gecontroleerd: de gebruiker heeft Studio en de gecompileerde, uitgevoerde installer getest en M01-S03 geaccepteerd. Zie [propertycatalogus, bereik en grenzen](slices/M01-S03-Wizardontwerp-export.md).
 
+M01-S04 voegt ontdekken/kiezen van ISCC, versiecontrole en bouwen van een opgeslagen projectstand toe. Procesargumenten en afzonderlijke uitvoermappen zijn met ISCC 7.1.0 getest. [Detailregistratie en teststappen](slices/M01-S04-Compiler-kiezen-en-bouwen.md).
+
 ## Functionele dekking
 
 V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële scripting. De aangegeven bediening is beoogd, niet allemaal al gerealiseerd.
@@ -52,7 +54,7 @@ V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële sc
 | Ondertekening | G | [SignTool](https://jrsoftware.org/ishelp/topic_setup_signtool.htm) | M07 | Gepland |
 | Eigen runtimecode | S | [Pascal Script](https://jrsoftware.org/ishelp/topic_scriptintro.htm) | M08 | Gepland |
 | Eigen compileertijdinvoer | S | [Preprocessor](https://jrsoftware.org/ishelp/topic_isppoverview.htm) | M08 | Gepland |
-| Genereren en ISCC-proces | V | [Compiler command line](https://jrsoftware.org/ishelp/topic_compilercmdline.htm) | M01 | Eerste export compiler gecontroleerd; ISCC-bediening vanuit Studio gepland |
+| Genereren en ISCC-proces | V | [Compiler command line](https://jrsoftware.org/ishelp/topic_compilercmdline.htm) | M01 | Compiler gecontroleerd: export en bouwen vanuit Studio met 7.1-versiegate; gebruikerscontrole M01-S04 geaccepteerd |
 
 De reguliere secties hierboven vormen de eindscope. Niet-verouderde parameters die geen apart visueel veld krijgen worden in M07 via een gecontroleerde geavanceerde weergave bereikbaar. Een afzonderlijke catalogus legt vóór implementatie de concrete 7.1-dekking vast. Het doel is geen oncontroleerbaar vrij tekstvak dat iedere sleutel automatisch als ondersteund bestempelt.
 
