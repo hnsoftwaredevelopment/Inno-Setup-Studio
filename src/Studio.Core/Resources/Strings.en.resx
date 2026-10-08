@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="AppSubtitle" xml:space="preserve"><value>Visual designer for Inno Setup 7.1</value></data>
+  <data name="New" xml:space="preserve"><value>_New</value></data>
+  <data name="Open" xml:space="preserve"><value>_Open</value></data>
+  <data name="SaveAs" xml:space="preserve"><value>Save _as</value></data>
+  <data name="Save" xml:space="preserve"><value>_Save</value></data>
+  <data name="NewTip" xml:space="preserve"><value>New example project (Ctrl+N)</value></data>
+  <data name="OpenTip" xml:space="preserve"><value>Open project (Ctrl+O)</value></data>
+  <data name="SaveTip" xml:space="preserve"><value>Save project (Ctrl+S)</value></data>
+  <data name="LanguageLabel" xml:space="preserve"><value>Studio language</value></data>
+  <data name="FirstVersion" xml:space="preserve"><value>FIRST VERSION</value></data>
+  <data name="FirstVersionHint" xml:space="preserve"><value>Design and save. Script generation and building will follow later.</value></data>
+  <data name="Pages" xml:space="preserve"><value>PAGES</value></data>
+  <data name="PagesAccessible" xml:space="preserve"><value>Pages</value></data>
+  <data name="Elements" xml:space="preserve"><value>ELEMENTS</value></data>
+  <data name="ElementsAccessible" xml:space="preserve"><value>Elements</value></data>
+  <data name="PagesWidth" xml:space="preserve"><value>Page panel width</value></data>
+  <data name="PropertiesWidth" xml:space="preserve"><value>Properties panel width</value></data>
+  <data name="Design" xml:space="preserve"><value>Design</value></data>
+  <data name="TryOut" xml:space="preserve"><value>Try out</value></data>
+  <data name="Zoom" xml:space="preserve"><value>Zoom</value></data>
+  <data name="PreviewDisclaimer" xml:space="preserve"><value>Design preview · The final appearance is determined by Inno Setup.</value></data>
+  <data name="Properties" xml:space="preserve"><value>PROPERTIES</value></data>
+  <data name="ElementTextAccessible" xml:space="preserve"><value>Text of selected element</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>Choose folder...</value></data>
+  <data name="TooltipLabel" xml:space="preserve"><value>_Tooltip</value></data>
+  <data name="BrowseTooltipAccessible" xml:space="preserve"><value>Browse tooltip</value></data>
+  <data name="ResetToBase" xml:space="preserve"><value>Reset to base design</value></data>
+  <data name="InheritanceHeading" xml:space="preserve"><value>HOW INHERITANCE WORKS</value></data>
+  <data name="InheritanceHint" xml:space="preserve"><value>Edit shared button text in Base design. Change text on a page to override it for that page only.</value></data>
+  <data name="ResetHint" xml:space="preserve"><value>Reset restores the current base text. An intentionally empty text remains a separate value.</value></data>
+  <data name="TryOutHint" xml:space="preserve"><value>In Try out, the buttons navigate the preview pages. Nothing is installed.</value></data>
+  <data name="BaseDesign" xml:space="preserve"><value>Base design</value></data>
+  <data name="BaseShared" xml:space="preserve"><value>Shared across all pages</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>Page {0:00}</value></data>
+  <data name="PageWelcome" xml:space="preserve"><value>Welcome</value></data>
+  <data name="ElementTitle" xml:space="preserve"><value>Title</value></data>
+  <data name="ElementBody" xml:space="preserve"><value>Description</value></data>
+  <data name="ElementDirectory" xml:space="preserve"><value>Installation folder</value></data>
+  <data name="ElementBrowse" xml:space="preserve"><value>Browse</value></data>
+  <data name="ElementBack" xml:space="preserve"><value>Back</value></data>
+  <data name="ElementNext" xml:space="preserve"><value>Next</value></data>
+  <data name="ElementCancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="StatusSelect" xml:space="preserve"><value>Select an element on the design surface or in the element list.</value></data>
+  <data name="BaseDescription" xml:space="preserve"><value>Shared buttons · changes apply to all pages</value></data>
+  <data name="PageDescription" xml:space="preserve"><value>Page content and any overrides of the base design</value></data>
+  <data name="BaseTitle" xml:space="preserve"><value>Your shared base design</value></data>
+  <data name="BaseBody" xml:space="preserve"><value>The content of each page appears here.
+
+Select a navigation button below to edit its shared text.</value></data>
+  <data name="DefaultDirectoryLabel" xml:space="preserve"><value>_Default installation folder</value></data>
+  <data name="TextLabel" xml:space="preserve"><value>_Text</value></data>
+  <data name="DirectoryHint" xml:space="preserve"><value>For example, {autopf}\My application. Inno Setup resolves this location on the target computer. A folder chosen in Try out does not change this default path.</value></data>
+  <data name="BrowseHint" xml:space="preserve"><value>This button belongs to the Installation folder page. In Try out, it opens the folder picker.</value></data>
+  <data name="TextHint" xml:space="preserve"><value>The text is updated immediately in the design preview.</value></data>
+  <data name="OriginBase" xml:space="preserve"><value>Base design · applies to all pages</value></data>
+  <data name="OriginPage" xml:space="preserve"><value>Content of this page</value></data>
+  <data name="OriginOverride" xml:space="preserve"><value>Overridden for this page</value></data>
+  <data name="OriginInherited" xml:space="preserve"><value>Inherited from Base design</value></data>
+  <data name="Unsaved" xml:space="preserve"><value>Unsaved changes</value></data>
+  <data name="Unchanged" xml:space="preserve"><value>No changes</value></data>
+  <data name="StatusTryOut" xml:space="preserve"><value>Try out: use the buttons to navigate. Nothing is installed.</value></data>
+  <data name="StatusDesign" xml:space="preserve"><value>Design: click an element to edit it.</value></data>
+  <data name="StatusTrialDirectory" xml:space="preserve"><value>Folder chosen for this preview session. The default path is unchanged.</value></data>
+  <data name="StatusEnd" xml:space="preserve"><value>End of the design preview. Nothing is installed.</value></data>
+  <data name="StatusSaved" xml:space="preserve"><value>Project saved.</value></data>
+  <data name="WizardImage" xml:space="preserve"><value>Wizard image</value></data>
+  <data name="Example" xml:space="preserve"><value>Example</value></data>
+  <data name="SelectTitle" xml:space="preserve"><value>Select title</value></data>
+  <data name="SelectBody" xml:space="preserve"><value>Select description</value></data>
+  <data name="SelectDirectory" xml:space="preserve"><value>Select installation folder</value></data>
+  <data name="TryDirectory" xml:space="preserve"><value>Try installation folder</value></data>
+  <data name="ConstantsHint" xml:space="preserve"><value>Inno Setup resolves constants on the target computer.</value></data>
+  <data name="TrialFolderTitle" xml:space="preserve"><value>Choose installation folder — try out</value></data>
+  <data name="DefaultFolderTitle" xml:space="preserve"><value>Choose default installation folder</value></data>
+  <data name="NewProject" xml:space="preserve"><value>New project</value></data>
+  <data name="ProjectFilter" xml:space="preserve"><value>Inno Setup Studio project (*.issstudio)|*.issstudio</value></data>
+  <data name="OpenTitle" xml:space="preserve"><value>Open project</value></data>
+  <data name="SaveTitle" xml:space="preserve"><value>Save project</value></data>
+  <data name="ExtensionHint" xml:space="preserve"><value>Use the .issstudio extension for this new variant.</value></data>
+  <data name="SaveChanges" xml:space="preserve"><value>Do you want to save the changes to this project?</value></data>
+  <data name="OpenFailed" xml:space="preserve"><value>Open failed</value></data>
+  <data name="SaveFailed" xml:space="preserve"><value>Save failed</value></data>
+  <data name="StatusOpenFailed" xml:space="preserve"><value>Could not open the project. The current project remains available.</value></data>
+  <data name="StatusSaveFailed" xml:space="preserve"><value>Could not save the project. The current project remains available.</value></data>
+  <data name="FileError" xml:space="preserve"><value>The file could not be processed. Check its location, access permissions and available disk space.</value></data>
+  <data name="FileMissing" xml:space="preserve"><value>The file or folder no longer exists.</value></data>
+  <data name="AccessDenied" xml:space="preserve"><value>Access to this file or folder was denied.</value></data>
+  <data name="PreferencesFailed" xml:space="preserve"><value>The language has changed, but could not be saved. Check access to your local user settings.</value></data>
+  <data name="FileTooLarge" xml:space="preserve"><value>The project file exceeds 1 MB.</value></data>
+  <data name="NotStudioProject" xml:space="preserve"><value>This is not a project from the new Inno Setup Studio.</value></data>
+  <data name="InvalidProject" xml:space="preserve"><value>The project file contains invalid or unsupported data.</value></data>
+  <data name="ProjectTooLarge" xml:space="preserve"><value>The project exceeds 1 MB.</value></data>
+  <data name="UnsupportedProject" xml:space="preserve"><value>This project format or version is not supported.</value></data>
+  <data name="MissingProjectData" xml:space="preserve"><value>This project is missing required pages or button settings.</value></data>
+  <data name="InvalidPage" xml:space="preserve"><value>The page content is invalid for this version of Studio.</value></data>
+  <data name="InvalidDirectory" xml:space="preserve"><value>Enter a default installation folder on one line and check the Browse button.</value></data>
+</root>
+

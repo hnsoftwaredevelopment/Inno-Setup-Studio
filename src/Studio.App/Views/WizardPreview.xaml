@@ -1,5 +1,5 @@
 <UserControl x:Class="Studio.App.Views.WizardPreview" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Studio.App.Views" xmlns:core="clr-namespace:Studio.Core;assembly=Studio.Core">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:loc="clr-namespace:Studio.App" xmlns:local="clr-namespace:Studio.App.Views" xmlns:core="clr-namespace:Studio.Core;assembly=Studio.Core">
     <UserControl.Resources>
         <local:SelectionOutlineConverter x:Key="SelectionOutline" />
         <Style x:Key="Element" TargetType="Button">
@@ -40,16 +40,16 @@
                         <Border Width="52" Height="52" BorderBrush="#6B8092" BorderThickness="2" CornerRadius="8">
                             <TextBlock Text="↓" FontSize="32" Foreground="#526A7D" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
-                        <TextBlock Text="Wizardafbeelding" Foreground="#526A7D" FontSize="11" Margin="0,14,0,0" />
-                        <TextBlock Text="Voorbeeld" Foreground="#526A7D" FontSize="10" HorizontalAlignment="Center" Margin="0,4,0,0" />
+                        <TextBlock Text="{loc:Loc WizardImage}" Foreground="#526A7D" FontSize="11" Margin="0,14,0,0" />
+                        <TextBlock Text="{loc:Loc Example}" Foreground="#526A7D" FontSize="10" HorizontalAlignment="Center" Margin="0,4,0,0" />
                     </StackPanel>
                 </Border>
                 <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" Margin="20,24,20,12">
                     <StackPanel>
-                        <Button Style="{StaticResource Element}" Tag="{x:Static core:ElementKind.Title}" Click="Element_Click" AutomationProperties.Name="Titel selecteren">
+                        <Button Style="{StaticResource Element}" Tag="{x:Static core:ElementKind.Title}" Click="Element_Click" AutomationProperties.Name="{loc:Loc SelectTitle}">
                             <TextBlock Text="{Binding PreviewTitle}" FontSize="19" FontWeight="SemiBold" TextWrapping="Wrap" />
                         </Button>
-                        <Button Style="{StaticResource Element}" Tag="{x:Static core:ElementKind.Body}" Click="Element_Click" Margin="0,14,0,0" AutomationProperties.Name="Beschrijving selecteren">
+                        <Button Style="{StaticResource Element}" Tag="{x:Static core:ElementKind.Body}" Click="Element_Click" Margin="0,14,0,0" AutomationProperties.Name="{loc:Loc SelectBody}">
                             <TextBlock Text="{Binding PreviewBody}" TextWrapping="Wrap" LineHeight="19" />
                         </Button>
                         <StackPanel Margin="0,20,0,0" Visibility="{Binding IsDestination, Converter={StaticResource Visibility}}">
@@ -57,22 +57,22 @@
                             <Grid>
                                 <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
                                 <Button Style="{StaticResource Element}" Tag="{x:Static core:ElementKind.Directory}" Click="Element_Click" HorizontalContentAlignment="Stretch"
-                                        Visibility="{Binding IsDesign, Converter={StaticResource Visibility}}" AutomationProperties.Name="Installatiemap selecteren">
+                                        Visibility="{Binding IsDesign, Converter={StaticResource Visibility}}" AutomationProperties.Name="{loc:Loc SelectDirectory}">
                                     <Border BorderBrush="#ACACAC" BorderThickness="1" Padding="6"><TextBlock Text="{Binding DirectoryText}" TextTrimming="CharacterEllipsis" ToolTip="{Binding DirectoryText}" /></Border>
                                 </Button>
-                                <TextBox Text="{Binding TrialDirectory, UpdateSourceTrigger=PropertyChanged}" Margin="8" Padding="6" Visibility="{Binding IsPreview, Converter={StaticResource Visibility}}" AutomationProperties.Name="Installatiemap uitproberen" />
-                                <Button Grid.Column="1" Style="{StaticResource Navigation}" Tag="{x:Static core:ElementKind.Browse}" Content="{Binding BrowseCaption}" ToolTip="{Binding BrowseTooltip}" Click="Element_Click" AutomationProperties.Name="Bladeren" />
+                                <TextBox Text="{Binding TrialDirectory, UpdateSourceTrigger=PropertyChanged}" Margin="8" Padding="6" Visibility="{Binding IsPreview, Converter={StaticResource Visibility}}" AutomationProperties.Name="{loc:Loc TryDirectory}" />
+                                <Button Grid.Column="1" Style="{StaticResource Navigation}" Tag="{x:Static core:ElementKind.Browse}" Content="{Binding BrowseCaption}" ToolTip="{Binding BrowseTooltip}" Click="Element_Click" AutomationProperties.Name="{loc:Loc ElementBrowse}" />
                             </Grid>
-                            <TextBlock Text="Inno Setup vult constanten in op de doelcomputer." Foreground="#666666" FontSize="10" TextWrapping="Wrap" Margin="8,6,8,0" />
+                            <TextBlock Text="{loc:Loc ConstantsHint}" Foreground="#666666" FontSize="10" TextWrapping="Wrap" Margin="8,6,8,0" />
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
             <Border Grid.Row="2" Background="#F0F0F0" BorderBrush="#D5D5D5" BorderThickness="0,1,0,0" Padding="10">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Style="{StaticResource Navigation}" Tag="{x:Static core:ElementKind.Back}" Content="{Binding BackCaption}" Click="Element_Click" IsEnabled="{Binding CanGoBack}" AutomationProperties.Name="Terug" />
-                    <Button Style="{StaticResource Navigation}" Tag="{x:Static core:ElementKind.Next}" Content="{Binding NextCaption}" Click="Element_Click" AutomationProperties.Name="Verder" />
-                    <Button Style="{StaticResource Navigation}" Tag="{x:Static core:ElementKind.Cancel}" Content="{Binding CancelCaption}" Click="Element_Click" AutomationProperties.Name="Annuleren" />
+                    <Button Style="{StaticResource Navigation}" Tag="{x:Static core:ElementKind.Back}" Content="{Binding BackCaption}" Click="Element_Click" IsEnabled="{Binding CanGoBack}" AutomationProperties.Name="{loc:Loc ElementBack}" />
+                    <Button Style="{StaticResource Navigation}" Tag="{x:Static core:ElementKind.Next}" Content="{Binding NextCaption}" Click="Element_Click" AutomationProperties.Name="{loc:Loc ElementNext}" />
+                    <Button Style="{StaticResource Navigation}" Tag="{x:Static core:ElementKind.Cancel}" Content="{Binding CancelCaption}" Click="Element_Click" AutomationProperties.Name="{loc:Loc ElementCancel}" />
                 </StackPanel>
             </Border>
         </Grid>

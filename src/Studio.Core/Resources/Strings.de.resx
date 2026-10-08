@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="AppSubtitle" xml:space="preserve"><value>Visueller Designer für Inno Setup 7.1</value></data>
+  <data name="New" xml:space="preserve"><value>_Neu</value></data>
+  <data name="Open" xml:space="preserve"><value>Ö_ffnen</value></data>
+  <data name="SaveAs" xml:space="preserve"><value>Speichern _unter</value></data>
+  <data name="Save" xml:space="preserve"><value>_Speichern</value></data>
+  <data name="NewTip" xml:space="preserve"><value>Neues Beispielprojekt (Strg+N)</value></data>
+  <data name="OpenTip" xml:space="preserve"><value>Projekt öffnen (Strg+O)</value></data>
+  <data name="SaveTip" xml:space="preserve"><value>Projekt speichern (Strg+S)</value></data>
+  <data name="LanguageLabel" xml:space="preserve"><value>Studio-Sprache</value></data>
+  <data name="FirstVersion" xml:space="preserve"><value>ERSTE VERSION</value></data>
+  <data name="FirstVersionHint" xml:space="preserve"><value>Entwerfen und speichern. Skripterstellung und Kompilierung folgen später.</value></data>
+  <data name="Pages" xml:space="preserve"><value>SEITEN</value></data>
+  <data name="PagesAccessible" xml:space="preserve"><value>Seiten</value></data>
+  <data name="Elements" xml:space="preserve"><value>ELEMENTE</value></data>
+  <data name="ElementsAccessible" xml:space="preserve"><value>Elemente</value></data>
+  <data name="PagesWidth" xml:space="preserve"><value>Breite des Seitenbereichs</value></data>
+  <data name="PropertiesWidth" xml:space="preserve"><value>Breite des Eigenschaftenbereichs</value></data>
+  <data name="Design" xml:space="preserve"><value>Entwerfen</value></data>
+  <data name="TryOut" xml:space="preserve"><value>Ausprobieren</value></data>
+  <data name="Zoom" xml:space="preserve"><value>Zoom</value></data>
+  <data name="PreviewDisclaimer" xml:space="preserve"><value>Entwurfsvorschau · Die endgültige Darstellung wird von Inno Setup bestimmt.</value></data>
+  <data name="Properties" xml:space="preserve"><value>EIGENSCHAFTEN</value></data>
+  <data name="ElementTextAccessible" xml:space="preserve"><value>Text des ausgewählten Elements</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>Ordner wählen...</value></data>
+  <data name="TooltipLabel" xml:space="preserve"><value>_Tooltip</value></data>
+  <data name="BrowseTooltipAccessible" xml:space="preserve"><value>Tooltip für Durchsuchen</value></data>
+  <data name="ResetToBase" xml:space="preserve"><value>Auf Basisentwurf zurücksetzen</value></data>
+  <data name="InheritanceHeading" xml:space="preserve"><value>SO FUNKTIONIERT VERERBUNG</value></data>
+  <data name="InheritanceHint" xml:space="preserve"><value>Bearbeiten Sie gemeinsame Schaltflächentexte im Basisentwurf. Ändern Sie einen Text auf einer Seite, um nur dort davon abzuweichen.</value></data>
+  <data name="ResetHint" xml:space="preserve"><value>Zurücksetzen übernimmt wieder den aktuellen Basistext. Ein bewusst leerer Text bleibt ein eigener Wert.</value></data>
+  <data name="TryOutHint" xml:space="preserve"><value>In Ausprobieren steuern die Schaltflächen die Vorschauseiten. Es wird nichts installiert.</value></data>
+  <data name="BaseDesign" xml:space="preserve"><value>Basisentwurf</value></data>
+  <data name="BaseShared" xml:space="preserve"><value>Für alle Seiten gemeinsam</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>Seite {0:00}</value></data>
+  <data name="PageWelcome" xml:space="preserve"><value>Willkommen</value></data>
+  <data name="ElementTitle" xml:space="preserve"><value>Titel</value></data>
+  <data name="ElementBody" xml:space="preserve"><value>Beschreibung</value></data>
+  <data name="ElementDirectory" xml:space="preserve"><value>Installationsordner</value></data>
+  <data name="ElementBrowse" xml:space="preserve"><value>Durchsuchen</value></data>
+  <data name="ElementBack" xml:space="preserve"><value>Zurück</value></data>
+  <data name="ElementNext" xml:space="preserve"><value>Weiter</value></data>
+  <data name="ElementCancel" xml:space="preserve"><value>Abbrechen</value></data>
+  <data name="StatusSelect" xml:space="preserve"><value>Wählen Sie ein Element auf der Entwurfsfläche oder in der Elementliste aus.</value></data>
+  <data name="BaseDescription" xml:space="preserve"><value>Gemeinsame Schaltflächen · Änderungen gelten für alle Seiten</value></data>
+  <data name="PageDescription" xml:space="preserve"><value>Seiteninhalt und mögliche Abweichungen vom Basisentwurf</value></data>
+  <data name="BaseTitle" xml:space="preserve"><value>Ihr gemeinsamer Basisentwurf</value></data>
+  <data name="BaseBody" xml:space="preserve"><value>Hier erscheint der Inhalt der jeweiligen Seite.
+
+Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text zu bearbeiten.</value></data>
+  <data name="DefaultDirectoryLabel" xml:space="preserve"><value>_Standardinstallationsordner</value></data>
+  <data name="TextLabel" xml:space="preserve"><value>_Text</value></data>
+  <data name="DirectoryHint" xml:space="preserve"><value>Zum Beispiel {autopf}\Meine Anwendung. Inno Setup ermittelt diesen Pfad auf dem Zielcomputer. Ein in Ausprobieren gewählter Ordner ändert diesen Standardpfad nicht.</value></data>
+  <data name="BrowseHint" xml:space="preserve"><value>Diese Schaltfläche gehört zur Seite Installationsordner. In Ausprobieren öffnet sie die Ordnerauswahl.</value></data>
+  <data name="TextHint" xml:space="preserve"><value>Der Text wird sofort in der Entwurfsvorschau aktualisiert.</value></data>
+  <data name="OriginBase" xml:space="preserve"><value>Basisentwurf · gilt für alle Seiten</value></data>
+  <data name="OriginPage" xml:space="preserve"><value>Inhalt dieser Seite</value></data>
+  <data name="OriginOverride" xml:space="preserve"><value>Für diese Seite angepasst</value></data>
+  <data name="OriginInherited" xml:space="preserve"><value>Aus dem Basisentwurf übernommen</value></data>
+  <data name="Unsaved" xml:space="preserve"><value>Nicht gespeicherte Änderungen</value></data>
+  <data name="Unchanged" xml:space="preserve"><value>Keine Änderungen</value></data>
+  <data name="StatusTryOut" xml:space="preserve"><value>Ausprobieren: Navigieren Sie mit den Schaltflächen. Es wird nichts installiert.</value></data>
+  <data name="StatusDesign" xml:space="preserve"><value>Entwerfen: Klicken Sie auf ein Element, um es zu bearbeiten.</value></data>
+  <data name="StatusTrialDirectory" xml:space="preserve"><value>Ordner für diese Vorschau gewählt. Der Standardpfad bleibt unverändert.</value></data>
+  <data name="StatusEnd" xml:space="preserve"><value>Ende der Entwurfsvorschau. Es wird nichts installiert.</value></data>
+  <data name="StatusSaved" xml:space="preserve"><value>Projekt gespeichert.</value></data>
+  <data name="WizardImage" xml:space="preserve"><value>Assistentenbild</value></data>
+  <data name="Example" xml:space="preserve"><value>Beispiel</value></data>
+  <data name="SelectTitle" xml:space="preserve"><value>Titel auswählen</value></data>
+  <data name="SelectBody" xml:space="preserve"><value>Beschreibung auswählen</value></data>
+  <data name="SelectDirectory" xml:space="preserve"><value>Installationsordner auswählen</value></data>
+  <data name="TryDirectory" xml:space="preserve"><value>Installationsordner ausprobieren</value></data>
+  <data name="ConstantsHint" xml:space="preserve"><value>Inno Setup ersetzt Konstanten auf dem Zielcomputer.</value></data>
+  <data name="TrialFolderTitle" xml:space="preserve"><value>Installationsordner wählen — Ausprobieren</value></data>
+  <data name="DefaultFolderTitle" xml:space="preserve"><value>Standardinstallationsordner wählen</value></data>
+  <data name="NewProject" xml:space="preserve"><value>Neues Projekt</value></data>
+  <data name="ProjectFilter" xml:space="preserve"><value>Inno Setup Studio-Projekt (*.issstudio)|*.issstudio</value></data>
+  <data name="OpenTitle" xml:space="preserve"><value>Projekt öffnen</value></data>
+  <data name="SaveTitle" xml:space="preserve"><value>Projekt speichern</value></data>
+  <data name="ExtensionHint" xml:space="preserve"><value>Verwenden Sie für diese neue Variante die Erweiterung .issstudio.</value></data>
+  <data name="SaveChanges" xml:space="preserve"><value>Möchten Sie die Änderungen an diesem Projekt speichern?</value></data>
+  <data name="OpenFailed" xml:space="preserve"><value>Öffnen fehlgeschlagen</value></data>
+  <data name="SaveFailed" xml:space="preserve"><value>Speichern fehlgeschlagen</value></data>
+  <data name="StatusOpenFailed" xml:space="preserve"><value>Das Projekt konnte nicht geöffnet werden. Das aktuelle Projekt bleibt verfügbar.</value></data>
+  <data name="StatusSaveFailed" xml:space="preserve"><value>Das Projekt konnte nicht gespeichert werden. Das aktuelle Projekt bleibt verfügbar.</value></data>
+  <data name="FileError" xml:space="preserve"><value>Die Datei konnte nicht verarbeitet werden. Prüfen Sie Speicherort, Zugriffsrechte und freien Speicherplatz.</value></data>
+  <data name="FileMissing" xml:space="preserve"><value>Die Datei oder der Ordner ist nicht mehr vorhanden.</value></data>
+  <data name="AccessDenied" xml:space="preserve"><value>Kein Zugriff auf diese Datei oder diesen Ordner.</value></data>
+  <data name="PreferencesFailed" xml:space="preserve"><value>Die Sprache wurde geändert, konnte aber nicht gespeichert werden. Prüfen Sie den Zugriff auf Ihre lokalen Benutzereinstellungen.</value></data>
+  <data name="FileTooLarge" xml:space="preserve"><value>Die Projektdatei ist größer als 1 MB.</value></data>
+  <data name="NotStudioProject" xml:space="preserve"><value>Dies ist kein Projekt des neuen Inno Setup Studio.</value></data>
+  <data name="InvalidProject" xml:space="preserve"><value>Die Projektdatei enthält ungültige oder nicht unterstützte Daten.</value></data>
+  <data name="ProjectTooLarge" xml:space="preserve"><value>Das Projekt ist größer als 1 MB.</value></data>
+  <data name="UnsupportedProject" xml:space="preserve"><value>Dieses Projektformat oder diese Version wird nicht unterstützt.</value></data>
+  <data name="MissingProjectData" xml:space="preserve"><value>In diesem Projekt fehlen erforderliche Seiten oder Schaltflächeneinstellungen.</value></data>
+  <data name="InvalidPage" xml:space="preserve"><value>Der Seiteninhalt ist für diese Version von Studio ungültig.</value></data>
+  <data name="InvalidDirectory" xml:space="preserve"><value>Geben Sie einen Standardinstallationsordner in einer Zeile ein und prüfen Sie die Durchsuchen-Schaltfläche.</value></data>
+</root>
+

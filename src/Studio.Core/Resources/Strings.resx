@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="AppSubtitle" xml:space="preserve"><value>Visuele ontwerper voor Inno Setup 7.1</value></data>
+  <data name="New" xml:space="preserve"><value>_Nieuw</value></data>
+  <data name="Open" xml:space="preserve"><value>_Openen</value></data>
+  <data name="SaveAs" xml:space="preserve"><value>Opslaan _als</value></data>
+  <data name="Save" xml:space="preserve"><value>Op_slaan</value></data>
+  <data name="NewTip" xml:space="preserve"><value>Nieuw voorbeeldproject (Ctrl+N)</value></data>
+  <data name="OpenTip" xml:space="preserve"><value>Project openen (Ctrl+O)</value></data>
+  <data name="SaveTip" xml:space="preserve"><value>Project opslaan (Ctrl+S)</value></data>
+  <data name="LanguageLabel" xml:space="preserve"><value>Studio-taal</value></data>
+  <data name="FirstVersion" xml:space="preserve"><value>EERSTE VERSIE</value></data>
+  <data name="FirstVersionHint" xml:space="preserve"><value>Ontwerpen en bewaren. Scriptgeneratie en bouwen volgen later.</value></data>
+  <data name="Pages" xml:space="preserve"><value>PAGINA’S</value></data>
+  <data name="PagesAccessible" xml:space="preserve"><value>Pagina’s</value></data>
+  <data name="Elements" xml:space="preserve"><value>ELEMENTEN</value></data>
+  <data name="ElementsAccessible" xml:space="preserve"><value>Elementen</value></data>
+  <data name="PagesWidth" xml:space="preserve"><value>Breedte paginapaneel</value></data>
+  <data name="PropertiesWidth" xml:space="preserve"><value>Breedte eigenschappenpaneel</value></data>
+  <data name="Design" xml:space="preserve"><value>Ontwerpen</value></data>
+  <data name="TryOut" xml:space="preserve"><value>Uitproberen</value></data>
+  <data name="Zoom" xml:space="preserve"><value>Zoom</value></data>
+  <data name="PreviewDisclaimer" xml:space="preserve"><value>Ontwerpvoorbeeld · De uiteindelijke weergave wordt door Inno Setup bepaald.</value></data>
+  <data name="Properties" xml:space="preserve"><value>EIGENSCHAPPEN</value></data>
+  <data name="ElementTextAccessible" xml:space="preserve"><value>Tekst van geselecteerd element</value></data>
+  <data name="ChooseFolder" xml:space="preserve"><value>Map kiezen...</value></data>
+  <data name="TooltipLabel" xml:space="preserve"><value>_Tooltip</value></data>
+  <data name="BrowseTooltipAccessible" xml:space="preserve"><value>Tooltip van Bladeren</value></data>
+  <data name="ResetToBase" xml:space="preserve"><value>Herstellen naar basisontwerp</value></data>
+  <data name="InheritanceHeading" xml:space="preserve"><value>ZO WERKT OVERERVEN</value></data>
+  <data name="InheritanceHint" xml:space="preserve"><value>Pas gedeelde knopteksten aan in Basisontwerp. Wijzig een tekst op een pagina om alleen daar af te wijken.</value></data>
+  <data name="ResetHint" xml:space="preserve"><value>Herstellen neemt de actuele basistekst weer over. Een bewust lege tekst blijft een eigen waarde.</value></data>
+  <data name="TryOutHint" xml:space="preserve"><value>In Uitproberen bedienen de knoppen de voorbeeldpagina’s. Er wordt niets geïnstalleerd.</value></data>
+  <data name="BaseDesign" xml:space="preserve"><value>Basisontwerp</value></data>
+  <data name="BaseShared" xml:space="preserve"><value>Gedeeld op alle pagina’s</value></data>
+  <data name="PageNumber" xml:space="preserve"><value>Pagina {0:00}</value></data>
+  <data name="PageWelcome" xml:space="preserve"><value>Welkom</value></data>
+  <data name="ElementTitle" xml:space="preserve"><value>Titel</value></data>
+  <data name="ElementBody" xml:space="preserve"><value>Beschrijving</value></data>
+  <data name="ElementDirectory" xml:space="preserve"><value>Installatiemap</value></data>
+  <data name="ElementBrowse" xml:space="preserve"><value>Bladeren</value></data>
+  <data name="ElementBack" xml:space="preserve"><value>Terug</value></data>
+  <data name="ElementNext" xml:space="preserve"><value>Verder</value></data>
+  <data name="ElementCancel" xml:space="preserve"><value>Annuleren</value></data>
+  <data name="StatusSelect" xml:space="preserve"><value>Selecteer een element op het ontwerpvlak of in de elementenlijst.</value></data>
+  <data name="BaseDescription" xml:space="preserve"><value>Gedeelde knoppen · wijzigingen werken door op alle pagina’s</value></data>
+  <data name="PageDescription" xml:space="preserve"><value>Pagina-inhoud en eventuele afwijkingen van het basisontwerp</value></data>
+  <data name="BaseTitle" xml:space="preserve"><value>Uw gedeelde basisontwerp</value></data>
+  <data name="BaseBody" xml:space="preserve"><value>Hier verschijnt de inhoud van elke pagina.
+
+Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value></data>
+  <data name="DefaultDirectoryLabel" xml:space="preserve"><value>_Standaard installatiemap</value></data>
+  <data name="TextLabel" xml:space="preserve"><value>_Tekst</value></data>
+  <data name="DirectoryHint" xml:space="preserve"><value>Bijvoorbeeld {autopf}\Mijn applicatie. Inno Setup bepaalt deze locatie op de doelcomputer. Een gekozen map in Uitproberen verandert dit standaardpad niet.</value></data>
+  <data name="BrowseHint" xml:space="preserve"><value>Deze knop hoort bij de pagina Installatiemap. In Uitproberen opent hij de mapkeuze.</value></data>
+  <data name="TextHint" xml:space="preserve"><value>De tekst wordt direct in het ontwerpvoorbeeld bijgewerkt.</value></data>
+  <data name="OriginBase" xml:space="preserve"><value>Basisontwerp · geldt voor alle pagina’s</value></data>
+  <data name="OriginPage" xml:space="preserve"><value>Inhoud van deze pagina</value></data>
+  <data name="OriginOverride" xml:space="preserve"><value>Aangepast voor deze pagina</value></data>
+  <data name="OriginInherited" xml:space="preserve"><value>Overgenomen uit Basisontwerp</value></data>
+  <data name="Unsaved" xml:space="preserve"><value>Niet-opgeslagen wijzigingen</value></data>
+  <data name="Unchanged" xml:space="preserve"><value>Geen wijzigingen</value></data>
+  <data name="StatusTryOut" xml:space="preserve"><value>Uitproberen: navigeer met de knoppen. Er wordt niets geïnstalleerd.</value></data>
+  <data name="StatusDesign" xml:space="preserve"><value>Ontwerpen: klik op een element om het te bewerken.</value></data>
+  <data name="StatusTrialDirectory" xml:space="preserve"><value>Map gekozen voor deze uitprobeersessie. Het standaardpad is ongewijzigd.</value></data>
+  <data name="StatusEnd" xml:space="preserve"><value>Einde van het ontwerpvoorbeeld. Er wordt niets geïnstalleerd.</value></data>
+  <data name="StatusSaved" xml:space="preserve"><value>Project opgeslagen.</value></data>
+  <data name="WizardImage" xml:space="preserve"><value>Wizardafbeelding</value></data>
+  <data name="Example" xml:space="preserve"><value>Voorbeeld</value></data>
+  <data name="SelectTitle" xml:space="preserve"><value>Titel selecteren</value></data>
+  <data name="SelectBody" xml:space="preserve"><value>Beschrijving selecteren</value></data>
+  <data name="SelectDirectory" xml:space="preserve"><value>Installatiemap selecteren</value></data>
+  <data name="TryDirectory" xml:space="preserve"><value>Installatiemap uitproberen</value></data>
+  <data name="ConstantsHint" xml:space="preserve"><value>Inno Setup vult constanten in op de doelcomputer.</value></data>
+  <data name="TrialFolderTitle" xml:space="preserve"><value>Installatiemap kiezen — uitproberen</value></data>
+  <data name="DefaultFolderTitle" xml:space="preserve"><value>Standaard installatiemap kiezen</value></data>
+  <data name="NewProject" xml:space="preserve"><value>Nieuw project</value></data>
+  <data name="ProjectFilter" xml:space="preserve"><value>Inno Setup Studio-project (*.issstudio)|*.issstudio</value></data>
+  <data name="OpenTitle" xml:space="preserve"><value>Project openen</value></data>
+  <data name="SaveTitle" xml:space="preserve"><value>Project opslaan</value></data>
+  <data name="ExtensionHint" xml:space="preserve"><value>Gebruik de extensie .issstudio voor deze nieuwe variant.</value></data>
+  <data name="SaveChanges" xml:space="preserve"><value>Wilt u de wijzigingen in dit project opslaan?</value></data>
+  <data name="OpenFailed" xml:space="preserve"><value>Openen mislukt</value></data>
+  <data name="SaveFailed" xml:space="preserve"><value>Opslaan mislukt</value></data>
+  <data name="StatusOpenFailed" xml:space="preserve"><value>Openen is niet gelukt. Het huidige project blijft beschikbaar.</value></data>
+  <data name="StatusSaveFailed" xml:space="preserve"><value>Opslaan is niet gelukt. Het huidige project blijft beschikbaar.</value></data>
+  <data name="FileError" xml:space="preserve"><value>Het bestand kon niet worden verwerkt. Controleer de locatie, toegangsrechten en beschikbare schijfruimte.</value></data>
+  <data name="FileMissing" xml:space="preserve"><value>Het bestand of de map bestaat niet meer.</value></data>
+  <data name="AccessDenied" xml:space="preserve"><value>Geen toegang tot dit bestand of deze map.</value></data>
+  <data name="PreferencesFailed" xml:space="preserve"><value>De taal is gewijzigd, maar kon niet worden onthouden. Controleer de toegang tot uw lokale gebruikersinstellingen.</value></data>
+  <data name="FileTooLarge" xml:space="preserve"><value>Het projectbestand is groter dan 1 MB.</value></data>
+  <data name="NotStudioProject" xml:space="preserve"><value>Dit is geen project van de nieuwe Inno Setup Studio.</value></data>
+  <data name="InvalidProject" xml:space="preserve"><value>Het projectbestand bevat ongeldige of niet-ondersteunde gegevens.</value></data>
+  <data name="ProjectTooLarge" xml:space="preserve"><value>Het project is groter dan 1 MB.</value></data>
+  <data name="UnsupportedProject" xml:space="preserve"><value>Dit projectformaat of deze versie wordt niet ondersteund.</value></data>
+  <data name="MissingProjectData" xml:space="preserve"><value>Dit project mist de vereiste pagina’s of knopinstellingen.</value></data>
+  <data name="InvalidPage" xml:space="preserve"><value>De pagina-inhoud is ongeldig voor deze versie van Studio.</value></data>
+  <data name="InvalidDirectory" xml:space="preserve"><value>Vul een standaard installatiemap in op één regel en controleer de Bladeren-knop.</value></data>
+</root>
+

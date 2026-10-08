@@ -14,26 +14,38 @@ public partial class MainWindow : Window
     private bool _busy;
     private bool _closeApproved;
     private bool _closing;
-    private const string ProjectFilter = "Inno Setup Studio-project (*.issstudio)|*.issstudio";
+    private static StudioLocalizer Text => Localization.Current;
 
     public MainWindow()
     {
         InitializeComponent();
         SetProject(StudioProject.CreateExample(), null);
+        Text.PropertyChanged += LanguageChanged;
+        Closed += (_, _) => { Text.PropertyChanged -= LanguageChanged; _editor.Dispose(); };
     }
 
     private void SetProject(StudioProject project, string? path)
     {
-        if (_editor is not null) _editor.PropertyChanged -= EditorChanged;
+        if (_editor is not null) { _editor.PropertyChanged -= EditorChanged; _editor.Dispose(); }
         _path = path;
-        _editor = new EditorSession(project);
+        _editor = new EditorSession(project, Text);
         _editor.PropertyChanged += EditorChanged;
         DataContext = _editor;
         UpdateTitle();
     }
 
+    private void LanguageChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        try { StudioPreferences.SaveLanguage(StudioPreferences.DefaultPath, Text.Language); }
+        catch (Exception error) when (IsFileError(error))
+        {
+            _editor.SetStatus("PreferencesFailed");
+            MessageBox.Show(this, Text["PreferencesFailed"], Text["LanguageLabel"], MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
+    }
+
     private void EditorChanged(object? sender, PropertyChangedEventArgs e) => UpdateTitle();
-    private void UpdateTitle() => Title = $"{(_editor.IsDirty ? "• " : "")}{(_path is null ? "Nieuw project" : Path.GetFileName(_path))} — Inno Setup Studio";
+    private void UpdateTitle() => Title = $"{(_editor.IsDirty ? "• " : "")}{(_path is null ? Text["NewProject"] : Path.GetFileName(_path))} — Inno Setup Studio";
     private void SetBusy(bool busy) { _busy = busy; Workspace.IsEnabled = !busy; }
     private void Design_Checked(object sender, RoutedEventArgs e) { if (_editor is not null) _editor.IsPreview = false; }
     private void Preview_Checked(object sender, RoutedEventArgs e) { if (_editor is not null) _editor.IsPreview = true; }
@@ -41,7 +53,7 @@ public partial class MainWindow : Window
     private void ChooseDirectory_Click(object sender, RoutedEventArgs e)
     {
         if (!_editor.CanEdit || !_editor.IsDirectorySelected) return;
-        var path = FolderPicker.Pick(this, _editor.DirectoryText, "Standaard installatiemap kiezen");
+        var path = FolderPicker.Pick(this, _editor.DirectoryText, Text["DefaultFolderTitle"]);
         if (path is not null) _editor.PropertyText = path;
     }
 
@@ -54,11 +66,11 @@ public partial class MainWindow : Window
     private async void Open_Executed(object sender, ExecutedRoutedEventArgs e)
     {
         if (_busy || !await CanReplaceProjectAsync()) return;
-        var dialog = new OpenFileDialog { Filter = ProjectFilter, CheckFileExists = true };
+        var dialog = new OpenFileDialog { Filter = Text["ProjectFilter"], Title = Text["OpenTitle"], CheckFileExists = true };
         if (dialog.ShowDialog(this) != true) return;
         SetBusy(true);
         try { SetProject(await ProjectFile.LoadAsync(dialog.FileName), dialog.FileName); }
-        catch (Exception error) when (IsFileError(error)) { ShowFileError("Openen", error); }
+        catch (Exception error) when (IsFileError(error)) { ShowFileError("Open", error); }
         finally { SetBusy(false); }
     }
 
@@ -70,14 +82,14 @@ public partial class MainWindow : Window
         var path = _path;
         if (path is null || saveAs)
         {
-            var dialog = new SaveFileDialog { Filter = ProjectFilter, DefaultExt = ".issstudio", AddExtension = true,
-                FileName = path is null ? "Mijn applicatie.issstudio" : Path.GetFileName(path) };
+            var dialog = new SaveFileDialog { Filter = Text["ProjectFilter"], Title = Text["SaveTitle"], DefaultExt = ".issstudio", AddExtension = true,
+                FileName = path is null ? _editor.Project.Name + ".issstudio" : Path.GetFileName(path) };
             if (dialog.ShowDialog(this) != true) return false;
             path = dialog.FileName;
         }
         if (!string.Equals(Path.GetExtension(path), ".issstudio", StringComparison.OrdinalIgnoreCase))
         {
-            MessageBox.Show(this, "Gebruik de extensie .issstudio voor deze nieuwe variant.", "Project opslaan", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(this, Text["ExtensionHint"], Text["SaveTitle"], MessageBoxButton.OK, MessageBoxImage.Information);
             return false;
         }
         SetBusy(true);
@@ -88,14 +100,14 @@ public partial class MainWindow : Window
             _editor.MarkSaved();
             return true;
         }
-        catch (Exception error) when (IsFileError(error)) { ShowFileError("Opslaan", error); return false; }
+        catch (Exception error) when (IsFileError(error)) { ShowFileError("Save", error); return false; }
         finally { SetBusy(false); }
     }
 
     private async Task<bool> CanReplaceProjectAsync()
     {
         if (!_editor.IsDirty) return true;
-        var result = MessageBox.Show(this, "Wilt u de wijzigingen in dit project opslaan?", "Niet-opgeslagen wijzigingen",
+        var result = MessageBox.Show(this, Text["SaveChanges"], Text["Unsaved"],
             MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
         return result == MessageBoxResult.No || result == MessageBoxResult.Yes && await SaveAsync(false);
     }
@@ -118,7 +130,13 @@ public partial class MainWindow : Window
     private static bool IsFileError(Exception error) => error is IOException or InvalidDataException or UnauthorizedAccessException or ArgumentException or NotSupportedException;
     private void ShowFileError(string action, Exception error)
     {
-        _editor.SetStatus($"{action} is niet gelukt. Het huidige project blijft beschikbaar.");
-        MessageBox.Show(this, error.Message, $"{action} mislukt", MessageBoxButton.OK, MessageBoxImage.Warning);
+        _editor.SetStatus("Status" + action + "Failed");
+        var key = ProjectFile.ErrorResourceKey(error) ?? (error switch
+        {
+            FileNotFoundException or DirectoryNotFoundException => "FileMissing",
+            UnauthorizedAccessException => "AccessDenied",
+            _ => "FileError"
+        });
+        MessageBox.Show(this, Text[key], Text[action + "Failed"], MessageBoxButton.OK, MessageBoxImage.Warning);
     }
 }
