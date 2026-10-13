@@ -24,6 +24,12 @@ public partial class MainWindow
         new LanguageSourcesWindow(_compilerPath, _additionalLanguageSources) { Owner = this }.ShowDialog();
     }
 
+    private void ProjectLanguages_Click(object sender, RoutedEventArgs e)
+    {
+        if (_busy || !_editor.IsDesign) return;
+        new ProjectLanguagesWindow(_editor, _compilerPath, _additionalLanguageSources) { Owner = this }.ShowDialog();
+    }
+
     private void UpdateCompilerState()
     {
         CompilerLocation.Text = _compilerPath ?? "";

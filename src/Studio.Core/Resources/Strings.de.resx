@@ -156,7 +156,7 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="LanguageSources" xml:space="preserve"><value>Installer-Sprachquellen</value></data>
   <data name="AddLanguageSource" xml:space="preserve"><value>Sprachdatei hinzufügen…</value></data>
   <data name="ReloadLanguageSources" xml:space="preserve"><value>Neu einlesen</value></data>
-  <data name="LanguageSourcesScope" xml:space="preserve"><value>Nur Quellenübersicht. Projekt- und Vorschausprachen werden im nächsten Schritt auswählbar. Quelldateien werden nicht geändert.</value></data>
+  <data name="LanguageSourcesScope" xml:space="preserve"><value>Diese Übersicht liest Sprachquellen, ohne sie zu ändern. Fügen Sie eine Sprache über Projektsprachen hinzu, um sie in der Vorschau zu verwenden.</value></data>
   <data name="LanguageSourcePath" xml:space="preserve"><value>Pfad der Sprachdatei</value></data>
   <data name="LanguageSourceEntries" xml:space="preserve"><value>Spracheinstellungen und Texte</value></data>
   <data name="LanguageSourceSection" xml:space="preserve"><value>Abschnitt</value></data>
@@ -207,4 +207,17 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="InstallerLanguageName_041E" xml:space="preserve"><value>Thailändisch</value></data>
   <data name="InstallerLanguageName_041F" xml:space="preserve"><value>Türkisch</value></data>
   <data name="InstallerLanguageName_0422" xml:space="preserve"><value>Ukrainisch</value></data>
+  <data name="AddProjectLanguage" xml:space="preserve"><value>Sprache hinzufügen…</value></data>
+  <data name="AddToProject" xml:space="preserve"><value>Zum Projekt hinzufügen</value></data>
+  <data name="ExportLanguagesPending" xml:space="preserve"><value>Mehrsprachiger Export folgt in M02-S05. Aktivieren Sie zum Bauen vorerst nur die Sprache der eigenen Projekttexte.</value></data>
+  <data name="InvalidProjectLanguages" xml:space="preserve"><value>Die Projektsprachen sind ungültig. Mindestens eine Sprache muss aktiv sein und die Sprache der eigenen Texte muss erhalten bleiben.</value></data>
+  <data name="LanguageDown" xml:space="preserve"><value>Nach unten</value></data>
+  <data name="LanguageUp" xml:space="preserve"><value>Nach oben</value></data>
+  <data name="PreviewLanguage" xml:space="preserve"><value>Vorschau-Sprache</value></data>
+  <data name="PreviewNativeTexts" xml:space="preserve"><value>Sprachdatei; eigene Übersetzungen folgen in S03</value></data>
+  <data name="PreviewOwnTexts" xml:space="preserve"><value>Eigene Projekttexte</value></data>
+  <data name="PreviewRtlLimitation" xml:space="preserve"><value>Diese Sprache wird von rechts nach links geschrieben. Die Vorschau spiegelt den nativen Assistenten noch nicht.</value></data>
+  <data name="ProjectLanguageAdded" xml:space="preserve"><value>Die Sprache ist im Projekt. Eine vorhandene Quelle wird nicht doppelt hinzugefügt.</value></data>
+  <data name="ProjectLanguages" xml:space="preserve"><value>Projektsprachen</value></data>
+  <data name="ProjectLanguagesHint" xml:space="preserve"><value>Die erste aktive Sprache ist die Rückfallsprache. Deaktivieren bewahrt alle Daten; mindestens eine Sprache bleibt aktiv. Mehrsprachiger Export folgt in S05.</value></data>
 </root>

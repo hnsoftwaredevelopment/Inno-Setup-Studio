@@ -156,7 +156,7 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="LanguageSources" xml:space="preserve"><value>Installer language sources</value></data>
   <data name="AddLanguageSource" xml:space="preserve"><value>Add language file…</value></data>
   <data name="ReloadLanguageSources" xml:space="preserve"><value>Reload sources</value></data>
-  <data name="LanguageSourcesScope" xml:space="preserve"><value>Source overview only. Choosing project and preview languages follows in the next slice. Source files are not modified.</value></data>
+  <data name="LanguageSourcesScope" xml:space="preserve"><value>This overview reads language sources without changing them. Add a language through Project languages to use it in the preview.</value></data>
   <data name="LanguageSourcePath" xml:space="preserve"><value>Language file path</value></data>
   <data name="LanguageSourceEntries" xml:space="preserve"><value>Language settings and messages</value></data>
   <data name="LanguageSourceSection" xml:space="preserve"><value>Section</value></data>
@@ -207,4 +207,17 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="InstallerLanguageName_041E" xml:space="preserve"><value>Thai</value></data>
   <data name="InstallerLanguageName_041F" xml:space="preserve"><value>Turkish</value></data>
   <data name="InstallerLanguageName_0422" xml:space="preserve"><value>Ukrainian</value></data>
+  <data name="AddProjectLanguage" xml:space="preserve"><value>Add language…</value></data>
+  <data name="AddToProject" xml:space="preserve"><value>Add to project</value></data>
+  <data name="ExportLanguagesPending" xml:space="preserve"><value>Multilingual export follows in M02-S05. For now, build with only the language of the custom project texts enabled.</value></data>
+  <data name="InvalidProjectLanguages" xml:space="preserve"><value>Project languages are invalid. At least one language must be enabled and the language of the custom texts must be retained.</value></data>
+  <data name="LanguageDown" xml:space="preserve"><value>Move down</value></data>
+  <data name="LanguageUp" xml:space="preserve"><value>Move up</value></data>
+  <data name="PreviewLanguage" xml:space="preserve"><value>Preview language</value></data>
+  <data name="PreviewNativeTexts" xml:space="preserve"><value>Language file; custom translations follow in S03</value></data>
+  <data name="PreviewOwnTexts" xml:space="preserve"><value>Own project texts</value></data>
+  <data name="PreviewRtlLimitation" xml:space="preserve"><value>This language is right-to-left. The preview does not yet mirror the native wizard.</value></data>
+  <data name="ProjectLanguageAdded" xml:space="preserve"><value>The language is in the project. An existing source is not added twice.</value></data>
+  <data name="ProjectLanguages" xml:space="preserve"><value>Project languages</value></data>
+  <data name="ProjectLanguagesHint" xml:space="preserve"><value>The first enabled language is the fallback. Disabling preserves all data; at least one language stays enabled. Multilingual export follows in S05.</value></data>
 </root>

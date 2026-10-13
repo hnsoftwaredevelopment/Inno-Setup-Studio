@@ -27,7 +27,7 @@ public static class ProjectFile
             var root = json.RootElement;
             if (root.GetProperty("Version").ValueKind != JsonValueKind.Number
                 || !root.GetProperty("Version").TryGetInt32(out var version)
-                || version is not (1 or 2 or 3 or StudioProject.CurrentVersion))
+                || version is not (1 or 2 or 3 or 4 or StudioProject.CurrentVersion))
                 throw InvalidProject("UnsupportedProject");
             if (version >= 2
                 && (!root.TryGetProperty("AppId", out _) || !root.TryGetProperty("AppVersion", out _)))
@@ -36,9 +36,13 @@ public static class ProjectFile
                 throw InvalidProject("InvalidFileRule");
             if (version < 3 && root.TryGetProperty("InstallFile", out _))
                 throw InvalidProject("UnsupportedProject");
-            if (version == StudioProject.CurrentVersion && !root.TryGetProperty("OutputBaseFileName", out _))
+            if (version >= 4 && !root.TryGetProperty("OutputBaseFileName", out _))
                 throw InvalidProject("InvalidOutputName");
             if (version < 4 && root.TryGetProperty("OutputBaseFileName", out _))
+                throw InvalidProject("UnsupportedProject");
+            if (version >= 5 && (!root.TryGetProperty("Languages", out _) || !root.TryGetProperty("TextLanguageId", out _)))
+                throw InvalidProject("InvalidProjectLanguages");
+            if (version < 5 && (root.TryGetProperty("Languages", out _) || root.TryGetProperty("TextLanguageId", out _)))
                 throw InvalidProject("UnsupportedProject");
             var project = root.Deserialize<StudioProject>(Options)!;
             if (version == 1)
@@ -51,7 +55,9 @@ public static class ProjectFile
             if (version < StudioProject.CurrentVersion)
             {
                 if (version < 3) project.InstallFile = new();
-                project.OutputBaseFileName = "setup";
+                if (version < 4) project.OutputBaseFileName = "setup";
+                project.TextLanguageId = "dutch";
+                project.Languages = [InstallerLanguage.Dutch()];
                 project.Version = StudioProject.CurrentVersion;
                 project.WasMigrated = true;
             }
@@ -108,6 +114,13 @@ public static class ProjectFile
             || !IsSingleLine(project.AppVersion))
             throw InvalidProject("InvalidApplicationDetails");
         if (!InstallerOutput.IsValid(project.OutputBaseFileName)) throw InvalidProject("InvalidOutputName");
+        if (project.Languages is null || project.Languages.Count is < 1 or > 100
+            || project.Languages.Any(l => l is null || !IsSingleLine(l.Id) || !IsSingleLine(l.Name)
+                || !IsSingleLine(l.Source) || l.LanguageId is < 0 or > 65535 || l.Messages is null
+                || l.Messages.Any(p => !InstallerLanguage.PreviewKeys.Contains(p.Key) || p.Value is null))
+            || project.Languages.Select(l => l.Id).Distinct(StringComparer.Ordinal).Count() != project.Languages.Count
+            || !project.Languages.Any(l => l.Enabled) || !project.Languages.Any(l => l.Id == project.TextLanguageId))
+            throw InvalidProject("InvalidProjectLanguages");
         if (project.InstallFile is not { } file || file.Source is null || file.Source.Any(char.IsControl)
             || !IsSingleLine(file.Destination))
             throw InvalidProject("InvalidFileRule");

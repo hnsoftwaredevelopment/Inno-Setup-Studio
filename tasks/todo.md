@@ -51,7 +51,7 @@ Bestandsgroepen: Core/taalbronnen/project/migratie; App/talen/preview/eigenschap
 | Acceptatie | Slice / resultaat | Toetsbare criteria | Controle / afhankelijk |
 |---|---|---|---|
 | [x] | M02-S01 Beschikbare taalbronnen | Default.isl en gevonden taalbestanden worden ingelezen zonder wijziging; extra isl kan worden gekozen; ontbrekende/ongeldige bron geeft uitleg. | B/T/U; M01 |
-| [ ] | M02-S02 Projecttalen en previewkeuze | Ingeschakelde talen en volgorde worden bewaard; nieuwe projecten beginnen Engels en oude Nederlandse waarden blijven Nederlands; Voorbeeldtaal staat los van Studio-taal. | B/T/U; S01 |
+| [x] | M02-S02 Projecttalen en previewkeuze | Ingeschakelde talen en volgorde worden bewaard; nieuwe projecten beginnen Engels en oude Nederlandse waarden blijven Nederlands; Voorbeeldtaal staat los van Studio-taal. | B/T/U; S01 |
 | [ ] | M02-S03 Eigen teksten per taal | Standaard, gedeeld en lokaal hebben zichtbare herkomst; herstellen verwijdert de juiste afwijking; lege/ontbrekende eigen vertalingen volgen de vooraf vastgelegde terugvalregel. | B/T/U; S02 |
 | [ ] | M02-S04 Vertaaloverzicht | Meerdere projecttalen zijn naast elkaar te bewerken; placeholders en ontbrekende teksten worden gemeld; taal uitschakelen/verwijderen verliest geen tekst ongemerkt. | B/T/U; S03 |
 | [ ] | M02-S05 Installertaal bewijzen | Alleen-Nederlands en meertalig exporteren/compileren; echte wizard volgt taalkeuze; relevante RTL-/lettertypebeperkingen zijn getest of zichtbaar geregistreerd. | B/T/C/I, milestonecheck; S04 |
@@ -162,8 +162,14 @@ M01-S06 is op verzoek geïmplementeerd: expliciete bescherming van afwijkende ex
 
 M02-S01 is op verzoek geïmplementeerd op m02-installertalen: beschikbare taalbronnen lezen, inspecteren en aanvullende .isl kiezen. Release-build zonder fouten/waarschuwingen; 117 tests geslaagd. Alle geïnstalleerde taalbronnen zijn gelezen en hun hashes blijven gelijk. [Scope en testinstructies](../docs/slices/M02-S01-Beschikbare-taalbronnen.md). De gebruiker heeft de slice geaccepteerd, inclusief vertaalde namen, alfabetische sortering en herkenning van identieke kopieën. Na die aanpassingen slaagden 27 gerichte tests en de Release-build. S02 volgt na opdracht.
 
+M02-S02 is op verzoek geïmplementeerd op m02-installertalen: projecttalen met ingeschakelde status en volgorde, formaat 5 met behoud van oude Nederlandse teksten, Engelse nieuwe projecten en onafhankelijke Voorbeeldtaal. Release-build zonder fouten/waarschuwingen; alle 138 tests geslaagd, inclusief Engelse en bestaande Nederlandse compilatieproeven. Aanvullende talen tonen voorlopig native standaardteksten; eigen vertalingen volgen in S03 en meertalige export in S05. [Scope, tussenstapgrenzen en gebruikerscontrole](../docs/slices/M02-S02-Projecttalen-en-previewkeuze.md). De gebruiker heeft selectie, volgorde, behoud na herstart/heropenen, preview en de gegenereerde installer getest en op 13 oktober 2026 geaccepteerd. De volgende slice is M02-S03, na opdracht.
+
 ## Genoteerd voor latere uitwerking
 
 Bij M02-S03 (eigen teksten per taal): onderzoek verwijzingen in titel- en bodyteksten naar algemene projectgegevens, bijvoorbeeld de productnaam/AppName. Doel: een naamwijziging hoeft niet handmatig in iedere tekst herhaald te worden. De productnaam is al instelbaar onder Applicatiegegevens; tekstverwijzingen zijn nog niet geïmplementeerd. De gebruikerssuggestie verandert de volgorde van de geaccepteerde slices niet. Syntax, toegestane verwijzingen en de reguliere Inno Setup-vertaling worden in die slice vastgesteld; {AppName} is nu geen ondersteunde tekstexpressie.
 
 Voor de latere gebruikersdocumentatie (M09-S04): beschrijf eigen .isl-bronnen, LanguageName, de officiële LanguageID of 0 wanneer geen ID bestaat, UTF-8 en LanguageCodePage=0, en het onderscheid tussen een bron toevoegen en een installertaal inschakelen. Vermeld dat een numeriek toegestane ID niet automatisch een geldige Windows-taal-ID is en dat gedeeltelijke overridebestanden nu geen zelfstandige catalogustaal zijn. De gebruiker heeft verzocht deze uitleg later uit te werken.
+
+## Appicoon — afzonderlijke gebruikersopdracht
+
+Het aangeleverde AppIcon.ico is toegevoegd aan Studio.App/Resources, gekoppeld aan het uitvoerbare bestand en de vensters Hoofdscherm, Bouwmeldingen en Installertaalbronnen. AppIcon.svg is ongewijzigd meegenomen als bronbestand voor later documentatiegebruik. De oorspronkelijke bestanden in het oude project zijn behouden. Release-build geslaagd zonder fouten of waarschuwingen; Het icoon is meegenomen in de beoordeelde applicatiestand en afzonderlijk gecommit als 3d44380 bij publicatie van de geaccepteerde M02-S02. Dit verandert de volgorde van de M02-slices niet.

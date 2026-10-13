@@ -156,7 +156,7 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="LanguageSources" xml:space="preserve"><value>Installertaalbronnen</value></data>
   <data name="AddLanguageSource" xml:space="preserve"><value>Taalbestand toevoegen…</value></data>
   <data name="ReloadLanguageSources" xml:space="preserve"><value>Opnieuw inlezen</value></data>
-  <data name="LanguageSourcesScope" xml:space="preserve"><value>Alleen bronoverzicht. Talen voor het project en de preview kiezen volgt in de volgende slice. Bronbestanden worden niet gewijzigd.</value></data>
+  <data name="LanguageSourcesScope" xml:space="preserve"><value>Dit overzicht leest taalbronnen zonder ze te wijzigen. Voeg een taal via Projecttalen toe om haar in de preview te gebruiken.</value></data>
   <data name="LanguageSourcePath" xml:space="preserve"><value>Pad taalbestand</value></data>
   <data name="LanguageSourceEntries" xml:space="preserve"><value>Taalinstellingen en teksten</value></data>
   <data name="LanguageSourceSection" xml:space="preserve"><value>Sectie</value></data>
@@ -207,4 +207,17 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="InstallerLanguageName_041E" xml:space="preserve"><value>Thais</value></data>
   <data name="InstallerLanguageName_041F" xml:space="preserve"><value>Turks</value></data>
   <data name="InstallerLanguageName_0422" xml:space="preserve"><value>Oekraïens</value></data>
+  <data name="AddProjectLanguage" xml:space="preserve"><value>Taal toevoegen…</value></data>
+  <data name="AddToProject" xml:space="preserve"><value>Aan project toevoegen</value></data>
+  <data name="ExportLanguagesPending" xml:space="preserve"><value>Meertalige export volgt in M02-S05. Bouw nu met uitsluitend de taal van de eigen projectteksten ingeschakeld.</value></data>
+  <data name="InvalidProjectLanguages" xml:space="preserve"><value>De projecttalen zijn ongeldig. Er moet minstens één ingeschakelde taal zijn en de taal van de eigen teksten moet behouden blijven.</value></data>
+  <data name="LanguageDown" xml:space="preserve"><value>Omlaag</value></data>
+  <data name="LanguageUp" xml:space="preserve"><value>Omhoog</value></data>
+  <data name="PreviewLanguage" xml:space="preserve"><value>Voorbeeldtaal</value></data>
+  <data name="PreviewNativeTexts" xml:space="preserve"><value>Taalbestand; eigen vertalingen volgen in S03</value></data>
+  <data name="PreviewOwnTexts" xml:space="preserve"><value>Eigen projectteksten</value></data>
+  <data name="PreviewRtlLimitation" xml:space="preserve"><value>Deze taal schrijft van rechts naar links. De preview spiegelt de native wizard nog niet.</value></data>
+  <data name="ProjectLanguageAdded" xml:space="preserve"><value>De taal staat in het project. Een al toegevoegde bron wordt niet dubbel toegevoegd.</value></data>
+  <data name="ProjectLanguages" xml:space="preserve"><value>Projecttalen</value></data>
+  <data name="ProjectLanguagesHint" xml:space="preserve"><value>De eerste ingeschakelde taal is de terugvaltaal. Uitschakelen bewaart alle gegevens; minstens één taal blijft actief. Meertalige export volgt in S05.</value></data>
 </root>

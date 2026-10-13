@@ -11,14 +11,25 @@ public partial class LanguageSourcesWindow : Window
     private readonly string? _compiler;
     private readonly List<string> _additionalPaths;
     private bool _loading;
+    private readonly EditorSession? _editor;
     private static StudioLocalizer Text => Localization.Current;
 
-    public LanguageSourcesWindow(string? compiler, List<string> additionalPaths)
+    public LanguageSourcesWindow(string? compiler, List<string> additionalPaths, EditorSession? editor = null)
     {
         InitializeComponent();
         _compiler = compiler;
         _additionalPaths = additionalPaths;
+        _editor = editor;
+        AddToProject.Visibility = editor is null ? Visibility.Collapsed : Visibility.Visible;
         Loaded += async (_, _) => await ReloadAsync();
+    }
+
+    private void AddToProject_Click(object sender, RoutedEventArgs e)
+    {
+        if (_loading || _editor is null || Sources.SelectedItem is not SourceChoice choice) return;
+        var language = InstallerLanguage.FromSource(choice.Source, _compiler is null ? null : Path.GetDirectoryName(_compiler));
+        _editor.AddLanguage(language);
+        Problems.Text = Text["ProjectLanguageAdded"];
     }
 
     private async void Reload_Click(object sender, RoutedEventArgs e) => await ReloadAsync();

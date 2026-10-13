@@ -19,7 +19,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        SetProject(StudioProject.CreateExample(), null);
+        SetProject(StudioProject.CreateNew(), null);
         Loaded += async (_, _) => await RefreshCompilerAsync();
         Text.PropertyChanged += LanguageChanged;
         Closed += (_, _) => { Text.PropertyChanged -= LanguageChanged; _editor.Dispose(); };
@@ -63,7 +63,7 @@ public partial class MainWindow : Window
     private async void New_Executed(object sender, ExecutedRoutedEventArgs e)
     {
         if (_busy || !await CanReplaceProjectAsync()) return;
-        SetProject(StudioProject.CreateExample(), null);
+        SetProject(StudioProject.CreateNew(), null);
     }
 
     private async void Open_Executed(object sender, ExecutedRoutedEventArgs e)

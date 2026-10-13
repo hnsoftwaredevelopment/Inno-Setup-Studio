@@ -28,13 +28,17 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
     private ElementKind _selectedElement = ElementKind.Next;
     private bool _isPreview;
     private double _zoom = 1;
+    private string _previewLanguageId;
+    private IReadOnlyList<InstallerLanguageChoice> _previewLanguages = [];
 
     public EditorSession(StudioProject project, StudioLocalizer? text = null)
     {
         Project = project;
+        _previewLanguageId = project.Languages.First(l => l.Enabled).Id;
         IsDirty = project.WasMigrated;
         if (project.WasMigrated) _statusKey = "StatusMigrated";
         Text = text ?? new StudioLocalizer();
+        RebuildPreviewLanguages();
         PageChoices = [new(0, "BaseDesign", Text),
             .. project.Pages.Select((p, i) => new PageChoice(i + 1,
                 p.Kind == PageKind.Welcome ? "PageWelcome" : "ElementDirectory", Text))];
@@ -60,20 +64,62 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
     public bool IsBrowseSelected => SelectedElement == ElementKind.Browse;
     public bool ShowInheritance => IsButton;
     public bool IsDesign => !IsPreview;
-    public bool CanEdit => IsDesign && (!IsBase || IsButton);
+    public bool CanEdit => IsDesign && (IsTextLanguage || IsDirectorySelected) && (!IsBase || IsButton);
     public bool IsButton => SelectedElement is ElementKind.Back or ElementKind.Next or ElementKind.Cancel;
     public bool CanReset => CanEdit && !IsBase && IsButton && CurrentPage!.ButtonOverrides.ContainsKey(SelectedElement);
     public bool CanGoBack => IsDesign || PageIndex > 1;
     public string PageName => PageChoices[PageIndex].Name;
     public string PageDescription => IsBase ? Text["BaseDescription"] : Text["PageDescription"];
-    public string PreviewTitle => CurrentPage?.Title ?? Text["BaseTitle"];
-    public string PreviewBody => CurrentPage?.Body ?? Text["BaseBody"];
-    public string BackCaption => Project.Caption(CurrentPage, ElementKind.Back);
-    public string NextCaption => Project.Caption(CurrentPage, ElementKind.Next);
-    public string CancelCaption => Project.Caption(CurrentPage, ElementKind.Cancel);
+    public string PreviewTitle => IsBase ? Text["BaseTitle"] : IsTextLanguage ? CurrentPage!.Title : Native(CurrentPage!.Kind == PageKind.Welcome ? "WelcomeLabel1" : "WizardSelectDir");
+    public string PreviewBody => IsBase ? Text["BaseBody"] : IsTextLanguage ? CurrentPage!.Body : Native(CurrentPage!.Kind == PageKind.Welcome ? "WelcomeLabel2" : "SelectDirLabel3");
+    public string BackCaption => Caption(ElementKind.Back);
+    public string NextCaption => Caption(ElementKind.Next);
+    public string CancelCaption => Caption(ElementKind.Cancel);
+    private string Caption(ElementKind kind) => IsTextLanguage ? Project.Caption(CurrentPage, kind) : Native("Button" + kind);
+    private string Native(string key) => PreviewLanguage.Message(key, Project);
+    private InstallerLanguage PreviewLanguage => Project.Languages.Single(l => l.Id == PreviewLanguageId);
+    public bool IsTextLanguage => PreviewLanguageId == Project.TextLanguageId;
+    public string PreviewWindowTitle => Native("SetupWindowTitle");
+    public string PreviewDirectoryLabel => Native("WizardSelectDir");
+    public string PreviewLanguageHint => Text[IsTextLanguage ? "PreviewOwnTexts" : "PreviewNativeTexts"]
+        + (PreviewLanguage.RightToLeft ? "\n" + Text["PreviewRtlLimitation"] : "");
+    public IReadOnlyList<InstallerLanguageChoice> PreviewLanguages => _previewLanguages;
+    public string PreviewLanguageId
+    {
+        get => _previewLanguageId;
+        set { if (value == _previewLanguageId || !Project.Languages.Any(l => l.Id == value && l.Enabled)) return; _previewLanguageId = value; Refresh(); }
+    }
+    public void AddLanguage(InstallerLanguage language)
+    {
+        if (!IsDesign || Project.Languages.Count >= 100 || Project.Languages.Any(l => l.Id == language.Id
+            || string.Equals(l.Source, language.Source, StringComparison.OrdinalIgnoreCase))) return;
+        Project.Languages.Add(language); RebuildPreviewLanguages(); IsDirty = true; Refresh();
+    }
+    public void SetLanguageEnabled(string id, bool enabled)
+    {
+        var language = Project.Languages.SingleOrDefault(l => l.Id == id);
+        if (!IsDesign || language is null || language.Enabled == enabled || (!enabled && Project.Languages.Count(l => l.Enabled) == 1)) return;
+        language.Enabled = enabled;
+        if (!Project.Languages.Any(l => l.Id == _previewLanguageId && l.Enabled)) _previewLanguageId = Project.Languages.First(l => l.Enabled).Id;
+        RebuildPreviewLanguages(); IsDirty = true; Refresh();
+    }
+    public void MoveLanguage(string id, int direction)
+    {
+        var index = Project.Languages.FindIndex(l => l.Id == id);
+        var target = index + direction;
+        if (!IsDesign || index < 0 || direction is not (-1 or 1) || target < 0 || target >= Project.Languages.Count) return;
+        (Project.Languages[index], Project.Languages[target]) = (Project.Languages[target], Project.Languages[index]);
+        RebuildPreviewLanguages(); IsDirty = true; Refresh();
+    }
+    private void RebuildPreviewLanguages()
+    {
+        var existing = _previewLanguages.ToDictionary(l => l.Id);
+        _previewLanguages = Project.Languages.Where(l => l.Enabled)
+            .Select(l => existing.GetValueOrDefault(l.Id) ?? new InstallerLanguageChoice(l, Text)).ToArray();
+    }
     public string DirectoryText => IsPreview && _trialDirectory is not null ? _trialDirectory : CurrentPage?.Destination?.DefaultDirectory ?? "";
     public string TrialDirectory { get => DirectoryText; set => SetTrialDirectory(value); }
-    public string BrowseCaption => CurrentPage?.Destination?.BrowseCaption ?? "";
+    public string BrowseCaption => IsTextLanguage ? CurrentPage?.Destination?.BrowseCaption ?? "" : Native("ButtonBrowse");
     public string PropertyLabel => IsDirectorySelected ? Text["DefaultDirectoryLabel"] : Text["TextLabel"];
     public string PropertyHint => IsDirectorySelected
         ? Text["DirectoryHint"]
@@ -81,7 +127,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
         : Text["TextHint"];
     public bool AllowsMultiline => SelectedElement == ElementKind.Body;
     public string SelectedElementName => AllElements.First(e => e.Kind == SelectedElement).Name;
-    public string Origin => IsBase ? Text["OriginBase"]
+    public string Origin => !IsTextLanguage && !IsDirectorySelected ? Text["PreviewNativeTexts"] : IsBase ? Text["OriginBase"]
         : !IsButton ? Text["OriginPage"]
         : CurrentPage!.ButtonOverrides.ContainsKey(SelectedElement) ? Text["OriginOverride"] : Text["OriginInherited"];
     public string DocumentState => IsDirty ? Text["Unsaved"] : Text["Unchanged"];
@@ -191,7 +237,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
             ElementKind.Body => PreviewBody,
             ElementKind.Directory => CurrentPage?.Destination?.DefaultDirectory ?? "",
             ElementKind.Browse => BrowseCaption,
-            _ => Project.Caption(CurrentPage, SelectedElement)
+            _ => Caption(SelectedElement)
         };
         set
         {
@@ -214,10 +260,10 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
 
     public string BrowseTooltip
     {
-        get => CurrentPage?.Destination?.BrowseTooltip ?? "";
+        get => IsTextLanguage ? CurrentPage?.Destination?.BrowseTooltip ?? "" : "";
         set
         {
-            if (!IsDesign || !IsBrowseSelected || CurrentPage?.Destination is not { } settings || settings.BrowseTooltip == value) return;
+            if (!CanEdit || !IsBrowseSelected || CurrentPage?.Destination is not { } settings || settings.BrowseTooltip == value) return;
             settings.BrowseTooltip = value;
             IsDirty = true;
             Refresh();
@@ -257,8 +303,17 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
     {
         foreach (var page in PageChoices) page.Refresh();
         foreach (var element in AllElements) element.Refresh();
+        foreach (var language in _previewLanguages) language.Refresh();
         Refresh();
     }
     public void Dispose() => Text.PropertyChanged -= LanguageChanged;
     private void Refresh() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(string.Empty));
+}
+
+public sealed class InstallerLanguageChoice(InstallerLanguage language, StudioLocalizer text) : INotifyPropertyChanged
+{
+    public string Id => language.Id;
+    public string Name => language.DisplayName(text);
+    public event PropertyChangedEventHandler? PropertyChanged;
+    internal void Refresh() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(string.Empty));
 }

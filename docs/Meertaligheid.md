@@ -1,12 +1,12 @@
 # Meertaligheid van Studio
 
-Dit document beschrijft de huidige Studio-implementatie. De toekomstige installertalen en aparte Voorbeeldtaal zijn gespecificeerd in [Productspecificatie, FR-08](Productspecificatie.md#11-studio-taal-en-installertalen--fr-08) en gepland in [M02](Milestones.md#m02--m02-installertalen). Ze zijn nog niet gebouwd.
+Dit document beschrijft de Studio-localisatie en de huidige basis voor projecttalen. De volledige installerlocalisatie is gespecificeerd in [Productspecificatie, FR-08](Productspecificatie.md#11-studio-taal-en-installertalen--fr-08) en gepland in [M02](Milestones.md#m02--m02-installertalen).
 
 ## Twee onafhankelijke talen
 
 De Studio-taal bepaalt navigatie, eigenschappen, toelichtingen, meldingen en door Studio ingestelde dialoogtitels. Beschikbaar zijn Nederlands (`nl`), Engels (`en`) en Duits (`de`). Nederlands is de standaard en terugvaltaal.
 
-De installertaal is een aparte toekomstige projectinstelling. Een taalwissel van Studio verandert geen titel, beschrijving, knoptekst, tooltip, pad, pagina-afwijking of projectnaam. De huidige voorbeeldinstaller bevat Nederlandse teksten. Ook de vaste previewteksten “Installatie” en “Installatiemap” blijven voorlopig Nederlands; die horen later bij de installerlocalisatie met Inno Setup-taalbestanden.
+Installertalen zijn aparte projectinstellingen. Een taalwissel van Studio verandert geen titel, beschrijving, knoptekst, tooltip, pad, pagina-afwijking of projectnaam. Nieuwe projecten beginnen Engels; oude projecten behouden hun Nederlandse teksten. Voorbeeldtaal bevat alleen actieve projecttalen en wordt niet in het project opgeslagen. Ook de venstertitel en maplabel in de preview volgen deze taalkeuze.
 
 De standaardnamen van pagina's in de Studio-navigatie worden vertaald op basis van hun paginatype. Opgeslagen projectgegevens blijven ongewijzigd. Hulpteksten in het Basisontwerp en tijdelijke afbeeldinglabels zijn Studio-teksten.
 
@@ -68,4 +68,6 @@ Tijdens visuele controle is een herhaalde selectienotificatie gevonden die een s
 
 ## Start van M02
 
-M02-S01 voegt een alleen-lezen overzicht van Inno Setup-taalbronnen toe. Dat staat los van Studio-resx en verandert nog geen project- of previewtaal. [Bronoverzicht, grenzen en teststappen](slices/M02-S01-Beschikbare-taalbronnen.md). Projecttalen en de aparte Voorbeeldtaal volgen in M02-S02.
+M02-S01 voegt een alleen-lezen overzicht van Inno Setup-taalbronnen toe. Dat staat los van Studio-resx. [Bronoverzicht, grenzen en teststappen](slices/M02-S01-Beschikbare-taalbronnen.md).
+
+M02-S02 voegt Projecttalen, volgorde, inschakelen en een aparte Voorbeeldtaal toe. De bestaande eigen teksten blijven in hun oorspronkelijke taal bewerkbaar; aanvullende talen tonen voorlopig alleen standaardteksten uit hun bron. Eigen vertalingen volgen in S03. Meertalige export wordt tot S05 met uitleg geblokkeerd; uitsluitend Engels of de bestaande Nederlandse teksttaal kan wel worden gebouwd. [Opslag, beperkingen en teststappen](slices/M02-S02-Projecttalen-en-previewkeuze.md). M02-S02 is op 13 oktober 2026 door de gebruiker geaccepteerd.
