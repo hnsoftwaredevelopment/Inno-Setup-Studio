@@ -106,7 +106,7 @@ public class ProjectLanguageTests
             Assert.Equal("Hello My application", reopened.PreviewTitle);
             Assert.Equal("One\nTwo", reopened.PreviewBody);
             Assert.Equal("Continue >", reopened.NextCaption);
-            Assert.False(reopened.CanEdit);
+            Assert.True(reopened.CanEdit);
             Assert.False(reopened.IsDirty);
         }
         finally { Directory.Delete(folder, true); }
@@ -211,12 +211,13 @@ public class ProjectLanguageTests
         editor.TrialDirectory = @"C:\Trial";
         editor.PreviewLanguageId = "english";
         Assert.Equal(@"C:\Trial", editor.DirectoryText);
-        Assert.Contains("Destination", editor.PreviewTitle);
+        Assert.Equal(project.Languages[1].Message("WizardSelectDir", project), editor.PreviewTitle);
+        Assert.True(editor.SelectedTextMissing);
         Assert.False(editor.IsDirty);
         editor.Text.Language = "de";
         Assert.Equal("english", editor.PreviewLanguageId);
         editor.IsPreview = false;
-        Assert.False(editor.CanEdit);
+        Assert.True(editor.CanEdit);
         editor.PropertyText = "Must not overwrite";
         Assert.Equal("Kies de installatiemap", project.Pages[1].Title);
         editor.PreviewLanguageId = "dutch";

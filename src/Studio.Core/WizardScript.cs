@@ -10,30 +10,32 @@ internal static class WizardScript
     {
         var welcome = project.Pages.Single(p => p.Kind == PageKind.Welcome);
         var destination = project.Pages.Single(p => p.Kind == PageKind.Destination);
-        var settings = destination.Destination!;
+        var languageId = project.Languages.Single(l => l.Enabled).Id;
+        string Resolve(PageKind? page, ElementKind element) => WizardTexts.Resolve(project, languageId, WizardTexts.Slot(page, element)).Text;
+        var tooltip = WizardTexts.Resolve(project, languageId, WizardTextSlot.DestinationTooltip).Text;
         var lines = new List<string>
         {
             "", "[Code]",
             "procedure InitializeWizard;",
             "var", "  HeightChange: Integer;", "begin",
-            Assign("WelcomeLabel1", "Caption", welcome.Title),
+            Assign("WelcomeLabel1", "Caption", Resolve(PageKind.Welcome, ElementKind.Title)),
             "  HeightChange := WizardForm.AdjustLabelHeight(WizardForm.WelcomeLabel1);",
             "  WizardForm.IncTopDecHeight(WizardForm.WelcomeLabel2, HeightChange);",
-            Assign("WelcomeLabel2", "Caption", welcome.Body),
-            Assign("SelectDirLabel", "Caption", destination.Body),
+            Assign("WelcomeLabel2", "Caption", Resolve(PageKind.Welcome, ElementKind.Body)),
+            Assign("SelectDirLabel", "Caption", Resolve(PageKind.Destination, ElementKind.Body)),
             "  HeightChange := WizardForm.AdjustLabelHeight(WizardForm.SelectDirLabel);",
             "  if HeightChange < 0 then HeightChange := 0;",
             "  WizardForm.SelectDirBrowseLabel.Top := WizardForm.SelectDirBrowseLabel.Top + HeightChange;",
             "  WizardForm.DirEdit.Top := WizardForm.DirEdit.Top + HeightChange;",
             "  WizardForm.DirBrowseButton.Top := WizardForm.DirBrowseButton.Top + HeightChange;",
-            Assign("DirBrowseButton", "Caption", settings.BrowseCaption),
-            Assign("DirBrowseButton", "Hint", settings.BrowseTooltip),
-            "  WizardForm.DirBrowseButton.ShowHint := " + (settings.BrowseTooltip.Length == 0 ? "False" : "True") + ";",
+            Assign("DirBrowseButton", "Caption", Resolve(PageKind.Destination, ElementKind.Browse)),
+            Assign("DirBrowseButton", "Hint", tooltip),
+            "  WizardForm.DirBrowseButton.ShowHint := " + (tooltip.Length == 0 ? "False" : "True") + ";",
             "end;", "",
             "procedure CurPageChanged(CurPageID: Integer);", "begin",
             // Native page changes reset captions first. Reset our shared values before local overrides.
-            Assign("BackButton", "Caption", project.Buttons[ElementKind.Back]),
-            Assign("CancelButton", "Caption", project.Buttons[ElementKind.Cancel])
+            Assign("BackButton", "Caption", Resolve(null, ElementKind.Back)),
+            Assign("CancelButton", "Caption", Resolve(null, ElementKind.Cancel))
         };
         AddPage(welcome, "wpWelcome");
         AddPage(destination, "wpSelectDir");
@@ -46,9 +48,9 @@ internal static class WizardScript
             lines.Add("  if CurPageID = " + id + " then");
             lines.Add("  begin");
             if (page.Kind == PageKind.Destination)
-                lines.Add("  " + Assign("PageNameLabel", "Caption", page.Title));
+                lines.Add("  " + Assign("PageNameLabel", "Caption", Resolve(page.Kind, ElementKind.Title)));
             foreach (var button in new[] { ElementKind.Back, ElementKind.Next, ElementKind.Cancel })
-                lines.Add("  " + Assign(button + "Button", "Caption", project.Caption(page, button)));
+                lines.Add("  " + Assign(button + "Button", "Caption", Resolve(page.Kind, button)));
             lines.Add("  end;");
         }
     }

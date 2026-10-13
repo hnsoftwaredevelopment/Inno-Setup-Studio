@@ -220,4 +220,22 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="ProjectLanguageAdded" xml:space="preserve"><value>Die Sprache ist im Projekt. Eine vorhandene Quelle wird nicht doppelt hinzugefügt.</value></data>
   <data name="ProjectLanguages" xml:space="preserve"><value>Projektsprachen</value></data>
   <data name="ProjectLanguagesHint" xml:space="preserve"><value>Die erste aktive Sprache ist die Rückfallsprache. Deaktivieren bewahrt alle Daten; mindestens eine Sprache bleibt aktiv. Mehrsprachiger Export folgt in S05.</value></data>
+  <data name="DefaultInstallerLanguage" xml:space="preserve"><value>Standardsprache</value></data>
+  <data name="EffectiveTooltip" xml:space="preserve"><value>Tooltip im Assistenten</value></data>
+  <data name="EffectiveWizardText" xml:space="preserve"><value>Text im Assistenten</value></data>
+  <data name="OwnTranslationText" xml:space="preserve"><value>Eigener Text / Übersetzung</value></data>
+  <data name="ResetTranslationText" xml:space="preserve"><value>Zurücksetzen</value></data>
+  <data name="ResetTranslationTooltip" xml:space="preserve"><value>Zurücksetzen</value></data>
+  <data name="TranslationEditHint" xml:space="preserve"><value>Ein leeres Feld verwendet den geerbten oder Standardtext. Zurücksetzen entfernt nur diese Sprachabweichung.</value></data>
+  <data name="TranslationInheritanceHint" xml:space="preserve"><value>Eigener Text gilt für die gewählte Sprache. Schaltflächentexte des Basisentwurfs werden geteilt; Seitenabweichungen gelten lokal. Fehlende eigene Übersetzungen verwenden zuerst die gewählte Sprachdatei, danach die Standardsprache.</value></data>
+  <data name="TranslationLanguageStatus" xml:space="preserve"><value>{0} unübersetzte Texte</value></data>
+  <data name="TranslationMissingField" xml:space="preserve"><value>Eigene Übersetzung fehlt. Der graue Text zeigt den im Assistenten verwendeten Text.</value></data>
+  <data name="TranslationOriginBuiltIn" xml:space="preserve"><value>Quelltext fehlt — integrierter englischer Text</value></data>
+  <data name="TranslationOriginFallback" xml:space="preserve"><value>Nicht übersetzt — aus {0} übernommen</value></data>
+  <data name="TranslationOriginNative" xml:space="preserve"><value>Standardtext aus der Sprachdatei</value></data>
+  <data name="TranslationReferencesHint" xml:space="preserve"><value>Verwenden Sie {AppName} und {AppVersion} für Verweise auf die Anwendungsdaten.</value></data>
+  <data name="TranslationStatus" xml:space="preserve"><value>Übersetzungsstatus</value></data>
+  <data name="TranslationSummaryComplete" xml:space="preserve"><value>Keine fehlenden Übersetzungen. Standardsprache: {0}.</value></data>
+  <data name="TranslationSummaryMissing" xml:space="preserve"><value>{0} unübersetzte Texte. Rückgriff: gewählte Sprachdatei, danach Standardsprache {1}.</value></data>
+  <data name="UseEffectiveText" xml:space="preserve"><value>Übernehmen</value></data>
 </root>

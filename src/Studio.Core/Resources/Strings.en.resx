@@ -220,4 +220,22 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="ProjectLanguageAdded" xml:space="preserve"><value>The language is in the project. An existing source is not added twice.</value></data>
   <data name="ProjectLanguages" xml:space="preserve"><value>Project languages</value></data>
   <data name="ProjectLanguagesHint" xml:space="preserve"><value>The first enabled language is the fallback. Disabling preserves all data; at least one language stays enabled. Multilingual export follows in S05.</value></data>
+  <data name="DefaultInstallerLanguage" xml:space="preserve"><value>Default language</value></data>
+  <data name="EffectiveTooltip" xml:space="preserve"><value>Tooltip in the wizard</value></data>
+  <data name="EffectiveWizardText" xml:space="preserve"><value>Text in the wizard</value></data>
+  <data name="OwnTranslationText" xml:space="preserve"><value>Custom text / translation</value></data>
+  <data name="ResetTranslationText" xml:space="preserve"><value>Reset</value></data>
+  <data name="ResetTranslationTooltip" xml:space="preserve"><value>Reset</value></data>
+  <data name="TranslationEditHint" xml:space="preserve"><value>An empty field uses inherited or default text. Reset removes only this language override.</value></data>
+  <data name="TranslationInheritanceHint" xml:space="preserve"><value>Custom text applies to the selected language. Base design button texts are shared; page overrides apply locally. Missing custom translations use the selected language file first, then the default language.</value></data>
+  <data name="TranslationLanguageStatus" xml:space="preserve"><value>{0} untranslated texts</value></data>
+  <data name="TranslationMissingField" xml:space="preserve"><value>Custom translation missing. The grey text shows what the wizard uses.</value></data>
+  <data name="TranslationOriginBuiltIn" xml:space="preserve"><value>Source text missing — built-in English text</value></data>
+  <data name="TranslationOriginFallback" xml:space="preserve"><value>Untranslated — taken from {0}</value></data>
+  <data name="TranslationOriginNative" xml:space="preserve"><value>Default text from the language file</value></data>
+  <data name="TranslationReferencesHint" xml:space="preserve"><value>Use {AppName} and {AppVersion} to refer to the application details.</value></data>
+  <data name="TranslationStatus" xml:space="preserve"><value>Translation status</value></data>
+  <data name="TranslationSummaryComplete" xml:space="preserve"><value>No missing translations. Default language: {0}.</value></data>
+  <data name="TranslationSummaryMissing" xml:space="preserve"><value>{0} untranslated texts. Fallback: selected language file, then default language {1}.</value></data>
+  <data name="UseEffectiveText" xml:space="preserve"><value>Copy</value></data>
 </root>

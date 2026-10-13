@@ -1,0 +1,30 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Vector drawing converted from AppIcon.svg; retain the SVG as the source asset. -->
+    <DrawingImage x:Key="AppLogo"><DrawingImage.Drawing><DrawingGroup>
+        <GeometryDrawing Brush="#0f496a" Geometry="M 0,0 V 32.000002 H 32.000002 V 0 Z" />
+        <GeometryDrawing Brush="#d9cd9d" Geometry="M 8.4928002,11.272062 13.27613,8.4176175 9.382401,3.6405309 4.4046229,6.5165804 Z" />
+        <GeometryDrawing Brush="#d9cd9d" Geometry="M 13.352516,8.4023405 25.31131,15.24481 30.118402,9.1342596 18.26655,2.2917901 Z" />
+        <GeometryDrawing Brush="#c8bb8d" Geometry="m 20.150204,18.136137 4.977778,-2.87605 V 27.11194 l -4.977778,2.876049 z" />
+        <GeometryDrawing Brush="#f4eed7" Geometry="m 8.2983516,11.293667 11.8518524,6.84247 V 29.987989 L 8.2983516,23.14552 Z" />
+        <GeometryDrawing Brush="#f4eed7" Geometry="m 13.356458,8.4463678 c 3.962512,2.2803862 8.313886,4.7746542 11.887536,6.8411582 v -0.03111 l -5.042181,2.880906 -6.72325,-3.846712 z" />
+        <GeometryDrawing Geometry="m 17.994791,22.817629 a 5.0048224,2.8874307 58.647605 1 1 -3.587105,-6.100543 5.0048224,2.8874307 58.647605 0 1 3.587105,6.100543 z"><GeometryDrawing.Brush>
+            <RadialGradientBrush MappingMode="Absolute" Center="-29.808163,-29.720297" GradientOrigin="-29.808163,-29.720297" RadiusX="12.46" RadiusY="12.46">
+                <RadialGradientBrush.Transform><MatrixTransform Matrix="0.41142956,0.3658739,-0.22269177,0.2529705,17.855656,36.983842" /></RadialGradientBrush.Transform>
+                <GradientStop Color="#d8ffff" Offset="0" />
+                <GradientStop Color="#afe9fa" Offset="0.15656973" />
+                <GradientStop Color="#87d3f4" Offset="0.26412159" />
+                <GradientStop Color="#6fc6f1" Offset="0.339" />
+                <GradientStop Color="#66c1f0" Offset="0.39221796" />
+                <GradientStop Color="#60b9e7" Offset="0.473" />
+                <GradientStop Color="#50a3cf" Offset="0.60952663" />
+                <GradientStop Color="#377fa7" Offset="0.78768736" />
+                <GradientStop Color="#134e70" Offset="0.90581107" />
+                <GradientStop Color="#003453" Offset="1" />
+            </RadialGradientBrush>
+        </GeometryDrawing.Brush></GeometryDrawing>
+        <GeometryDrawing Brush="#ffffff" Geometry="m 16.431926,20.981028 1.821903,1.051845 v 2.313941 l -1.028958,0.500017 v -1.524517 l -0.385679,0.262438 a 9.771052,5.6372101 58.647605 0 1 -2.453381,0.472572 11.170474,6.4445784 58.647605 0 1 -2.02021,-0.539582 8.5616202,4.939453 58.647605 0 1 -0.873535,-0.515963 C 10.842455,22.483146 10.340784,21.770506 10.259043,21.26473 a 2.3590146,1.3609856 58.647605 0 1 -0.0092,-1.005923 4.4987168,2.5954433 58.647605 0 1 0.412159,-0.793699 8.06154,4.6509417 58.647605 0 1 1.683749,-1.017808 15.859182,9.1496325 58.647605 0 0 -0.793521,1.051838 3.8745198,2.2353255 58.647605 0 0 -0.260765,0.732985 0.96079737,0.55431253 58.647605 0 0 0.122611,0.704655 1.8661641,1.0766455 58.647605 0 0 1.119622,1.145728 7.9603189,4.5925443 58.647605 0 0 2.122674,0.643367 9.4444932,5.4488088 58.647605 0 0 1.712244,-0.199644 l 0.402949,-0.196518 -1.323974,-0.749175 z" />
+        <GeometryDrawing Brush="#efe6c9" Geometry="m 25.31131,15.305919 -5.099997,2.853134 6.086052,-0.466966 4.977778,-2.876049 z" />
+        <GeometryDrawing Brush="#efe6c9" Geometry="M 20.134927,18.166691 8.4832515,11.310255 0.41765976,10.727149 12.269512,17.569618 Z" />
+        <GeometryDrawing Brush="#d9cd9d" Geometry="m 8.5093256,11.296968 4.8084984,-2.8678502 0.14311,5.8192392 z" />
+    </DrawingGroup></DrawingImage.Drawing></DrawingImage>
+</ResourceDictionary>

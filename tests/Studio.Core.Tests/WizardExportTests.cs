@@ -5,7 +5,7 @@ namespace Studio.Core.Tests;
 public class WizardExportTests
 {
     [Fact]
-    public void LocalCaptionsAreScopedAfterSharedResetAndEmptyOverrideIsPreserved()
+    public void LocalCaptionsAreScopedAndEmptyOverrideUsesSharedTextWithoutErasingStoredValue()
     {
         var project = StudioProject.CreateExample();
         project.InstallFile.Source = typeof(WizardExportTests).Assembly.Location;
@@ -19,7 +19,8 @@ public class WizardExportTests
         Assert.True(reset >= 0 && reset < welcome && welcome < destination);
         Assert.Contains("WizardForm.CancelButton.Caption := 'Welkom stop';", script[welcome..destination]);
         Assert.Contains("WizardForm.CancelButton.Caption := 'Basis stop';", script[destination..]);
-        Assert.Contains("WizardForm.NextButton.Caption := '';", script[destination..]);
+        Assert.Contains("WizardForm.NextButton.Caption := 'Verder >';", script[destination..]);
+        Assert.Equal("", project.Pages[1].ButtonOverrides[ElementKind.Next]);
     }
 
     [Fact]

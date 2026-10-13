@@ -10,6 +10,8 @@ public sealed class InstallerLanguage
     public bool Enabled { get; set; } = true;
     public bool RightToLeft { get; set; }
     public Dictionary<string, string> Messages { get; set; } = [];
+    public Dictionary<WizardTextSlot, string> TextOverrides { get; set; } = [];
+    public HashSet<WizardTextSlot> StandardTexts { get; set; } = [];
 
     internal static readonly string[] PreviewKeys = ["SetupWindowTitle", "WelcomeLabel1", "WelcomeLabel2",
         "WizardSelectDir", "SelectDirLabel3", "ButtonBack", "ButtonNext", "ButtonCancel", "ButtonBrowse"];

@@ -53,6 +53,9 @@ public partial class MainWindow : Window
     private void Design_Checked(object sender, RoutedEventArgs e) { if (_editor is not null) _editor.IsPreview = false; }
     private void Preview_Checked(object sender, RoutedEventArgs e) { if (_editor is not null) _editor.IsPreview = true; }
     private void Reset_Click(object sender, RoutedEventArgs e) => _editor.ResetProperty();
+    private void ResetTooltip_Click(object sender, RoutedEventArgs e) => _editor.ResetTooltip();
+    private void UseEffectiveText_Click(object sender, RoutedEventArgs e) => _editor.UseEffectiveText();
+    private void UseEffectiveTooltip_Click(object sender, RoutedEventArgs e) => _editor.UseEffectiveTooltip();
     private void ChooseDirectory_Click(object sender, RoutedEventArgs e)
     {
         if (!_editor.CanEdit || !_editor.IsDirectorySelected) return;

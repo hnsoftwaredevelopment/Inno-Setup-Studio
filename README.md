@@ -44,6 +44,8 @@ M02-S02 voegt opgeslagen projecttalen, volgorde en inschakelen toe, met een apar
 
 ## Documentatie en planning
 
+M02-S03 voegt eigen teksten per installertaal toe in het bestaande eigenschappenpaneel. Ontbrekende of lege eigen vertalingen gebruiken eerst het taalbestand van de gekozen taal, daarna de standaardtaal; de teller blijft de ontbrekende eigen vertalingen melden. Eén invoerveld toont de effectieve tekst als grijze watermark zolang het leeg is. Daaronder staat óf Overnemen óf Herstellen. {AppName} en {AppVersion} verwijzen naar applicatiegegevens. Deze slice is door de gebruiker geaccepteerd; meertalige export volgt in S05. [Terugvalregels en teststappen](docs/slices/M02-S03-Eigen-teksten-per-taal.md).
+
 **Inno Setup is the limit.** De productdekking volgt reguliere instellingen en gedocumenteerde native mogelijkheden van de ondersteunde Inno Setup-versie.
 
 | Document | Doel |

@@ -61,7 +61,7 @@
                                     <Border BorderBrush="#ACACAC" BorderThickness="1" Padding="6"><TextBlock Text="{Binding DirectoryText}" TextTrimming="CharacterEllipsis" ToolTip="{Binding DirectoryText}" /></Border>
                                 </Button>
                                 <TextBox Text="{Binding TrialDirectory, UpdateSourceTrigger=PropertyChanged}" Margin="8" Padding="6" Visibility="{Binding IsPreview, Converter={StaticResource Visibility}}" AutomationProperties.Name="{loc:Loc TryDirectory}" />
-                                <Button Grid.Column="1" Style="{StaticResource Navigation}" Tag="{x:Static core:ElementKind.Browse}" Content="{Binding BrowseCaption}" ToolTip="{Binding BrowseTooltip}" Click="Element_Click" AutomationProperties.Name="{loc:Loc ElementBrowse}" />
+                                <Button Grid.Column="1" Style="{StaticResource Navigation}" Tag="{x:Static core:ElementKind.Browse}" Content="{Binding BrowseCaption}" ToolTip="{Binding EffectiveBrowseTooltip}" Click="Element_Click" AutomationProperties.Name="{loc:Loc ElementBrowse}" />
                             </Grid>
                             <TextBlock Text="{loc:Loc ConstantsHint}" Foreground="#666666" FontSize="10" TextWrapping="Wrap" Margin="8,6,8,0" />
                         </StackPanel>

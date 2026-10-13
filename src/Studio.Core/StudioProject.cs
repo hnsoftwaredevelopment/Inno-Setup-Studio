@@ -24,7 +24,7 @@ public sealed class StudioProject
 {
     public const string FormatId = "HN.InnoSetupStudio.VisualProject";
     public string Format { get; set; } = FormatId;
-    public const int CurrentVersion = 5;
+    public const int CurrentVersion = 6;
     public int Version { get; set; } = CurrentVersion;
     public string Name { get; set; } = "Mijn applicatie";
     public string AppId { get; set; } = Guid.NewGuid().ToString("B");
@@ -60,6 +60,7 @@ public sealed class StudioProject
     {
         var project = CreateExample();
         var english = InstallerLanguage.English();
+        english.StandardTexts = Enum.GetValues<WizardTextSlot>().ToHashSet();
         project.Name = "My application";
         project.TextLanguageId = english.Id;
         project.Languages = [english];

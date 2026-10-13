@@ -220,4 +220,22 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="ProjectLanguageAdded" xml:space="preserve"><value>De taal staat in het project. Een al toegevoegde bron wordt niet dubbel toegevoegd.</value></data>
   <data name="ProjectLanguages" xml:space="preserve"><value>Projecttalen</value></data>
   <data name="ProjectLanguagesHint" xml:space="preserve"><value>De eerste ingeschakelde taal is de terugvaltaal. Uitschakelen bewaart alle gegevens; minstens één taal blijft actief. Meertalige export volgt in S05.</value></data>
+  <data name="DefaultInstallerLanguage" xml:space="preserve"><value>Standaardtaal</value></data>
+  <data name="EffectiveTooltip" xml:space="preserve"><value>Tooltip in de wizard</value></data>
+  <data name="EffectiveWizardText" xml:space="preserve"><value>Tekst in de wizard</value></data>
+  <data name="OwnTranslationText" xml:space="preserve"><value>Eigen tekst / vertaling</value></data>
+  <data name="ResetTranslationText" xml:space="preserve"><value>Herstellen</value></data>
+  <data name="ResetTranslationTooltip" xml:space="preserve"><value>Herstellen</value></data>
+  <data name="TranslationEditHint" xml:space="preserve"><value>Een leeg veld gebruikt de overgenomen of standaardtekst. Herstellen verwijdert alleen deze taalafwijking.</value></data>
+  <data name="TranslationInheritanceHint" xml:space="preserve"><value>Eigen tekst geldt voor de gekozen taal. Knopteksten van Basisontwerp worden gedeeld; pagina-afwijkingen gelden lokaal. Zonder eigen vertaling gebruiken we eerst het taalbestand van de gekozen taal, daarna de standaardtaal.</value></data>
+  <data name="TranslationLanguageStatus" xml:space="preserve"><value>{0} onvertaalde teksten</value></data>
+  <data name="TranslationMissingField" xml:space="preserve"><value>Eigen vertaling ontbreekt. De grijze tekst toont wat de wizard gebruikt.</value></data>
+  <data name="TranslationOriginBuiltIn" xml:space="preserve"><value>Brontekst ontbreekt — ingebouwde Engelse tekst</value></data>
+  <data name="TranslationOriginFallback" xml:space="preserve"><value>Niet vertaald — overgenomen uit {0}</value></data>
+  <data name="TranslationOriginNative" xml:space="preserve"><value>Standaardtekst uit het taalbestand</value></data>
+  <data name="TranslationReferencesHint" xml:space="preserve"><value>Gebruik {AppName} en {AppVersion} om naar de applicatiegegevens te verwijzen.</value></data>
+  <data name="TranslationStatus" xml:space="preserve"><value>Vertaalstatus</value></data>
+  <data name="TranslationSummaryComplete" xml:space="preserve"><value>Geen ontbrekende vertalingen. Standaardtaal: {0}.</value></data>
+  <data name="TranslationSummaryMissing" xml:space="preserve"><value>{0} onvertaalde teksten. Terugval: taalbestand van de gekozen taal, daarna standaardtaal {1}.</value></data>
+  <data name="UseEffectiveText" xml:space="preserve"><value>Overnemen</value></data>
 </root>

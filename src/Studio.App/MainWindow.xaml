@@ -13,8 +13,8 @@
             <StackPanel>
             <DockPanel LastChildFill="False">
                 <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
-                    <Border Background="{StaticResource Accent}" Width="38" Height="38" CornerRadius="6" Margin="0,0,12,0">
-                        <TextBlock Text="IS" Foreground="White" FontWeight="SemiBold" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Border Width="38" Height="38" Margin="0,0,12,0">
+                        <Image Source="{StaticResource AppLogo}" Stretch="Uniform" AutomationProperties.Name="Inno Setup Studio" />
                     </Border>
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock Text="Inno Setup Studio" FontSize="18" FontWeight="SemiBold" />
@@ -109,10 +109,16 @@
                     <WrapPanel Margin="0,0,0,8">
                         <Label Content="{loc:Loc PreviewLanguage}" Target="{Binding ElementName=PreviewLanguagePicker}"/>
                         <ComboBox x:Name="PreviewLanguagePicker" Width="180" ItemsSource="{Binding PreviewLanguages}"
-                                  DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding PreviewLanguageId, Mode=TwoWay}"
+                                  DisplayMemberPath="StatusName" SelectedValuePath="Id" SelectedValue="{Binding PreviewLanguageId, Mode=TwoWay}"
                                   AutomationProperties.Name="{loc:Loc PreviewLanguage}"/>
                         <TextBlock Text="{Binding PreviewLanguageHint}" TextWrapping="Wrap" Margin="12,5,0,0"/>
                     </WrapPanel>
+                    <TextBlock Text="{Binding TranslationSummary}" TextWrapping="Wrap" Margin="0,0,0,8"
+                               AutomationProperties.Name="{loc:Loc TranslationStatus}">
+                        <TextBlock.Style><Style TargetType="TextBlock"><Setter Property="Foreground" Value="#486452"/>
+                            <Style.Triggers><DataTrigger Binding="{Binding HasMissingTranslations}" Value="True"><Setter Property="Foreground" Value="#9B5700"/></DataTrigger></Style.Triggers>
+                        </Style></TextBlock.Style>
+                    </TextBlock>
                     <DockPanel>
                         <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
                             <TextBlock Text="{loc:Loc Zoom}" Style="{StaticResource MutedText}" VerticalAlignment="Center" Margin="12,0,8,0" />
@@ -142,21 +148,34 @@
                         <TextBlock Text="{loc:Loc Properties}" Style="{StaticResource SectionLabel}" />
                         <TextBlock Text="{Binding SelectedElementName}" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" />
                         <TextBlock Text="{Binding Origin}" Style="{StaticResource MutedText}" Margin="0,8,0,24" />
+                        <TextBlock Text="{Binding EditingLanguageName}" FontWeight="SemiBold" Margin="0,0,0,8"
+                                   Visibility="{Binding ShowInheritance, Converter={StaticResource Visibility}}"/>
                         <Label Content="{Binding PropertyLabel}" Target="{Binding ElementName=PropertyTextBox}" Padding="0" Margin="0,0,0,8" />
-                        <TextBox x:Name="PropertyTextBox" Text="{Binding PropertyText, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEdit}" TextWrapping="Wrap" AcceptsReturn="{Binding AllowsMultiline}" MinHeight="84" MaxHeight="240" VerticalScrollBarVisibility="Auto" MaxLength="4096" AutomationProperties.Name="{loc:Loc ElementTextAccessible}" />
-                        <TextBlock Text="{Binding PropertyHint}" Style="{StaticResource MutedText}" FontSize="12" Margin="0,12,0,0" />
+                        <Grid ClipToBounds="True" MaxHeight="240">
+                            <TextBox x:Name="PropertyTextBox" VerticalContentAlignment="Top" Text="{Binding PropertyText, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEdit}" TextWrapping="Wrap" AcceptsReturn="{Binding AllowsMultiline}" MinHeight="84" MaxHeight="240" VerticalScrollBarVisibility="Auto" MaxLength="4096" AutomationProperties.Name="{loc:Loc ElementTextAccessible}" AutomationProperties.HelpText="{Binding EffectiveText}" />
+                            <TextBlock Text="{Binding EffectiveText}" Foreground="#8A929A" TextWrapping="Wrap" Margin="12,10" IsHitTestVisible="False" Visibility="{Binding ShowTextWatermark, Converter={StaticResource Visibility}}" />
+                        </Grid>
+                        <Button Content="{loc:Loc UseEffectiveText}" Click="UseEffectiveText_Click" IsEnabled="{Binding CanEdit}" Visibility="{Binding ShowCopyText, Converter={StaticResource Visibility}}" Margin="0,8,0,0" />
+                        <Button Content="{loc:Loc ResetTranslationText}" Click="Reset_Click" IsEnabled="{Binding CanReset}" Visibility="{Binding ShowResetText, Converter={StaticResource Visibility}}" Margin="0,8,0,0" />
+                        <TextBlock Text="{Binding SelectedTranslationHint}" TextWrapping="Wrap" Margin="0,8,0,0" Visibility="{Binding SelectedTextMissing, Converter={StaticResource Visibility}}" />
                         <Button Content="{loc:Loc ChooseFolder}" Click="ChooseDirectory_Click" IsEnabled="{Binding CanEdit}" Visibility="{Binding IsDirectorySelected, Converter={StaticResource Visibility}}" Margin="0,12,0,0" />
                         <StackPanel Visibility="{Binding IsBrowseSelected, Converter={StaticResource Visibility}}" Margin="0,16,0,0">
                             <Label Content="{loc:Loc TooltipLabel}" Target="{Binding ElementName=TooltipBox}" Padding="0" Margin="0,0,0,8" />
-                            <TextBox x:Name="TooltipBox" Text="{Binding BrowseTooltip, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEdit}" MaxLength="4096" TextWrapping="Wrap" AutomationProperties.Name="{loc:Loc BrowseTooltipAccessible}" />
+                            <Grid ClipToBounds="True" MaxHeight="160">
+                                <TextBox x:Name="TooltipBox" VerticalContentAlignment="Top" Text="{Binding BrowseTooltip, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEdit}" MinHeight="64" MaxHeight="160" VerticalScrollBarVisibility="Auto" MaxLength="4096" TextWrapping="Wrap" AutomationProperties.Name="{loc:Loc BrowseTooltipAccessible}" AutomationProperties.HelpText="{Binding EffectiveBrowseTooltip}" />
+                                <TextBlock Text="{Binding EffectiveBrowseTooltip}" Foreground="#8A929A" TextWrapping="Wrap" Margin="12,10" IsHitTestVisible="False" Visibility="{Binding ShowTooltipWatermark, Converter={StaticResource Visibility}}" />
+                            </Grid>
+                            <Button Content="{loc:Loc UseEffectiveText}" Click="UseEffectiveTooltip_Click" IsEnabled="{Binding CanCopyTooltip}" Visibility="{Binding ShowCopyTooltip, Converter={StaticResource Visibility}}" Margin="0,8,0,0" />
+                            <Button Content="{loc:Loc ResetTranslationTooltip}" Click="ResetTooltip_Click" IsEnabled="{Binding CanResetTooltip}" Visibility="{Binding ShowResetTooltip, Converter={StaticResource Visibility}}" Margin="0,8,0,0" />
+                            <TextBlock Text="{Binding BrowseTooltipOrigin}" Style="{StaticResource MutedText}" FontSize="12" Margin="0,6,0,0" />
                         </StackPanel>
-                        <Button Content="{loc:Loc ResetToBase}" Click="Reset_Click" IsEnabled="{Binding CanReset}" Visibility="{Binding ShowInheritance, Converter={StaticResource Visibility}}" Margin="0,12,0,0" Padding="8" />
                         <Border Height="1" Background="{StaticResource Line}" Margin="0,24" />
-                        <StackPanel Visibility="{Binding ShowInheritance, Converter={StaticResource Visibility}}">
-                        <TextBlock Text="{loc:Loc InheritanceHeading}" Style="{StaticResource SectionLabel}" />
-                        <TextBlock Text="{loc:Loc InheritanceHint}" Style="{StaticResource MutedText}" />
-                        <TextBlock Text="{loc:Loc ResetHint}" Style="{StaticResource MutedText}" Margin="0,12,0,0" />
-                        </StackPanel>
+                        <Expander Header="{loc:Loc InheritanceHeading}" Visibility="{Binding ShowInheritance, Converter={StaticResource Visibility}}">
+                            <StackPanel>
+                                <TextBlock Text="{loc:Loc TranslationInheritanceHint}" Style="{StaticResource MutedText}" Margin="0,8,0,0"/>
+                                <TextBlock Text="{loc:Loc TranslationReferencesHint}" Style="{StaticResource MutedText}" Margin="0,8,0,0"/>
+                            </StackPanel>
+                        </Expander>
                         <Border Background="#F2F5F6" Padding="12" Margin="0,24,0,0" CornerRadius="4">
                             <TextBlock Text="{loc:Loc TryOutHint}" Style="{StaticResource MutedText}" FontSize="12" />
                         </Border>

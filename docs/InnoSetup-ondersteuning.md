@@ -24,9 +24,11 @@ M01-S05 voegt een opgeslagen OutputBaseFilename, native JSONL-bouwmeldingen en a
 
 M01-S06 voegt exportbescherming en de lokale SVG-eindproef toe. Zelfstandige compilatie met 7.1.0 is geslaagd; de gebruiker heeft de eindproef afgerond en verse installatie/deïnstallatie binnen de M01-scope geaccepteerd. [Eindproef en beperkingen](slices/M01-S06-Eenvoudige-installer-afronden.md).
 
-M02-S01 leest de taalbronnen bij ISCC 7.1.0 en aanvullende zelfstandige .isl-bestanden. Alle lokale compilerbronnen zijn ingelezen zonder wijziging; de broninspectie en aangepaste taallijst zijn door de gebruiker geaccepteerd. Alleen broninspectie is gebouwd; projecttalen, vertalingen en previewkeuze blijven gepland. [Detailregistratie](slices/M02-S01-Beschikbare-taalbronnen.md).
+M02-S01 leest de taalbronnen bij ISCC 7.1.0 en aanvullende zelfstandige .isl-bestanden. Alle lokale compilerbronnen zijn ingelezen zonder wijziging; de broninspectie en aangepaste taallijst zijn door de gebruiker geaccepteerd. Deze slice betreft broninspectie; projecttalen/preview volgen in S02 en eigen vertalingen in S03. [Detailregistratie](slices/M02-S01-Beschikbare-taalbronnen.md).
 
 ## Functionele dekking
+
+M02-S02 is op 13 oktober 2026 geaccepteerd: projecttalen/volgorde en afzonderlijke previewtaal; uitsluitend Engelse en bestaande Nederlandse export zijn gecompileerd en door de gebruiker gecontroleerd. M02-S03 voegt tekstbewerking en terugval per taal toe, met dezelfde resolutie voor preview en de bestaande export. Meertalige export en runtimebewijs voor die taalcombinaties blijven voor S05. [Tekstregels en controles](slices/M02-S03-Eigen-teksten-per-taal.md).
 
 V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële scripting. De aangegeven bediening is beoogd, niet allemaal al gerealiseerd.
 

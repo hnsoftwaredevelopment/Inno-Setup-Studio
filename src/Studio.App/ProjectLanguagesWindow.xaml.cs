@@ -21,7 +21,8 @@ public partial class ProjectLanguagesWindow : Window
         public string Name => Language.DisplayName(Editor.Text);
         public bool Enabled => Language.Enabled;
         public string Source => Language.Source;
-        public string TextOrigin => Editor.Text[Id == Editor.Project.TextLanguageId ? "PreviewOwnTexts" : "PreviewNativeTexts"];
+        public string TextOrigin => (Id == Editor.DefaultLanguageId ? Editor.Text["DefaultInstallerLanguage"] + ". " : "")
+            + Editor.Text.Format("TranslationLanguageStatus", WizardTexts.MissingCount(Editor.Project, Id));
     }
     private void Refresh(string? id = null)
     {
