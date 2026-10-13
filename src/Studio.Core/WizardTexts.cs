@@ -21,7 +21,7 @@ public static class WizardTexts
         _ => Enum.Parse<WizardTextSlot>((page?.ToString() ?? "Shared") + element)
     };
 
-    private static WizardTextSlot? Shared(WizardTextSlot slot) => slot switch
+    internal static WizardTextSlot? Shared(WizardTextSlot slot) => slot switch
     {
         WizardTextSlot.WelcomeBack or WizardTextSlot.DestinationBack => WizardTextSlot.SharedBack,
         WizardTextSlot.WelcomeNext or WizardTextSlot.DestinationNext => WizardTextSlot.SharedNext,

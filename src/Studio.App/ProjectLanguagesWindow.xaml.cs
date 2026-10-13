@@ -48,4 +48,19 @@ public partial class ProjectLanguagesWindow : Window
         new LanguageSourcesWindow(_compiler, _additionalPaths, _editor) { Owner = this }.ShowDialog();
         Refresh();
     }
+    private void Remove_Click(object sender, RoutedEventArgs e)
+    {
+        if (Languages.SelectedItem is not Choice choice) return;
+        var text = _editor.Text;
+        if (!_editor.CanRemoveLanguage(choice.Id))
+        {
+            MessageBox.Show(this, text["RemoveLanguageBlocked"], text["RemoveProjectLanguage"], MessageBoxButton.OK, MessageBoxImage.Information);
+            return;
+        }
+        var question = text.Format("RemoveLanguageConfirm", choice.Name, _editor.OwnTextCount(choice.Id));
+        if (MessageBox.Show(this, question, text["RemoveProjectLanguage"], MessageBoxButton.YesNo,
+            MessageBoxImage.Warning, MessageBoxResult.No) != MessageBoxResult.Yes) return;
+        _editor.RemoveLanguage(choice.Id);
+        Refresh();
+    }
 }

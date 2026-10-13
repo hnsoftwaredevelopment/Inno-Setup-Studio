@@ -238,4 +238,18 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="TranslationSummaryComplete" xml:space="preserve"><value>Geen ontbrekende vertalingen. Standaardtaal: {0}.</value></data>
   <data name="TranslationSummaryMissing" xml:space="preserve"><value>{0} onvertaalde teksten. Terugval: taalbestand van de gekozen taal, daarna standaardtaal {1}.</value></data>
   <data name="UseEffectiveText" xml:space="preserve"><value>Overnemen</value></data>
+  <data name="TranslationOverview" xml:space="preserve"><value>Vertaaloverzicht</value></data>
+  <data name="TranslationOverviewHint" xml:space="preserve"><value>Bewerk eigen teksten per taal. Een leeg veld toont de gebruikte tekst in grijs. Wijzigingen gelden direct; bewaar ze daarna in het project. Uitgeschakelde talen blijven bewerkbaar.</value></data>
+  <data name="TranslationOverviewIssues" xml:space="preserve"><value>Verwijzingswaarschuwingen in actieve talen: {0}.</value></data>
+  <data name="TranslationField" xml:space="preserve"><value>Scherm / tekstveld</value></data>
+  <data name="TranslationDisabled" xml:space="preserve"><value>Uitgeschakeld</value></data>
+  <data name="TranslationCellCustom" xml:space="preserve"><value>Eigen tekst</value></data>
+  <data name="TranslationCellMissing" xml:space="preserve"><value>Onvertaald / tekst ontbreekt</value></data>
+  <data name="TranslationReferenceUnknown" xml:space="preserve"><value>Onbekende verwijzing: {0}. Gebruik {{AppName}} of {{AppVersion}}.</value></data>
+  <data name="TranslationReferenceMalformed" xml:space="preserve"><value>Onvolledige of ongeldige verwijzing: {0}. Controleer de accolades.</value></data>
+  <data name="TranslationReferenceMissing" xml:space="preserve"><value>Verwijzing ontbreekt ten opzichte van de standaardtaal: {0}.</value></data>
+  <data name="RemoveProjectLanguage" xml:space="preserve"><value>Taal verwijderen</value></data>
+  <data name="RemoveLanguageBlocked" xml:space="preserve"><value>De laatste actieve taal kan niet worden verwijderd. Schakel eerst een andere projecttaal in.</value></data>
+  <data name="RemoveLanguageConfirm" xml:space="preserve"><value>Taal “{0}” verwijderen? Dit verwijdert {1} eigen tekstvelden in deze taal. De overige talen blijven behouden. Als dit de standaardtaal is, wordt de volgende actieve taal de standaardtaal. Uitschakelen bewaart de teksten.</value></data>
+  <data name="Close" xml:space="preserve"><value>Sluiten</value></data>
 </root>

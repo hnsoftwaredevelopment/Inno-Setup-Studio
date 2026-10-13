@@ -18,6 +18,7 @@
             <Button Content="{loc:Loc AddProjectLanguage}" Click="Add_Click" Margin="0,0,8,0"/>
             <Button Content="{loc:Loc LanguageUp}" Click="Up_Click" Margin="0,0,8,0"/>
             <Button Content="{loc:Loc LanguageDown}" Click="Down_Click"/>
+            <Button Content="{loc:Loc RemoveProjectLanguage}" Click="Remove_Click" Margin="8,0,0,0"/>
         </WrapPanel>
     </Grid>
 </Window>

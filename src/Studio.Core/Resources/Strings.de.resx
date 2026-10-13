@@ -238,4 +238,18 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="TranslationSummaryComplete" xml:space="preserve"><value>Keine fehlenden Übersetzungen. Standardsprache: {0}.</value></data>
   <data name="TranslationSummaryMissing" xml:space="preserve"><value>{0} unübersetzte Texte. Rückgriff: gewählte Sprachdatei, danach Standardsprache {1}.</value></data>
   <data name="UseEffectiveText" xml:space="preserve"><value>Übernehmen</value></data>
+  <data name="TranslationOverview" xml:space="preserve"><value>Übersetzungsübersicht</value></data>
+  <data name="TranslationOverviewHint" xml:space="preserve"><value>Bearbeiten Sie eigene Texte je Sprache. Ein leeres Feld zeigt den verwendeten Text in Grau. Änderungen gelten sofort; speichern Sie danach das Projekt. Deaktivierte Sprachen bleiben bearbeitbar.</value></data>
+  <data name="TranslationOverviewIssues" xml:space="preserve"><value>Verweiswarnungen in aktiven Sprachen: {0}.</value></data>
+  <data name="TranslationField" xml:space="preserve"><value>Seite / Textfeld</value></data>
+  <data name="TranslationDisabled" xml:space="preserve"><value>Deaktiviert</value></data>
+  <data name="TranslationCellCustom" xml:space="preserve"><value>Eigener Text</value></data>
+  <data name="TranslationCellMissing" xml:space="preserve"><value>Unübersetzt / fehlender Text</value></data>
+  <data name="TranslationReferenceUnknown" xml:space="preserve"><value>Unbekannter Verweis: {0}. Verwenden Sie {{AppName}} oder {{AppVersion}}.</value></data>
+  <data name="TranslationReferenceMalformed" xml:space="preserve"><value>Unvollständiger oder ungültiger Verweis: {0}. Prüfen Sie die geschweiften Klammern.</value></data>
+  <data name="TranslationReferenceMissing" xml:space="preserve"><value>Verweis fehlt im Vergleich zur Standardsprache: {0}.</value></data>
+  <data name="RemoveProjectLanguage" xml:space="preserve"><value>Sprache entfernen</value></data>
+  <data name="RemoveLanguageBlocked" xml:space="preserve"><value>Die letzte aktive Sprache kann nicht entfernt werden. Aktivieren Sie zuerst eine andere Projektsprache.</value></data>
+  <data name="RemoveLanguageConfirm" xml:space="preserve"><value>Sprache „{0}“ entfernen? Dadurch werden {1} eigene Textfelder dieser Sprache entfernt. Andere Sprachen bleiben erhalten. Ist dies die Standardsprache, wird die nächste aktive Sprache zur Standardsprache. Deaktivieren erhält die Texte.</value></data>
+  <data name="Close" xml:space="preserve"><value>Schließen</value></data>
 </root>

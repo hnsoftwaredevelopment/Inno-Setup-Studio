@@ -129,6 +129,51 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
         (Project.Languages[index], Project.Languages[target]) = (Project.Languages[target], Project.Languages[index]);
         RebuildPreviewLanguages(); IsDirty = true; Refresh();
     }
+    public bool CanRemoveLanguage(string id)
+    {
+        var language = Project.Languages.SingleOrDefault(l => l.Id == id);
+        return IsDesign && language is not null && Project.Languages.Count > 1
+            && (!language.Enabled || Project.Languages.Count(l => l.Enabled) > 1);
+    }
+    public int OwnTextCount(string id)
+    {
+        var language = Project.Languages.Single(l => l.Id == id);
+        return Enum.GetValues<WizardTextSlot>().Count(slot => WizardTexts.Own(Project, language, slot) is not null);
+    }
+    public bool RemoveLanguage(string id)
+    {
+        if (!CanRemoveLanguage(id)) return false;
+        if (id == Project.TextLanguageId)
+        {
+            // Legacy fields belong to one storage language. Materialize the successor's
+            // own values before changing ownership, without copying fallback text.
+            var successor = Project.Languages.First(l => l.Enabled && l.Id != id);
+            var own = Enum.GetValues<WizardTextSlot>().ToDictionary(slot => slot, slot => WizardTexts.Own(Project, successor, slot));
+            Project.TextLanguageId = successor.Id;
+            successor.TextOverrides.Clear();
+            successor.StandardTexts = Enum.GetValues<WizardTextSlot>().ToHashSet();
+            foreach (var page in Project.Pages) page.ButtonOverrides.Clear();
+            foreach (var (slot, value) in own)
+                if (value is not null) WizardTexts.Set(Project, successor, slot, value);
+        }
+        Project.Languages.RemoveAll(l => l.Id == id);
+        if (_previewLanguageId == id) _previewLanguageId = Project.Languages.First(l => l.Enabled).Id;
+        RebuildPreviewLanguages(); IsDirty = true; Refresh();
+        return true;
+    }
+    public void SetTranslation(string languageId, WizardTextSlot slot, string value)
+    {
+        var language = Project.Languages.SingleOrDefault(l => l.Id == languageId);
+        if (!IsDesign || language is null || !Enum.IsDefined(slot) || value is null
+            || (WizardTexts.Own(Project, language, slot) ?? "") == value) return;
+        WizardTexts.Set(Project, language, slot, value); IsDirty = true; Refresh();
+    }
+    public void ResetTranslation(string languageId, WizardTextSlot slot)
+    {
+        var language = Project.Languages.SingleOrDefault(l => l.Id == languageId);
+        if (!IsDesign || language is null || !Enum.IsDefined(slot) || WizardTexts.Own(Project, language, slot) is null) return;
+        WizardTexts.Reset(Project, language, slot); IsDirty = true; Refresh();
+    }
     private void RebuildPreviewLanguages()
     {
         var existing = _previewLanguages.ToDictionary(l => l.Id);
@@ -155,6 +200,12 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
         _ => Text["TranslationOriginNative"]
     };
     public string SelectedTranslationHint => SelectedTextMissing ? Text.Format("TranslationMissingField", DefaultLanguageName) : Text["TranslationEditHint"];
+    public string SelectedReferenceWarnings => IsDirectorySelected ? "" : ReferenceWarnings(SelectedSlot);
+    public bool HasSelectedReferenceWarnings => !string.IsNullOrEmpty(SelectedReferenceWarnings);
+    public string TooltipReferenceWarnings => ReferenceWarnings(WizardTextSlot.DestinationTooltip);
+    public bool HasTooltipReferenceWarnings => !string.IsNullOrEmpty(TooltipReferenceWarnings);
+    private string ReferenceWarnings(WizardTextSlot slot) => string.Join("\n",
+        TranslationValidation.Check(Project, PreviewLanguageId, slot).Select(issue => issue.Describe(Text)));
     public string DocumentState => IsDirty ? Text["Unsaved"] : Text["Unchanged"];
 
     public string ProductName

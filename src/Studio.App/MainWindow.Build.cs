@@ -29,6 +29,11 @@ public partial class MainWindow
         if (_busy || !_editor.IsDesign) return;
         new ProjectLanguagesWindow(_editor, _compilerPath, _additionalLanguageSources) { Owner = this }.ShowDialog();
     }
+    private void TranslationOverview_Click(object sender, RoutedEventArgs e)
+    {
+        if (_busy || !_editor.IsDesign) return;
+        new TranslationOverviewWindow(_editor) { Owner = this }.ShowDialog();
+    }
 
     private void UpdateCompilerState()
     {

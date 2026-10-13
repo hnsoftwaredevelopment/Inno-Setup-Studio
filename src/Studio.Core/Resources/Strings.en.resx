@@ -238,4 +238,18 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="TranslationSummaryComplete" xml:space="preserve"><value>No missing translations. Default language: {0}.</value></data>
   <data name="TranslationSummaryMissing" xml:space="preserve"><value>{0} untranslated texts. Fallback: selected language file, then default language {1}.</value></data>
   <data name="UseEffectiveText" xml:space="preserve"><value>Copy</value></data>
+  <data name="TranslationOverview" xml:space="preserve"><value>Translation overview</value></data>
+  <data name="TranslationOverviewHint" xml:space="preserve"><value>Edit custom texts per language. An empty field shows the text in use in grey. Changes apply immediately; save them in the project afterwards. Disabled languages remain editable.</value></data>
+  <data name="TranslationOverviewIssues" xml:space="preserve"><value>Reference warnings in enabled languages: {0}.</value></data>
+  <data name="TranslationField" xml:space="preserve"><value>Page / text field</value></data>
+  <data name="TranslationDisabled" xml:space="preserve"><value>Disabled</value></data>
+  <data name="TranslationCellCustom" xml:space="preserve"><value>Custom text</value></data>
+  <data name="TranslationCellMissing" xml:space="preserve"><value>Untranslated / missing text</value></data>
+  <data name="TranslationReferenceUnknown" xml:space="preserve"><value>Unknown reference: {0}. Use {{AppName}} or {{AppVersion}}.</value></data>
+  <data name="TranslationReferenceMalformed" xml:space="preserve"><value>Incomplete or invalid reference: {0}. Check the braces.</value></data>
+  <data name="TranslationReferenceMissing" xml:space="preserve"><value>Reference missing compared with the default language: {0}.</value></data>
+  <data name="RemoveProjectLanguage" xml:space="preserve"><value>Remove language</value></data>
+  <data name="RemoveLanguageBlocked" xml:space="preserve"><value>The last enabled language cannot be removed. Enable another project language first.</value></data>
+  <data name="RemoveLanguageConfirm" xml:space="preserve"><value>Remove language “{0}”? This removes {1} custom text fields in this language. Other languages are kept. If this is the default language, the next enabled language becomes the default. Disabling preserves the texts.</value></data>
+  <data name="Close" xml:space="preserve"><value>Close</value></data>
 </root>

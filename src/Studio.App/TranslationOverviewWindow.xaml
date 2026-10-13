@@ -1,0 +1,54 @@
+<Window x:Class="Studio.App.TranslationOverviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:Studio.App"
+        Title="{loc:Loc TranslationOverview}" Icon="Resources/AppIcon.ico"
+        Width="1280" Height="800" MinWidth="960" MinHeight="560" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <DataTemplate x:Key="LanguageHeader">
+            <TextBlock Text="{Binding Header}" TextWrapping="Wrap" FontWeight="SemiBold" Margin="8" />
+        </DataTemplate>
+        <DataTemplate x:Key="TranslationCellTemplate">
+            <StackPanel Margin="8">
+                <Grid Height="84" ClipToBounds="True">
+                    <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEdit}"
+                             VerticalContentAlignment="Top" TextWrapping="Wrap" AcceptsReturn="{Binding AllowsMultiline}"
+                             VerticalScrollBarVisibility="Auto" MaxLength="4096"
+                             AutomationProperties.Name="{Binding AccessibleName}" AutomationProperties.HelpText="{Binding EffectiveText}" />
+                    <TextBlock Text="{Binding EffectiveText}" TextWrapping="Wrap" Foreground="#8A929A" Margin="12,10"
+                               IsHitTestVisible="False" Visibility="{Binding ShowWatermark, Converter={StaticResource Visibility}}" />
+                </Grid>
+                <WrapPanel Margin="0,6,0,0">
+                    <Button Content="{loc:Loc UseEffectiveText}" Click="Copy_Click" IsEnabled="{Binding CanCopy}"
+                            Visibility="{Binding ShowCopy, Converter={StaticResource Visibility}}" Padding="8,2" MinHeight="26" FontSize="12" />
+                    <Button Content="{loc:Loc ResetTranslationText}" Click="Reset_Click" IsEnabled="{Binding CanEdit}"
+                            Visibility="{Binding ShowReset, Converter={StaticResource Visibility}}" Padding="8,2" MinHeight="26" FontSize="12" />
+                </WrapPanel>
+                <TextBlock Text="{Binding Status}" Style="{StaticResource MutedText}" FontSize="11" Margin="0,6,0,0" />
+                <TextBlock Text="{Binding Warnings}" TextWrapping="Wrap" FontSize="11" Margin="0,6,0,0"
+                           Visibility="{Binding HasWarnings, Converter={StaticResource Visibility}}" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Margin="20">
+        <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+        <TextBlock Text="{loc:Loc TranslationOverviewHint}" Style="{StaticResource MutedText}" Margin="0,0,0,12" />
+        <TextBlock Grid.Row="1" Text="{Binding Summary}" TextWrapping="Wrap" Margin="0,0,0,12" />
+        <DataGrid x:Name="Translations" Grid.Row="2" ItemsSource="{Binding Rows}" AutoGenerateColumns="False"
+                  CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="False" CanUserReorderColumns="False"
+                  IsReadOnly="True" HeadersVisibility="Column" FrozenColumnCount="1" SelectionMode="Single"
+                  EnableRowVirtualization="True" EnableColumnVirtualization="True" HorizontalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto" GridLinesVisibility="All" BorderBrush="{StaticResource Line}"
+                  HorizontalGridLinesBrush="{StaticResource Line}" VerticalGridLinesBrush="{StaticResource Line}"
+                  Background="White" AutomationProperties.Name="{loc:Loc TranslationOverview}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{loc:Loc TranslationField}" Binding="{Binding Name}" Width="180">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock"><Setter Property="Margin" Value="10"/><Setter Property="TextWrapping" Value="Wrap"/><Setter Property="FontWeight" Value="SemiBold"/></Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="3" Content="{loc:Loc Close}" Click="Close_Click" IsCancel="True" HorizontalAlignment="Right" Margin="0,12,0,0" />
+    </Grid>
+</Window>

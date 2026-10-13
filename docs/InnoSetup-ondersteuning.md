@@ -114,3 +114,5 @@ Online Inno Setup-help kan inmiddels latere versies beschrijven. De links zijn n
 De huidige installatie bevat onder meer AllPagesExample.iss, Languages.iss, Components.iss, CodeDlg.iss en architectuurvoorbeelden. We gebruiken gecontroleerde eigen voorbeeldprojecten voor regressies, zodat Studio niet afhankelijk wordt van een hardcoded compilerinstallatiepad.
 
 De geïnstalleerde Inno Setup-bestanden worden gelezen als bron en blijven ongewijzigd.
+
+M02-S04 gebruikt dezelfde S03-tekstresolutie in een overzicht met alle projecttalen. Studio-verwijzingscontrole geeft waarschuwingen zonder native berichtsyntax of invoer te herschrijven. Uitschakelen en bevestigd verwijderen zijn getest op behoud van andere talen en geldige opslag. Deze slice voegt geen native exportmogelijkheden toe; meertalige export blijft voor S05. [Overzicht en controles](slices/M02-S04-Vertaaloverzicht.md).

@@ -65,3 +65,5 @@ Iedere milestone gebruikt een eigen branch met dezelfde technische naam. Slices 
 De roadmap is geaccepteerd; M00 en M01 zijn gepubliceerd en gemerged. M01-S06 is gepubliceerd als 6c84951 en de M01-merge als e14824e. De voortgang en acceptatiestatus staan in de slicelijst.
 
 Markdown wordt gespiegeld naar `C:\Devops\Obsidian\markdown\Development\HNSoftwareDevelopment\Inno Setup Studio`, met behoud van relatieve paden.
+
+M02-S04 voegt een afzonderlijk Vertaaloverzicht toe, bereikbaar naast Voorbeeldtaal: tekstvelden als rijen en alle projecttalen als kolommen. Eigen teksten, overnemen/herstellen en terugval blijven aangesloten op het ontwerpscherm. Verwijzingswaarschuwingen verschijnen per veld; verwijderen van een taal vraagt expliciet bevestiging. Deze slice is door de gebruiker geaccepteerd. [Scope en teststappen](docs/slices/M02-S04-Vertaaloverzicht.md).
