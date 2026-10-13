@@ -1,6 +1,6 @@
 <Window x:Class="Studio.App.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:loc="clr-namespace:Studio.App" xmlns:views="clr-namespace:Studio.App.Views" xmlns:core="clr-namespace:Studio.Core;assembly=Studio.Core"
-        Title="Inno Setup Studio" Width="1360" Height="860" MinWidth="1120" MinHeight="680" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+        Title="Inno Setup Studio" Icon="Resources/AppIcon.ico" Width="1360" Height="860" MinWidth="1120" MinHeight="680" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.New" Executed="New_Executed" />
         <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
