@@ -145,7 +145,7 @@ public partial class MainWindow
             BuildResult.Text = Text["BuildFailed"];
             var key = ProjectFile.ErrorResourceKey(error);
             var message = new CompilerMessage(CompilerMessageSeverity.Error,
-                key is null ? Text["CompilerBuildError"] + Environment.NewLine + error.Message : Text[key], null, null, error.Message);
+                key is null ? Text["CompilerBuildError"] + Environment.NewLine + error.Message : FileErrorDescription(error, key), null, null, error.Message);
             _buildMessages.Add(message);
             _buildOutput?.Append(message);
         }

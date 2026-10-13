@@ -14,7 +14,7 @@ public class ProjectLanguageTests
         Assert.Equal("Welcome to the " + project.Name + " Setup Wizard", InstallerLanguage.English().Message("WelcomeLabel1", project));
     }
     [Fact]
-    public void NewEnglishExportUsesDefaultSourceAndMultipleLanguagesAreExplicitlyBlocked()
+    public void ExportUsesAllEnabledLanguagesIncludingDutchWithoutOriginalEnglish()
     {
         var path = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".txt");
         try
@@ -25,10 +25,11 @@ public class ProjectLanguageTests
             Assert.Contains("Name: \"english\"; MessagesFile: \"compiler:Default.isl\"", InnoScript.Generate(project, null));
             using var editor = new EditorSession(project);
             editor.AddLanguage(InstallerLanguage.Dutch());
-            var error = Assert.Throws<InvalidDataException>(() => InnoScript.Generate(project, null));
-            Assert.Equal("ExportLanguagesPending", ProjectFile.ErrorResourceKey(error));
+            Assert.Contains("Name: \"dutch\"; MessagesFile: \"compiler:Languages\\Dutch.isl\"", InnoScript.Generate(project, null));
             editor.SetLanguageEnabled("english", false);
-            Assert.Throws<InvalidDataException>(() => InnoScript.Generate(project, null));
+            var dutch = InnoScript.Generate(project, null);
+            Assert.Contains("Name: \"dutch\";", dutch);
+            Assert.DoesNotContain("Name: \"english\";", dutch);
         }
         finally { File.Delete(path); }
     }

@@ -113,7 +113,7 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="ChooseSourceFile" xml:space="preserve"><value>Bestand kiezen…</value></data>
   <data name="FileDestinationLabel" xml:space="preserve"><value>Doelmap voor dit bestand</value></data>
   <data name="InstallFileHint" xml:space="preserve"><value>Eén lokaal bestand; nog geen wildcards. Relatieve bronpaden zijn gebaseerd op de projectmap. Doel: {app} of bijvoorbeeld {app}\Data.</value></data>
-  <data name="ExportScopeHint" xml:space="preserve"><value>De export bevat applicatiegegevens, één bestand en de teksten van Welkom en Installatiemap, inclusief knopafwijkingen en Bladeren-tooltip. De installer is voorlopig Nederlands. Inno Setup bepaalt de indeling en de overige stappen.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>De export bevat alle actieve projecttalen, applicatiegegevens, één bestand en de teksten van Welkom en Installatiemap, inclusief knopafwijkingen en Bladeren-tooltip. Inno Setup bepaalt de taalkeuze, indeling en overige stappen.</value></data>
   <data name="ExportScript" xml:space="preserve"><value>Exporteer .iss</value></data>
   <data name="SourceFileFilter" xml:space="preserve"><value>Alle bestanden (*.*)|*.*</value></data>
   <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup-script (*.iss)|*.iss</value></data>
@@ -209,8 +209,7 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="InstallerLanguageName_0422" xml:space="preserve"><value>Oekraïens</value></data>
   <data name="AddProjectLanguage" xml:space="preserve"><value>Taal toevoegen…</value></data>
   <data name="AddToProject" xml:space="preserve"><value>Aan project toevoegen</value></data>
-  <data name="ExportLanguagesPending" xml:space="preserve"><value>Meertalige export volgt in M02-S05. Bouw nu met uitsluitend de taal van de eigen projectteksten ingeschakeld.</value></data>
-  <data name="InvalidProjectLanguages" xml:space="preserve"><value>De projecttalen zijn ongeldig. Er moet minstens één ingeschakelde taal zijn en de taal van de eigen teksten moet behouden blijven.</value></data>
+<data name="InvalidProjectLanguages" xml:space="preserve"><value>De projecttalen zijn ongeldig. Er moet minstens één ingeschakelde taal zijn en de taal van de eigen teksten moet behouden blijven.</value></data>
   <data name="LanguageDown" xml:space="preserve"><value>Omlaag</value></data>
   <data name="LanguageUp" xml:space="preserve"><value>Omhoog</value></data>
   <data name="PreviewLanguage" xml:space="preserve"><value>Voorbeeldtaal</value></data>
@@ -252,4 +251,7 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="RemoveLanguageBlocked" xml:space="preserve"><value>De laatste actieve taal kan niet worden verwijderd. Schakel eerst een andere projecttaal in.</value></data>
   <data name="RemoveLanguageConfirm" xml:space="preserve"><value>Taal “{0}” verwijderen? Dit verwijdert {1} eigen tekstvelden in deze taal. De overige talen blijven behouden. Als dit de standaardtaal is, wordt de volgende actieve taal de standaardtaal. Uitschakelen bewaart de teksten.</value></data>
   <data name="Close" xml:space="preserve"><value>Sluiten</value></data>
+  <data name="ExportLanguageSourceInvalid" xml:space="preserve"><value>Een taalbron heeft een ongeschikt pad. Kies één .isl-bestand zonder komma, aanhalingstekens, accolades of jokertekens. Een compiler:-pad moet binnen de compilermap blijven.</value></data>
+  <data name="ExportLanguageSourceNeedsProject" xml:space="preserve"><value>Een relatief taalbronpad vereist een opgeslagen project. Bewaar het project of kies een absoluut .isl-pad.</value></data>
+  <data name="ExportLanguageSourceMissing" xml:space="preserve"><value>Een extern taalbestand ontbreekt of is niet leesbaar. Controleer de bronpaden bij Projecttalen en herstel het .isl-bestand.</value></data>
 </root>

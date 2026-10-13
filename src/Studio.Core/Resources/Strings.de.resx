@@ -113,7 +113,7 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="ChooseSourceFile" xml:space="preserve"><value>Datei auswählen…</value></data>
   <data name="FileDestinationLabel" xml:space="preserve"><value>Zielordner für diese Datei</value></data>
   <data name="InstallFileHint" xml:space="preserve"><value>Eine lokale Datei; Platzhalter werden noch nicht unterstützt. Relative Quellpfade beziehen sich auf den Projektordner. Ziel: {app} oder beispielsweise {app}\Data.</value></data>
-  <data name="ExportScopeHint" xml:space="preserve"><value>Der Export enthält Anwendungsdaten, eine Datei und die Texte für Willkommen und Zielordner einschließlich abweichender Schaltflächentexte und Durchsuchen-Tooltip. Der Installer ist vorläufig auf Niederländisch. Inno Setup bestimmt das Layout und die weiteren Schritte.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>Der Export enthält alle aktiven Projektsprachen, Anwendungsdaten, eine Datei und die Texte für Willkommen und Zielordner einschließlich Schaltflächenabweichungen und Durchsuchen-Tooltip. Inno Setup bestimmt Sprachauswahl, Layout und weitere Schritte.</value></data>
   <data name="ExportScript" xml:space="preserve"><value>ISS exportieren</value></data>
   <data name="SourceFileFilter" xml:space="preserve"><value>Alle Dateien (*.*)|*.*</value></data>
   <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup-Skript (*.iss)|*.iss</value></data>
@@ -209,8 +209,7 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="InstallerLanguageName_0422" xml:space="preserve"><value>Ukrainisch</value></data>
   <data name="AddProjectLanguage" xml:space="preserve"><value>Sprache hinzufügen…</value></data>
   <data name="AddToProject" xml:space="preserve"><value>Zum Projekt hinzufügen</value></data>
-  <data name="ExportLanguagesPending" xml:space="preserve"><value>Mehrsprachiger Export folgt in M02-S05. Aktivieren Sie zum Bauen vorerst nur die Sprache der eigenen Projekttexte.</value></data>
-  <data name="InvalidProjectLanguages" xml:space="preserve"><value>Die Projektsprachen sind ungültig. Mindestens eine Sprache muss aktiv sein und die Sprache der eigenen Texte muss erhalten bleiben.</value></data>
+<data name="InvalidProjectLanguages" xml:space="preserve"><value>Die Projektsprachen sind ungültig. Mindestens eine Sprache muss aktiv sein und die Sprache der eigenen Texte muss erhalten bleiben.</value></data>
   <data name="LanguageDown" xml:space="preserve"><value>Nach unten</value></data>
   <data name="LanguageUp" xml:space="preserve"><value>Nach oben</value></data>
   <data name="PreviewLanguage" xml:space="preserve"><value>Vorschau-Sprache</value></data>
@@ -252,4 +251,7 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="RemoveLanguageBlocked" xml:space="preserve"><value>Die letzte aktive Sprache kann nicht entfernt werden. Aktivieren Sie zuerst eine andere Projektsprache.</value></data>
   <data name="RemoveLanguageConfirm" xml:space="preserve"><value>Sprache „{0}“ entfernen? Dadurch werden {1} eigene Textfelder dieser Sprache entfernt. Andere Sprachen bleiben erhalten. Ist dies die Standardsprache, wird die nächste aktive Sprache zur Standardsprache. Deaktivieren erhält die Texte.</value></data>
   <data name="Close" xml:space="preserve"><value>Schließen</value></data>
+  <data name="ExportLanguageSourceInvalid" xml:space="preserve"><value>Eine Sprachquelle hat einen ungeeigneten Pfad. Wählen Sie eine .isl-Datei ohne Kommas, Anführungszeichen, geschweifte Klammern oder Platzhalter. Ein compiler:-Pfad muss im Compilerverzeichnis bleiben.</value></data>
+  <data name="ExportLanguageSourceNeedsProject" xml:space="preserve"><value>Eine relative Sprachquelle benötigt ein gespeichertes Projekt. Speichern Sie das Projekt oder wählen Sie einen absoluten .isl-Pfad.</value></data>
+  <data name="ExportLanguageSourceMissing" xml:space="preserve"><value>Eine externe Sprachdatei fehlt oder ist nicht zugänglich. Prüfen Sie die Quellpfade unter Projektsprachen und stellen Sie die .isl-Datei wieder her.</value></data>
 </root>

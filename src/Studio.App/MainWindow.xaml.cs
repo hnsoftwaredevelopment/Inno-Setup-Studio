@@ -182,6 +182,13 @@ public partial class MainWindow : Window
             UnauthorizedAccessException => "AccessDenied",
             _ => "FileError"
         });
-        MessageBox.Show(this, Text[key], Text[action + "Failed"], MessageBoxButton.OK, MessageBoxImage.Warning);
+        MessageBox.Show(this, FileErrorDescription(error, key), Text[action + "Failed"], MessageBoxButton.OK, MessageBoxImage.Warning);
+    }
+    private string FileErrorDescription(Exception error, string key)
+    {
+        var message = Text[key];
+        if (error.Data["Studio.LanguageId"] is string id && _editor.Project.Languages.FirstOrDefault(language => language.Id == id) is { } language)
+            message += Environment.NewLine + Environment.NewLine + language.DisplayName(Text) + Environment.NewLine + language.Source;
+        return message;
     }
 }
