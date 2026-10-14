@@ -51,7 +51,16 @@ public partial class MainWindow : Window
     private void UpdateTitle() => Title = $"{(_editor.IsDirty ? "• " : "")}{(_path is null ? Text["NewProject"] : Path.GetFileName(_path))} — Inno Setup Studio";
     private void SetBusy(bool busy) { _busy = busy; Workspace.IsEnabled = !busy; }
     private void Design_Checked(object sender, RoutedEventArgs e) { if (_editor is not null) _editor.IsPreview = false; }
-    private void Preview_Checked(object sender, RoutedEventArgs e) { if (_editor is not null) _editor.IsPreview = true; }
+    private void Preview_Checked(object sender, RoutedEventArgs e)
+    {
+        if (_editor is null || _busy || _editor.IsPreview) return;
+        try
+        {
+            new WizardTrialWindow(_editor, _compilerPath is null ? null : Path.GetDirectoryName(_compilerPath),
+                _path is null ? null : Path.GetDirectoryName(_path)) { Owner = this }.ShowDialog();
+        }
+        finally { _editor.IsPreview = false; }
+    }
     private void WizardPageOverview_Click(object sender, RoutedEventArgs e)
     {
         if (_busy || !_editor.IsDesign) return;

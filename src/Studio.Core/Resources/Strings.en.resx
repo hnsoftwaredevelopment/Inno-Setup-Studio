@@ -354,4 +354,9 @@ Replace it with the current export? Existing content, including any manual chang
   <data name="ScopeDirectory" xml:space="preserve"><value>Project setting for Destination folder, independent of language. Native Inno Setup constants remain expressions.</value></data>
   <data name="ScopeBrowse" xml:space="preserve"><value>Only Browse on Destination folder, in this preview language. Caption and tooltip have separate overrides.</value></data>
   <data name="ScopeUnavailable" xml:space="preserve"><value>This property has no supported native editing here.</value></data>
+  <data name="TrialTitle" xml:space="preserve"><value>Try the wizard</value></data>
+  <data name="TrialHint" xml:space="preserve"><value>Walk through the enabled pages. All input is temporary; no installation actions are performed.</value></data>
+  <data name="TrialExpressions" xml:space="preserve"><value>Windows and Inno Setup constants remain visible as expressions here. You can enter a temporary trial value.</value></data>
+  <data name="TrialMessageFallback" xml:space="preserve"><value>Missing native page messages use English preview text.</value></data>
+  <data name="TrialDocumentLoading" xml:space="preserve"><value>Loading document…</value></data>
 </root>

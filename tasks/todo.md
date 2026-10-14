@@ -67,7 +67,7 @@ Bestandsgroepen: Core/paginamodel/status; App/navigatie/preview/eigenschappen; g
 | [x] | M03-S03 Gebruikersinformatie en startmenumap | Ondersteunde velden en mapbeleid worden opgeslagen; preview toont toepasselijke invoer; export bevat de juiste reguliere instellingen. | B/T/C/U; S02 |
 | [x] | M03-S04 Gereed, voortgang en voltooid | Samenvatting en afsluitrollen zijn herkenbaar; simulatie wijzigt geen model; installeren/voltooien zijn geen vaste Verder-tekst. | B/T/C/U; S03 |
 | [x] | M03-S05 Basisontwerp en pagina-afwijkingen | Overerving heeft juiste taal/rol/scope; lokale wijzigingen lekken niet bij terugnavigeren; onbewezen properties zijn niet actief bewerkbaar. | B/T/C/I; S04 |
-| [ ] | M03-S06 Wizardproef | Een samengesteld voorbeeld toont de juiste pagina's en teksten; ontwerpselectie herstelt na Uitproberen; bestaande voorbeeldprojecten blijven bruikbaar. | B/T/C/I, milestonecheck; S05 |
+| [x] | M03-S06 Wizardproef | Een samengesteld voorbeeld toont de juiste pagina's en teksten; ontwerpselectie herstelt na Uitproberen; bestaande voorbeeldprojecten blijven bruikbaar. | B/T/C/I, milestonecheck; S05; wizardproef door gebruiker geaccepteerd |
 
 ## M04 — m04-installatiekeuzes
 
@@ -201,3 +201,5 @@ M03-S05 is geïmplementeerd op m03-wizardpaginas: bereik-uitleg per ontwerpeigen
 Gebruikerscorrectie bij S04: Exporteer .iss moet een bestaande alternatieve export bewust kunnen vervangen. Expliciete vervangingsvraag en controle van de bevestigde inhoud zijn geïmplementeerd; project-Opslaan als is ook gecontroleerd. De gebruiker heeft de echte installer en projectopslag getest. De gebruiker heeft de Voltooid/Finish-rol en exportcorrectie getest en geaccepteerd.
 
 Na de exportcorrectie: Release-build zonder fouten/waarschuwingen; alle 221 tests geslaagd. Controles omvatten bevestigde vervanging, behoud zonder toestemming, wijziging/verwijdering na bevestiging, bronbescherming en vervangen van een bestaand alternatief .issstudio-project.
+
+M03-S06 is geïmplementeerd: één tijdelijke wizardroute via Uitproberen, actieve documenten en Gebruikersinformatie, licentieacceptatie, proefmap en samenvatting, native afsluitrollen en Informatie na vóór Voltooid. Alle 234 tests geslaagd; Release-build zonder fouten/waarschuwingen. [Scope en teststappen](../docs/slices/M03-S06-Wizardproef.md). De gebruiker heeft de wizardproef geaccepteerd. Aanvullende automatische documentfoutmelding wordt afzonderlijk uitgewerkt; M03 is nog niet gemerged.

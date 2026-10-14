@@ -354,4 +354,9 @@ Durch den aktuellen Export ersetzen? Der bisherige Inhalt einschließlich manuel
   <data name="ScopeDirectory" xml:space="preserve"><value>Projekteinstellung für den Installationsordner, unabhängig von der Sprache. Native Inno Setup-Konstanten bleiben Ausdrücke.</value></data>
   <data name="ScopeBrowse" xml:space="preserve"><value>Nur Durchsuchen im Installationsordner, in dieser Vorschausprache. Text und Tooltip haben getrennte Abweichungen.</value></data>
   <data name="ScopeUnavailable" xml:space="preserve"><value>Diese Eigenschaft hat hier keine unterstützte native Bearbeitung.</value></data>
+  <data name="TrialTitle" xml:space="preserve"><value>Assistent ausprobieren</value></data>
+  <data name="TrialHint" xml:space="preserve"><value>Durchlaufen Sie die aktivierten Seiten. Alle Eingaben sind vorübergehend; es werden keine Installationsaktionen ausgeführt.</value></data>
+  <data name="TrialExpressions" xml:space="preserve"><value>Windows- und Inno Setup-Konstanten bleiben hier als Ausdruck sichtbar. Sie können einen vorübergehenden Testwert eingeben.</value></data>
+  <data name="TrialMessageFallback" xml:space="preserve"><value>Fehlende native Seitentexte verwenden englischen Vorschautext.</value></data>
+  <data name="TrialDocumentLoading" xml:space="preserve"><value>Dokument wird geladen…</value></data>
 </root>

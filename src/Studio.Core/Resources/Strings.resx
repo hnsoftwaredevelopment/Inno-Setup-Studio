@@ -354,4 +354,9 @@ Vervangen door de huidige export? De bestaande inhoud, inclusief eventuele handm
   <data name="ScopeDirectory" xml:space="preserve"><value>Projectinstelling voor Installatiemap, onafhankelijk van de taal. Native Inno Setup-constanten blijven expressies.</value></data>
   <data name="ScopeBrowse" xml:space="preserve"><value>Alleen Bladeren op Installatiemap, in deze voorbeeldtaal. De tekst en tooltip hebben afzonderlijke afwijkingen.</value></data>
   <data name="ScopeUnavailable" xml:space="preserve"><value>Deze eigenschap heeft hier geen ondersteunde native bewerking.</value></data>
+  <data name="TrialTitle" xml:space="preserve"><value>Wizard uitproberen</value></data>
+  <data name="TrialHint" xml:space="preserve"><value>Doorloop de ingeschakelde pagina’s. Alle invoer is tijdelijk; er worden geen installatieacties uitgevoerd.</value></data>
+  <data name="TrialExpressions" xml:space="preserve"><value>Windows- en Inno Setup-constanten blijven hier als expressie zichtbaar. Vul eventueel een tijdelijke proefwaarde in.</value></data>
+  <data name="TrialMessageFallback" xml:space="preserve"><value>Ontbrekende native paginaberichten gebruiken Engelse voorbeeldtekst.</value></data>
+  <data name="TrialDocumentLoading" xml:space="preserve"><value>Document laden…</value></data>
 </root>

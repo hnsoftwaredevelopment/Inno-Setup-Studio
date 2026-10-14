@@ -97,8 +97,11 @@ public sealed class WizardCompletionPreview : INotifyPropertyChanged
         _messages=messages; _loading=false; Refresh();
     }
     private string Native(string key)
+        => Message(key, English[key]);
+    public bool HasNativeMessage(string key) => _messages.TryGetValue(key,out var value) && !string.IsNullOrWhiteSpace(value);
+    public string Message(string key, string fallback)
     {
-        var raw=_messages.TryGetValue(key,out var value) && !string.IsNullOrWhiteSpace(value) ? value : English[key];
+        var raw=HasNativeMessage(key) ? _messages[key] : fallback;
         return new InstallerLanguage { Messages=new Dictionary<string,string> { [key]=raw } }.Message(key,_editor.Project);
     }
     private void Refresh() => PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(string.Empty));
