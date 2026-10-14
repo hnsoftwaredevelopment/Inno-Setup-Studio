@@ -255,7 +255,7 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="ExportLanguageSourceNeedsProject" xml:space="preserve"><value>A relative language source requires a saved project. Save the project or choose an absolute .isl path.</value></data>
   <data name="ExportLanguageSourceMissing" xml:space="preserve"><value>An external language file is missing or inaccessible. Check the source paths in Project languages and restore the .isl file.</value></data>
   <data name="WizardPageOverview" xml:space="preserve"><value>Page overview</value></data>
-  <data name="PageOverviewHint" xml:space="preserve"><value>Fixed page order. Green = on, red = off, ? = conditional. The switches only show status. Installing is always on.</value></data>
+  <data name="PageOverviewHint" xml:space="preserve"><value>Green = on, red = off, ? = conditional. Turn on a document page or User information to open settings. Double-click or F2 opens existing settings. Other statuses are fixed.</value></data>
   <data name="PageOverviewDesign" xml:space="preserve"><value>Open design page</value></data>
   <data name="PageOverviewNoDesign" xml:space="preserve"><value>A design page is not yet available for this phase.</value></data>
   <data name="PageOverviewOrder" xml:space="preserve"><value>Order</value></data>
@@ -270,19 +270,19 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="PageOverviewWelcome" xml:space="preserve"><value>Welcome</value></data>
   <data name="PageReasonWelcome" xml:space="preserve"><value>Shown: Welcome is enabled. Texts can be designed now.</value></data>
   <data name="PageOverviewLicense" xml:space="preserve"><value>License agreement</value></data>
-  <data name="PageReasonLicense" xml:space="preserve"><value>No general license document configured. Choose Configure document to use this page.</value></data>
+  <data name="PageReasonLicense" xml:space="preserve"><value>Turn on License agreement to choose a general document and language variants. Without a general document the page is hidden.</value></data>
   <data name="PageOverviewPassword" xml:space="preserve"><value>Password</value></data>
   <data name="PageReasonPassword" xml:space="preserve"><value>No password configured. Password policy follows later.</value></data>
   <data name="PageOverviewInfoBefore" xml:space="preserve"><value>Information before installation</value></data>
-  <data name="PageReasonInfoBefore" xml:space="preserve"><value>No general information document before installation configured. Choose Configure document to use this page.</value></data>
+  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Turn on this page to choose a document before installation and language variants.</value></data>
   <data name="PageOverviewUserInfo" xml:space="preserve"><value>User information</value></data>
-  <data name="PageReasonUserInfo" xml:space="preserve"><value>User information is not enabled. Fields and initial values follow later.</value></data>
+  <data name="PageReasonUserInfo" xml:space="preserve"><value>Turn on User information to configure name and organization.</value></data>
   <data name="PageOverviewDestination" xml:space="preserve"><value>Destination folder</value></data>
   <data name="PageReasonDestination" xml:space="preserve"><value>Shown: the folder selection page is enabled. Path and texts can be designed now.</value></data>
   <data name="PageOverviewComponents" xml:space="preserve"><value>Components</value></data>
   <data name="PageReasonComponents" xml:space="preserve"><value>No components defined. Installation types and components follow later.</value></data>
   <data name="PageOverviewProgramGroup" xml:space="preserve"><value>Start Menu folder</value></data>
-  <data name="PageReasonProgramGroup" xml:space="preserve"><value>No shortcuts defined. Folder policy and shortcuts follow later.</value></data>
+  <data name="PageReasonProgramGroup" xml:space="preserve"><value>There are no shortcuts yet. The policy is saved, but the folder selection page only appears when shortcuts exist.</value></data>
   <data name="PageOverviewTasks" xml:space="preserve"><value>Tasks</value></data>
   <data name="PageReasonTasks" xml:space="preserve"><value>No tasks defined. Tasks and component conditions follow later.</value></data>
   <data name="PageOverviewReady" xml:space="preserve"><value>Ready to install</value></data>
@@ -292,7 +292,7 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="PageOverviewInstalling" xml:space="preserve"><value>Installing</value></data>
   <data name="PageReasonInstalling" xml:space="preserve"><value>Fixed runtime phase during the actual installation. Studio performs no installation actions; progress simulation follows later.</value></data>
   <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Information after installation</value></data>
-  <data name="PageReasonInfoAfter" xml:space="preserve"><value>No general information document after installation configured. Choose Configure document to use this page.</value></data>
+  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Turn on this page to choose a document after installation and language variants.</value></data>
   <data name="PageOverviewFinished" xml:space="preserve"><value>Setup completed</value></data>
   <data name="PageReasonFinished" xml:space="preserve"><value>Shown by default after installation. Closing roles and preview follow later.</value></data>
   <data name="DocumentConfigure" xml:space="preserve"><value>Configure document</value></data>
@@ -309,4 +309,25 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="DocumentPreviewFailed" xml:space="preserve"><value>The document preview cannot be read. Use valid RTF or TXT with UTF-8 or UTF-16LE.</value></data>
   <data name="DocumentPreviewLarge" xml:space="preserve"><value>This document is too large for the preview (maximum 4 MB).</value></data>
   <data name="DocumentRemoveVariants" xml:space="preserve"><value>Also removes {0} document variants from this project. Source files are retained.</value></data>
+  <data name="PageConfigure" xml:space="preserve"><value>Configure page</value></data>
+  <data name="PageSettingsInvalid" xml:space="preserve"><value>Invalid page settings. Use text without line breaks.</value></data>
+  <data name="GroupNameInvalid" xml:space="preserve"><value>The Start Menu folder name contains invalid characters.</value></data>
+  <data name="UserInfoEnabled" xml:space="preserve"><value>Show user information</value></data>
+  <data name="UserInfoDefaultName" xml:space="preserve"><value>Name</value></data>
+  <data name="UserInfoDefaultOrganization" xml:space="preserve"><value>Organization</value></data>
+  <data name="UserInfoPrevious" xml:space="preserve"><value>Use previous user information</value></data>
+  <data name="UserInfoHint" xml:space="preserve"><value>Native constants are allowed. Previous data may replace initial values during updates. Serial numbers require validation scripting and follow later.</value></data>
+  <data name="UserInfoConfigured" xml:space="preserve"><value>User information is enabled. The installer asks for a name and organization.</value></data>
+  <data name="GroupPolicy" xml:space="preserve"><value>Start Menu folder selection</value></data>
+  <data name="GroupModeAuto" xml:space="preserve"><value>Automatic (usually hidden during updates)</value></data>
+  <data name="GroupModeShow" xml:space="preserve"><value>Show when shortcuts exist</value></data>
+  <data name="GroupModeHide" xml:space="preserve"><value>Hide and use the default folder</value></data>
+  <data name="GroupDefaultName" xml:space="preserve"><value>Start Menu folder name</value></data>
+  <data name="GroupDefaultHint" xml:space="preserve"><value>Empty uses the native default name. {AppName} and {AppVersion} refer to application details.</value></data>
+  <data name="GroupAllowNoIcons" xml:space="preserve"><value>Allow skipping the Start Menu folder</value></data>
+  <data name="GroupPrevious" xml:space="preserve"><value>Use previous folder selection during updates</value></data>
+  <data name="GroupRequiresIcons" xml:space="preserve"><value>There are no shortcuts yet. The policy is saved, but the folder selection page only appears when shortcuts exist.</value></data>
+  <data name="PageInputPreview" xml:space="preserve"><value>Input preview</value></data>
+  <data name="PageInputPreviewHint" xml:space="preserve"><value>Trial input is not saved. Native constants remain expressions; the installer determines their values. This is not a full wizard preview.</value></data>
+  <data name="DocumentDisabled" xml:space="preserve"><value>This page is disabled. The general document and language variants are retained. Turn the page on again to use them.</value></data>
 </root>

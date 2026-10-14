@@ -24,13 +24,14 @@ public sealed class StudioProject
 {
     public const string FormatId = "HN.InnoSetupStudio.VisualProject";
     public string Format { get; set; } = FormatId;
-    public const int CurrentVersion = 7;
+    public const int CurrentVersion = 9;
     public int Version { get; set; } = CurrentVersion;
     public string Name { get; set; } = "Mijn applicatie";
     public string AppId { get; set; } = Guid.NewGuid().ToString("B");
     public string AppVersion { get; set; } = "1.0";
     public string OutputBaseFileName { get; set; } = "mysetup";
     public Dictionary<WizardDocumentKind, WizardDocumentSource> Documents { get; set; } = WizardDocuments.Empty();
+    public WizardPageSettings PageSettings { get; set; } = new();
     public InstallFileSettings InstallFile { get; set; } = new();
     public string TextLanguageId { get; set; } = "dutch";
     public List<InstallerLanguage> Languages { get; set; } = [InstallerLanguage.Dutch()];

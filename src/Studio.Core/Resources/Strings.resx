@@ -255,7 +255,7 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="ExportLanguageSourceNeedsProject" xml:space="preserve"><value>Een relatief taalbronpad vereist een opgeslagen project. Bewaar het project of kies een absoluut .isl-pad.</value></data>
   <data name="ExportLanguageSourceMissing" xml:space="preserve"><value>Een extern taalbestand ontbreekt of is niet leesbaar. Controleer de bronpaden bij Projecttalen en herstel het .isl-bestand.</value></data>
   <data name="WizardPageOverview" xml:space="preserve"><value>Paginaoverzicht</value></data>
-  <data name="PageOverviewHint" xml:space="preserve"><value>Vaste paginavolgorde. Groen = aan, rood = uit, ? = voorwaardelijk. De schakelaars tonen alleen de status. Installeren staat altijd aan.</value></data>
+  <data name="PageOverviewHint" xml:space="preserve"><value>Groen = aan, rood = uit, ? = voorwaardelijk. Schakel een documentpagina of Gebruikersinformatie in om de instellingen te openen. Dubbelklik of F2 opent bestaande instellingen. Overige statussen zijn vast.</value></data>
   <data name="PageOverviewDesign" xml:space="preserve"><value>Open ontwerppagina</value></data>
   <data name="PageOverviewNoDesign" xml:space="preserve"><value>Voor deze fase is nog geen ontwerppagina beschikbaar.</value></data>
   <data name="PageOverviewOrder" xml:space="preserve"><value>Volgorde</value></data>
@@ -270,19 +270,19 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="PageOverviewWelcome" xml:space="preserve"><value>Welkom</value></data>
   <data name="PageReasonWelcome" xml:space="preserve"><value>Wordt getoond: Welkom is ingeschakeld. Teksten zijn nu te ontwerpen.</value></data>
   <data name="PageOverviewLicense" xml:space="preserve"><value>Licentie</value></data>
-  <data name="PageReasonLicense" xml:space="preserve"><value>Geen algemeen licentiedocument ingesteld. Kies Document instellen om deze pagina te gebruiken.</value></data>
+  <data name="PageReasonLicense" xml:space="preserve"><value>Schakel Licentie in om een algemeen document en taalvarianten te kiezen. Zonder algemeen document verschijnt de pagina niet.</value></data>
   <data name="PageOverviewPassword" xml:space="preserve"><value>Wachtwoord</value></data>
   <data name="PageReasonPassword" xml:space="preserve"><value>Geen wachtwoord ingesteld. Wachtwoordbeleid volgt later.</value></data>
   <data name="PageOverviewInfoBefore" xml:space="preserve"><value>Informatie vóór installatie</value></data>
-  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Geen algemeen informatiedocument vóór installatie ingesteld. Kies Document instellen om deze pagina te gebruiken.</value></data>
+  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Schakel deze pagina in om een document vóór installatie en taalvarianten te kiezen.</value></data>
   <data name="PageOverviewUserInfo" xml:space="preserve"><value>Gebruikersinformatie</value></data>
-  <data name="PageReasonUserInfo" xml:space="preserve"><value>Gebruikersinformatie is niet ingeschakeld. Velden en beginwaarden volgen later.</value></data>
+  <data name="PageReasonUserInfo" xml:space="preserve"><value>Schakel Gebruikersinformatie in om naam en organisatie te configureren.</value></data>
   <data name="PageOverviewDestination" xml:space="preserve"><value>Installatiemap</value></data>
   <data name="PageReasonDestination" xml:space="preserve"><value>Wordt getoond: de mapkeuzepagina is ingeschakeld. Pad en teksten zijn nu te ontwerpen.</value></data>
   <data name="PageOverviewComponents" xml:space="preserve"><value>Componenten</value></data>
   <data name="PageReasonComponents" xml:space="preserve"><value>Geen componenten gedefinieerd. Installatietypen en componenten volgen later.</value></data>
   <data name="PageOverviewProgramGroup" xml:space="preserve"><value>Startmenumap</value></data>
-  <data name="PageReasonProgramGroup" xml:space="preserve"><value>Geen snelkoppelingen gedefinieerd. Mapbeleid en snelkoppelingen volgen later.</value></data>
+  <data name="PageReasonProgramGroup" xml:space="preserve"><value>Er zijn nog geen snelkoppelingen. Het beleid wordt bewaard, maar de mapkeuzepagina verschijnt pas met snelkoppelingen.</value></data>
   <data name="PageOverviewTasks" xml:space="preserve"><value>Taken</value></data>
   <data name="PageReasonTasks" xml:space="preserve"><value>Geen taken gedefinieerd. Taken en componentvoorwaarden volgen later.</value></data>
   <data name="PageOverviewReady" xml:space="preserve"><value>Gereed voor installatie</value></data>
@@ -292,7 +292,7 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="PageOverviewInstalling" xml:space="preserve"><value>Installeren</value></data>
   <data name="PageReasonInstalling" xml:space="preserve"><value>Vaste runtimefase tijdens de echte installatie. Studio voert geen installatieacties uit; voortgangssimulatie volgt later.</value></data>
   <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Informatie na installatie</value></data>
-  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Geen algemeen informatiedocument na installatie ingesteld. Kies Document instellen om deze pagina te gebruiken.</value></data>
+  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Schakel deze pagina in om een document na installatie en taalvarianten te kiezen.</value></data>
   <data name="PageOverviewFinished" xml:space="preserve"><value>Voltooid</value></data>
   <data name="PageReasonFinished" xml:space="preserve"><value>Wordt standaard getoond na installatie. Afsluitrollen en preview volgen later.</value></data>
   <data name="DocumentConfigure" xml:space="preserve"><value>Document instellen</value></data>
@@ -309,4 +309,25 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="DocumentPreviewFailed" xml:space="preserve"><value>Het documentvoorbeeld kan niet worden gelezen. Gebruik geldige RTF of TXT met UTF-8 of UTF-16LE.</value></data>
   <data name="DocumentPreviewLarge" xml:space="preserve"><value>Dit document is te groot voor het voorbeeld (maximaal 4 MB).</value></data>
   <data name="DocumentRemoveVariants" xml:space="preserve"><value>Ook {0} documentvarianten worden uit dit project verwijderd. De bronbestanden blijven behouden.</value></data>
+  <data name="PageConfigure" xml:space="preserve"><value>Pagina instellen</value></data>
+  <data name="PageSettingsInvalid" xml:space="preserve"><value>Ongeldige pagina-instellingen. Gebruik tekst zonder regeleinden.</value></data>
+  <data name="GroupNameInvalid" xml:space="preserve"><value>De startmenumapnaam bevat ongeldige tekens.</value></data>
+  <data name="UserInfoEnabled" xml:space="preserve"><value>Gebruikersinformatie tonen</value></data>
+  <data name="UserInfoDefaultName" xml:space="preserve"><value>Naam</value></data>
+  <data name="UserInfoDefaultOrganization" xml:space="preserve"><value>Organisatie</value></data>
+  <data name="UserInfoPrevious" xml:space="preserve"><value>Eerder ingevoerde gebruikersgegevens gebruiken</value></data>
+  <data name="UserInfoHint" xml:space="preserve"><value>Native constanten zijn toegestaan. Bij een update kunnen eerdere gegevens de beginwaarden vervangen. Serienummers vereisen validatiescripting en volgen later.</value></data>
+  <data name="UserInfoConfigured" xml:space="preserve"><value>Gebruikersinformatie is ingeschakeld. De installer vraagt om naam en organisatie.</value></data>
+  <data name="GroupPolicy" xml:space="preserve"><value>Startmenumapkeuze</value></data>
+  <data name="GroupModeAuto" xml:space="preserve"><value>Automatisch (doorgaans verborgen bij updates)</value></data>
+  <data name="GroupModeShow" xml:space="preserve"><value>Tonen als er snelkoppelingen zijn</value></data>
+  <data name="GroupModeHide" xml:space="preserve"><value>Verbergen en standaardmap gebruiken</value></data>
+  <data name="GroupDefaultName" xml:space="preserve"><value>Startmenumapnaam</value></data>
+  <data name="GroupDefaultHint" xml:space="preserve"><value>Leeg gebruikt de native standaardnaam. {AppName} en {AppVersion} verwijzen naar applicatiegegevens.</value></data>
+  <data name="GroupAllowNoIcons" xml:space="preserve"><value>Gebruiker mag afzien van een startmenumap</value></data>
+  <data name="GroupPrevious" xml:space="preserve"><value>Vorige mapkeuze gebruiken bij een update</value></data>
+  <data name="GroupRequiresIcons" xml:space="preserve"><value>Er zijn nog geen snelkoppelingen. Het beleid wordt bewaard, maar de mapkeuzepagina verschijnt pas met snelkoppelingen.</value></data>
+  <data name="PageInputPreview" xml:space="preserve"><value>Invoervoorbeeld</value></data>
+  <data name="PageInputPreviewHint" xml:space="preserve"><value>Proefinvoer wordt niet opgeslagen. Native constanten blijven expressies; de echte installer bepaalt hun waarden. Dit is geen volledige wizardweergave.</value></data>
+  <data name="DocumentDisabled" xml:space="preserve"><value>Deze pagina is uitgeschakeld. Het algemene document en de taalvarianten blijven bewaard. Schakel de pagina weer in om ze te gebruiken.</value></data>
 </root>

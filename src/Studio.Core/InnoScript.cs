@@ -36,14 +36,38 @@ public static class InnoScript
             "",
             "[Languages]"
         };
-        var documentLines = project.Documents.Where(p => !string.IsNullOrWhiteSpace(p.Value.Source))
+        var settings = project.PageSettings;
+        string PageValue(string value)
+        {
+            var expanded = System.Text.RegularExpressions.Regex.Replace(value, @"\{AppName\}|\{AppVersion\}",
+                match => Literal(match.Value == "{AppName}" ? project.Name : project.AppVersion));
+            if (expanded.Contains("{#", StringComparison.Ordinal)) throw Error("ExportPreprocessorUnsupported");
+            return SetupValue(expanded);
+        }
+        var pageLines = new List<string>();
+        if (settings.UserInfoEnabled) pageLines.AddRange([
+            "UserInfoPage=yes", "DefaultUserInfoName=" + PageValue(settings.DefaultName),
+            "DefaultUserInfoOrg=" + PageValue(settings.DefaultOrganization),
+            "UsePreviousUserInfo=" + (settings.UsePreviousUserInfo ? "yes" : "no")]);
+        if (settings.GroupMode != ProgramGroupPageMode.Auto)
+            pageLines.Add("DisableProgramGroupPage=" + (settings.GroupMode == ProgramGroupPageMode.Show ? "no" : "yes"));
+        if (settings.DefaultGroup.Length > 0)
+        {
+            if (WizardTexts.Expand(settings.DefaultGroup, project).IndexOfAny(['"', ':', '*', '?', '<', '>', '|', '/']) >= 0)
+                throw Error("GroupNameInvalid");
+            pageLines.Add("DefaultGroupName=" + PageValue(settings.DefaultGroup));
+        }
+        if (settings.AllowNoIcons) pageLines.Add("AllowNoIcons=yes");
+        if (!settings.UsePreviousGroup) pageLines.Add("UsePreviousGroup=no");
+        lines.InsertRange(lines.IndexOf("[Languages]") - 1, pageLines);
+        var documentLines = project.Documents.Where(p => WizardDocuments.IsActive(p.Value))
             .Select(p => p.Key + "=" + SetupValue(WizardDocuments.Resolve(p.Value.Source, projectDirectory))).ToArray();
         lines.InsertRange(lines.IndexOf("[Languages]") - 1, documentLines);
         foreach (var language in languages)
         {
             var line = "Name: " + Parameter(language.Name) + "; MessagesFile: " + Parameter(language.MessagesFile);
             foreach (var (kind, document) in project.Documents)
-                if (!string.IsNullOrWhiteSpace(document.Source) && document.Translations.TryGetValue(language.Language.Id, out var variant)
+                if (WizardDocuments.IsActive(document) && document.Translations.TryGetValue(language.Language.Id, out var variant)
                     && !string.IsNullOrWhiteSpace(variant)) line += "; " + kind + ": " + Parameter(WizardDocuments.Resolve(variant, projectDirectory));
             lines.Add(line);
         }

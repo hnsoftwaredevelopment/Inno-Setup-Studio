@@ -255,7 +255,7 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="ExportLanguageSourceNeedsProject" xml:space="preserve"><value>Eine relative Sprachquelle benötigt ein gespeichertes Projekt. Speichern Sie das Projekt oder wählen Sie einen absoluten .isl-Pfad.</value></data>
   <data name="ExportLanguageSourceMissing" xml:space="preserve"><value>Eine externe Sprachdatei fehlt oder ist nicht zugänglich. Prüfen Sie die Quellpfade unter Projektsprachen und stellen Sie die .isl-Datei wieder her.</value></data>
   <data name="WizardPageOverview" xml:space="preserve"><value>Seitenübersicht</value></data>
-  <data name="PageOverviewHint" xml:space="preserve"><value>Feste Seitenreihenfolge. Grün = an, rot = aus, ? = bedingt. Die Schalter zeigen nur den Status. Installation ist immer an.</value></data>
+  <data name="PageOverviewHint" xml:space="preserve"><value>Grün = an, rot = aus, ? = bedingt. Aktivieren Sie eine Dokumentseite oder Benutzerinformationen, um Einstellungen zu öffnen. Doppelklick oder F2 öffnet vorhandene Einstellungen. Andere Statusanzeigen sind fest.</value></data>
   <data name="PageOverviewDesign" xml:space="preserve"><value>Entwurfsseite öffnen</value></data>
   <data name="PageOverviewNoDesign" xml:space="preserve"><value>Für diese Phase ist noch keine Entwurfsseite verfügbar.</value></data>
   <data name="PageOverviewOrder" xml:space="preserve"><value>Reihenfolge</value></data>
@@ -270,19 +270,19 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="PageOverviewWelcome" xml:space="preserve"><value>Willkommen</value></data>
   <data name="PageReasonWelcome" xml:space="preserve"><value>Wird angezeigt: Willkommen ist aktiviert. Texte sind bereits bearbeitbar.</value></data>
   <data name="PageOverviewLicense" xml:space="preserve"><value>Lizenzvereinbarung</value></data>
-  <data name="PageReasonLicense" xml:space="preserve"><value>Kein allgemeines Lizenzdokument festgelegt. Wählen Sie Dokument einstellen, um diese Seite zu verwenden.</value></data>
+  <data name="PageReasonLicense" xml:space="preserve"><value>Aktivieren Sie Lizenzvereinbarung, um ein allgemeines Dokument und Sprachvarianten zu wählen. Ohne allgemeines Dokument erscheint die Seite nicht.</value></data>
   <data name="PageOverviewPassword" xml:space="preserve"><value>Passwort</value></data>
   <data name="PageReasonPassword" xml:space="preserve"><value>Kein Passwort festgelegt. Passwortrichtlinien folgen später.</value></data>
   <data name="PageOverviewInfoBefore" xml:space="preserve"><value>Informationen vor der Installation</value></data>
-  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Kein allgemeines Informationsdokument vor der Installation festgelegt. Wählen Sie Dokument einstellen, um diese Seite zu verwenden.</value></data>
+  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Aktivieren Sie diese Seite, um ein Dokument vor der Installation und Sprachvarianten zu wählen.</value></data>
   <data name="PageOverviewUserInfo" xml:space="preserve"><value>Benutzerinformationen</value></data>
-  <data name="PageReasonUserInfo" xml:space="preserve"><value>Benutzerinformationen sind nicht aktiviert. Felder und Anfangswerte folgen später.</value></data>
+  <data name="PageReasonUserInfo" xml:space="preserve"><value>Aktivieren Sie Benutzerinformationen, um Name und Organisation zu konfigurieren.</value></data>
   <data name="PageOverviewDestination" xml:space="preserve"><value>Installationsordner</value></data>
   <data name="PageReasonDestination" xml:space="preserve"><value>Wird angezeigt: Die Ordnerauswahl ist aktiviert. Pfad und Texte sind bereits bearbeitbar.</value></data>
   <data name="PageOverviewComponents" xml:space="preserve"><value>Komponenten</value></data>
   <data name="PageReasonComponents" xml:space="preserve"><value>Keine Komponenten definiert. Installationstypen und Komponenten folgen später.</value></data>
   <data name="PageOverviewProgramGroup" xml:space="preserve"><value>Startmenüordner</value></data>
-  <data name="PageReasonProgramGroup" xml:space="preserve"><value>Keine Verknüpfungen definiert. Ordnerrichtlinien und Verknüpfungen folgen später.</value></data>
+  <data name="PageReasonProgramGroup" xml:space="preserve"><value>Es gibt noch keine Verknüpfungen. Die Richtlinie wird gespeichert, die Ordnerauswahl erscheint erst mit Verknüpfungen.</value></data>
   <data name="PageOverviewTasks" xml:space="preserve"><value>Aufgaben</value></data>
   <data name="PageReasonTasks" xml:space="preserve"><value>Keine Aufgaben definiert. Aufgaben und Komponentenbedingungen folgen später.</value></data>
   <data name="PageOverviewReady" xml:space="preserve"><value>Bereit zur Installation</value></data>
@@ -292,7 +292,7 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="PageOverviewInstalling" xml:space="preserve"><value>Installation</value></data>
   <data name="PageReasonInstalling" xml:space="preserve"><value>Feste Laufzeitphase während der tatsächlichen Installation. Studio führt keine Installationsaktionen aus; die Fortschrittssimulation folgt später.</value></data>
   <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Informationen nach der Installation</value></data>
-  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Kein allgemeines Informationsdokument nach der Installation festgelegt. Wählen Sie Dokument einstellen, um diese Seite zu verwenden.</value></data>
+  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Aktivieren Sie diese Seite, um ein Dokument nach der Installation und Sprachvarianten zu wählen.</value></data>
   <data name="PageOverviewFinished" xml:space="preserve"><value>Installation abgeschlossen</value></data>
   <data name="PageReasonFinished" xml:space="preserve"><value>Wird standardmäßig nach der Installation angezeigt. Abschlussrollen und Vorschau folgen später.</value></data>
   <data name="DocumentConfigure" xml:space="preserve"><value>Dokument einstellen</value></data>
@@ -309,4 +309,25 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="DocumentPreviewFailed" xml:space="preserve"><value>Die Dokumentvorschau kann nicht gelesen werden. Verwenden Sie gültiges RTF oder TXT mit UTF-8 oder UTF-16LE.</value></data>
   <data name="DocumentPreviewLarge" xml:space="preserve"><value>Dieses Dokument ist für die Vorschau zu groß (maximal 4 MB).</value></data>
   <data name="DocumentRemoveVariants" xml:space="preserve"><value>Außerdem werden {0} Dokumentvarianten aus diesem Projekt entfernt. Die Quelldateien bleiben erhalten.</value></data>
+  <data name="PageConfigure" xml:space="preserve"><value>Seite einstellen</value></data>
+  <data name="PageSettingsInvalid" xml:space="preserve"><value>Ungültige Seiteneinstellungen. Verwenden Sie Text ohne Zeilenumbrüche.</value></data>
+  <data name="GroupNameInvalid" xml:space="preserve"><value>Der Startmenüordnername enthält ungültige Zeichen.</value></data>
+  <data name="UserInfoEnabled" xml:space="preserve"><value>Benutzerinformationen anzeigen</value></data>
+  <data name="UserInfoDefaultName" xml:space="preserve"><value>Name</value></data>
+  <data name="UserInfoDefaultOrganization" xml:space="preserve"><value>Organisation</value></data>
+  <data name="UserInfoPrevious" xml:space="preserve"><value>Vorherige Benutzerinformationen verwenden</value></data>
+  <data name="UserInfoHint" xml:space="preserve"><value>Native Konstanten sind erlaubt. Frühere Daten können bei Updates die Anfangswerte ersetzen. Seriennummern erfordern Validierungsskripte und folgen später.</value></data>
+  <data name="UserInfoConfigured" xml:space="preserve"><value>Benutzerinformationen sind aktiviert. Der Installer fragt nach Name und Organisation.</value></data>
+  <data name="GroupPolicy" xml:space="preserve"><value>Startmenüordnerauswahl</value></data>
+  <data name="GroupModeAuto" xml:space="preserve"><value>Automatisch (bei Updates meist ausgeblendet)</value></data>
+  <data name="GroupModeShow" xml:space="preserve"><value>Anzeigen, wenn Verknüpfungen vorhanden sind</value></data>
+  <data name="GroupModeHide" xml:space="preserve"><value>Ausblenden und Standardordner verwenden</value></data>
+  <data name="GroupDefaultName" xml:space="preserve"><value>Startmenüordnername</value></data>
+  <data name="GroupDefaultHint" xml:space="preserve"><value>Leer verwendet den nativen Standardnamen. {AppName} und {AppVersion} verweisen auf die Anwendungsdaten.</value></data>
+  <data name="GroupAllowNoIcons" xml:space="preserve"><value>Verzicht auf Startmenüordner erlauben</value></data>
+  <data name="GroupPrevious" xml:space="preserve"><value>Vorherige Ordnerauswahl bei Updates verwenden</value></data>
+  <data name="GroupRequiresIcons" xml:space="preserve"><value>Es gibt noch keine Verknüpfungen. Die Richtlinie wird gespeichert, die Ordnerauswahl erscheint erst mit Verknüpfungen.</value></data>
+  <data name="PageInputPreview" xml:space="preserve"><value>Eingabevorschau</value></data>
+  <data name="PageInputPreviewHint" xml:space="preserve"><value>Testeingaben werden nicht gespeichert. Native Konstanten bleiben Ausdrücke; der Installer bestimmt ihre Werte. Dies ist keine vollständige Assistentenvorschau.</value></data>
+  <data name="DocumentDisabled" xml:space="preserve"><value>Diese Seite ist deaktiviert. Das allgemeine Dokument und die Sprachvarianten bleiben erhalten. Aktivieren Sie die Seite erneut, um sie zu verwenden.</value></data>
 </root>

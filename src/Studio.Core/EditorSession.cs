@@ -396,6 +396,27 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
         IsDirty = true; Refresh();
     }
 
+    public bool SetWizardPageEnabled(string id, bool enabled)
+    {
+        if (!IsDesign) return false;
+        var page = WizardPageOverview.Create(Text, Project).SingleOrDefault(p => p.Id == id);
+        if (page is not { CanToggle: true }) return false;
+        if (page.DocumentKind is { } kind)
+        {
+            if (Project.Documents[kind].Enabled == enabled) return false;
+            Project.Documents[kind].Enabled = enabled;
+        }
+        else
+        {
+            if (Project.PageSettings.UserInfoEnabled == enabled) return false;
+            Project.PageSettings.UserInfoEnabled = enabled;
+        }
+        PageSettingsChanged();
+        return true;
+    }
+
+    internal void PageSettingsChanged() { IsDirty = true; Refresh(); }
+
     public void MarkSaved() { Project.WasMigrated = false; IsDirty = false; SetStatus("StatusSaved"); }
     public void SetStatus(string resourceKey) { _statusKey = resourceKey; Refresh(); }
     private void LanguageChanged(object? sender, PropertyChangedEventArgs e)

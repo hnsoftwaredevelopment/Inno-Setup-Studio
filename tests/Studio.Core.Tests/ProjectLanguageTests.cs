@@ -161,7 +161,7 @@ public class ProjectLanguageTests
             await ProjectFile.SaveAsync(path, original);
             var json = JsonNode.Parse(await File.ReadAllTextAsync(path))!.AsObject();
             json["Version"] = 4;
-            json.Remove("Documents");
+            json.Remove("Documents"); json.Remove("PageSettings");
             json.Remove("Languages");
             json.Remove("TextLanguageId");
             await File.WriteAllTextAsync(path, json.ToJsonString());

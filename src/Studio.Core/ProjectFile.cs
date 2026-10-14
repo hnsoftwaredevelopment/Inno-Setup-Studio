@@ -27,7 +27,7 @@ public static class ProjectFile
             var root = json.RootElement;
             if (root.GetProperty("Version").ValueKind != JsonValueKind.Number
                 || !root.GetProperty("Version").TryGetInt32(out var version)
-                || version is not (1 or 2 or 3 or 4 or 5 or 6 or StudioProject.CurrentVersion))
+                || version is not (1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or StudioProject.CurrentVersion))
                 throw InvalidProject("UnsupportedProject");
             if (version >= 2
                 && (!root.TryGetProperty("AppId", out _) || !root.TryGetProperty("AppVersion", out _)))
@@ -54,6 +54,11 @@ public static class ProjectFile
                 throw InvalidProject("UnsupportedProject");
             if (version >= 7 && !root.TryGetProperty("Documents", out _)) throw InvalidProject("DocumentInvalid");
             if (version < 7 && root.TryGetProperty("Documents", out _)) throw InvalidProject("UnsupportedProject");
+            if (version >= 8 && !root.TryGetProperty("PageSettings", out _)) throw InvalidProject("PageSettingsInvalid");
+            if (version < 8 && root.TryGetProperty("PageSettings", out _)) throw InvalidProject("UnsupportedProject");
+            if (version >= 9 && root.GetProperty("Documents").ValueKind == JsonValueKind.Object
+                && root.GetProperty("Documents").EnumerateObject().Any(d => d.Value.ValueKind != JsonValueKind.Object
+                    || !d.Value.TryGetProperty("Enabled", out _))) throw InvalidProject("DocumentInvalid");
             var project = root.Deserialize<StudioProject>(Options)!;
             if (version == 1)
             {
@@ -99,6 +104,7 @@ public static class ProjectFile
         json["InstallFile"]!["Source"] = storedSource;
         var documents = project.Documents.ToDictionary(pair => pair.Key, pair => new WizardDocumentSource
         {
+            Enabled = pair.Value.Enabled,
             Source = Rebase(pair.Value.Source),
             Translations = pair.Value.Translations.ToDictionary(v => v.Key, v => Rebase(v.Value))
         });
@@ -146,6 +152,10 @@ public static class ProjectFile
             || project.Languages.Select(l => l.Id).Distinct(StringComparer.Ordinal).Count() != project.Languages.Count
             || !project.Languages.Any(l => l.Enabled) || !project.Languages.Any(l => l.Id == project.TextLanguageId))
             throw InvalidProject("InvalidProjectLanguages");
+        if (project.PageSettings is not { } pageSettings || !Enum.IsDefined(pageSettings.GroupMode)
+            || new[] { pageSettings.DefaultName, pageSettings.DefaultOrganization, pageSettings.DefaultGroup }
+                .Any(value => value is null || value.Length > 4096 || value.Any(char.IsControl)))
+            throw InvalidProject("PageSettingsInvalid");
         if (project.Documents is null || project.Documents.Count != 3
             || Enum.GetValues<WizardDocumentKind>().Any(kind => !project.Documents.ContainsKey(kind))
             || project.Documents.Values.Any(d => d is null || d.Source is null || d.Source.Any(char.IsControl)

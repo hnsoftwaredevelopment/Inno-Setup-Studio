@@ -7,9 +7,6 @@
         Width="540" Height="760" MinWidth="440" MinHeight="500" WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <Style x:Key="PageStatus" TargetType="CheckBox">
-            <Setter Property="IsEnabled" Value="False"/>
-            <Setter Property="IsChecked" Value="False"/>
-            <Setter Property="Focusable" Value="False"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="CheckBox">
                 <Grid Width="38" Height="22">
@@ -17,6 +14,10 @@
                     <Ellipse x:Name="Thumb" Width="16" Height="16" Fill="White" HorizontalAlignment="Left" Margin="3,0"/>
                 </Grid>
                 <ControlTemplate.Triggers>
+                    <Trigger Property="IsKeyboardFocused" Value="True">
+                        <Setter TargetName="Track" Property="BorderBrush" Value="#17685E"/>
+                        <Setter TargetName="Track" Property="BorderThickness" Value="2"/>
+                    </Trigger>
                     <Trigger Property="IsChecked" Value="True">
                         <Setter TargetName="Track" Property="Background" Value="#237B5A"/>
                         <Setter TargetName="Thumb" Property="HorizontalAlignment" Value="Right"/>
@@ -24,8 +25,7 @@
                 </ControlTemplate.Triggers>
             </ControlTemplate></Setter.Value></Setter>
             <Style.Triggers>
-                <DataTrigger Binding="{Binding State}" Value="{x:Static core:WizardPageState.Enabled}"><Setter Property="IsChecked" Value="True"/></DataTrigger>
-                <DataTrigger Binding="{Binding State}" Value="{x:Static core:WizardPageState.Runtime}"><Setter Property="IsChecked" Value="True"/></DataTrigger>
+                <Trigger Property="IsEnabled" Value="True"><Setter Property="Cursor" Value="Hand"/></Trigger>
                 <DataTrigger Binding="{Binding State}" Value="{x:Static core:WizardPageState.Conditional}"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger>
             </Style.Triggers>
         </Style>
@@ -34,12 +34,14 @@
         <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="164"/><RowDefinition Height="44"/></Grid.RowDefinitions>
         <TextBlock Text="{loc:Loc PageOverviewHint}" Style="{StaticResource MutedText}" Margin="0,0,0,14"/>
         <ListBox x:Name="Pages" Grid.Row="1" ItemsSource="{Binding}" SelectionMode="Single"
-                 SelectionChanged="Pages_SelectionChanged" HorizontalContentAlignment="Stretch"
+                 SelectionChanged="Pages_SelectionChanged" MouseDoubleClick="Pages_DoubleClick" KeyDown="Pages_KeyDown" HorizontalContentAlignment="Stretch"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" AutomationProperties.Name="{loc:Loc WizardPageOverview}">
             <ListBox.ItemTemplate><DataTemplate>
                 <Grid Margin="2,3" ToolTip="{Binding Reason}">
                     <Grid.ColumnDefinitions><ColumnDefinition Width="52"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
-                    <CheckBox Style="{StaticResource PageStatus}" AutomationProperties.Name="{Binding Status}"/>
+                    <CheckBox Style="{StaticResource PageStatus}" IsChecked="{Binding IsOn, Mode=OneWay}"
+                              IsEnabled="{Binding CanToggle}" Focusable="{Binding CanToggle}" Click="PageToggle_Click"
+                              AutomationProperties.Name="{Binding Name}" AutomationProperties.HelpText="{Binding Reason}"/>
                     <Border Width="38" Height="22" CornerRadius="11" Background="#FFF0CF" VerticalAlignment="Center" HorizontalAlignment="Left">
                         <Border.Style><Style TargetType="Border">
                             <Setter Property="Visibility" Value="Collapsed"/>

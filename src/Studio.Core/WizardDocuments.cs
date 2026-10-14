@@ -2,16 +2,18 @@ namespace Studio.Core;
 public enum WizardDocumentKind { LicenseFile, InfoBeforeFile, InfoAfterFile }
 public sealed class WizardDocumentSource
 {
+    public bool Enabled { get; set; } = true;
     public string Source { get; set; } = "";
     public Dictionary<string,string> Translations { get; set; } = [];
 }
 public static class WizardDocuments
 {
+    public static bool IsActive(WizardDocumentSource document) => document.Enabled && !string.IsNullOrWhiteSpace(document.Source);
     public static Dictionary<WizardDocumentKind,WizardDocumentSource> Empty() => Enum.GetValues<WizardDocumentKind>().ToDictionary(k=>k,_=>new WizardDocumentSource());
     public static string Source(StudioProject project,WizardDocumentKind kind,string languageId)
     {
         var document=project.Documents[kind];
-        return string.IsNullOrWhiteSpace(document.Source) ? "" : document.Translations.TryGetValue(languageId,out var variant) && !string.IsNullOrWhiteSpace(variant) ? variant : document.Source;
+        return !IsActive(document) ? "" : document.Translations.TryGetValue(languageId,out var variant) && !string.IsNullOrWhiteSpace(variant) ? variant : document.Source;
     }
     public static string Resolve(string source,string? directory)
     {
