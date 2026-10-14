@@ -83,7 +83,10 @@
                             <RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" /><RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <TextBlock Text="{loc:Loc Pages}" Style="{StaticResource SectionLabel}" />
+                        <StackPanel>
+                            <TextBlock Text="{loc:Loc Pages}" Style="{StaticResource SectionLabel}" />
+                            <Button Content="{loc:Loc WizardPageOverview}" Click="WizardPageOverview_Click" IsEnabled="{Binding IsDesign}" Margin="0,0,0,12"/>
+                        </StackPanel>
                         <ListBox Grid.Row="1" ItemsSource="{Binding PageChoices}" SelectedValuePath="Index" SelectedValue="{Binding PageIndex}" IsEnabled="{Binding IsDesign}" AutomationProperties.Name="{loc:Loc PagesAccessible}">
                             <ListBox.ItemTemplate><DataTemplate><StackPanel>
                                 <TextBlock Text="{Binding Name}" TextWrapping="Wrap" /><TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontSize="11" FontWeight="Normal" Foreground="{StaticResource Muted}" Margin="0,4,0,0" />

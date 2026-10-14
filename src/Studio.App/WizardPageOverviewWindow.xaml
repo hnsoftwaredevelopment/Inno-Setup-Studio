@@ -1,0 +1,68 @@
+<Window x:Class="Studio.App.WizardPageOverviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:Studio.App"
+        xmlns:core="clr-namespace:Studio.Core;assembly=Studio.Core"
+        Title="{loc:Loc WizardPageOverview}" Icon="Resources/AppIcon.ico"
+        Width="540" Height="760" MinWidth="440" MinHeight="500" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <Style x:Key="PageStatus" TargetType="CheckBox">
+            <Setter Property="IsEnabled" Value="False"/>
+            <Setter Property="IsChecked" Value="False"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="CheckBox">
+                <Grid Width="38" Height="22">
+                    <Border x:Name="Track" Background="#B84242" CornerRadius="11"/>
+                    <Ellipse x:Name="Thumb" Width="16" Height="16" Fill="White" HorizontalAlignment="Left" Margin="3,0"/>
+                </Grid>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsChecked" Value="True">
+                        <Setter TargetName="Track" Property="Background" Value="#237B5A"/>
+                        <Setter TargetName="Thumb" Property="HorizontalAlignment" Value="Right"/>
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate></Setter.Value></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding State}" Value="{x:Static core:WizardPageState.Enabled}"><Setter Property="IsChecked" Value="True"/></DataTrigger>
+                <DataTrigger Binding="{Binding State}" Value="{x:Static core:WizardPageState.Runtime}"><Setter Property="IsChecked" Value="True"/></DataTrigger>
+                <DataTrigger Binding="{Binding State}" Value="{x:Static core:WizardPageState.Conditional}"><Setter Property="Visibility" Value="Collapsed"/></DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="20">
+        <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="164"/><RowDefinition Height="44"/></Grid.RowDefinitions>
+        <TextBlock Text="{loc:Loc PageOverviewHint}" Style="{StaticResource MutedText}" Margin="0,0,0,14"/>
+        <ListBox x:Name="Pages" Grid.Row="1" ItemsSource="{Binding}" SelectionMode="Single"
+                 SelectionChanged="Pages_SelectionChanged" HorizontalContentAlignment="Stretch"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" AutomationProperties.Name="{loc:Loc WizardPageOverview}">
+            <ListBox.ItemTemplate><DataTemplate>
+                <Grid Margin="2,3" ToolTip="{Binding Reason}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="52"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                    <CheckBox Style="{StaticResource PageStatus}" AutomationProperties.Name="{Binding Status}"/>
+                    <Border Width="38" Height="22" CornerRadius="11" Background="#FFF0CF" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Border.Style><Style TargetType="Border">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers><DataTrigger Binding="{Binding State}" Value="{x:Static core:WizardPageState.Conditional}"><Setter Property="Visibility" Value="Visible"/></DataTrigger></Style.Triggers>
+                        </Style></Border.Style>
+                        <TextBlock Text="?" Foreground="#805A12" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" AutomationProperties.Name="{Binding Status}"/>
+                    </Border>
+                    <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                </Grid>
+            </DataTemplate></ListBox.ItemTemplate>
+        </ListBox>
+        <Border Grid.Row="2" Background="White" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="8" Padding="12" Margin="0,14,0,12">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <TextBlock Text="{Binding SelectedItem.Status, ElementName=Pages}" FontWeight="SemiBold" Margin="0,0,0,6"/>
+                <TextBlock Text="{Binding SelectedItem.Reason, ElementName=Pages}" TextWrapping="Wrap"/>
+                <TextBlock x:Name="Unavailable" Text="{loc:Loc PageOverviewNoDesign}" Style="{StaticResource MutedText}" FontSize="12" Margin="0,8,0,0"/>
+            </StackPanel>
+            </ScrollViewer>
+        </Border>
+        <WrapPanel Grid.Row="3" HorizontalAlignment="Right">
+            <Button x:Name="Design" Content="{loc:Loc PageOverviewDesign}" Click="Design_Click" Margin="0,0,8,0"/>
+            <Button Content="{loc:Loc PageOverviewClose}" Click="Close_Click" IsCancel="True"/>
+        </WrapPanel>
+    </Grid>
+</Window>

@@ -29,7 +29,7 @@ Automatisch: uitsluitend Nederlands, ingeschakelde taalvolgorde, veilige taalide
 
 ## Milestonecheck
 
-M02-S01–S05 zijn geaccepteerd. Deze slice wordt na het gebruikersakkoord gecommit en gepusht op m02-installertalen. Na expliciete acceptatie van de complete milestone kan M02 naar main worden gemerged. Bekende previewbeperkingen moeten daarbij zichtbaar geregistreerd blijven.
+M02-S01–S05 zijn geaccepteerd. S05 is gecommit en gepusht als f526bc7. De complete milestone is daarna geaccepteerd en naar main gemerged als dc4ba08. Bekende previewbeperkingen moeten daarbij zichtbaar geregistreerd blijven.
 
 ## Verificatie
 
@@ -37,6 +37,6 @@ Release-build geslaagd met nul fouten en nul waarschuwingen. Alle 187 tests slag
 
 Drie nieuwe compilerproeven gebruiken ISCC 7.1.0: één proef bouwt achtereenvolgens Engels/Nederlands/Duits/Hebreeuws en uitsluitend Nederlands; één exporteert een eigen Nederlandse bron met relatieve naam en puntkomma, en compileert het losse script vanuit een andere map zonder Studio; één bouwt een onvolledige eigen taal met LanguageID=0, verwachte native waarschuwingen en de eigen projectterugval. Bronbytes van de compilerbestanden en externe kopie blijven gelijk. Ook de bestaande compiler-/SVG-proeven slagen.
 
-Geen installer of GUI is automatisch gestart. De gebruiker heeft alle handmatige tests afgerond, de juiste teksten in het .iss-bestand bevestigd en de installer met verschillende talen gebouwd en uitgevoerd. Alles werkt zoals verwacht; M02-S05 is geaccepteerd. De specifieke geteste talen zijn niet afzonderlijk geregistreerd. De previewwaarschuwing voor RTL blijft zichtbaar. M02 is nog niet naar main gemerged.
+Geen installer of GUI is automatisch gestart. De gebruiker heeft alle handmatige tests afgerond, de juiste teksten in het .iss-bestand bevestigd en de installer met verschillende talen gebouwd en uitgevoerd. Alles werkt zoals verwacht; M02-S05 is geaccepteerd. De specifieke geteste talen zijn niet afzonderlijk geregistreerd. De previewwaarschuwing voor RTL blijft zichtbaar. De gebruiker heeft M02 op 14 oktober 2026 als geheel geaccepteerd. M02 is naar main gemerged en gepusht als dc4ba08.
 
-Documentatie is bijgewerkt en gespiegeld naar Obsidian; lokale links en kopie-inhoud zijn gecontroleerd. Het gebruikersakkoord voor commit/push van deze slice is ontvangen; merge volgt na expliciete milestoneacceptatie.
+Documentatie is bijgewerkt en gespiegeld naar Obsidian; lokale links en kopie-inhoud zijn gecontroleerd. Slice en milestone zijn geaccepteerd en gepubliceerd.

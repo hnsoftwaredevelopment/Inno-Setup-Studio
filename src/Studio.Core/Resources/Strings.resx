@@ -254,4 +254,45 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="ExportLanguageSourceInvalid" xml:space="preserve"><value>Een taalbron heeft een ongeschikt pad. Kies één .isl-bestand zonder komma, aanhalingstekens, accolades of jokertekens. Een compiler:-pad moet binnen de compilermap blijven.</value></data>
   <data name="ExportLanguageSourceNeedsProject" xml:space="preserve"><value>Een relatief taalbronpad vereist een opgeslagen project. Bewaar het project of kies een absoluut .isl-pad.</value></data>
   <data name="ExportLanguageSourceMissing" xml:space="preserve"><value>Een extern taalbestand ontbreekt of is niet leesbaar. Controleer de bronpaden bij Projecttalen en herstel het .isl-bestand.</value></data>
+  <data name="WizardPageOverview" xml:space="preserve"><value>Paginaoverzicht</value></data>
+  <data name="PageOverviewHint" xml:space="preserve"><value>Vaste paginavolgorde. Groen = aan, rood = uit, ? = voorwaardelijk. De schakelaars tonen alleen de status. Installeren staat altijd aan.</value></data>
+  <data name="PageOverviewDesign" xml:space="preserve"><value>Open ontwerppagina</value></data>
+  <data name="PageOverviewNoDesign" xml:space="preserve"><value>Voor deze fase is nog geen ontwerppagina beschikbaar.</value></data>
+  <data name="PageOverviewOrder" xml:space="preserve"><value>Volgorde</value></data>
+  <data name="PageOverviewPhase" xml:space="preserve"><value>Pagina / fase</value></data>
+  <data name="PageOverviewStatus" xml:space="preserve"><value>Status</value></data>
+  <data name="PageOverviewReason" xml:space="preserve"><value>Zichtbaarheid en ondersteuning</value></data>
+  <data name="PageOverviewClose" xml:space="preserve"><value>Sluiten</value></data>
+  <data name="PageStateEnabled" xml:space="preserve"><value>Ingeschakeld</value></data>
+  <data name="PageStateDisabled" xml:space="preserve"><value>Uitgeschakeld</value></data>
+  <data name="PageStateConditional" xml:space="preserve"><value>Voorwaardelijk</value></data>
+  <data name="PageStateRuntime" xml:space="preserve"><value>Runtime</value></data>
+  <data name="PageOverviewWelcome" xml:space="preserve"><value>Welkom</value></data>
+  <data name="PageReasonWelcome" xml:space="preserve"><value>Wordt getoond: Welkom is ingeschakeld. Teksten zijn nu te ontwerpen.</value></data>
+  <data name="PageOverviewLicense" xml:space="preserve"><value>Licentie</value></data>
+  <data name="PageReasonLicense" xml:space="preserve"><value>Geen licentiedocument ingesteld. Documenten en taalvarianten volgen later.</value></data>
+  <data name="PageOverviewPassword" xml:space="preserve"><value>Wachtwoord</value></data>
+  <data name="PageReasonPassword" xml:space="preserve"><value>Geen wachtwoord ingesteld. Wachtwoordbeleid volgt later.</value></data>
+  <data name="PageOverviewInfoBefore" xml:space="preserve"><value>Informatie vóór installatie</value></data>
+  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Geen informatiedocument ingesteld. Documenten en taalvarianten volgen later.</value></data>
+  <data name="PageOverviewUserInfo" xml:space="preserve"><value>Gebruikersinformatie</value></data>
+  <data name="PageReasonUserInfo" xml:space="preserve"><value>Gebruikersinformatie is niet ingeschakeld. Velden en beginwaarden volgen later.</value></data>
+  <data name="PageOverviewDestination" xml:space="preserve"><value>Installatiemap</value></data>
+  <data name="PageReasonDestination" xml:space="preserve"><value>Wordt getoond: de mapkeuzepagina is ingeschakeld. Pad en teksten zijn nu te ontwerpen.</value></data>
+  <data name="PageOverviewComponents" xml:space="preserve"><value>Componenten</value></data>
+  <data name="PageReasonComponents" xml:space="preserve"><value>Geen componenten gedefinieerd. Installatietypen en componenten volgen later.</value></data>
+  <data name="PageOverviewProgramGroup" xml:space="preserve"><value>Startmenumap</value></data>
+  <data name="PageReasonProgramGroup" xml:space="preserve"><value>Geen snelkoppelingen gedefinieerd. Mapbeleid en snelkoppelingen volgen later.</value></data>
+  <data name="PageOverviewTasks" xml:space="preserve"><value>Taken</value></data>
+  <data name="PageReasonTasks" xml:space="preserve"><value>Geen taken gedefinieerd. Taken en componentvoorwaarden volgen later.</value></data>
+  <data name="PageOverviewReady" xml:space="preserve"><value>Gereed voor installatie</value></data>
+  <data name="PageReasonReady" xml:space="preserve"><value>Wordt standaard getoond vóór installatie. Samenvatting en knoprollen volgen later.</value></data>
+  <data name="PageOverviewPreparing" xml:space="preserve"><value>Voorbereiden</value></data>
+  <data name="PageReasonPreparing" xml:space="preserve"><value>De native voorbereiding pauzeert alleen bij fouten, benodigde herstart of bestanden die door programma’s worden gebruikt. Simulatie volgt later.</value></data>
+  <data name="PageOverviewInstalling" xml:space="preserve"><value>Installeren</value></data>
+  <data name="PageReasonInstalling" xml:space="preserve"><value>Vaste runtimefase tijdens de echte installatie. Studio voert geen installatieacties uit; voortgangssimulatie volgt later.</value></data>
+  <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Informatie na installatie</value></data>
+  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Geen informatiedocument ingesteld. Documenten en taalvarianten volgen later.</value></data>
+  <data name="PageOverviewFinished" xml:space="preserve"><value>Voltooid</value></data>
+  <data name="PageReasonFinished" xml:space="preserve"><value>Wordt standaard getoond na installatie. Afsluitrollen en preview volgen later.</value></data>
 </root>

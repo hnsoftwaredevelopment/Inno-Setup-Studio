@@ -52,6 +52,11 @@ public partial class MainWindow : Window
     private void SetBusy(bool busy) { _busy = busy; Workspace.IsEnabled = !busy; }
     private void Design_Checked(object sender, RoutedEventArgs e) { if (_editor is not null) _editor.IsPreview = false; }
     private void Preview_Checked(object sender, RoutedEventArgs e) { if (_editor is not null) _editor.IsPreview = true; }
+    private void WizardPageOverview_Click(object sender, RoutedEventArgs e)
+    {
+        if (_busy || !_editor.IsDesign) return;
+        new WizardPageOverviewWindow(_editor) { Owner = this }.ShowDialog();
+    }
     private void Reset_Click(object sender, RoutedEventArgs e) => _editor.ResetProperty();
     private void ResetTooltip_Click(object sender, RoutedEventArgs e) => _editor.ResetTooltip();
     private void UseEffectiveText_Click(object sender, RoutedEventArgs e) => _editor.UseEffectiveText();

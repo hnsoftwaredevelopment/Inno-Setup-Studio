@@ -254,4 +254,45 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="ExportLanguageSourceInvalid" xml:space="preserve"><value>Eine Sprachquelle hat einen ungeeigneten Pfad. Wählen Sie eine .isl-Datei ohne Kommas, Anführungszeichen, geschweifte Klammern oder Platzhalter. Ein compiler:-Pfad muss im Compilerverzeichnis bleiben.</value></data>
   <data name="ExportLanguageSourceNeedsProject" xml:space="preserve"><value>Eine relative Sprachquelle benötigt ein gespeichertes Projekt. Speichern Sie das Projekt oder wählen Sie einen absoluten .isl-Pfad.</value></data>
   <data name="ExportLanguageSourceMissing" xml:space="preserve"><value>Eine externe Sprachdatei fehlt oder ist nicht zugänglich. Prüfen Sie die Quellpfade unter Projektsprachen und stellen Sie die .isl-Datei wieder her.</value></data>
+  <data name="WizardPageOverview" xml:space="preserve"><value>Seitenübersicht</value></data>
+  <data name="PageOverviewHint" xml:space="preserve"><value>Feste Seitenreihenfolge. Grün = an, rot = aus, ? = bedingt. Die Schalter zeigen nur den Status. Installation ist immer an.</value></data>
+  <data name="PageOverviewDesign" xml:space="preserve"><value>Entwurfsseite öffnen</value></data>
+  <data name="PageOverviewNoDesign" xml:space="preserve"><value>Für diese Phase ist noch keine Entwurfsseite verfügbar.</value></data>
+  <data name="PageOverviewOrder" xml:space="preserve"><value>Reihenfolge</value></data>
+  <data name="PageOverviewPhase" xml:space="preserve"><value>Seite / Phase</value></data>
+  <data name="PageOverviewStatus" xml:space="preserve"><value>Status</value></data>
+  <data name="PageOverviewReason" xml:space="preserve"><value>Sichtbarkeit und Unterstützung</value></data>
+  <data name="PageOverviewClose" xml:space="preserve"><value>Schließen</value></data>
+  <data name="PageStateEnabled" xml:space="preserve"><value>Aktiviert</value></data>
+  <data name="PageStateDisabled" xml:space="preserve"><value>Deaktiviert</value></data>
+  <data name="PageStateConditional" xml:space="preserve"><value>Bedingt</value></data>
+  <data name="PageStateRuntime" xml:space="preserve"><value>Laufzeit</value></data>
+  <data name="PageOverviewWelcome" xml:space="preserve"><value>Willkommen</value></data>
+  <data name="PageReasonWelcome" xml:space="preserve"><value>Wird angezeigt: Willkommen ist aktiviert. Texte sind bereits bearbeitbar.</value></data>
+  <data name="PageOverviewLicense" xml:space="preserve"><value>Lizenzvereinbarung</value></data>
+  <data name="PageReasonLicense" xml:space="preserve"><value>Kein Lizenzdokument festgelegt. Dokumente und Sprachvarianten folgen später.</value></data>
+  <data name="PageOverviewPassword" xml:space="preserve"><value>Passwort</value></data>
+  <data name="PageReasonPassword" xml:space="preserve"><value>Kein Passwort festgelegt. Passwortrichtlinien folgen später.</value></data>
+  <data name="PageOverviewInfoBefore" xml:space="preserve"><value>Informationen vor der Installation</value></data>
+  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Kein Informationsdokument festgelegt. Dokumente und Sprachvarianten folgen später.</value></data>
+  <data name="PageOverviewUserInfo" xml:space="preserve"><value>Benutzerinformationen</value></data>
+  <data name="PageReasonUserInfo" xml:space="preserve"><value>Benutzerinformationen sind nicht aktiviert. Felder und Anfangswerte folgen später.</value></data>
+  <data name="PageOverviewDestination" xml:space="preserve"><value>Installationsordner</value></data>
+  <data name="PageReasonDestination" xml:space="preserve"><value>Wird angezeigt: Die Ordnerauswahl ist aktiviert. Pfad und Texte sind bereits bearbeitbar.</value></data>
+  <data name="PageOverviewComponents" xml:space="preserve"><value>Komponenten</value></data>
+  <data name="PageReasonComponents" xml:space="preserve"><value>Keine Komponenten definiert. Installationstypen und Komponenten folgen später.</value></data>
+  <data name="PageOverviewProgramGroup" xml:space="preserve"><value>Startmenüordner</value></data>
+  <data name="PageReasonProgramGroup" xml:space="preserve"><value>Keine Verknüpfungen definiert. Ordnerrichtlinien und Verknüpfungen folgen später.</value></data>
+  <data name="PageOverviewTasks" xml:space="preserve"><value>Aufgaben</value></data>
+  <data name="PageReasonTasks" xml:space="preserve"><value>Keine Aufgaben definiert. Aufgaben und Komponentenbedingungen folgen später.</value></data>
+  <data name="PageOverviewReady" xml:space="preserve"><value>Bereit zur Installation</value></data>
+  <data name="PageReasonReady" xml:space="preserve"><value>Wird standardmäßig vor der Installation angezeigt. Zusammenfassung und Schaltflächenrollen folgen später.</value></data>
+  <data name="PageOverviewPreparing" xml:space="preserve"><value>Installation vorbereiten</value></data>
+  <data name="PageReasonPreparing" xml:space="preserve"><value>Die native Vorbereitung hält nur bei Fehlern, erforderlichem Neustart oder verwendeten Dateien an. Die Simulation folgt später.</value></data>
+  <data name="PageOverviewInstalling" xml:space="preserve"><value>Installation</value></data>
+  <data name="PageReasonInstalling" xml:space="preserve"><value>Feste Laufzeitphase während der tatsächlichen Installation. Studio führt keine Installationsaktionen aus; die Fortschrittssimulation folgt später.</value></data>
+  <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Informationen nach der Installation</value></data>
+  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Kein Informationsdokument festgelegt. Dokumente und Sprachvarianten folgen später.</value></data>
+  <data name="PageOverviewFinished" xml:space="preserve"><value>Installation abgeschlossen</value></data>
+  <data name="PageReasonFinished" xml:space="preserve"><value>Wird standardmäßig nach der Installation angezeigt. Abschlussrollen und Vorschau folgen später.</value></data>
 </root>
