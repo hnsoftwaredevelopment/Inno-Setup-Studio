@@ -15,7 +15,7 @@ public class DestinationTests
         editor.PropertyText = "Andere map...";
         editor.BrowseTooltip = "Kies waar de applicatie wordt geïnstalleerd";
         Assert.Equal("Andere map...", editor.BrowseCaption);
-        Assert.False(editor.CanReset);
+        Assert.True(editor.CanReset);
         Assert.True(editor.IsDirty);
         Assert.Equal("Verder >", editor.NextCaption);
     }

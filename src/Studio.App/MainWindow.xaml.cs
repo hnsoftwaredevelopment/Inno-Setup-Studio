@@ -19,7 +19,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        SetProject(StudioProject.CreateExample(), null);
+        SetProject(StudioProject.CreateNew(), null);
         Loaded += async (_, _) => await RefreshCompilerAsync();
         Text.PropertyChanged += LanguageChanged;
         Closed += (_, _) => { Text.PropertyChanged -= LanguageChanged; _editor.Dispose(); };
@@ -53,6 +53,9 @@ public partial class MainWindow : Window
     private void Design_Checked(object sender, RoutedEventArgs e) { if (_editor is not null) _editor.IsPreview = false; }
     private void Preview_Checked(object sender, RoutedEventArgs e) { if (_editor is not null) _editor.IsPreview = true; }
     private void Reset_Click(object sender, RoutedEventArgs e) => _editor.ResetProperty();
+    private void ResetTooltip_Click(object sender, RoutedEventArgs e) => _editor.ResetTooltip();
+    private void UseEffectiveText_Click(object sender, RoutedEventArgs e) => _editor.UseEffectiveText();
+    private void UseEffectiveTooltip_Click(object sender, RoutedEventArgs e) => _editor.UseEffectiveTooltip();
     private void ChooseDirectory_Click(object sender, RoutedEventArgs e)
     {
         if (!_editor.CanEdit || !_editor.IsDirectorySelected) return;
@@ -63,7 +66,7 @@ public partial class MainWindow : Window
     private async void New_Executed(object sender, ExecutedRoutedEventArgs e)
     {
         if (_busy || !await CanReplaceProjectAsync()) return;
-        SetProject(StudioProject.CreateExample(), null);
+        SetProject(StudioProject.CreateNew(), null);
     }
 
     private async void Open_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -179,6 +182,13 @@ public partial class MainWindow : Window
             UnauthorizedAccessException => "AccessDenied",
             _ => "FileError"
         });
-        MessageBox.Show(this, Text[key], Text[action + "Failed"], MessageBoxButton.OK, MessageBoxImage.Warning);
+        MessageBox.Show(this, FileErrorDescription(error, key), Text[action + "Failed"], MessageBoxButton.OK, MessageBoxImage.Warning);
+    }
+    private string FileErrorDescription(Exception error, string key)
+    {
+        var message = Text[key];
+        if (error.Data["Studio.LanguageId"] is string id && _editor.Project.Languages.FirstOrDefault(language => language.Id == id) is { } language)
+            message += Environment.NewLine + Environment.NewLine + language.DisplayName(Text) + Environment.NewLine + language.Source;
+        return message;
     }
 }

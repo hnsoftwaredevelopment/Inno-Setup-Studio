@@ -61,6 +61,8 @@ public class BuildDiagnosticsTests
             var json = JsonNode.Parse(await File.ReadAllTextAsync(path))!.AsObject();
             json["Version"] = 3;
             json.Remove("OutputBaseFileName");
+            json.Remove("Languages");
+            json.Remove("TextLanguageId");
             var content = json.ToJsonString();
             await File.WriteAllTextAsync(path, content);
             var restored = await ProjectFile.LoadAsync(path);

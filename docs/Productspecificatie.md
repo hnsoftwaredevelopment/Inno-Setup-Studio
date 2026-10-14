@@ -134,6 +134,8 @@ Standaardteksten komen uit de gekozen isl-bron. Gedeelde en lokale afwijkingen z
 
 Tekstbewerking past in het eigenschappenpaneel; een vertaaloverzicht ondersteunt meerdere talen naast elkaar. Placeholders, toegangstoetsen, regelovergangen en vertaalde licentie-/informatiebestanden worden gecontroleerd. Een ontbrekende eigen vertaling wordt zichtbaar, zonder ongemerkt een Nederlandse tekst in iedere andere taal te gebruiken. De gekozen terugvalregel wordt vóór M02-S03 vastgelegd en getest. [Messages](https://jrsoftware.org/ishelp/topic_messagessection.htm) en [CustomMessages](https://jrsoftware.org/ishelp/topic_custommessagessection.htm).
 
+Verfijning door de gebruiker, 13 oktober 2026: ontbrekende en lege eigen vertalingen moeten zichtbaar blijven, maar gebruiken eerst het standaardbericht uit het gekozen taalbestand. Pas als dat ontbreekt volgt de toepasselijke eigen tekst uit de standaardtaal, daarna het bronbericht van de standaardtaal en als laatste ingebouwd Engels. Vereiste wizardteksten mogen geen lege plekken krijgen. Een leeg invoerveld toont de effectieve tekst als grijze watermark; Overnemen en Herstellen worden afwisselend getoond, direct onder het veld. De concrete resolutievolgorde staat in [M02-S03](slices/M02-S03-Eigen-teksten-per-taal.md).
+
 Rechts-naar-links en lettertypeverschillen zijn onderdeel van de controle wanneer zo'n taal wordt ingeschakeld. Een niet-getrouwe preview krijgt een duidelijke beperking; de echte installer blijft het controlemiddel.
 
 ## 12. Ontwerpen, uitproberen en de echte installer — FR-09

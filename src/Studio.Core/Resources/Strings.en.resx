@@ -113,7 +113,7 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="ChooseSourceFile" xml:space="preserve"><value>Choose file…</value></data>
   <data name="FileDestinationLabel" xml:space="preserve"><value>Destination folder for this file</value></data>
   <data name="InstallFileHint" xml:space="preserve"><value>One local file; wildcards are not supported yet. Relative source paths use the project folder. Destination: {app} or, for example, {app}\Data.</value></data>
-  <data name="ExportScopeHint" xml:space="preserve"><value>The export includes application details, one file and the Welcome and Destination texts, including button overrides and the Browse tooltip. The installer is currently Dutch. Inno Setup determines the layout and remaining steps.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>The export includes all enabled project languages, application details, one file and the Welcome and Destination texts, including button overrides and the Browse tooltip. Inno Setup controls language selection, layout and the remaining steps.</value></data>
   <data name="ExportScript" xml:space="preserve"><value>Export .iss</value></data>
   <data name="SourceFileFilter" xml:space="preserve"><value>All files (*.*)|*.*</value></data>
   <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup script (*.iss)|*.iss</value></data>
@@ -153,4 +153,105 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="CompilerWarning" xml:space="preserve"><value>Warning</value></data>
   <data name="CompilerError" xml:space="preserve"><value>Error</value></data>
   <data name="ExportExistingProtected" xml:space="preserve"><value>This .iss file differs from the current export and will be preserved. Choose a new filename to export the project.</value></data>
+  <data name="LanguageSources" xml:space="preserve"><value>Installer language sources</value></data>
+  <data name="AddLanguageSource" xml:space="preserve"><value>Add language file…</value></data>
+  <data name="ReloadLanguageSources" xml:space="preserve"><value>Reload sources</value></data>
+  <data name="LanguageSourcesScope" xml:space="preserve"><value>This overview reads language sources without changing them. Add a language through Project languages to use it in the preview.</value></data>
+  <data name="LanguageSourcePath" xml:space="preserve"><value>Language file path</value></data>
+  <data name="LanguageSourceEntries" xml:space="preserve"><value>Language settings and messages</value></data>
+  <data name="LanguageSourceSection" xml:space="preserve"><value>Section</value></data>
+  <data name="LanguageSourceKey" xml:space="preserve"><value>Key</value></data>
+  <data name="LanguageSourceValue" xml:space="preserve"><value>Value</value></data>
+  <data name="LanguageSourceProblems" xml:space="preserve"><value>Source messages</value></data>
+  <data name="LanguageSourcesLoading" xml:space="preserve"><value>Reading language files…</value></data>
+  <data name="LanguageSourcesLoaded" xml:space="preserve"><value>{0} language sources loaded. No source problems found.</value></data>
+  <data name="LanguageSourceDetails" xml:space="preserve"><value>LanguageID: ${0} · Right to left: {1} · Messages: {2} · CustomMessages: {3}</value></data>
+  <data name="LanguageSourceYes" xml:space="preserve"><value>Yes</value></data>
+  <data name="LanguageSourceNo" xml:space="preserve"><value>No</value></data>
+  <data name="LanguageSourceTooLarge" xml:space="preserve"><value>The language file exceeds the supported 1 MB limit.</value></data>
+  <data name="LanguageSourceInvalid" xml:space="preserve"><value>This is not a supported standalone language source. Check LangOptions, LanguageName, LanguageID and Messages.</value></data>
+  <data name="LanguageSourceEncoding" xml:space="preserve"><value>Use UTF-8 or a legacy language source with an explicit supported LanguageCodePage.</value></data>
+  <data name="LanguageSourceScriptUnsupported" xml:space="preserve"><value>Language sources with preprocessor code are not supported yet. Studio does not execute that code.</value></data>
+  <data name="LanguageSourceMissing" xml:space="preserve"><value>The language file or language directory is missing.</value></data>
+  <data name="LanguageSourceUnreadable" xml:space="preserve"><value>The language file or language directory cannot be read.</value></data>
+  <data name="InstallerLanguageName_0409" xml:space="preserve"><value>English</value></data>
+  <data name="InstallerLanguageName_0401" xml:space="preserve"><value>Arabic</value></data>
+  <data name="InstallerLanguageName_042B" xml:space="preserve"><value>Armenian</value></data>
+  <data name="InstallerLanguageName_0416" xml:space="preserve"><value>Portuguese (Brazil)</value></data>
+  <data name="InstallerLanguageName_0402" xml:space="preserve"><value>Bulgarian</value></data>
+  <data name="InstallerLanguageName_0403" xml:space="preserve"><value>Catalan</value></data>
+  <data name="InstallerLanguageName_0804" xml:space="preserve"><value>Chinese (Simplified)</value></data>
+  <data name="InstallerLanguageName_0404" xml:space="preserve"><value>Chinese (Traditional)</value></data>
+  <data name="InstallerLanguageName_0483" xml:space="preserve"><value>Corsican</value></data>
+  <data name="InstallerLanguageName_0405" xml:space="preserve"><value>Czech</value></data>
+  <data name="InstallerLanguageName_0406" xml:space="preserve"><value>Danish</value></data>
+  <data name="InstallerLanguageName_0413" xml:space="preserve"><value>Dutch</value></data>
+  <data name="InstallerLanguageName_040B" xml:space="preserve"><value>Finnish</value></data>
+  <data name="InstallerLanguageName_040C" xml:space="preserve"><value>French</value></data>
+  <data name="InstallerLanguageName_0407" xml:space="preserve"><value>German</value></data>
+  <data name="InstallerLanguageName_040D" xml:space="preserve"><value>Hebrew</value></data>
+  <data name="InstallerLanguageName_040E" xml:space="preserve"><value>Hungarian</value></data>
+  <data name="InstallerLanguageName_0410" xml:space="preserve"><value>Italian</value></data>
+  <data name="InstallerLanguageName_0411" xml:space="preserve"><value>Japanese</value></data>
+  <data name="InstallerLanguageName_0412" xml:space="preserve"><value>Korean</value></data>
+  <data name="InstallerLanguageName_0427" xml:space="preserve"><value>Lithuanian</value></data>
+  <data name="InstallerLanguageName_0414" xml:space="preserve"><value>Norwegian (Bokmål)</value></data>
+  <data name="InstallerLanguageName_0415" xml:space="preserve"><value>Polish</value></data>
+  <data name="InstallerLanguageName_0816" xml:space="preserve"><value>Portuguese (Portugal)</value></data>
+  <data name="InstallerLanguageName_0419" xml:space="preserve"><value>Russian</value></data>
+  <data name="InstallerLanguageName_041B" xml:space="preserve"><value>Slovak</value></data>
+  <data name="InstallerLanguageName_0424" xml:space="preserve"><value>Slovenian</value></data>
+  <data name="InstallerLanguageName_0C0A" xml:space="preserve"><value>Spanish</value></data>
+  <data name="InstallerLanguageName_041D" xml:space="preserve"><value>Swedish</value></data>
+  <data name="InstallerLanguageName_0449" xml:space="preserve"><value>Tamil</value></data>
+  <data name="InstallerLanguageName_041E" xml:space="preserve"><value>Thai</value></data>
+  <data name="InstallerLanguageName_041F" xml:space="preserve"><value>Turkish</value></data>
+  <data name="InstallerLanguageName_0422" xml:space="preserve"><value>Ukrainian</value></data>
+  <data name="AddProjectLanguage" xml:space="preserve"><value>Add language…</value></data>
+  <data name="AddToProject" xml:space="preserve"><value>Add to project</value></data>
+<data name="InvalidProjectLanguages" xml:space="preserve"><value>Project languages are invalid. At least one language must be enabled and the language of the custom texts must be retained.</value></data>
+  <data name="LanguageDown" xml:space="preserve"><value>Move down</value></data>
+  <data name="LanguageUp" xml:space="preserve"><value>Move up</value></data>
+  <data name="PreviewLanguage" xml:space="preserve"><value>Preview language</value></data>
+  <data name="PreviewNativeTexts" xml:space="preserve"><value>Language file; custom translations follow in S03</value></data>
+  <data name="PreviewOwnTexts" xml:space="preserve"><value>Own project texts</value></data>
+  <data name="PreviewRtlLimitation" xml:space="preserve"><value>This language is right-to-left. The preview does not yet mirror the native wizard.</value></data>
+  <data name="ProjectLanguageAdded" xml:space="preserve"><value>The language is in the project. An existing source is not added twice.</value></data>
+  <data name="ProjectLanguages" xml:space="preserve"><value>Project languages</value></data>
+  <data name="ProjectLanguagesHint" xml:space="preserve"><value>The first enabled language is the fallback. Disabling preserves all data; at least one language stays enabled. Multilingual export follows in S05.</value></data>
+  <data name="DefaultInstallerLanguage" xml:space="preserve"><value>Default language</value></data>
+  <data name="EffectiveTooltip" xml:space="preserve"><value>Tooltip in the wizard</value></data>
+  <data name="EffectiveWizardText" xml:space="preserve"><value>Text in the wizard</value></data>
+  <data name="OwnTranslationText" xml:space="preserve"><value>Custom text / translation</value></data>
+  <data name="ResetTranslationText" xml:space="preserve"><value>Reset</value></data>
+  <data name="ResetTranslationTooltip" xml:space="preserve"><value>Reset</value></data>
+  <data name="TranslationEditHint" xml:space="preserve"><value>An empty field uses inherited or default text. Reset removes only this language override.</value></data>
+  <data name="TranslationInheritanceHint" xml:space="preserve"><value>Custom text applies to the selected language. Base design button texts are shared; page overrides apply locally. Missing custom translations use the selected language file first, then the default language.</value></data>
+  <data name="TranslationLanguageStatus" xml:space="preserve"><value>{0} untranslated texts</value></data>
+  <data name="TranslationMissingField" xml:space="preserve"><value>Custom translation missing. The grey text shows what the wizard uses.</value></data>
+  <data name="TranslationOriginBuiltIn" xml:space="preserve"><value>Source text missing — built-in English text</value></data>
+  <data name="TranslationOriginFallback" xml:space="preserve"><value>Untranslated — taken from {0}</value></data>
+  <data name="TranslationOriginNative" xml:space="preserve"><value>Default text from the language file</value></data>
+  <data name="TranslationReferencesHint" xml:space="preserve"><value>Use {AppName} and {AppVersion} to refer to the application details.</value></data>
+  <data name="TranslationStatus" xml:space="preserve"><value>Translation status</value></data>
+  <data name="TranslationSummaryComplete" xml:space="preserve"><value>No missing translations. Default language: {0}.</value></data>
+  <data name="TranslationSummaryMissing" xml:space="preserve"><value>{0} untranslated texts. Fallback: selected language file, then default language {1}.</value></data>
+  <data name="UseEffectiveText" xml:space="preserve"><value>Copy</value></data>
+  <data name="TranslationOverview" xml:space="preserve"><value>Translation overview</value></data>
+  <data name="TranslationOverviewHint" xml:space="preserve"><value>Edit custom texts per language. An empty field shows the text in use in grey. Changes apply immediately; save them in the project afterwards. Disabled languages remain editable.</value></data>
+  <data name="TranslationOverviewIssues" xml:space="preserve"><value>Reference warnings in enabled languages: {0}.</value></data>
+  <data name="TranslationField" xml:space="preserve"><value>Page / text field</value></data>
+  <data name="TranslationDisabled" xml:space="preserve"><value>Disabled</value></data>
+  <data name="TranslationCellCustom" xml:space="preserve"><value>Custom text</value></data>
+  <data name="TranslationCellMissing" xml:space="preserve"><value>Untranslated / missing text</value></data>
+  <data name="TranslationReferenceUnknown" xml:space="preserve"><value>Unknown reference: {0}. Use {{AppName}} or {{AppVersion}}.</value></data>
+  <data name="TranslationReferenceMalformed" xml:space="preserve"><value>Incomplete or invalid reference: {0}. Check the braces.</value></data>
+  <data name="TranslationReferenceMissing" xml:space="preserve"><value>Reference missing compared with the default language: {0}.</value></data>
+  <data name="RemoveProjectLanguage" xml:space="preserve"><value>Remove language</value></data>
+  <data name="RemoveLanguageBlocked" xml:space="preserve"><value>The last enabled language cannot be removed. Enable another project language first.</value></data>
+  <data name="RemoveLanguageConfirm" xml:space="preserve"><value>Remove language “{0}”? This removes {1} custom text fields in this language. Other languages are kept. If this is the default language, the next enabled language becomes the default. Disabling preserves the texts.</value></data>
+  <data name="Close" xml:space="preserve"><value>Close</value></data>
+  <data name="ExportLanguageSourceInvalid" xml:space="preserve"><value>A language source has an unsuitable path. Choose one .isl file without commas, quotes, braces or wildcards. A compiler: path must stay inside the compiler directory.</value></data>
+  <data name="ExportLanguageSourceNeedsProject" xml:space="preserve"><value>A relative language source requires a saved project. Save the project or choose an absolute .isl path.</value></data>
+  <data name="ExportLanguageSourceMissing" xml:space="preserve"><value>An external language file is missing or inaccessible. Check the source paths in Project languages and restore the .isl file.</value></data>
 </root>

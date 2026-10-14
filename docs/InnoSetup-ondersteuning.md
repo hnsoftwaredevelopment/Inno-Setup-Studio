@@ -24,7 +24,11 @@ M01-S05 voegt een opgeslagen OutputBaseFilename, native JSONL-bouwmeldingen en a
 
 M01-S06 voegt exportbescherming en de lokale SVG-eindproef toe. Zelfstandige compilatie met 7.1.0 is geslaagd; de gebruiker heeft de eindproef afgerond en verse installatie/deïnstallatie binnen de M01-scope geaccepteerd. [Eindproef en beperkingen](slices/M01-S06-Eenvoudige-installer-afronden.md).
 
+M02-S01 leest de taalbronnen bij ISCC 7.1.0 en aanvullende zelfstandige .isl-bestanden. Alle lokale compilerbronnen zijn ingelezen zonder wijziging; de broninspectie en aangepaste taallijst zijn door de gebruiker geaccepteerd. Deze slice betreft broninspectie; projecttalen/preview volgen in S02 en eigen vertalingen in S03. [Detailregistratie](slices/M02-S01-Beschikbare-taalbronnen.md).
+
 ## Functionele dekking
+
+M02-S02 is op 13 oktober 2026 geaccepteerd: projecttalen/volgorde en afzonderlijke previewtaal; uitsluitend Engelse en bestaande Nederlandse export zijn gecompileerd en door de gebruiker gecontroleerd. M02-S03 voegt tekstbewerking en terugval per taal toe, met dezelfde resolutie voor preview en de bestaande export. Meertalige export is bij S05 compiler-gecontroleerd en door de gebruiker met verschillende talen in de echte installer getest en geaccepteerd. [Tekstregels en controles](slices/M02-S03-Eigen-teksten-per-taal.md).
 
 V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële scripting. De aangegeven bediening is beoogd, niet allemaal al gerealiseerd.
 
@@ -110,3 +114,7 @@ Online Inno Setup-help kan inmiddels latere versies beschrijven. De links zijn n
 De huidige installatie bevat onder meer AllPagesExample.iss, Languages.iss, Components.iss, CodeDlg.iss en architectuurvoorbeelden. We gebruiken gecontroleerde eigen voorbeeldprojecten voor regressies, zodat Studio niet afhankelijk wordt van een hardcoded compilerinstallatiepad.
 
 De geïnstalleerde Inno Setup-bestanden worden gelezen als bron en blijven ongewijzigd.
+
+M02-S04 gebruikt dezelfde S03-tekstresolutie in een overzicht met alle projecttalen. Studio-verwijzingscontrole geeft waarschuwingen zonder native berichtsyntax of invoer te herschrijven. Uitschakelen en bevestigd verwijderen zijn getest op behoud van andere talen en geldige opslag. Deze slice voegt geen native exportmogelijkheden toe; de meertalige export is vervolgens uitgewerkt in S05. [Overzicht en controles](slices/M02-S04-Vertaaloverzicht.md).
+
+M02-S05 is Compiler gecontroleerd met ISCC 7.1.0: Engels/Nederlands/Duits/Hebreeuws samen, uitsluitend Nederlands zonder de oorspronkelijke Engelse opslagtaal te verwijderen, een eigen externe Nederlandse bron in een zelfstandig elders gecompileerde export en een onvolledige eigen bron met native waarschuwingen. Alle 187 tests slagen; bronbytes blijven gelijk. [Languages](https://jrsoftware.org/ishelp/topic_languagessection.htm) en [ActiveLanguage](https://jrsoftware.org/ishelp/topic_isxfunc_activelanguage.htm) verbinden de taalkeuze met dezelfde huidige wizardtekstresolutie als de preview. RTL en lettertypen blijven native uit [LangOptions](https://jrsoftware.org/ishelp/topic_langoptionssection.htm); de niet-gespiegelde Studio-preview heeft een zichtbare beperking. De gebruiker heeft de geëxporteerde teksten gecontroleerd en de installer met verschillende talen gebouwd en uitgevoerd; M02-S05 is daarmee ook runtime geaccepteerd. [Bewijs, beperkingen en handmatige taalproef](slices/M02-S05-Installertaal-export-en-proef.md).

@@ -17,6 +17,23 @@ public partial class MainWindow
     private BuildOutputWindow? _buildOutput;
     private readonly List<CompilerMessage> _buildMessages = [];
     private string _buildStateKey = "BuildNoMessages";
+    private readonly List<string> _additionalLanguageSources = [];
+    private void LanguageSources_Click(object sender, RoutedEventArgs e)
+    {
+        if (_busy) return;
+        new LanguageSourcesWindow(_compilerPath, _additionalLanguageSources) { Owner = this }.ShowDialog();
+    }
+
+    private void ProjectLanguages_Click(object sender, RoutedEventArgs e)
+    {
+        if (_busy || !_editor.IsDesign) return;
+        new ProjectLanguagesWindow(_editor, _compilerPath, _additionalLanguageSources) { Owner = this }.ShowDialog();
+    }
+    private void TranslationOverview_Click(object sender, RoutedEventArgs e)
+    {
+        if (_busy || !_editor.IsDesign) return;
+        new TranslationOverviewWindow(_editor) { Owner = this }.ShowDialog();
+    }
 
     private void UpdateCompilerState()
     {
@@ -128,7 +145,7 @@ public partial class MainWindow
             BuildResult.Text = Text["BuildFailed"];
             var key = ProjectFile.ErrorResourceKey(error);
             var message = new CompilerMessage(CompilerMessageSeverity.Error,
-                key is null ? Text["CompilerBuildError"] + Environment.NewLine + error.Message : Text[key], null, null, error.Message);
+                key is null ? Text["CompilerBuildError"] + Environment.NewLine + error.Message : FileErrorDescription(error, key), null, null, error.Message);
             _buildMessages.Add(message);
             _buildOutput?.Append(message);
         }

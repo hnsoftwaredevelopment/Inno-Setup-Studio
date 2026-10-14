@@ -113,7 +113,7 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="ChooseSourceFile" xml:space="preserve"><value>Bestand kiezen…</value></data>
   <data name="FileDestinationLabel" xml:space="preserve"><value>Doelmap voor dit bestand</value></data>
   <data name="InstallFileHint" xml:space="preserve"><value>Eén lokaal bestand; nog geen wildcards. Relatieve bronpaden zijn gebaseerd op de projectmap. Doel: {app} of bijvoorbeeld {app}\Data.</value></data>
-  <data name="ExportScopeHint" xml:space="preserve"><value>De export bevat applicatiegegevens, één bestand en de teksten van Welkom en Installatiemap, inclusief knopafwijkingen en Bladeren-tooltip. De installer is voorlopig Nederlands. Inno Setup bepaalt de indeling en de overige stappen.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>De export bevat alle actieve projecttalen, applicatiegegevens, één bestand en de teksten van Welkom en Installatiemap, inclusief knopafwijkingen en Bladeren-tooltip. Inno Setup bepaalt de taalkeuze, indeling en overige stappen.</value></data>
   <data name="ExportScript" xml:space="preserve"><value>Exporteer .iss</value></data>
   <data name="SourceFileFilter" xml:space="preserve"><value>Alle bestanden (*.*)|*.*</value></data>
   <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup-script (*.iss)|*.iss</value></data>
@@ -153,4 +153,105 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="CompilerWarning" xml:space="preserve"><value>Waarschuwing</value></data>
   <data name="CompilerError" xml:space="preserve"><value>Fout</value></data>
   <data name="ExportExistingProtected" xml:space="preserve"><value>Dit .iss-bestand wijkt af van de huidige export en blijft behouden. Kies een nieuwe bestandsnaam om het project te exporteren.</value></data>
+  <data name="LanguageSources" xml:space="preserve"><value>Installertaalbronnen</value></data>
+  <data name="AddLanguageSource" xml:space="preserve"><value>Taalbestand toevoegen…</value></data>
+  <data name="ReloadLanguageSources" xml:space="preserve"><value>Opnieuw inlezen</value></data>
+  <data name="LanguageSourcesScope" xml:space="preserve"><value>Dit overzicht leest taalbronnen zonder ze te wijzigen. Voeg een taal via Projecttalen toe om haar in de preview te gebruiken.</value></data>
+  <data name="LanguageSourcePath" xml:space="preserve"><value>Pad taalbestand</value></data>
+  <data name="LanguageSourceEntries" xml:space="preserve"><value>Taalinstellingen en teksten</value></data>
+  <data name="LanguageSourceSection" xml:space="preserve"><value>Sectie</value></data>
+  <data name="LanguageSourceKey" xml:space="preserve"><value>Sleutel</value></data>
+  <data name="LanguageSourceValue" xml:space="preserve"><value>Waarde</value></data>
+  <data name="LanguageSourceProblems" xml:space="preserve"><value>Bronmeldingen</value></data>
+  <data name="LanguageSourcesLoading" xml:space="preserve"><value>Taalbestanden worden ingelezen…</value></data>
+  <data name="LanguageSourcesLoaded" xml:space="preserve"><value>{0} taalbronnen ingelezen. Geen bronproblemen gevonden.</value></data>
+  <data name="LanguageSourceDetails" xml:space="preserve"><value>LanguageID: ${0} · Rechts-naar-links: {1} · Messages: {2} · CustomMessages: {3}</value></data>
+  <data name="LanguageSourceYes" xml:space="preserve"><value>Ja</value></data>
+  <data name="LanguageSourceNo" xml:space="preserve"><value>Nee</value></data>
+  <data name="LanguageSourceTooLarge" xml:space="preserve"><value>Het taalbestand is groter dan de ondersteunde 1 MB.</value></data>
+  <data name="LanguageSourceInvalid" xml:space="preserve"><value>Dit is geen ondersteunde zelfstandige taalbron. Controleer LangOptions, LanguageName, LanguageID en Messages.</value></data>
+  <data name="LanguageSourceEncoding" xml:space="preserve"><value>Gebruik UTF-8 of een oudere taalbron met een expliciete ondersteunde LanguageCodePage.</value></data>
+  <data name="LanguageSourceScriptUnsupported" xml:space="preserve"><value>Taalbronnen met preprocessorcode zijn nog niet ondersteund. Studio voert die code niet uit.</value></data>
+  <data name="LanguageSourceMissing" xml:space="preserve"><value>Het taalbestand of de talenmap ontbreekt.</value></data>
+  <data name="LanguageSourceUnreadable" xml:space="preserve"><value>Het taalbestand of de talenmap kan niet worden gelezen.</value></data>
+  <data name="InstallerLanguageName_0409" xml:space="preserve"><value>Engels</value></data>
+  <data name="InstallerLanguageName_0401" xml:space="preserve"><value>Arabisch</value></data>
+  <data name="InstallerLanguageName_042B" xml:space="preserve"><value>Armeens</value></data>
+  <data name="InstallerLanguageName_0416" xml:space="preserve"><value>Portugees (Brazilië)</value></data>
+  <data name="InstallerLanguageName_0402" xml:space="preserve"><value>Bulgaars</value></data>
+  <data name="InstallerLanguageName_0403" xml:space="preserve"><value>Catalaans</value></data>
+  <data name="InstallerLanguageName_0804" xml:space="preserve"><value>Chinees (vereenvoudigd)</value></data>
+  <data name="InstallerLanguageName_0404" xml:space="preserve"><value>Chinees (traditioneel)</value></data>
+  <data name="InstallerLanguageName_0483" xml:space="preserve"><value>Corsicaans</value></data>
+  <data name="InstallerLanguageName_0405" xml:space="preserve"><value>Tsjechisch</value></data>
+  <data name="InstallerLanguageName_0406" xml:space="preserve"><value>Deens</value></data>
+  <data name="InstallerLanguageName_0413" xml:space="preserve"><value>Nederlands</value></data>
+  <data name="InstallerLanguageName_040B" xml:space="preserve"><value>Fins</value></data>
+  <data name="InstallerLanguageName_040C" xml:space="preserve"><value>Frans</value></data>
+  <data name="InstallerLanguageName_0407" xml:space="preserve"><value>Duits</value></data>
+  <data name="InstallerLanguageName_040D" xml:space="preserve"><value>Hebreeuws</value></data>
+  <data name="InstallerLanguageName_040E" xml:space="preserve"><value>Hongaars</value></data>
+  <data name="InstallerLanguageName_0410" xml:space="preserve"><value>Italiaans</value></data>
+  <data name="InstallerLanguageName_0411" xml:space="preserve"><value>Japans</value></data>
+  <data name="InstallerLanguageName_0412" xml:space="preserve"><value>Koreaans</value></data>
+  <data name="InstallerLanguageName_0427" xml:space="preserve"><value>Litouws</value></data>
+  <data name="InstallerLanguageName_0414" xml:space="preserve"><value>Noors (Bokmål)</value></data>
+  <data name="InstallerLanguageName_0415" xml:space="preserve"><value>Pools</value></data>
+  <data name="InstallerLanguageName_0816" xml:space="preserve"><value>Portugees (Portugal)</value></data>
+  <data name="InstallerLanguageName_0419" xml:space="preserve"><value>Russisch</value></data>
+  <data name="InstallerLanguageName_041B" xml:space="preserve"><value>Slowaaks</value></data>
+  <data name="InstallerLanguageName_0424" xml:space="preserve"><value>Sloveens</value></data>
+  <data name="InstallerLanguageName_0C0A" xml:space="preserve"><value>Spaans</value></data>
+  <data name="InstallerLanguageName_041D" xml:space="preserve"><value>Zweeds</value></data>
+  <data name="InstallerLanguageName_0449" xml:space="preserve"><value>Tamil</value></data>
+  <data name="InstallerLanguageName_041E" xml:space="preserve"><value>Thais</value></data>
+  <data name="InstallerLanguageName_041F" xml:space="preserve"><value>Turks</value></data>
+  <data name="InstallerLanguageName_0422" xml:space="preserve"><value>Oekraïens</value></data>
+  <data name="AddProjectLanguage" xml:space="preserve"><value>Taal toevoegen…</value></data>
+  <data name="AddToProject" xml:space="preserve"><value>Aan project toevoegen</value></data>
+<data name="InvalidProjectLanguages" xml:space="preserve"><value>De projecttalen zijn ongeldig. Er moet minstens één ingeschakelde taal zijn en de taal van de eigen teksten moet behouden blijven.</value></data>
+  <data name="LanguageDown" xml:space="preserve"><value>Omlaag</value></data>
+  <data name="LanguageUp" xml:space="preserve"><value>Omhoog</value></data>
+  <data name="PreviewLanguage" xml:space="preserve"><value>Voorbeeldtaal</value></data>
+  <data name="PreviewNativeTexts" xml:space="preserve"><value>Taalbestand; eigen vertalingen volgen in S03</value></data>
+  <data name="PreviewOwnTexts" xml:space="preserve"><value>Eigen projectteksten</value></data>
+  <data name="PreviewRtlLimitation" xml:space="preserve"><value>Deze taal schrijft van rechts naar links. De preview spiegelt de native wizard nog niet.</value></data>
+  <data name="ProjectLanguageAdded" xml:space="preserve"><value>De taal staat in het project. Een al toegevoegde bron wordt niet dubbel toegevoegd.</value></data>
+  <data name="ProjectLanguages" xml:space="preserve"><value>Projecttalen</value></data>
+  <data name="ProjectLanguagesHint" xml:space="preserve"><value>De eerste ingeschakelde taal is de terugvaltaal. Uitschakelen bewaart alle gegevens; minstens één taal blijft actief. Meertalige export volgt in S05.</value></data>
+  <data name="DefaultInstallerLanguage" xml:space="preserve"><value>Standaardtaal</value></data>
+  <data name="EffectiveTooltip" xml:space="preserve"><value>Tooltip in de wizard</value></data>
+  <data name="EffectiveWizardText" xml:space="preserve"><value>Tekst in de wizard</value></data>
+  <data name="OwnTranslationText" xml:space="preserve"><value>Eigen tekst / vertaling</value></data>
+  <data name="ResetTranslationText" xml:space="preserve"><value>Herstellen</value></data>
+  <data name="ResetTranslationTooltip" xml:space="preserve"><value>Herstellen</value></data>
+  <data name="TranslationEditHint" xml:space="preserve"><value>Een leeg veld gebruikt de overgenomen of standaardtekst. Herstellen verwijdert alleen deze taalafwijking.</value></data>
+  <data name="TranslationInheritanceHint" xml:space="preserve"><value>Eigen tekst geldt voor de gekozen taal. Knopteksten van Basisontwerp worden gedeeld; pagina-afwijkingen gelden lokaal. Zonder eigen vertaling gebruiken we eerst het taalbestand van de gekozen taal, daarna de standaardtaal.</value></data>
+  <data name="TranslationLanguageStatus" xml:space="preserve"><value>{0} onvertaalde teksten</value></data>
+  <data name="TranslationMissingField" xml:space="preserve"><value>Eigen vertaling ontbreekt. De grijze tekst toont wat de wizard gebruikt.</value></data>
+  <data name="TranslationOriginBuiltIn" xml:space="preserve"><value>Brontekst ontbreekt — ingebouwde Engelse tekst</value></data>
+  <data name="TranslationOriginFallback" xml:space="preserve"><value>Niet vertaald — overgenomen uit {0}</value></data>
+  <data name="TranslationOriginNative" xml:space="preserve"><value>Standaardtekst uit het taalbestand</value></data>
+  <data name="TranslationReferencesHint" xml:space="preserve"><value>Gebruik {AppName} en {AppVersion} om naar de applicatiegegevens te verwijzen.</value></data>
+  <data name="TranslationStatus" xml:space="preserve"><value>Vertaalstatus</value></data>
+  <data name="TranslationSummaryComplete" xml:space="preserve"><value>Geen ontbrekende vertalingen. Standaardtaal: {0}.</value></data>
+  <data name="TranslationSummaryMissing" xml:space="preserve"><value>{0} onvertaalde teksten. Terugval: taalbestand van de gekozen taal, daarna standaardtaal {1}.</value></data>
+  <data name="UseEffectiveText" xml:space="preserve"><value>Overnemen</value></data>
+  <data name="TranslationOverview" xml:space="preserve"><value>Vertaaloverzicht</value></data>
+  <data name="TranslationOverviewHint" xml:space="preserve"><value>Bewerk eigen teksten per taal. Een leeg veld toont de gebruikte tekst in grijs. Wijzigingen gelden direct; bewaar ze daarna in het project. Uitgeschakelde talen blijven bewerkbaar.</value></data>
+  <data name="TranslationOverviewIssues" xml:space="preserve"><value>Verwijzingswaarschuwingen in actieve talen: {0}.</value></data>
+  <data name="TranslationField" xml:space="preserve"><value>Scherm / tekstveld</value></data>
+  <data name="TranslationDisabled" xml:space="preserve"><value>Uitgeschakeld</value></data>
+  <data name="TranslationCellCustom" xml:space="preserve"><value>Eigen tekst</value></data>
+  <data name="TranslationCellMissing" xml:space="preserve"><value>Onvertaald / tekst ontbreekt</value></data>
+  <data name="TranslationReferenceUnknown" xml:space="preserve"><value>Onbekende verwijzing: {0}. Gebruik {{AppName}} of {{AppVersion}}.</value></data>
+  <data name="TranslationReferenceMalformed" xml:space="preserve"><value>Onvolledige of ongeldige verwijzing: {0}. Controleer de accolades.</value></data>
+  <data name="TranslationReferenceMissing" xml:space="preserve"><value>Verwijzing ontbreekt ten opzichte van de standaardtaal: {0}.</value></data>
+  <data name="RemoveProjectLanguage" xml:space="preserve"><value>Taal verwijderen</value></data>
+  <data name="RemoveLanguageBlocked" xml:space="preserve"><value>De laatste actieve taal kan niet worden verwijderd. Schakel eerst een andere projecttaal in.</value></data>
+  <data name="RemoveLanguageConfirm" xml:space="preserve"><value>Taal “{0}” verwijderen? Dit verwijdert {1} eigen tekstvelden in deze taal. De overige talen blijven behouden. Als dit de standaardtaal is, wordt de volgende actieve taal de standaardtaal. Uitschakelen bewaart de teksten.</value></data>
+  <data name="Close" xml:space="preserve"><value>Sluiten</value></data>
+  <data name="ExportLanguageSourceInvalid" xml:space="preserve"><value>Een taalbron heeft een ongeschikt pad. Kies één .isl-bestand zonder komma, aanhalingstekens, accolades of jokertekens. Een compiler:-pad moet binnen de compilermap blijven.</value></data>
+  <data name="ExportLanguageSourceNeedsProject" xml:space="preserve"><value>Een relatief taalbronpad vereist een opgeslagen project. Bewaar het project of kies een absoluut .isl-pad.</value></data>
+  <data name="ExportLanguageSourceMissing" xml:space="preserve"><value>Een extern taalbestand ontbreekt of is niet leesbaar. Controleer de bronpaden bij Projecttalen en herstel het .isl-bestand.</value></data>
 </root>

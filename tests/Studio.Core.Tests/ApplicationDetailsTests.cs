@@ -86,6 +86,8 @@ public class ApplicationDetailsTests
             saved.Remove("AppVersion");
             saved.Remove("InstallFile");
             saved.Remove("OutputBaseFileName");
+            saved.Remove("Languages");
+            saved.Remove("TextLanguageId");
             Assert.True(JsonNode.DeepEquals(JsonNode.Parse(original), saved));
             using var reopened = new EditorSession(restored);
             Assert.False(reopened.IsDirty);

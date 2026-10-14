@@ -14,7 +14,7 @@ De Studio-interface is beschikbaar in Nederlands, Engels en Duits. Rechtsboven w
 
 Het uitklapbare paneel **Applicatiegegevens** boven de ontwerpruimte bevat productnaam, AppId en versie. Die worden met het project opgeslagen. Oude projecten worden bij openen in het geheugen bijgewerkt en pas bij opslaan naar het nieuwe formaat geschreven. Zie [M01-S01 en teststappen](docs/slices/M01-S01-Applicatiegegevens.md).
 
-Het paneel **Bestandsregel** bevat één lokaal bronbestand en een doelmap binnen {app}. **Exporteer .iss** schrijft een zelfstandig compileerbaar script met applicatiegegevens, het standaard installatiepad, een vaste Nederlandse installer en deze bestandsregel. De teksten van Welkom en Installatiemap, gedeelde knoppen, pagina-afwijkingen en Bladeren-tooltip worden eveneens geëxporteerd. Het paneel Compiler en bouwen kan nu ISCC kiezen, versie 7.1 controleren en het opgeslagen project bouwen. Meertalige installers volgen later. Zie [M01-S04 en teststappen](docs/slices/M01-S04-Compiler-kiezen-en-bouwen.md). Zie [M01-S03 en teststappen](docs/slices/M01-S03-Wizardontwerp-export.md). Zie [M01-S02 en teststappen](docs/slices/M01-S02-Bestandsregel-en-export.md).
+Het paneel **Bestandsregel** bevat één lokaal bronbestand en een doelmap binnen {app}. **Exporteer .iss** schrijft een zelfstandig compileerbaar script met applicatiegegevens, het standaard installatiepad, alle actieve projecttalen en deze bestandsregel. De teksten van Welkom en Installatiemap, gedeelde knoppen, pagina-afwijkingen en Bladeren-tooltip worden eveneens geëxporteerd. Het paneel Compiler en bouwen kan nu ISCC kiezen, versie 7.1 controleren en het opgeslagen project bouwen. Meertalige export is door de gebruiker getest en geaccepteerd in M02-S05. Zie [M01-S04 en teststappen](docs/slices/M01-S04-Compiler-kiezen-en-bouwen.md). Zie [M01-S03 en teststappen](docs/slices/M01-S03-Wizardontwerp-export.md). Zie [M01-S02 en teststappen](docs/slices/M01-S02-Bestandsregel-en-export.md).
 
 Het beoogde eindproduct is beschreven in de geaccepteerde [productspecificatie](docs/Productspecificatie.md).
 
@@ -32,13 +32,19 @@ De Release-app staat in `Builds\Release\Inno Setup Studio.exe`. Distributie vere
 
 ## Verificatie
 
-Op 8 oktober 2026: 108 tests geslaagd, waaronder zes echte compilatieproeven met ISCC 7.1.0; Release-build zonder fouten of waarschuwingen. De gebruiker heeft M01-S02 volledig getest en geaccepteerd. Ook M01-S03 is door de gebruiker getest in Studio en in de gecompileerde, uitgevoerde installer en geaccepteerd. M01-S04 is door de gebruiker volledig getest en geaccepteerd. M01-S05 voegt live bouwmeldingen, annuleren en een opgeslagen uitvoernaam toe. Nieuwe projecten beginnen met mysetup; oude projecten behouden setup met een waarschuwing. Formaat 4 bewaart de naam en leest de eerdere formaten. M01-S05 is door de gebruiker handmatig getest en geaccepteerd. Zie [M01-S05 en teststappen](docs/slices/M01-S05-Bouwmeldingen-en-annuleren.md). M01-S01 en de eerdere Studio-taalbasis zijn eveneens geaccepteerd.
+Op 8 oktober 2026: 117 tests geslaagd, waaronder zes echte compilatieproeven met ISCC 7.1.0; Release-build zonder fouten of waarschuwingen. De gebruiker heeft M01-S02 volledig getest en geaccepteerd. Ook M01-S03 is door de gebruiker getest in Studio en in de gecompileerde, uitgevoerde installer en geaccepteerd. M01-S04 is door de gebruiker volledig getest en geaccepteerd. M01-S05 voegt live bouwmeldingen, annuleren en een opgeslagen uitvoernaam toe. Nieuwe projecten beginnen met mysetup; oude projecten behouden setup met een waarschuwing. Formaat 4 bewaart de naam en leest de eerdere formaten. M01-S05 is door de gebruiker handmatig getest en geaccepteerd. Zie [M01-S05 en teststappen](docs/slices/M01-S05-Bouwmeldingen-en-annuleren.md). M01-S01 en de eerdere Studio-taalbasis zijn eveneens geaccepteerd.
 
 De compilatietests gebruiken de standaardinstallatie van Inno Setup 7. Als die ontbreekt, worden de compilerafhankelijke tests met een expliciete reden overgeslagen. Ze bouwen een installer, maar starten die niet. De andere tests vereisen geen compiler.
 
 M01-S06 beschermt bestaande afwijkende .iss-bestanden tegen vervangen. Een lokale SVG-eindproef staat in samples/SVGViewerDemo/SVG Viewer M01-proef.issstudio; de gebruiker heeft de eindproef uitgevoerd en M01 volledig geaccepteerd. Dit project installeert één bestand; volledige bestandsverzamelingen volgen in M04. Zie [M01-S06 en eindproef](docs/slices/M01-S06-Eenvoudige-installer-afronden.md). De aanvullende SVG-compilatietest vereist de lokaal aangeleverde executable; bij ontbreken wordt die test met uitleg overgeslagen.
 
+M02-S01 biedt via Compiler en bouwen het venster Installertaalbronnen: alleen-lezen bronoverzicht van Default.isl en gevonden of zelf gekozen taalbestanden. [Scope en teststappen](docs/slices/M02-S01-Beschikbare-taalbronnen.md). M02-S01 is na gebruikerscontrole geaccepteerd, inclusief vertaalde/sorteerbare taalnamen en het samenvoegen van identieke bronkopieën.
+
+M02-S02 voegt opgeslagen projecttalen, volgorde en inschakelen toe, met een aparte Voorbeeldtaal boven de wizard. Nieuwe projecten beginnen Engels; bestaande projecten houden hun Nederlandse teksten. Aanvullende talen tonen voorlopig standaardberichten; eigen vertalingen volgen in S03 en meertalige export in S05. M02-S02 is op 13 oktober 2026 door de gebruiker geaccepteerd. [Werking en teststappen](docs/slices/M02-S02-Projecttalen-en-previewkeuze.md).
+
 ## Documentatie en planning
+
+M02-S03 voegt eigen teksten per installertaal toe in het bestaande eigenschappenpaneel. Ontbrekende of lege eigen vertalingen gebruiken eerst het taalbestand van de gekozen taal, daarna de standaardtaal; de teller blijft de ontbrekende eigen vertalingen melden. Eén invoerveld toont de effectieve tekst als grijze watermark zolang het leeg is. Daaronder staat óf Overnemen óf Herstellen. {AppName} en {AppVersion} verwijzen naar applicatiegegevens. Deze slice is door de gebruiker geaccepteerd; export voor alle actieve talen is uitgewerkt in S05. [Terugvalregels en teststappen](docs/slices/M02-S03-Eigen-teksten-per-taal.md).
 
 **Inno Setup is the limit.** De productdekking volgt reguliere instellingen en gedocumenteerde native mogelijkheden van de ondersteunde Inno Setup-versie.
 
@@ -56,6 +62,10 @@ M01-S06 beschermt bestaande afwijkende .iss-bestanden tegen vervangen. Een lokal
 
 Iedere milestone gebruikt een eigen branch met dezelfde technische naam. Slices worden pas na gebruikersakkoord gecommit en gepusht. Een milestone wordt gemerged na acceptatie van haar volledige resultaat. De gebruiker doet de visuele en echte installatieproeven.
 
-De roadmap is geaccepteerd en M00 is gepubliceerd en gemerged. De voortgang en acceptatiestatus staan in de slicelijst.
+De roadmap is geaccepteerd; M00 en M01 zijn gepubliceerd en gemerged. M01-S06 is gepubliceerd als 6c84951 en de M01-merge als e14824e. De voortgang en acceptatiestatus staan in de slicelijst.
 
 Markdown wordt gespiegeld naar `C:\Devops\Obsidian\markdown\Development\HNSoftwareDevelopment\Inno Setup Studio`, met behoud van relatieve paden.
+
+M02-S04 voegt een afzonderlijk Vertaaloverzicht toe, bereikbaar naast Voorbeeldtaal: tekstvelden als rijen en alle projecttalen als kolommen. Eigen teksten, overnemen/herstellen en terugval blijven aangesloten op het ontwerpscherm. Verwijzingswaarschuwingen verschijnen per veld; verwijderen van een taal vraagt expliciet bevestiging. Deze slice is door de gebruiker geaccepteerd. [Scope en teststappen](docs/slices/M02-S04-Vertaaloverzicht.md).
+
+M02-S05 exporteert alle actieve projecttalen in projectvolgorde. De native taalkeuze selecteert dezelfde wizardteksten en terugval als de preview. Uitsluitend Nederlands werkt ook met een uitgeschakelde oorspronkelijke Engelse opslagtaal. Eigen .isl-bronnen blijven als bestanden nodig; fouten noemen taal en bronpad. Release-build zonder fouten/waarschuwingen en 187 tests geslaagd, inclusief meertalige, RTL-, Nederlandse en zelfstandige externe-broncompilatie. De gebruiker heeft het .iss-bestand gecontroleerd en de installer met verschillende talen gebouwd en uitgevoerd; M02-S05 is geaccepteerd. [Teststappen en milestonecheck](docs/slices/M02-S05-Installertaal-export-en-proef.md).

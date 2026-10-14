@@ -24,13 +24,15 @@ public sealed class StudioProject
 {
     public const string FormatId = "HN.InnoSetupStudio.VisualProject";
     public string Format { get; set; } = FormatId;
-    public const int CurrentVersion = 4;
+    public const int CurrentVersion = 6;
     public int Version { get; set; } = CurrentVersion;
     public string Name { get; set; } = "Mijn applicatie";
     public string AppId { get; set; } = Guid.NewGuid().ToString("B");
     public string AppVersion { get; set; } = "1.0";
     public string OutputBaseFileName { get; set; } = "mysetup";
     public InstallFileSettings InstallFile { get; set; } = new();
+    public string TextLanguageId { get; set; } = "dutch";
+    public List<InstallerLanguage> Languages { get; set; } = [InstallerLanguage.Dutch()];
     [System.Text.Json.Serialization.JsonIgnore]
     public bool WasMigrated { get; internal set; }
     public Dictionary<ElementKind, string> Buttons { get; set; } = new()
@@ -53,6 +55,26 @@ public sealed class StudioProject
                 Body = "Waar wilt u Mijn applicatie installeren?", Destination = new() }
         ]
     };
+
+    public static StudioProject CreateNew()
+    {
+        var project = CreateExample();
+        var english = InstallerLanguage.English();
+        english.StandardTexts = Enum.GetValues<WizardTextSlot>().ToHashSet();
+        project.Name = "My application";
+        project.TextLanguageId = english.Id;
+        project.Languages = [english];
+        foreach (var kind in project.Buttons.Keys.ToArray())
+            project.Buttons[kind] = english.Message("Button" + kind, project);
+        foreach (var page in project.Pages)
+        {
+            page.Title = english.Message(page.Kind == PageKind.Welcome ? "WelcomeLabel1" : "WizardSelectDir", project);
+            page.Body = english.Message(page.Kind == PageKind.Welcome ? "WelcomeLabel2" : "SelectDirLabel3", project);
+        }
+        project.Pages[1].Destination = new() { DefaultDirectory = @"{autopf}\My application",
+            BrowseCaption = english.Message("ButtonBrowse", project), BrowseTooltip = "Choose another destination folder" };
+        return project;
+    }
 }
 
 public sealed class InstallFileSettings
