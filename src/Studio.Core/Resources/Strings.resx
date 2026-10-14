@@ -270,11 +270,11 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="PageOverviewWelcome" xml:space="preserve"><value>Welkom</value></data>
   <data name="PageReasonWelcome" xml:space="preserve"><value>Wordt getoond: Welkom is ingeschakeld. Teksten zijn nu te ontwerpen.</value></data>
   <data name="PageOverviewLicense" xml:space="preserve"><value>Licentie</value></data>
-  <data name="PageReasonLicense" xml:space="preserve"><value>Geen licentiedocument ingesteld. Documenten en taalvarianten volgen later.</value></data>
+  <data name="PageReasonLicense" xml:space="preserve"><value>Geen algemeen licentiedocument ingesteld. Kies Document instellen om deze pagina te gebruiken.</value></data>
   <data name="PageOverviewPassword" xml:space="preserve"><value>Wachtwoord</value></data>
   <data name="PageReasonPassword" xml:space="preserve"><value>Geen wachtwoord ingesteld. Wachtwoordbeleid volgt later.</value></data>
   <data name="PageOverviewInfoBefore" xml:space="preserve"><value>Informatie vóór installatie</value></data>
-  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Geen informatiedocument ingesteld. Documenten en taalvarianten volgen later.</value></data>
+  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Geen algemeen informatiedocument vóór installatie ingesteld. Kies Document instellen om deze pagina te gebruiken.</value></data>
   <data name="PageOverviewUserInfo" xml:space="preserve"><value>Gebruikersinformatie</value></data>
   <data name="PageReasonUserInfo" xml:space="preserve"><value>Gebruikersinformatie is niet ingeschakeld. Velden en beginwaarden volgen later.</value></data>
   <data name="PageOverviewDestination" xml:space="preserve"><value>Installatiemap</value></data>
@@ -292,7 +292,21 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="PageOverviewInstalling" xml:space="preserve"><value>Installeren</value></data>
   <data name="PageReasonInstalling" xml:space="preserve"><value>Vaste runtimefase tijdens de echte installatie. Studio voert geen installatieacties uit; voortgangssimulatie volgt later.</value></data>
   <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Informatie na installatie</value></data>
-  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Geen informatiedocument ingesteld. Documenten en taalvarianten volgen later.</value></data>
+  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Geen algemeen informatiedocument na installatie ingesteld. Kies Document instellen om deze pagina te gebruiken.</value></data>
   <data name="PageOverviewFinished" xml:space="preserve"><value>Voltooid</value></data>
   <data name="PageReasonFinished" xml:space="preserve"><value>Wordt standaard getoond na installatie. Afsluitrollen en preview volgen later.</value></data>
+  <data name="DocumentConfigure" xml:space="preserve"><value>Document instellen</value></data>
+  <data name="DocumentGeneral" xml:space="preserve"><value>Algemeen document</value></data>
+  <data name="DocumentChoose" xml:space="preserve"><value>Bladeren…</value></data>
+  <data name="DocumentVariant" xml:space="preserve"><value>Document voor deze taal (optioneel)</value></data>
+  <data name="DocumentFallback" xml:space="preserve"><value>Een lege taalvariant gebruikt het algemene document.</value></data>
+  <data name="DocumentHint" xml:space="preserve"><value>Kies TXT of RTF. Zonder algemeen document verschijnt deze pagina niet. Bronnen blijven als bestand nodig.</value></data>
+  <data name="DocumentPreview" xml:space="preserve"><value>Documentvoorbeeld tonen</value></data>
+  <data name="DocumentFilter" xml:space="preserve"><value>Documenten (*.txt;*.rtf)|*.txt;*.rtf</value></data>
+  <data name="DocumentInvalid" xml:space="preserve"><value>Kies een geldig TXT- of RTF-document zonder scriptverwijzingen in het pad.</value></data>
+  <data name="DocumentConfigured" xml:space="preserve"><value>Het algemene document is ingesteld. Taalvarianten gebruiken hun eigen bron; overige talen gebruiken het algemene document.</value></data>
+  <data name="DocumentInactive" xml:space="preserve"><value>Deze pagina is uitgeschakeld: kies eerst een algemeen document.</value></data>
+  <data name="DocumentPreviewFailed" xml:space="preserve"><value>Het documentvoorbeeld kan niet worden gelezen. Gebruik geldige RTF of TXT met UTF-8 of UTF-16LE.</value></data>
+  <data name="DocumentPreviewLarge" xml:space="preserve"><value>Dit document is te groot voor het voorbeeld (maximaal 4 MB).</value></data>
+  <data name="DocumentRemoveVariants" xml:space="preserve"><value>Ook {0} documentvarianten worden uit dit project verwijderd. De bronbestanden blijven behouden.</value></data>
 </root>

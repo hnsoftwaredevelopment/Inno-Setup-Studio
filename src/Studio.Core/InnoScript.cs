@@ -36,7 +36,17 @@ public static class InnoScript
             "",
             "[Languages]"
         };
-        lines.AddRange(languages.Select(language => "Name: " + Parameter(language.Name) + "; MessagesFile: " + Parameter(language.MessagesFile)));
+        var documentLines = project.Documents.Where(p => !string.IsNullOrWhiteSpace(p.Value.Source))
+            .Select(p => p.Key + "=" + SetupValue(WizardDocuments.Resolve(p.Value.Source, projectDirectory))).ToArray();
+        lines.InsertRange(lines.IndexOf("[Languages]") - 1, documentLines);
+        foreach (var language in languages)
+        {
+            var line = "Name: " + Parameter(language.Name) + "; MessagesFile: " + Parameter(language.MessagesFile);
+            foreach (var (kind, document) in project.Documents)
+                if (!string.IsNullOrWhiteSpace(document.Source) && document.Translations.TryGetValue(language.Language.Id, out var variant)
+                    && !string.IsNullOrWhiteSpace(variant)) line += "; " + kind + ": " + Parameter(WizardDocuments.Resolve(variant, projectDirectory));
+            lines.Add(line);
+        }
         lines.AddRange([
             "",
             "[Files]",

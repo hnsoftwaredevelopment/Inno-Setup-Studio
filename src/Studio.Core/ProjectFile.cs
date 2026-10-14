@@ -27,7 +27,7 @@ public static class ProjectFile
             var root = json.RootElement;
             if (root.GetProperty("Version").ValueKind != JsonValueKind.Number
                 || !root.GetProperty("Version").TryGetInt32(out var version)
-                || version is not (1 or 2 or 3 or 4 or 5 or StudioProject.CurrentVersion))
+                || version is not (1 or 2 or 3 or 4 or 5 or 6 or StudioProject.CurrentVersion))
                 throw InvalidProject("UnsupportedProject");
             if (version >= 2
                 && (!root.TryGetProperty("AppId", out _) || !root.TryGetProperty("AppVersion", out _)))
@@ -52,6 +52,8 @@ public static class ProjectFile
                 && root.GetProperty("Languages").EnumerateArray().Any(l => l.ValueKind == JsonValueKind.Object
                     && (l.TryGetProperty("TextOverrides", out _) || l.TryGetProperty("StandardTexts", out _))))
                 throw InvalidProject("UnsupportedProject");
+            if (version >= 7 && !root.TryGetProperty("Documents", out _)) throw InvalidProject("DocumentInvalid");
+            if (version < 7 && root.TryGetProperty("Documents", out _)) throw InvalidProject("UnsupportedProject");
             var project = root.Deserialize<StudioProject>(Options)!;
             if (version == 1)
             {
@@ -83,6 +85,8 @@ public static class ProjectFile
 
     public static async Task SaveAsync(string path, StudioProject project, string? originalProjectDirectory = null)
     {
+        string Rebase(string value) => !string.IsNullOrWhiteSpace(value) && !Path.IsPathRooted(value) && originalProjectDirectory is not null
+            ? Path.GetRelativePath(Path.GetDirectoryName(Path.GetFullPath(path))!, Path.GetFullPath(value, originalProjectDirectory)) : value;
         Validate(project);
         var source = project.InstallFile.Source;
         var storedSource = source;
@@ -93,6 +97,12 @@ public static class ProjectFile
         }
         var json = JsonSerializer.SerializeToNode(project, Options)!;
         json["InstallFile"]!["Source"] = storedSource;
+        var documents = project.Documents.ToDictionary(pair => pair.Key, pair => new WizardDocumentSource
+        {
+            Source = Rebase(pair.Value.Source),
+            Translations = pair.Value.Translations.ToDictionary(v => v.Key, v => Rebase(v.Value))
+        });
+        json["Documents"] = JsonSerializer.SerializeToNode(documents, Options);
         var bytes = JsonSerializer.SerializeToUtf8Bytes(json, Options);
         if (bytes.Length > MaxBytes) throw InvalidProject("ProjectTooLarge");
         var temporaryPath = path + $".{Guid.NewGuid():N}.tmp";
@@ -101,6 +111,7 @@ public static class ProjectFile
             await File.WriteAllBytesAsync(temporaryPath, bytes);
             File.Move(temporaryPath, path, overwrite: true);
             project.InstallFile.Source = storedSource;
+            project.Documents = documents;
         }
         finally
         {
@@ -135,6 +146,11 @@ public static class ProjectFile
             || project.Languages.Select(l => l.Id).Distinct(StringComparer.Ordinal).Count() != project.Languages.Count
             || !project.Languages.Any(l => l.Enabled) || !project.Languages.Any(l => l.Id == project.TextLanguageId))
             throw InvalidProject("InvalidProjectLanguages");
+        if (project.Documents is null || project.Documents.Count != 3
+            || Enum.GetValues<WizardDocumentKind>().Any(kind => !project.Documents.ContainsKey(kind))
+            || project.Documents.Values.Any(d => d is null || d.Source is null || d.Source.Any(char.IsControl)
+                || d.Translations is null || d.Translations.Any(v => !project.Languages.Any(l => l.Id == v.Key)
+                    || v.Value is null || v.Value.Any(char.IsControl)))) throw InvalidProject("DocumentInvalid");
         if (project.InstallFile is not { } file || file.Source is null || file.Source.Any(char.IsControl)
             || !IsSingleLine(file.Destination))
             throw InvalidProject("InvalidFileRule");

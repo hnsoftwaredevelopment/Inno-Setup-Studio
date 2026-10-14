@@ -156,6 +156,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
             foreach (var (slot, value) in own)
                 if (value is not null) WizardTexts.Set(Project, successor, slot, value);
         }
+        foreach (var document in Project.Documents.Values) document.Translations.Remove(id);
         Project.Languages.RemoveAll(l => l.Id == id);
         if (_previewLanguageId == id) _previewLanguageId = Project.Languages.First(l => l.Enabled).Id;
         RebuildPreviewLanguages(); IsDirty = true; Refresh();
@@ -380,6 +381,19 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
             case ElementKind.Next: SetStatus("StatusEnd"); break;
             case ElementKind.Cancel: IsPreview = false; break;
         }
+    }
+
+    public void SetDocumentSource(WizardDocumentKind kind, string? languageId, string source)
+    {
+        if (!IsDesign || !Enum.IsDefined(kind) || source is null
+            || (languageId is not null && !Project.Languages.Any(l => l.Id == languageId))) return;
+        var document = Project.Documents[kind];
+        var old = languageId is null ? document.Source : document.Translations.GetValueOrDefault(languageId, "");
+        if (old == source) return;
+        if (languageId is null) document.Source = source;
+        else if (string.IsNullOrEmpty(source)) document.Translations.Remove(languageId);
+        else document.Translations[languageId] = source;
+        IsDirty = true; Refresh();
     }
 
     public void MarkSaved() { Project.WasMigrated = false; IsDirty = false; SetStatus("StatusSaved"); }

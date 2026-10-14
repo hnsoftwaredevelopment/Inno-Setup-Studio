@@ -270,11 +270,11 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="PageOverviewWelcome" xml:space="preserve"><value>Willkommen</value></data>
   <data name="PageReasonWelcome" xml:space="preserve"><value>Wird angezeigt: Willkommen ist aktiviert. Texte sind bereits bearbeitbar.</value></data>
   <data name="PageOverviewLicense" xml:space="preserve"><value>Lizenzvereinbarung</value></data>
-  <data name="PageReasonLicense" xml:space="preserve"><value>Kein Lizenzdokument festgelegt. Dokumente und Sprachvarianten folgen später.</value></data>
+  <data name="PageReasonLicense" xml:space="preserve"><value>Kein allgemeines Lizenzdokument festgelegt. Wählen Sie Dokument einstellen, um diese Seite zu verwenden.</value></data>
   <data name="PageOverviewPassword" xml:space="preserve"><value>Passwort</value></data>
   <data name="PageReasonPassword" xml:space="preserve"><value>Kein Passwort festgelegt. Passwortrichtlinien folgen später.</value></data>
   <data name="PageOverviewInfoBefore" xml:space="preserve"><value>Informationen vor der Installation</value></data>
-  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Kein Informationsdokument festgelegt. Dokumente und Sprachvarianten folgen später.</value></data>
+  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Kein allgemeines Informationsdokument vor der Installation festgelegt. Wählen Sie Dokument einstellen, um diese Seite zu verwenden.</value></data>
   <data name="PageOverviewUserInfo" xml:space="preserve"><value>Benutzerinformationen</value></data>
   <data name="PageReasonUserInfo" xml:space="preserve"><value>Benutzerinformationen sind nicht aktiviert. Felder und Anfangswerte folgen später.</value></data>
   <data name="PageOverviewDestination" xml:space="preserve"><value>Installationsordner</value></data>
@@ -292,7 +292,21 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="PageOverviewInstalling" xml:space="preserve"><value>Installation</value></data>
   <data name="PageReasonInstalling" xml:space="preserve"><value>Feste Laufzeitphase während der tatsächlichen Installation. Studio führt keine Installationsaktionen aus; die Fortschrittssimulation folgt später.</value></data>
   <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Informationen nach der Installation</value></data>
-  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Kein Informationsdokument festgelegt. Dokumente und Sprachvarianten folgen später.</value></data>
+  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Kein allgemeines Informationsdokument nach der Installation festgelegt. Wählen Sie Dokument einstellen, um diese Seite zu verwenden.</value></data>
   <data name="PageOverviewFinished" xml:space="preserve"><value>Installation abgeschlossen</value></data>
   <data name="PageReasonFinished" xml:space="preserve"><value>Wird standardmäßig nach der Installation angezeigt. Abschlussrollen und Vorschau folgen später.</value></data>
+  <data name="DocumentConfigure" xml:space="preserve"><value>Dokument einstellen</value></data>
+  <data name="DocumentGeneral" xml:space="preserve"><value>Allgemeines Dokument</value></data>
+  <data name="DocumentChoose" xml:space="preserve"><value>Durchsuchen…</value></data>
+  <data name="DocumentVariant" xml:space="preserve"><value>Dokument für diese Sprache (optional)</value></data>
+  <data name="DocumentFallback" xml:space="preserve"><value>Eine leere Sprachvariante verwendet das allgemeine Dokument.</value></data>
+  <data name="DocumentHint" xml:space="preserve"><value>Wählen Sie TXT oder RTF. Ohne allgemeines Dokument erscheint diese Seite nicht. Quelldateien bleiben erforderlich.</value></data>
+  <data name="DocumentPreview" xml:space="preserve"><value>Dokumentvorschau anzeigen</value></data>
+  <data name="DocumentFilter" xml:space="preserve"><value>Dokumente (*.txt;*.rtf)|*.txt;*.rtf</value></data>
+  <data name="DocumentInvalid" xml:space="preserve"><value>Wählen Sie ein gültiges TXT- oder RTF-Dokument ohne Skriptverweise im Pfad.</value></data>
+  <data name="DocumentConfigured" xml:space="preserve"><value>Ein allgemeines Dokument ist festgelegt. Sprachvarianten verwenden ihre eigene Quelle; andere Sprachen verwenden das allgemeine Dokument.</value></data>
+  <data name="DocumentInactive" xml:space="preserve"><value>Diese Seite ist deaktiviert: Wählen Sie zuerst ein allgemeines Dokument.</value></data>
+  <data name="DocumentPreviewFailed" xml:space="preserve"><value>Die Dokumentvorschau kann nicht gelesen werden. Verwenden Sie gültiges RTF oder TXT mit UTF-8 oder UTF-16LE.</value></data>
+  <data name="DocumentPreviewLarge" xml:space="preserve"><value>Dieses Dokument ist für die Vorschau zu groß (maximal 4 MB).</value></data>
+  <data name="DocumentRemoveVariants" xml:space="preserve"><value>Außerdem werden {0} Dokumentvarianten aus diesem Projekt entfernt. Die Quelldateien bleiben erhalten.</value></data>
 </root>

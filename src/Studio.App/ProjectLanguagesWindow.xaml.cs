@@ -58,6 +58,8 @@ public partial class ProjectLanguagesWindow : Window
             return;
         }
         var question = text.Format("RemoveLanguageConfirm", choice.Name, _editor.OwnTextCount(choice.Id));
+        var documents = _editor.Project.Documents.Values.Count(d => d.Translations.ContainsKey(choice.Id));
+        if (documents > 0) question += "\n\n" + text.Format("DocumentRemoveVariants", documents);
         if (MessageBox.Show(this, question, text["RemoveProjectLanguage"], MessageBoxButton.YesNo,
             MessageBoxImage.Warning, MessageBoxResult.No) != MessageBoxResult.Yes) return;
         _editor.RemoveLanguage(choice.Id);

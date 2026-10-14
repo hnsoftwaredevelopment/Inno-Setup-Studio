@@ -270,11 +270,11 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="PageOverviewWelcome" xml:space="preserve"><value>Welcome</value></data>
   <data name="PageReasonWelcome" xml:space="preserve"><value>Shown: Welcome is enabled. Texts can be designed now.</value></data>
   <data name="PageOverviewLicense" xml:space="preserve"><value>License agreement</value></data>
-  <data name="PageReasonLicense" xml:space="preserve"><value>No license document configured. Documents and language variants follow later.</value></data>
+  <data name="PageReasonLicense" xml:space="preserve"><value>No general license document configured. Choose Configure document to use this page.</value></data>
   <data name="PageOverviewPassword" xml:space="preserve"><value>Password</value></data>
   <data name="PageReasonPassword" xml:space="preserve"><value>No password configured. Password policy follows later.</value></data>
   <data name="PageOverviewInfoBefore" xml:space="preserve"><value>Information before installation</value></data>
-  <data name="PageReasonInfoBefore" xml:space="preserve"><value>No information document configured. Documents and language variants follow later.</value></data>
+  <data name="PageReasonInfoBefore" xml:space="preserve"><value>No general information document before installation configured. Choose Configure document to use this page.</value></data>
   <data name="PageOverviewUserInfo" xml:space="preserve"><value>User information</value></data>
   <data name="PageReasonUserInfo" xml:space="preserve"><value>User information is not enabled. Fields and initial values follow later.</value></data>
   <data name="PageOverviewDestination" xml:space="preserve"><value>Destination folder</value></data>
@@ -292,7 +292,21 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="PageOverviewInstalling" xml:space="preserve"><value>Installing</value></data>
   <data name="PageReasonInstalling" xml:space="preserve"><value>Fixed runtime phase during the actual installation. Studio performs no installation actions; progress simulation follows later.</value></data>
   <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Information after installation</value></data>
-  <data name="PageReasonInfoAfter" xml:space="preserve"><value>No information document configured. Documents and language variants follow later.</value></data>
+  <data name="PageReasonInfoAfter" xml:space="preserve"><value>No general information document after installation configured. Choose Configure document to use this page.</value></data>
   <data name="PageOverviewFinished" xml:space="preserve"><value>Setup completed</value></data>
   <data name="PageReasonFinished" xml:space="preserve"><value>Shown by default after installation. Closing roles and preview follow later.</value></data>
+  <data name="DocumentConfigure" xml:space="preserve"><value>Configure document</value></data>
+  <data name="DocumentGeneral" xml:space="preserve"><value>General document</value></data>
+  <data name="DocumentChoose" xml:space="preserve"><value>Browse…</value></data>
+  <data name="DocumentVariant" xml:space="preserve"><value>Document for this language (optional)</value></data>
+  <data name="DocumentFallback" xml:space="preserve"><value>An empty language variant uses the general document.</value></data>
+  <data name="DocumentHint" xml:space="preserve"><value>Choose TXT or RTF. Without a general document this page is hidden. Source files remain required.</value></data>
+  <data name="DocumentPreview" xml:space="preserve"><value>Show document preview</value></data>
+  <data name="DocumentFilter" xml:space="preserve"><value>Documents (*.txt;*.rtf)|*.txt;*.rtf</value></data>
+  <data name="DocumentInvalid" xml:space="preserve"><value>Choose a valid TXT or RTF document without script references in its path.</value></data>
+  <data name="DocumentConfigured" xml:space="preserve"><value>A general document is configured. Language variants use their own source; other languages use the general document.</value></data>
+  <data name="DocumentInactive" xml:space="preserve"><value>This page is disabled: choose a general document first.</value></data>
+  <data name="DocumentPreviewFailed" xml:space="preserve"><value>The document preview cannot be read. Use valid RTF or TXT with UTF-8 or UTF-16LE.</value></data>
+  <data name="DocumentPreviewLarge" xml:space="preserve"><value>This document is too large for the preview (maximum 4 MB).</value></data>
+  <data name="DocumentRemoveVariants" xml:space="preserve"><value>Also removes {0} document variants from this project. Source files are retained.</value></data>
 </root>

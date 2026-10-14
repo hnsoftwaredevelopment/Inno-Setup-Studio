@@ -109,6 +109,7 @@ public sealed class ScriptExportTests : IDisposable
         legacy.Remove("OutputBaseFileName");
         legacy.Remove("Languages");
         legacy.Remove("TextLanguageId");
+            legacy.Remove("Documents");
         var path = Path.Combine(_folder, "legacy.issstudio");
         var content = legacy.ToJsonString();
         await File.WriteAllTextAsync(path, content);

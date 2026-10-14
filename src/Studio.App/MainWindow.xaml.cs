@@ -55,7 +55,7 @@ public partial class MainWindow : Window
     private void WizardPageOverview_Click(object sender, RoutedEventArgs e)
     {
         if (_busy || !_editor.IsDesign) return;
-        new WizardPageOverviewWindow(_editor) { Owner = this }.ShowDialog();
+        new WizardPageOverviewWindow(_editor, _path is null ? null : Path.GetDirectoryName(_path)) { Owner = this }.ShowDialog();
     }
     private void Reset_Click(object sender, RoutedEventArgs e) => _editor.ResetProperty();
     private void ResetTooltip_Click(object sender, RoutedEventArgs e) => _editor.ResetTooltip();
@@ -194,6 +194,7 @@ public partial class MainWindow : Window
         var message = Text[key];
         if (error.Data["Studio.LanguageId"] is string id && _editor.Project.Languages.FirstOrDefault(language => language.Id == id) is { } language)
             message += Environment.NewLine + Environment.NewLine + language.DisplayName(Text) + Environment.NewLine + language.Source;
+        if (error.Data["Studio.DocumentPath"] is string documentPath) message += Environment.NewLine + documentPath;
         return message;
     }
 }
