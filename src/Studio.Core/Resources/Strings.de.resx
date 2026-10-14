@@ -286,15 +286,15 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="PageOverviewTasks" xml:space="preserve"><value>Aufgaben</value></data>
   <data name="PageReasonTasks" xml:space="preserve"><value>Keine Aufgaben definiert. Aufgaben und Komponentenbedingungen folgen später.</value></data>
   <data name="PageOverviewReady" xml:space="preserve"><value>Bereit zur Installation</value></data>
-  <data name="PageReasonReady" xml:space="preserve"><value>Wird standardmäßig vor der Installation angezeigt. Zusammenfassung und Schaltflächenrollen folgen später.</value></data>
+  <data name="PageReasonReady" xml:space="preserve"><value>Wird standardmäßig vor der Installation angezeigt. Phase ansehen zeigt die Zusammenfassung und die Installieren-Schaltfläche.</value></data>
   <data name="PageOverviewPreparing" xml:space="preserve"><value>Installation vorbereiten</value></data>
-  <data name="PageReasonPreparing" xml:space="preserve"><value>Die native Vorbereitung hält nur bei Fehlern, erforderlichem Neustart oder verwendeten Dateien an. Die Simulation folgt später.</value></data>
+  <data name="PageReasonPreparing" xml:space="preserve"><value>Die native Vorbereitung hält nur bei Problemen oder verwendeten Dateien an. Phase ansehen simuliert ein Vorbereitungsproblem ohne Installationsaktionen.</value></data>
   <data name="PageOverviewInstalling" xml:space="preserve"><value>Installation</value></data>
-  <data name="PageReasonInstalling" xml:space="preserve"><value>Feste Laufzeitphase während der tatsächlichen Installation. Studio führt keine Installationsaktionen aus; die Fortschrittssimulation folgt später.</value></data>
+  <data name="PageReasonInstalling" xml:space="preserve"><value>Feste Laufzeitphase. Phase ansehen zeigt manuellen Testfortschritt; es wird nichts installiert.</value></data>
   <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Informationen nach der Installation</value></data>
   <data name="PageReasonInfoAfter" xml:space="preserve"><value>Aktivieren Sie diese Seite, um ein Dokument nach der Installation und Sprachvarianten zu wählen.</value></data>
   <data name="PageOverviewFinished" xml:space="preserve"><value>Installation abgeschlossen</value></data>
-  <data name="PageReasonFinished" xml:space="preserve"><value>Wird standardmäßig nach der Installation angezeigt. Abschlussrollen und Vorschau folgen später.</value></data>
+  <data name="PageReasonFinished" xml:space="preserve"><value>Wird standardmäßig nach der Installation angezeigt. Phase ansehen zeigt den Abschluss und die Fertigstellen-Schaltfläche.</value></data>
   <data name="DocumentConfigure" xml:space="preserve"><value>Dokument einstellen</value></data>
   <data name="DocumentGeneral" xml:space="preserve"><value>Allgemeines Dokument</value></data>
   <data name="DocumentChoose" xml:space="preserve"><value>Durchsuchen…</value></data>
@@ -330,4 +330,21 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="PageInputPreview" xml:space="preserve"><value>Eingabevorschau</value></data>
   <data name="PageInputPreviewHint" xml:space="preserve"><value>Testeingaben werden nicht gespeichert. Native Konstanten bleiben Ausdrücke; der Installer bestimmt ihre Werte. Dies ist keine vollständige Assistentenvorschau.</value></data>
   <data name="DocumentDisabled" xml:space="preserve"><value>Diese Seite ist deaktiviert. Das allgemeine Dokument und die Sprachvarianten bleiben erhalten. Aktivieren Sie die Seite erneut, um sie zu verwenden.</value></data>
+  <data name="CompletionView" xml:space="preserve"><value>Phase ansehen</value></data>
+  <data name="CompletionPreviewTitle" xml:space="preserve"><value>Abschlussphasen — Simulation</value></data>
+  <data name="CompletionPreviewHint" xml:space="preserve"><value>Dies simuliert nur die Abschlussphasen. Es werden keine Dateien installiert oder Programme gestartet. Andere Seiten werden hier übersprungen; Konstanten bleiben Ausdrücke.</value></data>
+  <data name="CompletionPreparationProblem" xml:space="preserve"><value>Ein Vorbereitungsproblem simulieren</value></data>
+  <data name="CompletionResolvePreparation" xml:space="preserve"><value>Simuliertes Problem beheben und fortfahren</value></data>
+  <data name="CompletionProgressHint" xml:space="preserve"><value>Simulierter Fortschritt (manuell)</value></data>
+  <data name="CompletionComplete" xml:space="preserve"><value>Simulation bei 100 % abschließen</value></data>
+  <data name="CompletionClose" xml:space="preserve"><value>Simulation schließen</value></data>
+  <data name="CompletionLoading" xml:space="preserve"><value>Native Sprachtexte werden geladen…</value></data>
+  <data name="CompletionSourceFallback" xml:space="preserve"><value>Nicht alle nativen Sprachtexte sind verfügbar. Fehlende Texte verwenden das englische Beispiel.</value></data>
+  <data name="CompletionNativeSource" xml:space="preserve"><value>Texte aus der ausgewählten Inno Setup-Sprachquelle.</value></data>
+  <data name="ExportOverwriteConfirm" xml:space="preserve"><value>Diese .iss-Datei existiert bereits:
+
+{0}
+
+Durch den aktuellen Export ersetzen? Der bisherige Inhalt einschließlich manueller Änderungen wird ersetzt.</value></data>
+  <data name="ExportChangedSinceConfirmation" xml:space="preserve"><value>Die .iss-Datei wurde nach der Bestätigungsfrage geändert oder entfernt. Es wurde nichts ersetzt. Exportieren Sie erneut, um die aktuelle Version zu bestätigen.</value></data>
 </root>

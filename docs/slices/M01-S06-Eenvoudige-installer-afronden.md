@@ -31,3 +31,5 @@ De volledige Release-build slaagt zonder fouten of waarschuwingen. Alle 108 test
 ## Oplevering
 
 De gebruiker heeft alle tests afgerond en meldt dat alles werkt zoals afgesproken. S06 en M01 zijn geaccepteerd; commit/push en merge naar main zijn expliciet geautoriseerd. Er wordt geen volledigheid van de SVG-appinstallatie of runtimeproef door de agent geclaimd.
+
+Actuele wijziging: de bovenstaande exportbeveiliging en testinstructies beschrijven het gedrag bij oplevering van M01. Op gebruikersverzoek is bij M03-S04 expliciete vervanging van bestaande .iss-scripts toegevoegd. Zonder bevestiging blijft de bescherming gelden. Zie [huidige exportbediening en controle](M03-S04-Gereed-voortgang-en-voltooid.md).

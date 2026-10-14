@@ -55,7 +55,8 @@ public partial class MainWindow : Window
     private void WizardPageOverview_Click(object sender, RoutedEventArgs e)
     {
         if (_busy || !_editor.IsDesign) return;
-        new WizardPageOverviewWindow(_editor, _path is null ? null : Path.GetDirectoryName(_path)) { Owner = this }.ShowDialog();
+        new WizardPageOverviewWindow(_editor, _path is null ? null : Path.GetDirectoryName(_path),
+            _compilerPath is null ? null : Path.GetDirectoryName(_compilerPath)) { Owner = this }.ShowDialog();
     }
     private void Reset_Click(object sender, RoutedEventArgs e) => _editor.ResetProperty();
     private void ResetTooltip_Click(object sender, RoutedEventArgs e) => _editor.ResetTooltip();
@@ -114,7 +115,15 @@ public partial class MainWindow : Window
         SetBusy(true);
         try
         {
-            await InnoScript.ExportAsync(dialog.FileName, _editor.Project, projectDirectory);
+            byte[]? confirmed = null;
+            if (File.Exists(dialog.FileName))
+            {
+                // Capture the existing content before asking; later edits invalidate this confirmation.
+                confirmed = await InnoScript.ReadExportFingerprintAsync(dialog.FileName);
+                if (MessageBox.Show(this, Text.Format("ExportOverwriteConfirm", dialog.FileName), Text["ExportScript"],
+                    MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) != MessageBoxResult.Yes) return;
+            }
+            await InnoScript.ExportAsync(dialog.FileName, _editor.Project, projectDirectory, confirmed);
             _editor.SetStatus("StatusExported");
         }
         catch (Exception error) when (IsFileError(error)) { ShowFileError("Export", error); }
@@ -126,7 +135,7 @@ public partial class MainWindow : Window
         var path = _path;
         if (path is null || saveAs)
         {
-            var dialog = new SaveFileDialog { Filter = Text["ProjectFilter"], Title = Text["SaveTitle"], DefaultExt = ".issstudio", AddExtension = true,
+            var dialog = new SaveFileDialog { Filter = Text["ProjectFilter"], Title = Text["SaveTitle"], DefaultExt = ".issstudio", AddExtension = true, OverwritePrompt = true,
                 FileName = path is null ? SuggestedFileName(_editor.Project.Name) : Path.GetFileName(path) };
             if (dialog.ShowDialog(this) != true) return false;
             path = dialog.FileName;

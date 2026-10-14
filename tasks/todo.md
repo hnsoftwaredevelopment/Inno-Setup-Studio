@@ -65,7 +65,7 @@ Bestandsgroepen: Core/paginamodel/status; App/navigatie/preview/eigenschappen; g
 | [x] | M03-S01 Standaardpaginaoverzicht | Alle reguliere fasen zijn herkenbaar; volgorde blijft native; ingeschakeld/uitgeschakeld/voorwaardelijk/runtime zijn onderscheiden. | B/T/U; M02 |
 | [x] | M03-S02 Licentie en informatie | Documenten en taalvarianten zijn instelbaar; zichtbaarheidsvoorwaarden passen bij het project; gebruiker controleert licentieacceptatie en documenten. | B/T/C/I; S01 |
 | [x] | M03-S03 Gebruikersinformatie en startmenumap | Ondersteunde velden en mapbeleid worden opgeslagen; preview toont toepasselijke invoer; export bevat de juiste reguliere instellingen. | B/T/C/U; S02 |
-| [ ] | M03-S04 Gereed, voortgang en voltooid | Samenvatting en afsluitrollen zijn herkenbaar; simulatie wijzigt geen model; installeren/voltooien zijn geen vaste Verder-tekst. | B/T/C/U; S03 |
+| [x] | M03-S04 Gereed, voortgang en voltooid | Samenvatting en afsluitrollen zijn herkenbaar; simulatie wijzigt geen model; installeren/voltooien zijn geen vaste Verder-tekst. | B/T/C/U; S03 |
 | [ ] | M03-S05 Basisontwerp en pagina-afwijkingen | Overerving heeft juiste taal/rol/scope; lokale wijzigingen lekken niet bij terugnavigeren; onbewezen properties zijn niet actief bewerkbaar. | B/T/C/I; S04 |
 | [ ] | M03-S06 Wizardproef | Een samengesteld voorbeeld toont de juiste pagina's en teksten; ontwerpselectie herstelt na Uitproberen; bestaande voorbeeldprojecten blijven bruikbaar. | B/T/C/I, milestonecheck; S05 |
 
@@ -191,3 +191,11 @@ Genoteerd op gebruikersverzoek voor verdere wizardbediening: toegang tot Licenti
 Op gebruikersverzoek voor M08: serienummerveld bij native Gebruikersinformatie met door Studio gegenereerde CheckSerial-validatie. Eerst het gewenste validatiegedrag expliciet configureren; de native pagina toont het veld pas met CheckSerial. Niet opgenomen in M03-S03.
 
 Na de schakelaarwijzigingen: Release-build geslaagd zonder fouten of waarschuwingen; alle 211 tests geslaagd, inclusief behoud van documentbronnen bij uit/aan en migratie van formaat 8. De gebruiker heeft de schakelaars en popupbediening getest en geaccepteerd.
+
+M03-S04 is geïmplementeerd op m03-wizardpaginas: een korte simulatie van de vier afsluitfasen via Fase bekijken, native rolteksten en een read-only samenvatting. Voorbereidingsprobleem en voortgang zijn tijdelijke simulatiewaarden; project, export en native bronbytes blijven gelijk. [Scope en handmatige teststappen](../docs/slices/M03-S04-Gereed-voortgang-en-voltooid.md). De gebruiker heeft deze slice geaccepteerd, inclusief de juiste Voltooid/Finish-tekst en Ja/Nee bij het vervangen van exports. De complete wizardroute volgt in S06.
+
+Volledige regressiecontrole: alle 216 tests geslaagd, inclusief bestaande ISCC-compilatieproeven. De build heeft 0 fouten en 0 waarschuwingen. M03-S04 is door de gebruiker geaccepteerd.
+
+Gebruikerscorrectie bij S04: Exporteer .iss moet een bestaande alternatieve export bewust kunnen vervangen. Expliciete vervangingsvraag en controle van de bevestigde inhoud zijn geïmplementeerd; project-Opslaan als is ook gecontroleerd. De gebruiker heeft de echte installer en projectopslag getest. De gebruiker heeft de Voltooid/Finish-rol en exportcorrectie getest en geaccepteerd.
+
+Na de exportcorrectie: Release-build zonder fouten/waarschuwingen; alle 221 tests geslaagd. Controles omvatten bevestigde vervanging, behoud zonder toestemming, wijziging/verwijdering na bevestiging, bronbescherming en vervangen van een bestaand alternatief .issstudio-project.

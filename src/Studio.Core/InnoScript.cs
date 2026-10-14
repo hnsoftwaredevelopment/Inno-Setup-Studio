@@ -94,7 +94,13 @@ public static class InnoScript
         return resolved;
     }
 
-    public static async Task ExportAsync(string path, StudioProject project, string? projectDirectory)
+    public static async Task<byte[]> ReadExportFingerprintAsync(string path)
+    {
+        await using var stream = File.OpenRead(path);
+        return await System.Security.Cryptography.SHA256.HashDataAsync(stream);
+    }
+
+    public static async Task ExportAsync(string path, StudioProject project, string? projectDirectory, byte[]? confirmedExistingHash = null)
     {
         if (!string.Equals(Path.GetExtension(path), ".iss", StringComparison.OrdinalIgnoreCase))
             throw Error("ExportExtensionInvalid");
@@ -105,14 +111,22 @@ public static class InnoScript
         if (File.Exists(fullPath))
         {
             if (await File.ReadAllTextAsync(fullPath) == script) return;
-            throw Error("ExportExistingProtected");
+            if (confirmedExistingHash is null) throw Error("ExportExistingProtected");
         }
+        async Task VerifyConfirmation()
+        {
+            if (confirmedExistingHash is not null && (!File.Exists(fullPath)
+                || !(await ReadExportFingerprintAsync(fullPath)).SequenceEqual(confirmedExistingHash)))
+                throw Error("ExportChangedSinceConfirmation");
+        }
+        await VerifyConfirmation();
         var temporaryPath = fullPath + $".{Guid.NewGuid():N}.tmp";
         try
         {
             await File.WriteAllTextAsync(temporaryPath, script, new UTF8Encoding(encoderShouldEmitUTF8Identifier: true));
-            // Never replace a file that appeared while the temporary script was being written.
-            File.Move(temporaryPath, fullPath, overwrite: false);
+            await VerifyConfirmation();
+            // Without confirmation, a file appearing on this path is still preserved.
+            File.Move(temporaryPath, fullPath, overwrite: confirmedExistingHash is not null);
         }
         finally { if (File.Exists(temporaryPath)) File.Delete(temporaryPath); }
     }

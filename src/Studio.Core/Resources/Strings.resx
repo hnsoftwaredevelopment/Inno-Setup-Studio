@@ -286,15 +286,15 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="PageOverviewTasks" xml:space="preserve"><value>Taken</value></data>
   <data name="PageReasonTasks" xml:space="preserve"><value>Geen taken gedefinieerd. Taken en componentvoorwaarden volgen later.</value></data>
   <data name="PageOverviewReady" xml:space="preserve"><value>Gereed voor installatie</value></data>
-  <data name="PageReasonReady" xml:space="preserve"><value>Wordt standaard getoond vóór installatie. Samenvatting en knoprollen volgen later.</value></data>
+  <data name="PageReasonReady" xml:space="preserve"><value>Wordt standaard getoond vóór installatie. Fase bekijken toont de samenvatting en de Installeren-knop.</value></data>
   <data name="PageOverviewPreparing" xml:space="preserve"><value>Voorbereiden</value></data>
-  <data name="PageReasonPreparing" xml:space="preserve"><value>De native voorbereiding pauzeert alleen bij fouten, benodigde herstart of bestanden die door programma’s worden gebruikt. Simulatie volgt later.</value></data>
+  <data name="PageReasonPreparing" xml:space="preserve"><value>De native voorbereiding pauzeert alleen bij problemen of bestanden in gebruik. Fase bekijken simuleert een voorbereidingsprobleem zonder installatieacties.</value></data>
   <data name="PageOverviewInstalling" xml:space="preserve"><value>Installeren</value></data>
-  <data name="PageReasonInstalling" xml:space="preserve"><value>Vaste runtimefase tijdens de echte installatie. Studio voert geen installatieacties uit; voortgangssimulatie volgt later.</value></data>
+  <data name="PageReasonInstalling" xml:space="preserve"><value>Vaste runtimefase. Fase bekijken toont handmatige proefvoortgang; er wordt niets geïnstalleerd.</value></data>
   <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Informatie na installatie</value></data>
   <data name="PageReasonInfoAfter" xml:space="preserve"><value>Schakel deze pagina in om een document na installatie en taalvarianten te kiezen.</value></data>
   <data name="PageOverviewFinished" xml:space="preserve"><value>Voltooid</value></data>
-  <data name="PageReasonFinished" xml:space="preserve"><value>Wordt standaard getoond na installatie. Afsluitrollen en preview volgen later.</value></data>
+  <data name="PageReasonFinished" xml:space="preserve"><value>Wordt standaard getoond na installatie. Fase bekijken toont de afronding en de Voltooien-knop.</value></data>
   <data name="DocumentConfigure" xml:space="preserve"><value>Document instellen</value></data>
   <data name="DocumentGeneral" xml:space="preserve"><value>Algemeen document</value></data>
   <data name="DocumentChoose" xml:space="preserve"><value>Bladeren…</value></data>
@@ -330,4 +330,21 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="PageInputPreview" xml:space="preserve"><value>Invoervoorbeeld</value></data>
   <data name="PageInputPreviewHint" xml:space="preserve"><value>Proefinvoer wordt niet opgeslagen. Native constanten blijven expressies; de echte installer bepaalt hun waarden. Dit is geen volledige wizardweergave.</value></data>
   <data name="DocumentDisabled" xml:space="preserve"><value>Deze pagina is uitgeschakeld. Het algemene document en de taalvarianten blijven bewaard. Schakel de pagina weer in om ze te gebruiken.</value></data>
+  <data name="CompletionView" xml:space="preserve"><value>Fase bekijken</value></data>
+  <data name="CompletionPreviewTitle" xml:space="preserve"><value>Afsluitfasen — simulatie</value></data>
+  <data name="CompletionPreviewHint" xml:space="preserve"><value>Dit is alleen een simulatie van de afsluitfasen. Er worden geen bestanden geïnstalleerd of programma’s gestart. Overige pagina’s worden hier overgeslagen; constanten blijven expressies.</value></data>
+  <data name="CompletionPreparationProblem" xml:space="preserve"><value>Een voorbereidingsprobleem simuleren</value></data>
+  <data name="CompletionResolvePreparation" xml:space="preserve"><value>Simulatieprobleem oplossen en verdergaan</value></data>
+  <data name="CompletionProgressHint" xml:space="preserve"><value>Gesimuleerde voortgang (handmatig)</value></data>
+  <data name="CompletionComplete" xml:space="preserve"><value>Simulatie bij 100% afronden</value></data>
+  <data name="CompletionClose" xml:space="preserve"><value>Simulatie sluiten</value></data>
+  <data name="CompletionLoading" xml:space="preserve"><value>Native taalteksten laden…</value></data>
+  <data name="CompletionSourceFallback" xml:space="preserve"><value>Niet alle native taalteksten zijn beschikbaar. Ontbrekende teksten gebruiken het Engelse voorbeeld.</value></data>
+  <data name="CompletionNativeSource" xml:space="preserve"><value>Teksten uit de geselecteerde Inno Setup-taalbron.</value></data>
+  <data name="ExportOverwriteConfirm" xml:space="preserve"><value>Dit .iss-bestand bestaat al:
+
+{0}
+
+Vervangen door de huidige export? De bestaande inhoud, inclusief eventuele handmatige wijzigingen, wordt vervangen.</value></data>
+  <data name="ExportChangedSinceConfirmation" xml:space="preserve"><value>Het .iss-bestand is gewijzigd of verwijderd na de bevestigingsvraag. Er is niets vervangen. Exporteer opnieuw om de huidige versie te bevestigen.</value></data>
 </root>

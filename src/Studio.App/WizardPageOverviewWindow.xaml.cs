@@ -10,18 +10,21 @@ public partial class WizardPageOverviewWindow : Window
 {
     private readonly EditorSession _editor;
     private readonly string? _directory;
-    public WizardPageOverviewWindow(EditorSession editor, string? directory)
+    private readonly string? _compilerDirectory;
+    public WizardPageOverviewWindow(EditorSession editor, string? directory, string? compilerDirectory)
     {
         _editor = editor; _directory = directory;
+        _compilerDirectory = compilerDirectory;
         InitializeComponent();
         DataContext = WizardPageOverview.Create(editor.Text, editor.Project);
         Pages.SelectedIndex = 0;
     }
     private void Pages_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        var canDesign = Pages.SelectedItem is WizardPageSummary row && (row.CanDesign || row.SettingsSection == PageSettingsSection.ProgramGroup) && _editor.IsDesign;
+        var canDesign = Pages.SelectedItem is WizardPageSummary row && (row.CanDesign || row.SettingsSection == PageSettingsSection.ProgramGroup || row.Completion is not null) && _editor.IsDesign;
         Design.Content = _editor.Text[Pages.SelectedItem is WizardPageSummary { DocumentKind: not null } ? "DocumentConfigure"
-            : Pages.SelectedItem is WizardPageSummary { SettingsSection: not null } ? "PageConfigure" : "PageOverviewDesign"];
+            : Pages.SelectedItem is WizardPageSummary { SettingsSection: not null } ? "PageConfigure"
+            : Pages.SelectedItem is WizardPageSummary { Completion: not null } ? "CompletionView" : "PageOverviewDesign"];
         Design.Visibility = canDesign ? Visibility.Visible : Visibility.Collapsed;
         Unavailable.Visibility = canDesign || Pages.SelectedItem is WizardPageSummary { CanToggle: true } ? Visibility.Collapsed : Visibility.Visible;
     }
@@ -76,6 +79,11 @@ public partial class WizardPageOverviewWindow : Window
     private void Design_Click(object sender, RoutedEventArgs e)
     {
         if (!_editor.IsDesign) return;
+        if (Pages.SelectedItem is WizardPageSummary { Completion: { } phase })
+        {
+            new WizardCompletionWindow(_editor, phase, _compilerDirectory, _directory) { Owner = this }.ShowDialog();
+            return;
+        }
         if (Pages.SelectedItem is WizardPageSummary { SettingsSection: PageSettingsSection.ProgramGroup } row)
         {
             OpenSettings(row); RefreshRows(row.Order - 1);

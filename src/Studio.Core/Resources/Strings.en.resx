@@ -286,15 +286,15 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="PageOverviewTasks" xml:space="preserve"><value>Tasks</value></data>
   <data name="PageReasonTasks" xml:space="preserve"><value>No tasks defined. Tasks and component conditions follow later.</value></data>
   <data name="PageOverviewReady" xml:space="preserve"><value>Ready to install</value></data>
-  <data name="PageReasonReady" xml:space="preserve"><value>Shown by default before installation. Summary and button roles follow later.</value></data>
+  <data name="PageReasonReady" xml:space="preserve"><value>Shown by default before installation. View phase shows the summary and Install button.</value></data>
   <data name="PageOverviewPreparing" xml:space="preserve"><value>Preparing to install</value></data>
-  <data name="PageReasonPreparing" xml:space="preserve"><value>Native preparation pauses only for errors, a required restart or files in use by applications. Simulation follows later.</value></data>
+  <data name="PageReasonPreparing" xml:space="preserve"><value>Native preparation pauses only for problems or files in use. View phase simulates a preparation problem without installation actions.</value></data>
   <data name="PageOverviewInstalling" xml:space="preserve"><value>Installing</value></data>
-  <data name="PageReasonInstalling" xml:space="preserve"><value>Fixed runtime phase during the actual installation. Studio performs no installation actions; progress simulation follows later.</value></data>
+  <data name="PageReasonInstalling" xml:space="preserve"><value>Fixed runtime phase. View phase shows manual trial progress; nothing is installed.</value></data>
   <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Information after installation</value></data>
   <data name="PageReasonInfoAfter" xml:space="preserve"><value>Turn on this page to choose a document after installation and language variants.</value></data>
   <data name="PageOverviewFinished" xml:space="preserve"><value>Setup completed</value></data>
-  <data name="PageReasonFinished" xml:space="preserve"><value>Shown by default after installation. Closing roles and preview follow later.</value></data>
+  <data name="PageReasonFinished" xml:space="preserve"><value>Shown by default after installation. View phase shows completion and the Finish button.</value></data>
   <data name="DocumentConfigure" xml:space="preserve"><value>Configure document</value></data>
   <data name="DocumentGeneral" xml:space="preserve"><value>General document</value></data>
   <data name="DocumentChoose" xml:space="preserve"><value>Browse…</value></data>
@@ -330,4 +330,21 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="PageInputPreview" xml:space="preserve"><value>Input preview</value></data>
   <data name="PageInputPreviewHint" xml:space="preserve"><value>Trial input is not saved. Native constants remain expressions; the installer determines their values. This is not a full wizard preview.</value></data>
   <data name="DocumentDisabled" xml:space="preserve"><value>This page is disabled. The general document and language variants are retained. Turn the page on again to use them.</value></data>
+  <data name="CompletionView" xml:space="preserve"><value>View phase</value></data>
+  <data name="CompletionPreviewTitle" xml:space="preserve"><value>Completion phases — simulation</value></data>
+  <data name="CompletionPreviewHint" xml:space="preserve"><value>This only simulates the completion phases. No files are installed or programs started. Other pages are skipped here; constants remain expressions.</value></data>
+  <data name="CompletionPreparationProblem" xml:space="preserve"><value>Simulate a preparation problem</value></data>
+  <data name="CompletionResolvePreparation" xml:space="preserve"><value>Resolve the simulated problem and continue</value></data>
+  <data name="CompletionProgressHint" xml:space="preserve"><value>Simulated progress (manual)</value></data>
+  <data name="CompletionComplete" xml:space="preserve"><value>Complete simulation at 100%</value></data>
+  <data name="CompletionClose" xml:space="preserve"><value>Close simulation</value></data>
+  <data name="CompletionLoading" xml:space="preserve"><value>Loading native language text…</value></data>
+  <data name="CompletionSourceFallback" xml:space="preserve"><value>Not all native language texts are available. Missing texts use the English example.</value></data>
+  <data name="CompletionNativeSource" xml:space="preserve"><value>Text from the selected Inno Setup language source.</value></data>
+  <data name="ExportOverwriteConfirm" xml:space="preserve"><value>This .iss file already exists:
+
+{0}
+
+Replace it with the current export? Existing content, including any manual changes, will be replaced.</value></data>
+  <data name="ExportChangedSinceConfirmation" xml:space="preserve"><value>The .iss file changed or was removed after the confirmation prompt. Nothing was replaced. Export again to confirm the current version.</value></data>
 </root>

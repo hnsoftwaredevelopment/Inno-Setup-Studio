@@ -8,6 +8,11 @@ public sealed record WizardPageSummary(int Order, string Id, string Name, Wizard
     public WizardDocumentKind? DocumentKind => WizardPageOverview.DocumentKindForPage(Id);
     public PageSettingsSection? SettingsSection => Id switch { "UserInfo" => PageSettingsSection.UserInfo, "ProgramGroup" => PageSettingsSection.ProgramGroup, _ => null };
     public bool CanDesign => DesignIndex is not null;
+    public CompletionPhase? Completion => Id switch
+    {
+        "Ready" => CompletionPhase.Ready, "Preparing" => CompletionPhase.Preparing,
+        "Installing" => CompletionPhase.Installing, "Finished" => CompletionPhase.Finished, _ => null
+    };
     public bool CanToggle => DocumentKind is not null || SettingsSection == PageSettingsSection.UserInfo;
     public bool IsOn => State is WizardPageState.Enabled or WizardPageState.Runtime;
 }
