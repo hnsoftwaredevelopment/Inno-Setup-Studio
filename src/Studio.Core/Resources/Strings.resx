@@ -347,4 +347,11 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
 
 Vervangen door de huidige export? De bestaande inhoud, inclusief eventuele handmatige wijzigingen, wordt vervangen.</value></data>
   <data name="ExportChangedSinceConfirmation" xml:space="preserve"><value>Het .iss-bestand is gewijzigd of verwijderd na de bevestigingsvraag. Er is niets vervangen. Exporteer opnieuw om de huidige versie te bevestigen.</value></data>
+  <data name="ScopeSharedBackCancel" xml:space="preserve"><value>Gedeeld in deze voorbeeldtaal, waar de knop zichtbaar is. Een lokale pagina-afwijking gaat voor.</value></data>
+  <data name="ScopeSharedNext" xml:space="preserve"><value>Gedeeld op gewone Volgende-pagina’s in deze taal. Installeren, Voltooien en runtimevoorbereiding behouden hun native rol.</value></data>
+  <data name="ScopeLocalButton" xml:space="preserve"><value>Alleen deze pagina en voorbeeldtaal. Herstellen verwijdert de lokale tekst en toont weer de gedeelde of standaardtekst.</value></data>
+  <data name="ScopePageText" xml:space="preserve"><value>Alleen deze pagina en voorbeeldtaal; geen overerving uit Basisontwerp.</value></data>
+  <data name="ScopeDirectory" xml:space="preserve"><value>Projectinstelling voor Installatiemap, onafhankelijk van de taal. Native Inno Setup-constanten blijven expressies.</value></data>
+  <data name="ScopeBrowse" xml:space="preserve"><value>Alleen Bladeren op Installatiemap, in deze voorbeeldtaal. De tekst en tooltip hebben afzonderlijke afwijkingen.</value></data>
+  <data name="ScopeUnavailable" xml:space="preserve"><value>Deze eigenschap heeft hier geen ondersteunde native bewerking.</value></data>
 </root>

@@ -66,7 +66,7 @@ Bestandsgroepen: Core/paginamodel/status; App/navigatie/preview/eigenschappen; g
 | [x] | M03-S02 Licentie en informatie | Documenten en taalvarianten zijn instelbaar; zichtbaarheidsvoorwaarden passen bij het project; gebruiker controleert licentieacceptatie en documenten. | B/T/C/I; S01 |
 | [x] | M03-S03 Gebruikersinformatie en startmenumap | Ondersteunde velden en mapbeleid worden opgeslagen; preview toont toepasselijke invoer; export bevat de juiste reguliere instellingen. | B/T/C/U; S02 |
 | [x] | M03-S04 Gereed, voortgang en voltooid | Samenvatting en afsluitrollen zijn herkenbaar; simulatie wijzigt geen model; installeren/voltooien zijn geen vaste Verder-tekst. | B/T/C/U; S03 |
-| [ ] | M03-S05 Basisontwerp en pagina-afwijkingen | Overerving heeft juiste taal/rol/scope; lokale wijzigingen lekken niet bij terugnavigeren; onbewezen properties zijn niet actief bewerkbaar. | B/T/C/I; S04 |
+| [x] | M03-S05 Basisontwerp en pagina-afwijkingen | Overerving heeft juiste taal/rol/scope; lokale wijzigingen lekken niet bij terugnavigeren; onbewezen properties zijn niet actief bewerkbaar. | B/T/C/I; S04 |
 | [ ] | M03-S06 Wizardproef | Een samengesteld voorbeeld toont de juiste pagina's en teksten; ontwerpselectie herstelt na Uitproberen; bestaande voorbeeldprojecten blijven bruikbaar. | B/T/C/I, milestonecheck; S05 |
 
 ## M04 — m04-installatiekeuzes
@@ -195,6 +195,8 @@ Na de schakelaarwijzigingen: Release-build geslaagd zonder fouten of waarschuwin
 M03-S04 is geïmplementeerd op m03-wizardpaginas: een korte simulatie van de vier afsluitfasen via Fase bekijken, native rolteksten en een read-only samenvatting. Voorbereidingsprobleem en voortgang zijn tijdelijke simulatiewaarden; project, export en native bronbytes blijven gelijk. [Scope en handmatige teststappen](../docs/slices/M03-S04-Gereed-voortgang-en-voltooid.md). De gebruiker heeft deze slice geaccepteerd, inclusief de juiste Voltooid/Finish-tekst en Ja/Nee bij het vervangen van exports. De complete wizardroute volgt in S06.
 
 Volledige regressiecontrole: alle 216 tests geslaagd, inclusief bestaande ISCC-compilatieproeven. De build heeft 0 fouten en 0 waarschuwingen. M03-S04 is door de gebruiker geaccepteerd.
+
+M03-S05 is geïmplementeerd op m03-wizardpaginas: bereik-uitleg per ontwerpeigenschap, een expliciete bewerkbaarheidslijst en gedeelde Verder-tekst op gewone native invoer- en documentpagina’s. Lokale afwijkingen blijven pagina- en taalgebonden; native actieknoppen houden hun rol. Release-build: 0 fouten en 0 waarschuwingen. Alle 230 tests geslaagd, inclusief de nieuwe meertalige ISCC-proef. [Scope en handmatige teststappen](../docs/slices/M03-S05-Basisontwerp-en-pagina-afwijkingen.md). De gebruiker heeft de Studio en een gebouwde installer in diverse talen, met en zonder aangepaste knoppen, getest en deze slice geaccepteerd. S06 is nog niet gestart.
 
 Gebruikerscorrectie bij S04: Exporteer .iss moet een bestaande alternatieve export bewust kunnen vervangen. Expliciete vervangingsvraag en controle van de bevestigde inhoud zijn geïmplementeerd; project-Opslaan als is ook gecontroleerd. De gebruiker heeft de echte installer en projectopslag getest. De gebruiker heeft de Voltooid/Finish-rol en exportcorrectie getest en geaccepteerd.
 

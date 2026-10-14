@@ -66,7 +66,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
     public bool IsBrowseSelected => SelectedElement == ElementKind.Browse;
     public bool ShowInheritance => !IsDirectorySelected;
     public bool IsDesign => !IsPreview;
-    public bool CanEdit => IsDesign && (!IsBase || IsButton);
+    public bool CanEdit => IsDesign && WizardPropertyScope.CanEdit(CurrentPage?.Kind, SelectedElement);
     public bool IsButton => SelectedElement is ElementKind.Back or ElementKind.Next or ElementKind.Cancel;
     public bool CanReset => CanEdit && !IsDirectorySelected && WizardTexts.Own(Project, PreviewLanguage, SelectedSlot) is not null;
     public bool ShowTextWatermark => ShowInheritance && string.IsNullOrEmpty(PropertyText);
@@ -185,6 +185,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
     public string TrialDirectory { get => DirectoryText; set => SetTrialDirectory(value); }
     public string BrowseCaption => WizardTexts.Resolve(Project, PreviewLanguageId, WizardTextSlot.DestinationBrowse).Text;
     public string PropertyLabel => IsDirectorySelected ? Text["DefaultDirectoryLabel"] : Text["OwnTranslationText"];
+    public string PropertyScopeHint => WizardPropertyScope.Describe(Text, CurrentPage?.Kind, SelectedElement);
     public string PropertyHint => IsDirectorySelected
         ? Text["DirectoryHint"]
         : IsBrowseSelected ? Text["BrowseHint"]

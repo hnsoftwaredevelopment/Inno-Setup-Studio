@@ -347,4 +347,11 @@ Select a navigation button below to edit its shared text.</value></data>
 
 Replace it with the current export? Existing content, including any manual changes, will be replaced.</value></data>
   <data name="ExportChangedSinceConfirmation" xml:space="preserve"><value>The .iss file changed or was removed after the confirmation prompt. Nothing was replaced. Export again to confirm the current version.</value></data>
+  <data name="ScopeSharedBackCancel" xml:space="preserve"><value>Shared in this preview language wherever the button is visible. A local page override takes precedence.</value></data>
+  <data name="ScopeSharedNext" xml:space="preserve"><value>Shared on ordinary Next pages in this language. Install, Finish and runtime preparation retain their native roles.</value></data>
+  <data name="ScopeLocalButton" xml:space="preserve"><value>Only this page and preview language. Reset removes the local text and restores shared or default text.</value></data>
+  <data name="ScopePageText" xml:space="preserve"><value>Only this page and preview language; no inheritance from Base design.</value></data>
+  <data name="ScopeDirectory" xml:space="preserve"><value>Project setting for Destination folder, independent of language. Native Inno Setup constants remain expressions.</value></data>
+  <data name="ScopeBrowse" xml:space="preserve"><value>Only Browse on Destination folder, in this preview language. Caption and tooltip have separate overrides.</value></data>
+  <data name="ScopeUnavailable" xml:space="preserve"><value>This property has no supported native editing here.</value></data>
 </root>

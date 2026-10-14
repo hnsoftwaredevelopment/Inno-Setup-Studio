@@ -45,6 +45,9 @@ internal static class WizardScript
             // Native page changes reset captions first. Reset our shared values before local overrides.
             lines.Add(Assign("BackButton", "Caption", Resolve(language, null, ElementKind.Back)));
             lines.Add(Assign("CancelButton", "Caption", Resolve(language, null, ElementKind.Cancel)));
+            // Scope by page ID, never by translated captions. Runtime and action roles stay native.
+            lines.Add("  if CurPageID in [wpWelcome, wpLicense, wpPassword, wpInfoBefore, wpUserInfo, wpSelectDir, wpSelectComponents, wpSelectProgramGroup, wpSelectTasks, wpInfoAfter] then");
+            lines.Add("  " + Assign("NextButton", "Caption", Resolve(language, null, ElementKind.Next)));
             AddPage(language, welcome, "wpWelcome");
             AddPage(language, destination, "wpSelectDir");
         });

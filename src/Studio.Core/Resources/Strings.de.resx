@@ -347,4 +347,11 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
 
 Durch den aktuellen Export ersetzen? Der bisherige Inhalt einschließlich manueller Änderungen wird ersetzt.</value></data>
   <data name="ExportChangedSinceConfirmation" xml:space="preserve"><value>Die .iss-Datei wurde nach der Bestätigungsfrage geändert oder entfernt. Es wurde nichts ersetzt. Exportieren Sie erneut, um die aktuelle Version zu bestätigen.</value></data>
+  <data name="ScopeSharedBackCancel" xml:space="preserve"><value>In dieser Vorschausprache gemeinsam verwendet, wo die Schaltfläche sichtbar ist. Eine lokale Seitenabweichung hat Vorrang.</value></data>
+  <data name="ScopeSharedNext" xml:space="preserve"><value>Gemeinsam auf normalen Weiter-Seiten dieser Sprache. Installieren, Fertigstellen und Laufzeitvorbereitung behalten ihre nativen Rollen.</value></data>
+  <data name="ScopeLocalButton" xml:space="preserve"><value>Nur diese Seite und Vorschausprache. Zurücksetzen entfernt den lokalen Text und zeigt wieder gemeinsamen oder Standardtext.</value></data>
+  <data name="ScopePageText" xml:space="preserve"><value>Nur diese Seite und Vorschausprache; keine Vererbung aus dem Basisentwurf.</value></data>
+  <data name="ScopeDirectory" xml:space="preserve"><value>Projekteinstellung für den Installationsordner, unabhängig von der Sprache. Native Inno Setup-Konstanten bleiben Ausdrücke.</value></data>
+  <data name="ScopeBrowse" xml:space="preserve"><value>Nur Durchsuchen im Installationsordner, in dieser Vorschausprache. Text und Tooltip haben getrennte Abweichungen.</value></data>
+  <data name="ScopeUnavailable" xml:space="preserve"><value>Diese Eigenschaft hat hier keine unterstützte native Bearbeitung.</value></data>
 </root>
