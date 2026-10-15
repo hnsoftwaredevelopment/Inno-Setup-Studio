@@ -379,4 +379,31 @@ Replace it with the current export? Existing content, including any manual chang
   <data name="FilesPreviewTooLarge" xml:space="preserve"><value>This collection exceeds the complete preview limit (10,000 files or 50,000 folders). Narrow the source selection.</value></data>
   <data name="FilesLinkedDirectory" xml:space="preserve"><value>The source contains a linked folder. Use regular source folders for a verifiable file preview.</value></data>
   <data name="FilesPreviewFailed" xml:space="preserve"><value>The source collection could not be fully read. Check the path and access.</value></data>
+  <data name="DirectoryRulesHeading" xml:space="preserve"><value>Directory rules</value></data>
+  <data name="DirectoryRulesManage" xml:space="preserve"><value>Manage directory rules</value></data>
+  <data name="DirectoryRuleCount" xml:space="preserve"><value>{0} directory rule(s)</value></data>
+  <data name="DirectoryRulesHint" xml:space="preserve"><value>Create additional directories, for example empty folders. File rules already create their destination folders. Add a rule to begin.</value></data>
+  <data name="DirectoryTarget" xml:space="preserve"><value>Destination directory</value></data>
+  <data name="DirectoryTargetHint" xml:space="preserve"><value>Use {app} or a subfolder, for example {app}\Data. This path applies on the target computer; Studio does not create it here.</value></data>
+  <data name="DirectoryRuleInvalid" xml:space="preserve"><value>Invalid directory rule. Use {app} or a subfolder without dot segments, additional constants or invalid path characters; choose valid attributes and options.</value></data>
+  <data name="DirectoryAttributesHeading" xml:space="preserve"><value>Directory attributes</value></data>
+  <data name="DirectoryReadOnly" xml:space="preserve"><value>Read-only</value></data>
+  <data name="DirectoryHidden" xml:space="preserve"><value>Hidden</value></data>
+  <data name="DirectorySystem" xml:space="preserve"><value>System</value></data>
+  <data name="DirectoryNotContentIndexed" xml:space="preserve"><value>Do not index contents</value></data>
+  <data name="DirectoryAttributesHint" xml:space="preserve"><value>Read-only is a directory attribute and does not deny write permissions. Existing attributes are combined with these choices.</value></data>
+  <data name="DirectoryCompressionHeading" xml:space="preserve"><value>NTFS compression</value></data>
+  <data name="DirectoryCompressionUnchanged" xml:space="preserve"><value>Leave unchanged</value></data>
+  <data name="DirectoryCompressionEnable" xml:space="preserve"><value>Enable</value></data>
+  <data name="DirectoryCompressionDisable" xml:space="preserve"><value>Disable</value></data>
+  <data name="DirectoryCompressionHint" xml:space="preserve"><value>Applies only on a file system that supports this setting. The compression state of files already in the directory is unchanged.</value></data>
+  <data name="DirectoryUninstallHeading" xml:space="preserve"><value>During uninstall</value></data>
+  <data name="DirectoryUninstallNativeDefault" xml:space="preserve"><value>Default (empty new directory)</value></data>
+  <data name="DirectoryUninstallKeep" xml:space="preserve"><value>Keep directory</value></data>
+  <data name="DirectoryUninstallRemoveExistingEmpty" xml:space="preserve"><value>Also remove an existing empty directory</value></data>
+  <data name="DirectoryUninstallHintNativeDefault" xml:space="preserve"><value>The uninstaller attempts removal if the directory was created during installation and is empty. Pre-existing directories are kept.</value></data>
+  <data name="DirectoryUninstallHintKeep" xml:space="preserve"><value>The uninstaller does not attempt to remove this directory. File rules determine what happens to installed files.</value></data>
+  <data name="DirectoryUninstallHintRemoveExistingEmpty" xml:space="preserve"><value>The uninstaller attempts removal if the directory is empty, even if it existed before installation. Non-empty directories are not removed.</value></data>
+  <data name="DirectoryDeleteAfterInstall" xml:space="preserve"><value>Remove after installation if empty</value></data>
+  <data name="DirectoryDeleteAfterInstallHint" xml:space="preserve"><value>Only an empty directory created during installation is removed after completion or abort. Pre-existing directories are kept.</value></data>
 </root>

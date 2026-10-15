@@ -241,6 +241,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
         set { if (!IsDesign || value == SourceFile) return; Project.InstallFile.Source = value; IsDirty = true; Refresh(); }
     }
     public string FileRuleSummary => Text.Format("FilesRuleCount",Project.AdditionalFiles.Count+1);
+    public string DirectoryRuleSummary => Text.Format("DirectoryRuleCount",Project.DirectoryRules.Count);
 
     public string FileDestination
     {

@@ -30,7 +30,7 @@ Bestandsgroepen: Core/project/opslag; App/projecteigenschappen; generator/compil
 | Acceptatie | Slice / resultaat | Toetsbare criteria | Controle / afhankelijk |
 |---|---|---|---|
 | [x] | M01-S01 Applicatiegegevens | Productnaam, AppId en versie zijn bewerkbaar en bewaard; proefprojecten openen zonder gegevensverlies; AppId blijft stabiel. | B/T/U; M00 |
-| [x] | M01-S02 Eerste bestandsregel en export | Een lokale bron en doelmap zijn instelbaar; .iss bevat juiste metadata en bestandsregel; export compileert buiten Studio en meldt ontbrekende bron. | B/T/C/U; S01 |
+| [x] | M01-S02 Eerste bestandsregel en export | Een lokale bron en doelmap zijn instelbaar; .iss bevat juiste metadata en bestandsregel; export compileert buiten Studio en meldt ontbrekende bron. | B/T/C/U; S01; door gebruiker geaccepteerd |
 | [x] | M01-S03 Huidig ontwerp exporteren | Twee huidige pagina's en standaardpad worden correct vertaald; gedeelde en lokale tekstafwijkingen werken of worden aantoonbaar begrensd; knoprollen blijven correct. | B/T/C/I; S02 |
 | [x] | M01-S04 Compiler kiezen en bouwen | Ontdekken/handmatig kiezen en versiecontrole werken; Bouw compileert een herkenbare projectstand; de resulterende uitvoer is vindbaar. | B/T/C/U; S03 |
 | [x] | M01-S05 Bouwmeldingen en annuleren | Fouten/waarschuwingen zijn zichtbaar; annuleren stopt gecontroleerd; een mislukte build presenteert geen oud bestand als nieuw resultaat. | B/T/C/U; S04 |
@@ -76,7 +76,7 @@ Bestandsgroepen: Core/installatieregels/referenties; App/regeloverzichten/keuzep
 | Acceptatie | Slice / resultaat | Toetsbare criteria | Controle / afhankelijk |
 |---|---|---|---|
 | [x] | M04-S01 Bestandsverzamelingen | Wildcards, submappen en uitsluitingen zijn bewerkbaar; voorbeeldlijst past bij de bron; export behoudt de regels bij opslaan/openen. | B/T/C/U; M03; door gebruiker geaccepteerd |
-| [ ] | M04-S02 Mapregels | Losse mapregels zijn te beheren; relevante opties worden gevalideerd; regels volgen projectreferenties en opslag. | B/T/C/U; S01 |
+| [x] | M04-S02 Mapregels | Losse mapregels zijn te beheren; relevante opties worden gevalideerd; regels volgen projectreferenties en opslag. | B/T/C/U; S01 |
 | [ ] | M04-S03 Snelkoppelingen | Naam, doel, parameters en map zijn instelbaar; ontbrekende verwijzingen worden gemeld; gebruiker controleert een startmenusnelkoppeling. | B/T/C/I; S02 |
 | [ ] | M04-S04 Installatietypen | Typen hebben unieke identifiers en vertaalbare beschrijvingen; selectie wordt bewaard in ontwerpgegevens; export compileert. | B/T/C/U; S03 |
 | [ ] | M04-S05 Componenten | Componenten hebben gecontroleerde structuur en typekoppeling; componentpagina werkt in de preview; ongeldige referenties worden gemeld. | B/T/C/U; S04 |
@@ -213,3 +213,5 @@ M03 is naar main gemerged en gepusht als 84c8a06. M04-S01 is geïmplementeerd op
 ## Later uit te werken — projectinstellingen en bouwacties
 
 Gebruikersrichting na de proef met M04-S01: verplaats Applicatiegegevens, de installatie-/bestandsregels en de instellingen uit Compiler en bouwen naar één algemene instellingenpagina, met tabs en per tab duidelijke onderwerpen. De precieze tabnaam voor de bredere installatieregels wordt bij die UI-uitwerking bepaald; het huidige bestandsregelonderdeel heet Bestandsregels. Houd Bouw installer, Open uitvoermap en Bouwmeldingen direct als acties op het hoofdscherm. Doel: het inrichten van een project scheiden van het herhaald bouwen na bronupdates. Dit is bewust uitgesteld; nog geen opdracht voor een extra slice of wijziging van de milestonevolgorde.
+
+M04-S01 is geaccepteerd en gepusht als bec03f0. M04-S02 is geïmplementeerd op m04-installatiekeuzes: mapregels onder {app}, kenmerken, compressie, opruimbeleid en projectformaat 11 met migratie. Release-build zonder fouten/waarschuwingen; alle 253 tests geslaagd plus niet-visuele WPF-controle in NL/EN/DE. [Handmatige controles](../docs/slices/M04-S02-Mapregels.md). S02 is door de gebruiker geaccepteerd; de gebruiker heeft opdracht gegeven voor S03.

@@ -75,6 +75,11 @@ public static class InnoScript
                     && !string.IsNullOrWhiteSpace(variant)) line += "; " + kind + ": " + Parameter(WizardDocuments.Resolve(variant, projectDirectory));
             lines.Add(line);
         }
+        if(project.DirectoryRules.Count>0)
+        {
+            lines.AddRange(["","[Dirs]"]);
+            lines.AddRange(project.DirectoryRules.Select(rule=>rule.Script()));
+        }
         lines.AddRange(["","[Files]"]);
         lines.AddRange(fileLines); lines.Add("");
         return string.Join("\r\n", lines) + WizardScript.Generate(project, languages);
@@ -134,7 +139,7 @@ public static class InnoScript
 
     private static string Literal(string value) => value.Replace("{", "{{", StringComparison.Ordinal);
     private static string SetupValue(string value) => "\"" + value + "\"";
-    private static string Parameter(string value) => "\"" + value.Replace("\"", "\"\"", StringComparison.Ordinal) + "\"";
+    internal static string Parameter(string value) => "\"" + value.Replace("\"", "\"\"", StringComparison.Ordinal) + "\"";
     internal static InvalidDataException Error(string key)
     {
         var error = new InvalidDataException(new StudioLocalizer()[key]);

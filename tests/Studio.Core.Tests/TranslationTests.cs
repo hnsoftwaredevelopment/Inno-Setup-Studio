@@ -326,7 +326,7 @@ public class TranslationTests
             editor.MoveLanguage("english", -1);
             await ProjectFile.SaveAsync(path, editor.Project);
             var json = JsonNode.Parse(await File.ReadAllTextAsync(path))!.AsObject();
-            json["Version"] = 5; json.AsObject().Remove("AdditionalFiles");
+            json["Version"] = 5; json.AsObject().Remove("AdditionalFiles"); json.AsObject().Remove("DirectoryRules");
             json.AsObject().Remove("Documents"); json.AsObject().Remove("PageSettings");
             foreach (var language in json["Languages"]!.AsArray())
             { language!.AsObject().Remove("TextOverrides"); language.AsObject().Remove("StandardTexts"); }

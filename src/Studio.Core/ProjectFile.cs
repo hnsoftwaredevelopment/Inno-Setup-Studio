@@ -27,7 +27,7 @@ public static class ProjectFile
             var root = json.RootElement;
             if (root.GetProperty("Version").ValueKind != JsonValueKind.Number
                 || !root.GetProperty("Version").TryGetInt32(out var version)
-                || version is not (1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or StudioProject.CurrentVersion))
+                || version is not (1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or 10 or StudioProject.CurrentVersion))
                 throw InvalidProject("UnsupportedProject");
             if (version >= 2
                 && (!root.TryGetProperty("AppId", out _) || !root.TryGetProperty("AppVersion", out _)))
@@ -38,6 +38,8 @@ public static class ProjectFile
                 throw InvalidProject("UnsupportedProject");
             if(version>=10 && !root.TryGetProperty("AdditionalFiles",out _)) throw InvalidProject("InvalidFileRule");
             if(version<10 && root.TryGetProperty("AdditionalFiles",out _)) throw InvalidProject("UnsupportedProject");
+            if(version>=11 && !root.TryGetProperty("DirectoryRules",out _)) throw InvalidProject("DirectoryRuleInvalid");
+            if(version<11 && root.TryGetProperty("DirectoryRules",out _)) throw InvalidProject("UnsupportedProject");
             if (version >= 4 && !root.TryGetProperty("OutputBaseFileName", out _))
                 throw InvalidProject("InvalidOutputName");
             if (version < 4 && root.TryGetProperty("OutputBaseFileName", out _))
@@ -171,6 +173,8 @@ public static class ProjectFile
                     || v.Value is null || v.Value.Any(char.IsControl)))) throw InvalidProject("DocumentInvalid");
         if(project.AdditionalFiles is null || project.AdditionalFiles.Count>999) throw InvalidProject("InvalidFileRule");
         foreach(var file in FileCollections.Rules(project)) FileCollections.Validate(file);
+        if(project.DirectoryRules is null || project.DirectoryRules.Count>1000) throw InvalidProject("DirectoryRuleInvalid");
+        foreach(var rule in project.DirectoryRules) DirectoryRule.Validate(rule);
         if (string.IsNullOrWhiteSpace(project.Name) || project.Buttons is null || project.Buttons.Count != 3
             || new[] { ElementKind.Back, ElementKind.Next, ElementKind.Cancel }.Any(k => !project.Buttons.ContainsKey(k))
             || project.Buttons.Values.Any(v => v is null)

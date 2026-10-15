@@ -103,6 +103,11 @@ public partial class MainWindow : Window
         if(_busy || !_editor.IsDesign) return;
         new FileRulesWindow(_editor,_path is null ? null : Path.GetDirectoryName(_path)) { Owner=this }.ShowDialog();
     }
+    private void DirectoryRules_Click(object sender,RoutedEventArgs e)
+    {
+        if(_busy || !_editor.IsDesign) return;
+        new DirectoryRulesWindow(_editor) { Owner=this }.ShowDialog();
+    }
 
     private async void Export_Click(object sender, RoutedEventArgs e)
     {

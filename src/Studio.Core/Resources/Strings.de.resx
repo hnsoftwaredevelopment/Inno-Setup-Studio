@@ -379,4 +379,31 @@ Durch den aktuellen Export ersetzen? Der bisherige Inhalt einschließlich manuel
   <data name="FilesPreviewTooLarge" xml:space="preserve"><value>Diese Sammlung überschreitet das Vorschau-Limit (10.000 Dateien oder 50.000 Ordner). Grenzen Sie die Auswahl ein.</value></data>
   <data name="FilesLinkedDirectory" xml:space="preserve"><value>Die Quelle enthält einen verknüpften Ordner. Verwenden Sie normale Quellordner für eine überprüfbare Vorschau.</value></data>
   <data name="FilesPreviewFailed" xml:space="preserve"><value>Die Quellsammlung konnte nicht vollständig gelesen werden. Prüfen Sie Pfad und Zugriff.</value></data>
+  <data name="DirectoryRulesHeading" xml:space="preserve"><value>Verzeichnisregeln</value></data>
+  <data name="DirectoryRulesManage" xml:space="preserve"><value>Verzeichnisregeln verwalten</value></data>
+  <data name="DirectoryRuleCount" xml:space="preserve"><value>{0} Verzeichnisregel(n)</value></data>
+  <data name="DirectoryRulesHint" xml:space="preserve"><value>Erstellen Sie zusätzliche Verzeichnisse, etwa leere Ordner. Dateiregeln erstellen ihre Zielordner bereits. Fügen Sie zunächst eine Regel hinzu.</value></data>
+  <data name="DirectoryTarget" xml:space="preserve"><value>Zielverzeichnis</value></data>
+  <data name="DirectoryTargetHint" xml:space="preserve"><value>Verwenden Sie {app} oder einen Unterordner, etwa {app}\Data. Der Pfad gilt auf dem Zielcomputer; Studio erstellt hier keinen Ordner.</value></data>
+  <data name="DirectoryRuleInvalid" xml:space="preserve"><value>Ungültige Verzeichnisregel. Verwenden Sie {app} oder einen Unterordner ohne Punktsegmente, zusätzliche Konstanten oder ungültige Pfadzeichen; wählen Sie gültige Attribute und Optionen.</value></data>
+  <data name="DirectoryAttributesHeading" xml:space="preserve"><value>Verzeichnisattribute</value></data>
+  <data name="DirectoryReadOnly" xml:space="preserve"><value>Schreibgeschützt</value></data>
+  <data name="DirectoryHidden" xml:space="preserve"><value>Versteckt</value></data>
+  <data name="DirectorySystem" xml:space="preserve"><value>System</value></data>
+  <data name="DirectoryNotContentIndexed" xml:space="preserve"><value>Keine Inhaltsindizierung</value></data>
+  <data name="DirectoryAttributesHint" xml:space="preserve"><value>Schreibgeschützt ist ein Verzeichnisattribut und entzieht keine Schreibrechte. Bestehende Attribute werden ergänzt.</value></data>
+  <data name="DirectoryCompressionHeading" xml:space="preserve"><value>NTFS-Komprimierung</value></data>
+  <data name="DirectoryCompressionUnchanged" xml:space="preserve"><value>Unverändert lassen</value></data>
+  <data name="DirectoryCompressionEnable" xml:space="preserve"><value>Aktivieren</value></data>
+  <data name="DirectoryCompressionDisable" xml:space="preserve"><value>Deaktivieren</value></data>
+  <data name="DirectoryCompressionHint" xml:space="preserve"><value>Gilt nur für Dateisysteme, die diese Einstellung unterstützen. Der Komprimierungsstatus bereits vorhandener Dateien bleibt unverändert.</value></data>
+  <data name="DirectoryUninstallHeading" xml:space="preserve"><value>Bei der Deinstallation</value></data>
+  <data name="DirectoryUninstallNativeDefault" xml:space="preserve"><value>Standard (leeres neues Verzeichnis)</value></data>
+  <data name="DirectoryUninstallKeep" xml:space="preserve"><value>Verzeichnis behalten</value></data>
+  <data name="DirectoryUninstallRemoveExistingEmpty" xml:space="preserve"><value>Auch vorhandenes leeres Verzeichnis entfernen</value></data>
+  <data name="DirectoryUninstallHintNativeDefault" xml:space="preserve"><value>Der Uninstaller versucht das Verzeichnis zu entfernen, wenn es während der Installation erstellt wurde und leer ist. Vorhandene Verzeichnisse bleiben erhalten.</value></data>
+  <data name="DirectoryUninstallHintKeep" xml:space="preserve"><value>Der Uninstaller versucht dieses Verzeichnis nicht zu entfernen. Dateiregeln bestimmen den Umgang mit installierten Dateien.</value></data>
+  <data name="DirectoryUninstallHintRemoveExistingEmpty" xml:space="preserve"><value>Der Uninstaller versucht das Verzeichnis zu entfernen, wenn es leer ist, auch wenn es vor der Installation existierte. Nicht leere Verzeichnisse werden nicht entfernt.</value></data>
+  <data name="DirectoryDeleteAfterInstall" xml:space="preserve"><value>Nach Installation entfernen, falls leer</value></data>
+  <data name="DirectoryDeleteAfterInstallHint" xml:space="preserve"><value>Nur ein während der Installation erstelltes, leeres Verzeichnis wird nach Abschluss oder Abbruch entfernt. Vorhandene Verzeichnisse bleiben erhalten.</value></data>
 </root>

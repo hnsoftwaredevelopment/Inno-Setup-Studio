@@ -379,4 +379,31 @@ Vervangen door de huidige export? De bestaande inhoud, inclusief eventuele handm
   <data name="FilesPreviewTooLarge" xml:space="preserve"><value>Deze verzameling is te groot voor een volledig voorbeeld (maximaal 10.000 bestanden of 50.000 mappen). Verklein de bronselectie.</value></data>
   <data name="FilesLinkedDirectory" xml:space="preserve"><value>De bron bevat een gekoppelde map. Kies gewone bronmappen voor een controleerbaar bestandsvoorbeeld.</value></data>
   <data name="FilesPreviewFailed" xml:space="preserve"><value>De bronverzameling kon niet volledig worden gelezen. Controleer pad en toegang.</value></data>
+  <data name="DirectoryRulesHeading" xml:space="preserve"><value>Mapregels</value></data>
+  <data name="DirectoryRulesManage" xml:space="preserve"><value>Mapregels beheren</value></data>
+  <data name="DirectoryRuleCount" xml:space="preserve"><value>{0} mapregel(s)</value></data>
+  <data name="DirectoryRulesHint" xml:space="preserve"><value>Maak aanvullende mappen aan, bijvoorbeeld lege mappen. Bestandsregels maken hun eigen doelmappen al aan. Voeg een regel toe om te beginnen.</value></data>
+  <data name="DirectoryTarget" xml:space="preserve"><value>Doelmap</value></data>
+  <data name="DirectoryTargetHint" xml:space="preserve"><value>Gebruik {app} of een submap, bijvoorbeeld {app}\Data. Dit pad geldt op de doelcomputer; Studio maakt hier geen map aan.</value></data>
+  <data name="DirectoryRuleInvalid" xml:space="preserve"><value>Ongeldige mapregel. Gebruik {app} of een submap zonder puntsegmenten, extra constanten of ongeldige padtekens; kies geldige kenmerken en opties.</value></data>
+  <data name="DirectoryAttributesHeading" xml:space="preserve"><value>Mapkenmerken</value></data>
+  <data name="DirectoryReadOnly" xml:space="preserve"><value>Alleen-lezen</value></data>
+  <data name="DirectoryHidden" xml:space="preserve"><value>Verborgen</value></data>
+  <data name="DirectorySystem" xml:space="preserve"><value>Systeem</value></data>
+  <data name="DirectoryNotContentIndexed" xml:space="preserve"><value>Niet inhoudsindexeren</value></data>
+  <data name="DirectoryAttributesHint" xml:space="preserve"><value>Alleen-lezen is een mapkenmerk en blokkeert geen schrijfrechten. Bestaande kenmerken worden aangevuld.</value></data>
+  <data name="DirectoryCompressionHeading" xml:space="preserve"><value>NTFS-compressie</value></data>
+  <data name="DirectoryCompressionUnchanged" xml:space="preserve"><value>Niet wijzigen</value></data>
+  <data name="DirectoryCompressionEnable" xml:space="preserve"><value>Inschakelen</value></data>
+  <data name="DirectoryCompressionDisable" xml:space="preserve"><value>Uitschakelen</value></data>
+  <data name="DirectoryCompressionHint" xml:space="preserve"><value>Geldt alleen op een bestandssysteem dat deze instelling ondersteunt. De compressiestatus van bestanden die al in de map staan verandert niet.</value></data>
+  <data name="DirectoryUninstallHeading" xml:space="preserve"><value>Bij deïnstallatie</value></data>
+  <data name="DirectoryUninstallNativeDefault" xml:space="preserve"><value>Standaard (lege nieuwe map)</value></data>
+  <data name="DirectoryUninstallKeep" xml:space="preserve"><value>Map behouden</value></data>
+  <data name="DirectoryUninstallRemoveExistingEmpty" xml:space="preserve"><value>Ook vooraf bestaande lege map verwijderen</value></data>
+  <data name="DirectoryUninstallHintNativeDefault" xml:space="preserve"><value>De uninstaller probeert de map te verwijderen als deze tijdens installatie is aangemaakt en leeg is. Vooraf bestaande mappen blijven behouden.</value></data>
+  <data name="DirectoryUninstallHintKeep" xml:space="preserve"><value>De uninstaller probeert deze map niet te verwijderen. Bestandsregels bepalen wat met de geïnstalleerde bestanden gebeurt.</value></data>
+  <data name="DirectoryUninstallHintRemoveExistingEmpty" xml:space="preserve"><value>De uninstaller probeert de map te verwijderen als deze leeg is, ook wanneer deze al vóór de installatie bestond. Niet-lege mappen worden niet verwijderd.</value></data>
+  <data name="DirectoryDeleteAfterInstall" xml:space="preserve"><value>Na installatie verwijderen als leeg</value></data>
+  <data name="DirectoryDeleteAfterInstallHint" xml:space="preserve"><value>Alleen een tijdens installatie aangemaakte, lege map wordt na afloop of afbreken verwijderd. Vooraf bestaande mappen blijven behouden.</value></data>
 </root>
