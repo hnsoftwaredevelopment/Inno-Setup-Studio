@@ -104,7 +104,7 @@ public class WizardDocumentTests
             var reopened=await ProjectFile.LoadAsync(Path.Combine(folder,"other","project.issstudio"));
             Assert.Equal(Path.Combine(folder,"readme.txt"),Path.GetFullPath(reopened.Documents[WizardDocumentKind.InfoBeforeFile].Source,Path.Combine(folder,"other")));
             var json=System.Text.Json.Nodes.JsonNode.Parse(JsonSerializer.Serialize(StudioProject.CreateNew(),new JsonSerializerOptions { Converters={new System.Text.Json.Serialization.JsonStringEnumConverter()} }))!;
-            json["Version"]=6; json.AsObject().Remove("Documents"); json.AsObject().Remove("PageSettings");
+            json["Version"]=6; json.AsObject().Remove("AdditionalFiles"); json.AsObject().Remove("Documents"); json.AsObject().Remove("PageSettings");
             await File.WriteAllTextAsync(Path.Combine(folder,"old.issstudio"),json.ToJsonString());
             var migrated=await ProjectFile.LoadAsync(Path.Combine(folder,"old.issstudio"));
             Assert.True(migrated.WasMigrated);

@@ -240,6 +240,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
         get => Project.InstallFile.Source;
         set { if (!IsDesign || value == SourceFile) return; Project.InstallFile.Source = value; IsDirty = true; Refresh(); }
     }
+    public string FileRuleSummary => Text.Format("FilesRuleCount",Project.AdditionalFiles.Count+1);
 
     public string FileDestination
     {
@@ -417,6 +418,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
     }
 
     internal void PageSettingsChanged() { IsDirty = true; Refresh(); }
+    internal void FileRulesChanged() { IsDirty = true; Refresh(); }
 
     public void MarkSaved() { Project.WasMigrated = false; IsDirty = false; SetStatus("StatusSaved"); }
     public void SetStatus(string resourceKey) { _statusKey = resourceKey; Refresh(); }

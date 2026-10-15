@@ -43,7 +43,7 @@ public class PageToggleTests
   {
    var project=StudioProject.CreateNew(); project.Documents[WizardDocumentKind.LicenseFile].Source="license.txt";
    var path=Path.Combine(folder,"old.issstudio"); await ProjectFile.SaveAsync(path,project);
-   var json=System.Text.Json.Nodes.JsonNode.Parse(await File.ReadAllTextAsync(path))!; json["Version"]=8;
+   var json=System.Text.Json.Nodes.JsonNode.Parse(await File.ReadAllTextAsync(path))!; json["Version"]=8; json.AsObject().Remove("AdditionalFiles");
    foreach(var entry in json["Documents"]!.AsObject()) entry.Value!.AsObject().Remove("Enabled");
    await File.WriteAllTextAsync(path,json.ToJsonString());
    var migrated=await ProjectFile.LoadAsync(path);

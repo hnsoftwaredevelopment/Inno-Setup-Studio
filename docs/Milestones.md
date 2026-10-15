@@ -130,3 +130,5 @@ Inno Setup-import en een Visual Studio-extensie worden alleen als afzonderlijk v
 Een milestone mag worden gesplitst als een slice te breed blijkt. ID's en oude besluiten blijven traceerbaar; scope, afhankelijkheden en eindcriteria worden eerst bijgewerkt. Bij een technisch onhaalbare property geldt de Inno Setup-grens, niet de wens om koste wat kost de preview te behouden.
 
 M03 is op 15 oktober 2026 als geheel door de gebruiker geaccepteerd, inclusief de aanvullende documentfoutmeldingen. Merge naar main en start van M04 zijn expliciet goedgekeurd. Eindcontrole: alle 236 tests geslaagd, Release-build zonder fouten of waarschuwingen, geen blokkerende reviewpunten. Gebruikersbestanden in samples vallen buiten de mergewijzigingen.
+
+M03 is naar main gemerged en gepusht als 84c8a06. M04 is gestart op m04-installatiekeuzes; S01 is door de gebruiker geaccepteerd. S02 is op gebruikersverzoek de volgende slice.

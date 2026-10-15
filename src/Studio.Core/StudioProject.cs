@@ -24,7 +24,7 @@ public sealed class StudioProject
 {
     public const string FormatId = "HN.InnoSetupStudio.VisualProject";
     public string Format { get; set; } = FormatId;
-    public const int CurrentVersion = 9;
+    public const int CurrentVersion = 10;
     public int Version { get; set; } = CurrentVersion;
     public string Name { get; set; } = "Mijn applicatie";
     public string AppId { get; set; } = Guid.NewGuid().ToString("B");
@@ -33,6 +33,7 @@ public sealed class StudioProject
     public Dictionary<WizardDocumentKind, WizardDocumentSource> Documents { get; set; } = WizardDocuments.Empty();
     public WizardPageSettings PageSettings { get; set; } = new();
     public InstallFileSettings InstallFile { get; set; } = new();
+    public List<InstallFileSettings> AdditionalFiles { get; set; } = [];
     public string TextLanguageId { get; set; } = "dutch";
     public List<InstallerLanguage> Languages { get; set; } = [InstallerLanguage.Dutch()];
     [System.Text.Json.Serialization.JsonIgnore]
@@ -83,4 +84,6 @@ public sealed class InstallFileSettings
 {
     public string Source { get; set; } = "";
     public string Destination { get; set; } = "{app}";
+    public bool RecurseSubdirectories { get; set; }
+    public List<string> Excludes { get; set; } = [];
 }

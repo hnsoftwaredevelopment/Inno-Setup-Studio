@@ -108,12 +108,12 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="ApplicationDetailsHint" xml:space="preserve"><value>Diese Angaben gelten für das gesamte Projekt. AppId bleibt bei einer neuen Version gleich. Eigene Assistententexte und der Installationspfad werden nicht automatisch angepasst.</value></data>
   <data name="InvalidApplicationDetails" xml:space="preserve"><value>Geben Sie Produktname, Anwendungs-ID und Version jeweils in einer Zeile ein. Die Anwendungs-ID darf höchstens 127 Zeichen enthalten. Die Änderungen wurden nicht gespeichert.</value></data>
   <data name="StatusMigrated" xml:space="preserve"><value>Altes Projekt geöffnet und im Speicher aktualisiert. Speichern Sie das neue Projektformat.</value></data>
-  <data name="InstallFileHeading" xml:space="preserve"><value>Dateiregel</value></data>
+  <data name="InstallFileHeading" xml:space="preserve"><value>Dateiregeln</value></data>
   <data name="SourceFileLabel" xml:space="preserve"><value>Quelldatei</value></data>
   <data name="ChooseSourceFile" xml:space="preserve"><value>Datei auswählen…</value></data>
   <data name="FileDestinationLabel" xml:space="preserve"><value>Zielordner für diese Datei</value></data>
-  <data name="InstallFileHint" xml:space="preserve"><value>Eine lokale Datei; Platzhalter werden noch nicht unterstützt. Relative Quellpfade beziehen sich auf den Projektordner. Ziel: {app} oder beispielsweise {app}\Data.</value></data>
-  <data name="ExportScopeHint" xml:space="preserve"><value>Der Export enthält alle aktiven Projektsprachen, Anwendungsdaten, eine Datei und die Texte für Willkommen und Zielordner einschließlich Schaltflächenabweichungen und Durchsuchen-Tooltip. Inno Setup bestimmt Sprachauswahl, Layout und weitere Schritte.</value></data>
+  <data name="InstallFileHint" xml:space="preserve"><value>Verwalten Sie lokale Dateiregeln, Platzhalter, Unterordner und Ausschlüsse. Relative Quellen beziehen sich auf den Projektordner; Ziele beginnen mit {app}.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>Der Export enthält aktive Sprachen, Anwendungsdaten, Dateiregeln und konfigurierte native Assistentenseiten. Inno Setup übernimmt die Ausführung.</value></data>
   <data name="ExportScript" xml:space="preserve"><value>ISS exportieren</value></data>
   <data name="SourceFileFilter" xml:space="preserve"><value>Alle Dateien (*.*)|*.*</value></data>
   <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup-Skript (*.iss)|*.iss</value></data>
@@ -121,7 +121,7 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="ExportFailed" xml:space="preserve"><value>Export fehlgeschlagen</value></data>
   <data name="StatusExportFailed" xml:space="preserve"><value>Der Export ist fehlgeschlagen. Ihr Projekt bleibt geöffnet.</value></data>
   <data name="InvalidFileRule" xml:space="preserve"><value>Prüfen Sie die Dateiregel: Quelle und Ziel müssen jeweils in einer Zeile stehen; das Ziel darf nicht leer sein.</value></data>
-  <data name="ExportSourceInvalid" xml:space="preserve"><value>Wählen Sie eine lokale Quelldatei ohne Platzhalter, Steuerzeichen oder ungültige Pfadzeichen.</value></data>
+  <data name="ExportSourceInvalid" xml:space="preserve"><value>Wählen Sie eine lokale Quelle ohne Steuerzeichen oder ungültige Pfadzeichen. Platzhalter sind nur im Dateinamen erlaubt.</value></data>
   <data name="ExportSourceMissing" xml:space="preserve"><value>Die Quelldatei fehlt oder ist nicht zugänglich. Prüfen Sie den Pfad oder wählen Sie die Datei erneut aus.</value></data>
   <data name="ExportSourceNeedsProject" xml:space="preserve"><value>Speichern Sie das Projekt zuerst, um einen relativen Quellpfad zu verwenden, oder wählen Sie einen absoluten Quellpfad.</value></data>
   <data name="ExportDestinationInvalid" xml:space="preserve"><value>Verwenden Sie {app} oder einen Unterordner wie {app}\Data, ohne Platzhalter, weitere Konstanten oder . und .. als Ordnernamen.</value></data>
@@ -361,4 +361,22 @@ Durch den aktuellen Export ersetzen? Der bisherige Inhalt einschließlich manuel
   <data name="TrialDocumentLoading" xml:space="preserve"><value>Dokument wird geladen…</value></data>
   <data name="DocumentRefresh" xml:space="preserve"><value>Vorschau aktualisieren</value></data>
   <data name="DocumentError" xml:space="preserve"><value>Dokumentfehler</value></data>
+  <data name="FilesHeading" xml:space="preserve"><value>Dateiregeln</value></data>
+  <data name="FilesManage" xml:space="preserve"><value>Dateien verwalten</value></data>
+  <data name="FilesRuleCount" xml:space="preserve"><value>{0} Dateiregel(n)</value></data>
+  <data name="FilesHint" xml:space="preserve"><value>Lokale Dateien und Platzhalter. Die Vorschau zeigt die ausgewählte Regel; der Compiler erfasst die Dateien beim Kompilieren erneut.</value></data>
+  <data name="FilesEmptyRule" xml:space="preserve"><value>Neue Dateiregel</value></data>
+  <data name="FilesAdd" xml:space="preserve"><value>Hinzufügen</value></data>
+  <data name="FilesRemove" xml:space="preserve"><value>Entfernen</value></data>
+  <data name="FilesSource" xml:space="preserve"><value>Quelldatei oder Muster</value></data>
+  <data name="FilesChooseFolder" xml:space="preserve"><value>Quellordner wählen</value></data>
+  <data name="FilesRecurse" xml:space="preserve"><value>Unterordner einschließen</value></data>
+  <data name="FilesExcludes" xml:space="preserve"><value>Ausschlüsse (ein Muster pro Zeile)</value></data>
+  <data name="FilesExcludesHint" xml:space="preserve"><value>Zum Beispiel *.pdb oder \Temp. Ein führender Backslash verankert das Muster im Quellordner. Leere Ordner folgen mit Verzeichnisregeln.</value></data>
+  <data name="FilesRefresh" xml:space="preserve"><value>Dateivorschau aktualisieren</value></data>
+  <data name="FilesLoading" xml:space="preserve"><value>Dateien werden erfasst…</value></data>
+  <data name="FilesCount" xml:space="preserve"><value>{0} Datei(en) für diese Regel. Schreibgeschützte Vorschau; externe Änderungen werden nach Aktualisierung sichtbar.</value></data>
+  <data name="FilesPreviewTooLarge" xml:space="preserve"><value>Diese Sammlung überschreitet das Vorschau-Limit (10.000 Dateien oder 50.000 Ordner). Grenzen Sie die Auswahl ein.</value></data>
+  <data name="FilesLinkedDirectory" xml:space="preserve"><value>Die Quelle enthält einen verknüpften Ordner. Verwenden Sie normale Quellordner für eine überprüfbare Vorschau.</value></data>
+  <data name="FilesPreviewFailed" xml:space="preserve"><value>Die Quellsammlung konnte nicht vollständig gelesen werden. Prüfen Sie Pfad und Zugriff.</value></data>
 </root>

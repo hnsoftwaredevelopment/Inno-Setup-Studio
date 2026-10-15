@@ -86,7 +86,7 @@ public sealed class ScriptExportTests : IDisposable
     }
 
     [Theory]
-    [InlineData("*")]
+    [InlineData(@"*\file.txt")]
     [InlineData("missing.txt")]
     [InlineData("C:relative.txt")]
     public void ExportRejectsWildcardMissingAndDriveRelativeSources(string source)
@@ -104,7 +104,7 @@ public sealed class ScriptExportTests : IDisposable
         originalProject.AppVersion = "9.2-beta";
         originalProject.Buttons[ElementKind.Next] = "Doorgaan";
         var legacy = JsonNode.Parse(JsonSerializer.Serialize(originalProject, options))!.AsObject();
-        legacy["Version"] = 2;
+        legacy["Version"] = 2; legacy.AsObject().Remove("AdditionalFiles");
         legacy.Remove("InstallFile");
         legacy.Remove("OutputBaseFileName");
         legacy.Remove("Languages");
@@ -195,7 +195,7 @@ public sealed class ScriptExportTests : IDisposable
         var path = Path.Combine(_folder, "project.issstudio");
         await ProjectFile.SaveAsync(path, project);
         var json = JsonNode.Parse(await File.ReadAllTextAsync(path))!.AsObject();
-        json["Version"] = 2;
+        json["Version"] = 2; json.AsObject().Remove("AdditionalFiles");
         await File.WriteAllTextAsync(path, json.ToJsonString());
         await Assert.ThrowsAsync<InvalidDataException>(() => ProjectFile.LoadAsync(path));
     }

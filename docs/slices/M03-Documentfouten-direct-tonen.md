@@ -23,3 +23,5 @@ Release-build: 0 fouten en 0 waarschuwingen. Alle 236 automatische tests geslaag
 5. Wijzig snel van pad of taal en open een opgeslagen project opnieuw. Oude fouten mogen niet terugkomen bij de nieuwe bron. Controleer dezelfde documentfout ook in Uitproberen.
 
 De gebruiker heeft de duidelijke meldingen gecontroleerd en akkoord gegeven. Deze aanvulling wordt afzonderlijk gecommit/gepusht. M03 wordt pas na expliciete acceptatie van de hele milestone gemerged.
+
+Milestoneafronding: M03 is na expliciet gebruikersakkoord op 15 oktober 2026 naar main gemerged en gepusht als 84c8a06.

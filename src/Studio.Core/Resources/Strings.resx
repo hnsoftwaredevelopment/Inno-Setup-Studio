@@ -108,12 +108,12 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="ApplicationDetailsHint" xml:space="preserve"><value>Deze gegevens gelden voor het hele project. AppId blijft gelijk bij een nieuwe versie. Eigen wizardteksten en het installatiepad worden niet automatisch aangepast.</value></data>
   <data name="InvalidApplicationDetails" xml:space="preserve"><value>Vul productnaam, applicatie-ID en versie in op één regel. De applicatie-ID mag maximaal 127 tekens bevatten. De wijzigingen zijn niet opgeslagen.</value></data>
   <data name="StatusMigrated" xml:space="preserve"><value>Oud project geopend en in het geheugen bijgewerkt. Sla op om het nieuwe projectformaat te bewaren.</value></data>
-  <data name="InstallFileHeading" xml:space="preserve"><value>Bestandsregel</value></data>
+  <data name="InstallFileHeading" xml:space="preserve"><value>Bestandsregels</value></data>
   <data name="SourceFileLabel" xml:space="preserve"><value>Bronbestand</value></data>
   <data name="ChooseSourceFile" xml:space="preserve"><value>Bestand kiezen…</value></data>
   <data name="FileDestinationLabel" xml:space="preserve"><value>Doelmap voor dit bestand</value></data>
-  <data name="InstallFileHint" xml:space="preserve"><value>Eén lokaal bestand; nog geen wildcards. Relatieve bronpaden zijn gebaseerd op de projectmap. Doel: {app} of bijvoorbeeld {app}\Data.</value></data>
-  <data name="ExportScopeHint" xml:space="preserve"><value>De export bevat alle actieve projecttalen, applicatiegegevens, één bestand en de teksten van Welkom en Installatiemap, inclusief knopafwijkingen en Bladeren-tooltip. Inno Setup bepaalt de taalkeuze, indeling en overige stappen.</value></data>
+  <data name="InstallFileHint" xml:space="preserve"><value>Beheer lokale bestandsregels, wildcards, submappen en uitsluitingen. Relatieve bronpaden zijn gebaseerd op de projectmap; doelen beginnen met {app}.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>De export bevat actieve projecttalen, applicatiegegevens, bestandsregels en de ingestelde native wizardpagina’s. Inno Setup bepaalt de uitvoering.</value></data>
   <data name="ExportScript" xml:space="preserve"><value>Exporteer .iss</value></data>
   <data name="SourceFileFilter" xml:space="preserve"><value>Alle bestanden (*.*)|*.*</value></data>
   <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup-script (*.iss)|*.iss</value></data>
@@ -121,7 +121,7 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="ExportFailed" xml:space="preserve"><value>Exporteren mislukt</value></data>
   <data name="StatusExportFailed" xml:space="preserve"><value>Exporteren is niet gelukt. Je project blijft geopend.</value></data>
   <data name="InvalidFileRule" xml:space="preserve"><value>Controleer de bestandsregel: bron en doelmap moeten op één regel staan; de doelmap mag niet leeg zijn.</value></data>
-  <data name="ExportSourceInvalid" xml:space="preserve"><value>Kies één lokaal bronbestand zonder wildcards, controletekens of ongeldige padtekens.</value></data>
+  <data name="ExportSourceInvalid" xml:space="preserve"><value>Kies een lokale bron zonder controletekens of ongeldige padtekens. Wildcards zijn alleen toegestaan in de bestandsnaam.</value></data>
   <data name="ExportSourceMissing" xml:space="preserve"><value>Het bronbestand bestaat niet of is niet toegankelijk. Controleer het pad of kies het bestand opnieuw.</value></data>
   <data name="ExportSourceNeedsProject" xml:space="preserve"><value>Sla het project eerst op om een relatief bronpad te gebruiken, of kies een absoluut bronpad.</value></data>
   <data name="ExportDestinationInvalid" xml:space="preserve"><value>Gebruik {app} of een submap zoals {app}\Data, zonder wildcards, andere constanten of . en .. als mapnamen.</value></data>
@@ -361,4 +361,22 @@ Vervangen door de huidige export? De bestaande inhoud, inclusief eventuele handm
   <data name="TrialDocumentLoading" xml:space="preserve"><value>Document laden…</value></data>
   <data name="DocumentRefresh" xml:space="preserve"><value>Voorbeeld vernieuwen</value></data>
   <data name="DocumentError" xml:space="preserve"><value>Documentfout</value></data>
+  <data name="FilesHeading" xml:space="preserve"><value>Bestandsregels</value></data>
+  <data name="FilesManage" xml:space="preserve"><value>Bestanden beheren</value></data>
+  <data name="FilesRuleCount" xml:space="preserve"><value>{0} bestandsregel(s)</value></data>
+  <data name="FilesHint" xml:space="preserve"><value>Lokale bestanden en wildcards. De voorbeeldlijst toont de geselecteerde regel; de compiler verzamelt de bestanden opnieuw bij het bouwen.</value></data>
+  <data name="FilesEmptyRule" xml:space="preserve"><value>Nieuwe bestandsregel</value></data>
+  <data name="FilesAdd" xml:space="preserve"><value>Toevoegen</value></data>
+  <data name="FilesRemove" xml:space="preserve"><value>Verwijderen</value></data>
+  <data name="FilesSource" xml:space="preserve"><value>Bronbestand of patroon</value></data>
+  <data name="FilesChooseFolder" xml:space="preserve"><value>Bronmap kiezen</value></data>
+  <data name="FilesRecurse" xml:space="preserve"><value>Submappen meenemen</value></data>
+  <data name="FilesExcludes" xml:space="preserve"><value>Uitsluitingen (één patroon per regel)</value></data>
+  <data name="FilesExcludesHint" xml:space="preserve"><value>Bijvoorbeeld *.pdb of \Temp. Een beginnende backslash verankert het patroon in de bronmap. Lege mappen volgen bij Mapregels.</value></data>
+  <data name="FilesRefresh" xml:space="preserve"><value>Bestandsvoorbeeld vernieuwen</value></data>
+  <data name="FilesLoading" xml:space="preserve"><value>Bestanden verzamelen…</value></data>
+  <data name="FilesCount" xml:space="preserve"><value>{0} bestand(en) voor deze regel. Alleen-lezen voorbeeld; bronwijzigingen buiten Studio worden bij vernieuwen zichtbaar.</value></data>
+  <data name="FilesPreviewTooLarge" xml:space="preserve"><value>Deze verzameling is te groot voor een volledig voorbeeld (maximaal 10.000 bestanden of 50.000 mappen). Verklein de bronselectie.</value></data>
+  <data name="FilesLinkedDirectory" xml:space="preserve"><value>De bron bevat een gekoppelde map. Kies gewone bronmappen voor een controleerbaar bestandsvoorbeeld.</value></data>
+  <data name="FilesPreviewFailed" xml:space="preserve"><value>De bronverzameling kon niet volledig worden gelezen. Controleer pad en toegang.</value></data>
 </root>

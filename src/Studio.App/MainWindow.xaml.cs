@@ -98,16 +98,10 @@ public partial class MainWindow : Window
     private async void Save_Executed(object sender, ExecutedRoutedEventArgs e) { if (!_busy) await SaveAsync(false); }
     private async void SaveAs_Executed(object sender, ExecutedRoutedEventArgs e) { if (!_busy) await SaveAsync(true); }
 
-    internal void ChooseSourceFile()
+    internal void ManageFileRules()
     {
-        if (_busy || !_editor.IsDesign) return;
-        var projectDirectory = _path is null ? null : Path.GetDirectoryName(_path);
-        var dialog = new OpenFileDialog { Title = Text["ChooseSourceFile"], Filter = Text["SourceFileFilter"],
-            CheckFileExists = true, InitialDirectory = projectDirectory ?? "" };
-        if (dialog.ShowDialog(this) != true) return;
-        var relative = projectDirectory is null ? null : Path.GetRelativePath(projectDirectory, dialog.FileName);
-        _editor.SourceFile = relative is not null && !Path.IsPathRooted(relative) && !relative.StartsWith(".." + Path.DirectorySeparatorChar, StringComparison.Ordinal)
-            ? relative : dialog.FileName;
+        if(_busy || !_editor.IsDesign) return;
+        new FileRulesWindow(_editor,_path is null ? null : Path.GetDirectoryName(_path)) { Owner=this }.ShowDialog();
     }
 
     private async void Export_Click(object sender, RoutedEventArgs e)

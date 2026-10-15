@@ -75,7 +75,7 @@ Bestandsgroepen: Core/installatieregels/referenties; App/regeloverzichten/keuzep
 
 | Acceptatie | Slice / resultaat | Toetsbare criteria | Controle / afhankelijk |
 |---|---|---|---|
-| [ ] | M04-S01 Bestandsverzamelingen | Wildcards, submappen en uitsluitingen zijn bewerkbaar; voorbeeldlijst past bij de bron; export behoudt de regels bij opslaan/openen. | B/T/C/U; M03 |
+| [x] | M04-S01 Bestandsverzamelingen | Wildcards, submappen en uitsluitingen zijn bewerkbaar; voorbeeldlijst past bij de bron; export behoudt de regels bij opslaan/openen. | B/T/C/U; M03; door gebruiker geaccepteerd |
 | [ ] | M04-S02 Mapregels | Losse mapregels zijn te beheren; relevante opties worden gevalideerd; regels volgen projectreferenties en opslag. | B/T/C/U; S01 |
 | [ ] | M04-S03 Snelkoppelingen | Naam, doel, parameters en map zijn instelbaar; ontbrekende verwijzingen worden gemeld; gebruiker controleert een startmenusnelkoppeling. | B/T/C/I; S02 |
 | [ ] | M04-S04 Installatietypen | Typen hebben unieke identifiers en vertaalbare beschrijvingen; selectie wordt bewaard in ontwerpgegevens; export compileert. | B/T/C/U; S03 |
@@ -207,3 +207,9 @@ M03-S06 is geïmplementeerd: één tijdelijke wizardroute via Uitproberen, actie
 Aanvulling op de geaccepteerde M03-S06 (bb919b7): automatische documentcontrole met afzonderlijke rode fouten boven het voorbeeld, algemene bron en alle ingevulde taalvarianten, en dezelfde documentlezer in de simulatie. Release-build zonder fouten/waarschuwingen; 236 tests geslaagd en een niet-visuele WPF-proef voor alle drie documentvensters geslaagd. [Werking en controles](../docs/slices/M03-Documentfouten-direct-tonen.md). Deze aanvulling is op 15 oktober 2026 door de gebruiker geaccepteerd.
 
 M03 is op 15 oktober 2026 als geheel door de gebruiker geaccepteerd, inclusief de aanvullende documentfoutmeldingen. Merge naar main en start van M04 zijn expliciet goedgekeurd. Eindcontrole: alle 236 tests geslaagd, Release-build zonder fouten of waarschuwingen, geen blokkerende reviewpunten. Gebruikersbestanden in samples vallen buiten de mergewijzigingen.
+
+M03 is naar main gemerged en gepusht als 84c8a06. M04-S01 is geïmplementeerd op m04-installatiekeuzes: meerdere bestandsregels, wildcards, submappen, uitsluitingen, automatisch bestandsvoorbeeld en projectformaat 10 met migratie. Alle 244 tests geslaagd; Release-build zonder fouten/waarschuwingen. [Handmatige controles](../docs/slices/M04-S01-Bestandsverzamelingen.md). M04-S01 is door de gebruiker geaccepteerd, inclusief de benaming Bestandsregels. De gebruiker heeft opdracht gegeven voor S02.
+
+## Later uit te werken — projectinstellingen en bouwacties
+
+Gebruikersrichting na de proef met M04-S01: verplaats Applicatiegegevens, de installatie-/bestandsregels en de instellingen uit Compiler en bouwen naar één algemene instellingenpagina, met tabs en per tab duidelijke onderwerpen. De precieze tabnaam voor de bredere installatieregels wordt bij die UI-uitwerking bepaald; het huidige bestandsregelonderdeel heet Bestandsregels. Houd Bouw installer, Open uitvoermap en Bouwmeldingen direct als acties op het hoofdscherm. Doel: het inrichten van een project scheiden van het herhaald bouwen na bronupdates. Dit is bewust uitgesteld; nog geen opdracht voor een extra slice of wijziging van de milestonevolgorde.

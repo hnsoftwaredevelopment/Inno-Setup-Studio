@@ -37,3 +37,5 @@ Native volgorde en knopzichtbaarheid zijn vergeleken met de aangeleverde Inno Se
 Na acceptatie wordt S06 gecommit/gepusht. M03 wordt pas na expliciet akkoord op de gehele milestone gemerged; M04 wordt niet automatisch gestart.
 
 Gebruikersacceptatie: vooruit/achteruit en verschillende talen werken. Native constanten blijven terecht zichtbaar in de simulatie. Aanvullend gevraagd: documentfouten automatisch en rood boven het documentvoorbeeld melden. Die aanvulling krijgt een afzonderlijke controle.
+
+Milestoneafronding: M03 is na expliciet gebruikersakkoord op 15 oktober 2026 naar main gemerged en gepusht als 84c8a06.

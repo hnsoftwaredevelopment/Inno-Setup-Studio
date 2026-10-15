@@ -108,12 +108,12 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="ApplicationDetailsHint" xml:space="preserve"><value>These details apply to the entire project. AppId stays the same for a new version. Custom wizard text and the installation path are not updated automatically.</value></data>
   <data name="InvalidApplicationDetails" xml:space="preserve"><value>Enter a product name, application ID and version, each on a single line. The application ID may contain at most 127 characters. The changes have not been saved.</value></data>
   <data name="StatusMigrated" xml:space="preserve"><value>Legacy project opened and upgraded in memory. Save to retain the new project format.</value></data>
-  <data name="InstallFileHeading" xml:space="preserve"><value>File rule</value></data>
+  <data name="InstallFileHeading" xml:space="preserve"><value>File rules</value></data>
   <data name="SourceFileLabel" xml:space="preserve"><value>Source file</value></data>
   <data name="ChooseSourceFile" xml:space="preserve"><value>Choose file…</value></data>
   <data name="FileDestinationLabel" xml:space="preserve"><value>Destination folder for this file</value></data>
-  <data name="InstallFileHint" xml:space="preserve"><value>One local file; wildcards are not supported yet. Relative source paths use the project folder. Destination: {app} or, for example, {app}\Data.</value></data>
-  <data name="ExportScopeHint" xml:space="preserve"><value>The export includes all enabled project languages, application details, one file and the Welcome and Destination texts, including button overrides and the Browse tooltip. Inno Setup controls language selection, layout and the remaining steps.</value></data>
+  <data name="InstallFileHint" xml:space="preserve"><value>Manage local file rules, wildcards, subfolders and exclusions. Relative sources use the project folder; destinations start with {app}.</value></data>
+  <data name="ExportScopeHint" xml:space="preserve"><value>The export includes enabled languages, application details, file rules and configured native wizard pages. Inno Setup handles execution.</value></data>
   <data name="ExportScript" xml:space="preserve"><value>Export .iss</value></data>
   <data name="SourceFileFilter" xml:space="preserve"><value>All files (*.*)|*.*</value></data>
   <data name="ScriptFilter" xml:space="preserve"><value>Inno Setup script (*.iss)|*.iss</value></data>
@@ -121,7 +121,7 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="ExportFailed" xml:space="preserve"><value>Export failed</value></data>
   <data name="StatusExportFailed" xml:space="preserve"><value>The export failed. Your project remains open.</value></data>
   <data name="InvalidFileRule" xml:space="preserve"><value>Check the file rule: source and destination must each be on a single line; the destination may not be empty.</value></data>
-  <data name="ExportSourceInvalid" xml:space="preserve"><value>Choose one local source file without wildcards, control characters or invalid path characters.</value></data>
+  <data name="ExportSourceInvalid" xml:space="preserve"><value>Choose a local source without control characters or invalid path characters. Wildcards are allowed only in the file name.</value></data>
   <data name="ExportSourceMissing" xml:space="preserve"><value>The source file does not exist or is inaccessible. Check the path or choose the file again.</value></data>
   <data name="ExportSourceNeedsProject" xml:space="preserve"><value>Save the project first to use a relative source path, or choose an absolute source path.</value></data>
   <data name="ExportDestinationInvalid" xml:space="preserve"><value>Use {app} or a subfolder such as {app}\Data, without wildcards, other constants or . and .. as folder names.</value></data>
@@ -361,4 +361,22 @@ Replace it with the current export? Existing content, including any manual chang
   <data name="TrialDocumentLoading" xml:space="preserve"><value>Loading document…</value></data>
   <data name="DocumentRefresh" xml:space="preserve"><value>Refresh preview</value></data>
   <data name="DocumentError" xml:space="preserve"><value>Document error</value></data>
+  <data name="FilesHeading" xml:space="preserve"><value>File rules</value></data>
+  <data name="FilesManage" xml:space="preserve"><value>Manage files</value></data>
+  <data name="FilesRuleCount" xml:space="preserve"><value>{0} file rule(s)</value></data>
+  <data name="FilesHint" xml:space="preserve"><value>Local files and wildcards. The preview shows the selected rule; the compiler collects files again when building.</value></data>
+  <data name="FilesEmptyRule" xml:space="preserve"><value>New file rule</value></data>
+  <data name="FilesAdd" xml:space="preserve"><value>Add</value></data>
+  <data name="FilesRemove" xml:space="preserve"><value>Remove</value></data>
+  <data name="FilesSource" xml:space="preserve"><value>Source file or pattern</value></data>
+  <data name="FilesChooseFolder" xml:space="preserve"><value>Choose source folder</value></data>
+  <data name="FilesRecurse" xml:space="preserve"><value>Include subfolders</value></data>
+  <data name="FilesExcludes" xml:space="preserve"><value>Exclusions (one pattern per line)</value></data>
+  <data name="FilesExcludesHint" xml:space="preserve"><value>For example *.pdb or \Temp. A leading backslash anchors the pattern to the source folder. Empty folders are handled by directory rules later.</value></data>
+  <data name="FilesRefresh" xml:space="preserve"><value>Refresh file preview</value></data>
+  <data name="FilesLoading" xml:space="preserve"><value>Collecting files…</value></data>
+  <data name="FilesCount" xml:space="preserve"><value>{0} file(s) for this rule. Read-only preview; refresh to see source changes made outside Studio.</value></data>
+  <data name="FilesPreviewTooLarge" xml:space="preserve"><value>This collection exceeds the complete preview limit (10,000 files or 50,000 folders). Narrow the source selection.</value></data>
+  <data name="FilesLinkedDirectory" xml:space="preserve"><value>The source contains a linked folder. Use regular source folders for a verifiable file preview.</value></data>
+  <data name="FilesPreviewFailed" xml:space="preserve"><value>The source collection could not be fully read. Check the path and access.</value></data>
 </root>
