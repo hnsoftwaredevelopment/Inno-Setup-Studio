@@ -66,7 +66,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
     public bool IsBrowseSelected => SelectedElement == ElementKind.Browse;
     public bool ShowInheritance => !IsDirectorySelected;
     public bool IsDesign => !IsPreview;
-    public bool CanEdit => IsDesign && (!IsBase || IsButton);
+    public bool CanEdit => IsDesign && WizardPropertyScope.CanEdit(CurrentPage?.Kind, SelectedElement);
     public bool IsButton => SelectedElement is ElementKind.Back or ElementKind.Next or ElementKind.Cancel;
     public bool CanReset => CanEdit && !IsDirectorySelected && WizardTexts.Own(Project, PreviewLanguage, SelectedSlot) is not null;
     public bool ShowTextWatermark => ShowInheritance && string.IsNullOrEmpty(PropertyText);
@@ -156,6 +156,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
             foreach (var (slot, value) in own)
                 if (value is not null) WizardTexts.Set(Project, successor, slot, value);
         }
+        foreach (var document in Project.Documents.Values) document.Translations.Remove(id);
         Project.Languages.RemoveAll(l => l.Id == id);
         if (_previewLanguageId == id) _previewLanguageId = Project.Languages.First(l => l.Enabled).Id;
         RebuildPreviewLanguages(); IsDirty = true; Refresh();
@@ -184,6 +185,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
     public string TrialDirectory { get => DirectoryText; set => SetTrialDirectory(value); }
     public string BrowseCaption => WizardTexts.Resolve(Project, PreviewLanguageId, WizardTextSlot.DestinationBrowse).Text;
     public string PropertyLabel => IsDirectorySelected ? Text["DefaultDirectoryLabel"] : Text["OwnTranslationText"];
+    public string PropertyScopeHint => WizardPropertyScope.Describe(Text, CurrentPage?.Kind, SelectedElement);
     public string PropertyHint => IsDirectorySelected
         ? Text["DirectoryHint"]
         : IsBrowseSelected ? Text["BrowseHint"]
@@ -381,6 +383,40 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
             case ElementKind.Cancel: IsPreview = false; break;
         }
     }
+
+    public void SetDocumentSource(WizardDocumentKind kind, string? languageId, string source)
+    {
+        if (!IsDesign || !Enum.IsDefined(kind) || source is null
+            || (languageId is not null && !Project.Languages.Any(l => l.Id == languageId))) return;
+        var document = Project.Documents[kind];
+        var old = languageId is null ? document.Source : document.Translations.GetValueOrDefault(languageId, "");
+        if (old == source) return;
+        if (languageId is null) document.Source = source;
+        else if (string.IsNullOrEmpty(source)) document.Translations.Remove(languageId);
+        else document.Translations[languageId] = source;
+        IsDirty = true; Refresh();
+    }
+
+    public bool SetWizardPageEnabled(string id, bool enabled)
+    {
+        if (!IsDesign) return false;
+        var page = WizardPageOverview.Create(Text, Project).SingleOrDefault(p => p.Id == id);
+        if (page is not { CanToggle: true }) return false;
+        if (page.DocumentKind is { } kind)
+        {
+            if (Project.Documents[kind].Enabled == enabled) return false;
+            Project.Documents[kind].Enabled = enabled;
+        }
+        else
+        {
+            if (Project.PageSettings.UserInfoEnabled == enabled) return false;
+            Project.PageSettings.UserInfoEnabled = enabled;
+        }
+        PageSettingsChanged();
+        return true;
+    }
+
+    internal void PageSettingsChanged() { IsDirty = true; Refresh(); }
 
     public void MarkSaved() { Project.WasMigrated = false; IsDirty = false; SetStatus("StatusSaved"); }
     public void SetStatus(string resourceKey) { _statusKey = resourceKey; Refresh(); }

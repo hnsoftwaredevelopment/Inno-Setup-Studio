@@ -254,4 +254,111 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="ExportLanguageSourceInvalid" xml:space="preserve"><value>A language source has an unsuitable path. Choose one .isl file without commas, quotes, braces or wildcards. A compiler: path must stay inside the compiler directory.</value></data>
   <data name="ExportLanguageSourceNeedsProject" xml:space="preserve"><value>A relative language source requires a saved project. Save the project or choose an absolute .isl path.</value></data>
   <data name="ExportLanguageSourceMissing" xml:space="preserve"><value>An external language file is missing or inaccessible. Check the source paths in Project languages and restore the .isl file.</value></data>
+  <data name="WizardPageOverview" xml:space="preserve"><value>Page overview</value></data>
+  <data name="PageOverviewHint" xml:space="preserve"><value>Green = on, red = off, ? = conditional. Turn on a document page or User information to open settings. Double-click or F2 opens existing settings. Other statuses are fixed.</value></data>
+  <data name="PageOverviewDesign" xml:space="preserve"><value>Open design page</value></data>
+  <data name="PageOverviewNoDesign" xml:space="preserve"><value>A design page is not yet available for this phase.</value></data>
+  <data name="PageOverviewOrder" xml:space="preserve"><value>Order</value></data>
+  <data name="PageOverviewPhase" xml:space="preserve"><value>Page / phase</value></data>
+  <data name="PageOverviewStatus" xml:space="preserve"><value>Status</value></data>
+  <data name="PageOverviewReason" xml:space="preserve"><value>Visibility and support</value></data>
+  <data name="PageOverviewClose" xml:space="preserve"><value>Close</value></data>
+  <data name="PageStateEnabled" xml:space="preserve"><value>Enabled</value></data>
+  <data name="PageStateDisabled" xml:space="preserve"><value>Disabled</value></data>
+  <data name="PageStateConditional" xml:space="preserve"><value>Conditional</value></data>
+  <data name="PageStateRuntime" xml:space="preserve"><value>Runtime</value></data>
+  <data name="PageOverviewWelcome" xml:space="preserve"><value>Welcome</value></data>
+  <data name="PageReasonWelcome" xml:space="preserve"><value>Shown: Welcome is enabled. Texts can be designed now.</value></data>
+  <data name="PageOverviewLicense" xml:space="preserve"><value>License agreement</value></data>
+  <data name="PageReasonLicense" xml:space="preserve"><value>Turn on License agreement to choose a general document and language variants. Without a general document the page is hidden.</value></data>
+  <data name="PageOverviewPassword" xml:space="preserve"><value>Password</value></data>
+  <data name="PageReasonPassword" xml:space="preserve"><value>No password configured. Password policy follows later.</value></data>
+  <data name="PageOverviewInfoBefore" xml:space="preserve"><value>Information before installation</value></data>
+  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Turn on this page to choose a document before installation and language variants.</value></data>
+  <data name="PageOverviewUserInfo" xml:space="preserve"><value>User information</value></data>
+  <data name="PageReasonUserInfo" xml:space="preserve"><value>Turn on User information to configure name and organization.</value></data>
+  <data name="PageOverviewDestination" xml:space="preserve"><value>Destination folder</value></data>
+  <data name="PageReasonDestination" xml:space="preserve"><value>Shown: the folder selection page is enabled. Path and texts can be designed now.</value></data>
+  <data name="PageOverviewComponents" xml:space="preserve"><value>Components</value></data>
+  <data name="PageReasonComponents" xml:space="preserve"><value>No components defined. Installation types and components follow later.</value></data>
+  <data name="PageOverviewProgramGroup" xml:space="preserve"><value>Start Menu folder</value></data>
+  <data name="PageReasonProgramGroup" xml:space="preserve"><value>There are no shortcuts yet. The policy is saved, but the folder selection page only appears when shortcuts exist.</value></data>
+  <data name="PageOverviewTasks" xml:space="preserve"><value>Tasks</value></data>
+  <data name="PageReasonTasks" xml:space="preserve"><value>No tasks defined. Tasks and component conditions follow later.</value></data>
+  <data name="PageOverviewReady" xml:space="preserve"><value>Ready to install</value></data>
+  <data name="PageReasonReady" xml:space="preserve"><value>Shown by default before installation. View phase shows the summary and Install button.</value></data>
+  <data name="PageOverviewPreparing" xml:space="preserve"><value>Preparing to install</value></data>
+  <data name="PageReasonPreparing" xml:space="preserve"><value>Native preparation pauses only for problems or files in use. View phase simulates a preparation problem without installation actions.</value></data>
+  <data name="PageOverviewInstalling" xml:space="preserve"><value>Installing</value></data>
+  <data name="PageReasonInstalling" xml:space="preserve"><value>Fixed runtime phase. View phase shows manual trial progress; nothing is installed.</value></data>
+  <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Information after installation</value></data>
+  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Turn on this page to choose a document after installation and language variants.</value></data>
+  <data name="PageOverviewFinished" xml:space="preserve"><value>Setup completed</value></data>
+  <data name="PageReasonFinished" xml:space="preserve"><value>Shown by default after installation. View phase shows completion and the Finish button.</value></data>
+  <data name="DocumentConfigure" xml:space="preserve"><value>Configure document</value></data>
+  <data name="DocumentGeneral" xml:space="preserve"><value>General document</value></data>
+  <data name="DocumentChoose" xml:space="preserve"><value>Browse…</value></data>
+  <data name="DocumentVariant" xml:space="preserve"><value>Document for this language (optional)</value></data>
+  <data name="DocumentFallback" xml:space="preserve"><value>An empty language variant uses the general document.</value></data>
+  <data name="DocumentHint" xml:space="preserve"><value>Choose TXT or RTF. Without a general document this page is hidden. Source files remain required.</value></data>
+  <data name="DocumentPreview" xml:space="preserve"><value>Show document preview</value></data>
+  <data name="DocumentFilter" xml:space="preserve"><value>Documents (*.txt;*.rtf)|*.txt;*.rtf</value></data>
+  <data name="DocumentInvalid" xml:space="preserve"><value>Choose a valid TXT or RTF document without script references in its path.</value></data>
+  <data name="DocumentConfigured" xml:space="preserve"><value>A general document is configured. Language variants use their own source; other languages use the general document.</value></data>
+  <data name="DocumentInactive" xml:space="preserve"><value>This page is disabled: choose a general document first.</value></data>
+  <data name="DocumentPreviewFailed" xml:space="preserve"><value>The document preview cannot be read. Use valid RTF or TXT with UTF-8 or UTF-16LE.</value></data>
+  <data name="DocumentPreviewLarge" xml:space="preserve"><value>This document is too large for the preview (maximum 4 MB).</value></data>
+  <data name="DocumentRemoveVariants" xml:space="preserve"><value>Also removes {0} document variants from this project. Source files are retained.</value></data>
+  <data name="PageConfigure" xml:space="preserve"><value>Configure page</value></data>
+  <data name="PageSettingsInvalid" xml:space="preserve"><value>Invalid page settings. Use text without line breaks.</value></data>
+  <data name="GroupNameInvalid" xml:space="preserve"><value>The Start Menu folder name contains invalid characters.</value></data>
+  <data name="UserInfoEnabled" xml:space="preserve"><value>Show user information</value></data>
+  <data name="UserInfoDefaultName" xml:space="preserve"><value>Name</value></data>
+  <data name="UserInfoDefaultOrganization" xml:space="preserve"><value>Organization</value></data>
+  <data name="UserInfoPrevious" xml:space="preserve"><value>Use previous user information</value></data>
+  <data name="UserInfoHint" xml:space="preserve"><value>Native constants are allowed. Previous data may replace initial values during updates. Serial numbers require validation scripting and follow later.</value></data>
+  <data name="UserInfoConfigured" xml:space="preserve"><value>User information is enabled. The installer asks for a name and organization.</value></data>
+  <data name="GroupPolicy" xml:space="preserve"><value>Start Menu folder selection</value></data>
+  <data name="GroupModeAuto" xml:space="preserve"><value>Automatic (usually hidden during updates)</value></data>
+  <data name="GroupModeShow" xml:space="preserve"><value>Show when shortcuts exist</value></data>
+  <data name="GroupModeHide" xml:space="preserve"><value>Hide and use the default folder</value></data>
+  <data name="GroupDefaultName" xml:space="preserve"><value>Start Menu folder name</value></data>
+  <data name="GroupDefaultHint" xml:space="preserve"><value>Empty uses the native default name. {AppName} and {AppVersion} refer to application details.</value></data>
+  <data name="GroupAllowNoIcons" xml:space="preserve"><value>Allow skipping the Start Menu folder</value></data>
+  <data name="GroupPrevious" xml:space="preserve"><value>Use previous folder selection during updates</value></data>
+  <data name="GroupRequiresIcons" xml:space="preserve"><value>There are no shortcuts yet. The policy is saved, but the folder selection page only appears when shortcuts exist.</value></data>
+  <data name="PageInputPreview" xml:space="preserve"><value>Input preview</value></data>
+  <data name="PageInputPreviewHint" xml:space="preserve"><value>Trial input is not saved. Native constants remain expressions; the installer determines their values. This is not a full wizard preview.</value></data>
+  <data name="DocumentDisabled" xml:space="preserve"><value>This page is disabled. The general document and language variants are retained. Turn the page on again to use them.</value></data>
+  <data name="CompletionView" xml:space="preserve"><value>View phase</value></data>
+  <data name="CompletionPreviewTitle" xml:space="preserve"><value>Completion phases — simulation</value></data>
+  <data name="CompletionPreviewHint" xml:space="preserve"><value>This only simulates the completion phases. No files are installed or programs started. Other pages are skipped here; constants remain expressions.</value></data>
+  <data name="CompletionPreparationProblem" xml:space="preserve"><value>Simulate a preparation problem</value></data>
+  <data name="CompletionResolvePreparation" xml:space="preserve"><value>Resolve the simulated problem and continue</value></data>
+  <data name="CompletionProgressHint" xml:space="preserve"><value>Simulated progress (manual)</value></data>
+  <data name="CompletionComplete" xml:space="preserve"><value>Complete simulation at 100%</value></data>
+  <data name="CompletionClose" xml:space="preserve"><value>Close simulation</value></data>
+  <data name="CompletionLoading" xml:space="preserve"><value>Loading native language text…</value></data>
+  <data name="CompletionSourceFallback" xml:space="preserve"><value>Not all native language texts are available. Missing texts use the English example.</value></data>
+  <data name="CompletionNativeSource" xml:space="preserve"><value>Text from the selected Inno Setup language source.</value></data>
+  <data name="ExportOverwriteConfirm" xml:space="preserve"><value>This .iss file already exists:
+
+{0}
+
+Replace it with the current export? Existing content, including any manual changes, will be replaced.</value></data>
+  <data name="ExportChangedSinceConfirmation" xml:space="preserve"><value>The .iss file changed or was removed after the confirmation prompt. Nothing was replaced. Export again to confirm the current version.</value></data>
+  <data name="ScopeSharedBackCancel" xml:space="preserve"><value>Shared in this preview language wherever the button is visible. A local page override takes precedence.</value></data>
+  <data name="ScopeSharedNext" xml:space="preserve"><value>Shared on ordinary Next pages in this language. Install, Finish and runtime preparation retain their native roles.</value></data>
+  <data name="ScopeLocalButton" xml:space="preserve"><value>Only this page and preview language. Reset removes the local text and restores shared or default text.</value></data>
+  <data name="ScopePageText" xml:space="preserve"><value>Only this page and preview language; no inheritance from Base design.</value></data>
+  <data name="ScopeDirectory" xml:space="preserve"><value>Project setting for Destination folder, independent of language. Native Inno Setup constants remain expressions.</value></data>
+  <data name="ScopeBrowse" xml:space="preserve"><value>Only Browse on Destination folder, in this preview language. Caption and tooltip have separate overrides.</value></data>
+  <data name="ScopeUnavailable" xml:space="preserve"><value>This property has no supported native editing here.</value></data>
+  <data name="TrialTitle" xml:space="preserve"><value>Try the wizard</value></data>
+  <data name="TrialHint" xml:space="preserve"><value>Walk through the enabled pages. All input is temporary; no installation actions are performed.</value></data>
+  <data name="TrialExpressions" xml:space="preserve"><value>Windows and Inno Setup constants remain visible as expressions here. You can enter a temporary trial value.</value></data>
+  <data name="TrialMessageFallback" xml:space="preserve"><value>Missing native page messages use English preview text.</value></data>
+  <data name="TrialDocumentLoading" xml:space="preserve"><value>Loading document…</value></data>
+  <data name="DocumentRefresh" xml:space="preserve"><value>Refresh preview</value></data>
+  <data name="DocumentError" xml:space="preserve"><value>Document error</value></data>
 </root>

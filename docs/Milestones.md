@@ -51,6 +51,8 @@ Eindcriteria: alleen Nederlands werkt; een meertalig project werkt; nieuwe proje
 
 De talenlijst is geen vaste Nederlandse/Engelse/Duitse selectie. Bij een rechts-naar-links-taal wordt de kwaliteit van de preview expliciet getest of als beperking aangegeven.
 
+M02 is op 14 oktober 2026 als geheel door de gebruiker geaccepteerd, naar main gemerged en gepusht als dc4ba08. M03 is gestart op m03-wizardpaginas.
+
 ## M03 — m03-wizardpaginas
 
 Resultaat: het standaardpaginaoverzicht is gebaseerd op de werkelijke wizard. De gebruiker bewerkt alleen relevante, ondersteunde eigenschappen.
@@ -126,3 +128,5 @@ Inno Setup-import en een Visual Studio-extensie worden alleen als afzonderlijk v
 ## Herplannen
 
 Een milestone mag worden gesplitst als een slice te breed blijkt. ID's en oude besluiten blijven traceerbaar; scope, afhankelijkheden en eindcriteria worden eerst bijgewerkt. Bij een technisch onhaalbare property geldt de Inno Setup-grens, niet de wens om koste wat kost de preview te behouden.
+
+M03 is op 15 oktober 2026 als geheel door de gebruiker geaccepteerd, inclusief de aanvullende documentfoutmeldingen. Merge naar main en start van M04 zijn expliciet goedgekeurd. Eindcontrole: alle 236 tests geslaagd, Release-build zonder fouten of waarschuwingen, geen blokkerende reviewpunten. Gebruikersbestanden in samples vallen buiten de mergewijzigingen.

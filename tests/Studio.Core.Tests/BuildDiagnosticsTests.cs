@@ -63,6 +63,7 @@ public class BuildDiagnosticsTests
             json.Remove("OutputBaseFileName");
             json.Remove("Languages");
             json.Remove("TextLanguageId");
+            json.Remove("Documents"); json.Remove("PageSettings");
             var content = json.ToJsonString();
             await File.WriteAllTextAsync(path, content);
             var restored = await ProjectFile.LoadAsync(path);

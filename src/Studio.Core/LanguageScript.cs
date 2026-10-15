@@ -20,7 +20,7 @@ internal static class LanguageScript
             }
         }).ToArray();
 
-    private static string Source(string source, string? projectDirectory)
+    internal static string Source(string source, string? projectDirectory)
     {
         if (source.Any(char.IsControl) || source.IndexOfAny(['"', ',', '{', '}', '*', '?', '<', '>', '|']) >= 0
             || !string.Equals(Path.GetExtension(source), ".isl", StringComparison.OrdinalIgnoreCase))

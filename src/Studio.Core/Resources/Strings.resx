@@ -254,4 +254,111 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="ExportLanguageSourceInvalid" xml:space="preserve"><value>Een taalbron heeft een ongeschikt pad. Kies één .isl-bestand zonder komma, aanhalingstekens, accolades of jokertekens. Een compiler:-pad moet binnen de compilermap blijven.</value></data>
   <data name="ExportLanguageSourceNeedsProject" xml:space="preserve"><value>Een relatief taalbronpad vereist een opgeslagen project. Bewaar het project of kies een absoluut .isl-pad.</value></data>
   <data name="ExportLanguageSourceMissing" xml:space="preserve"><value>Een extern taalbestand ontbreekt of is niet leesbaar. Controleer de bronpaden bij Projecttalen en herstel het .isl-bestand.</value></data>
+  <data name="WizardPageOverview" xml:space="preserve"><value>Paginaoverzicht</value></data>
+  <data name="PageOverviewHint" xml:space="preserve"><value>Groen = aan, rood = uit, ? = voorwaardelijk. Schakel een documentpagina of Gebruikersinformatie in om de instellingen te openen. Dubbelklik of F2 opent bestaande instellingen. Overige statussen zijn vast.</value></data>
+  <data name="PageOverviewDesign" xml:space="preserve"><value>Open ontwerppagina</value></data>
+  <data name="PageOverviewNoDesign" xml:space="preserve"><value>Voor deze fase is nog geen ontwerppagina beschikbaar.</value></data>
+  <data name="PageOverviewOrder" xml:space="preserve"><value>Volgorde</value></data>
+  <data name="PageOverviewPhase" xml:space="preserve"><value>Pagina / fase</value></data>
+  <data name="PageOverviewStatus" xml:space="preserve"><value>Status</value></data>
+  <data name="PageOverviewReason" xml:space="preserve"><value>Zichtbaarheid en ondersteuning</value></data>
+  <data name="PageOverviewClose" xml:space="preserve"><value>Sluiten</value></data>
+  <data name="PageStateEnabled" xml:space="preserve"><value>Ingeschakeld</value></data>
+  <data name="PageStateDisabled" xml:space="preserve"><value>Uitgeschakeld</value></data>
+  <data name="PageStateConditional" xml:space="preserve"><value>Voorwaardelijk</value></data>
+  <data name="PageStateRuntime" xml:space="preserve"><value>Runtime</value></data>
+  <data name="PageOverviewWelcome" xml:space="preserve"><value>Welkom</value></data>
+  <data name="PageReasonWelcome" xml:space="preserve"><value>Wordt getoond: Welkom is ingeschakeld. Teksten zijn nu te ontwerpen.</value></data>
+  <data name="PageOverviewLicense" xml:space="preserve"><value>Licentie</value></data>
+  <data name="PageReasonLicense" xml:space="preserve"><value>Schakel Licentie in om een algemeen document en taalvarianten te kiezen. Zonder algemeen document verschijnt de pagina niet.</value></data>
+  <data name="PageOverviewPassword" xml:space="preserve"><value>Wachtwoord</value></data>
+  <data name="PageReasonPassword" xml:space="preserve"><value>Geen wachtwoord ingesteld. Wachtwoordbeleid volgt later.</value></data>
+  <data name="PageOverviewInfoBefore" xml:space="preserve"><value>Informatie vóór installatie</value></data>
+  <data name="PageReasonInfoBefore" xml:space="preserve"><value>Schakel deze pagina in om een document vóór installatie en taalvarianten te kiezen.</value></data>
+  <data name="PageOverviewUserInfo" xml:space="preserve"><value>Gebruikersinformatie</value></data>
+  <data name="PageReasonUserInfo" xml:space="preserve"><value>Schakel Gebruikersinformatie in om naam en organisatie te configureren.</value></data>
+  <data name="PageOverviewDestination" xml:space="preserve"><value>Installatiemap</value></data>
+  <data name="PageReasonDestination" xml:space="preserve"><value>Wordt getoond: de mapkeuzepagina is ingeschakeld. Pad en teksten zijn nu te ontwerpen.</value></data>
+  <data name="PageOverviewComponents" xml:space="preserve"><value>Componenten</value></data>
+  <data name="PageReasonComponents" xml:space="preserve"><value>Geen componenten gedefinieerd. Installatietypen en componenten volgen later.</value></data>
+  <data name="PageOverviewProgramGroup" xml:space="preserve"><value>Startmenumap</value></data>
+  <data name="PageReasonProgramGroup" xml:space="preserve"><value>Er zijn nog geen snelkoppelingen. Het beleid wordt bewaard, maar de mapkeuzepagina verschijnt pas met snelkoppelingen.</value></data>
+  <data name="PageOverviewTasks" xml:space="preserve"><value>Taken</value></data>
+  <data name="PageReasonTasks" xml:space="preserve"><value>Geen taken gedefinieerd. Taken en componentvoorwaarden volgen later.</value></data>
+  <data name="PageOverviewReady" xml:space="preserve"><value>Gereed voor installatie</value></data>
+  <data name="PageReasonReady" xml:space="preserve"><value>Wordt standaard getoond vóór installatie. Fase bekijken toont de samenvatting en de Installeren-knop.</value></data>
+  <data name="PageOverviewPreparing" xml:space="preserve"><value>Voorbereiden</value></data>
+  <data name="PageReasonPreparing" xml:space="preserve"><value>De native voorbereiding pauzeert alleen bij problemen of bestanden in gebruik. Fase bekijken simuleert een voorbereidingsprobleem zonder installatieacties.</value></data>
+  <data name="PageOverviewInstalling" xml:space="preserve"><value>Installeren</value></data>
+  <data name="PageReasonInstalling" xml:space="preserve"><value>Vaste runtimefase. Fase bekijken toont handmatige proefvoortgang; er wordt niets geïnstalleerd.</value></data>
+  <data name="PageOverviewInfoAfter" xml:space="preserve"><value>Informatie na installatie</value></data>
+  <data name="PageReasonInfoAfter" xml:space="preserve"><value>Schakel deze pagina in om een document na installatie en taalvarianten te kiezen.</value></data>
+  <data name="PageOverviewFinished" xml:space="preserve"><value>Voltooid</value></data>
+  <data name="PageReasonFinished" xml:space="preserve"><value>Wordt standaard getoond na installatie. Fase bekijken toont de afronding en de Voltooien-knop.</value></data>
+  <data name="DocumentConfigure" xml:space="preserve"><value>Document instellen</value></data>
+  <data name="DocumentGeneral" xml:space="preserve"><value>Algemeen document</value></data>
+  <data name="DocumentChoose" xml:space="preserve"><value>Bladeren…</value></data>
+  <data name="DocumentVariant" xml:space="preserve"><value>Document voor deze taal (optioneel)</value></data>
+  <data name="DocumentFallback" xml:space="preserve"><value>Een lege taalvariant gebruikt het algemene document.</value></data>
+  <data name="DocumentHint" xml:space="preserve"><value>Kies TXT of RTF. Zonder algemeen document verschijnt deze pagina niet. Bronnen blijven als bestand nodig.</value></data>
+  <data name="DocumentPreview" xml:space="preserve"><value>Documentvoorbeeld tonen</value></data>
+  <data name="DocumentFilter" xml:space="preserve"><value>Documenten (*.txt;*.rtf)|*.txt;*.rtf</value></data>
+  <data name="DocumentInvalid" xml:space="preserve"><value>Kies een geldig TXT- of RTF-document zonder scriptverwijzingen in het pad.</value></data>
+  <data name="DocumentConfigured" xml:space="preserve"><value>Het algemene document is ingesteld. Taalvarianten gebruiken hun eigen bron; overige talen gebruiken het algemene document.</value></data>
+  <data name="DocumentInactive" xml:space="preserve"><value>Deze pagina is uitgeschakeld: kies eerst een algemeen document.</value></data>
+  <data name="DocumentPreviewFailed" xml:space="preserve"><value>Het documentvoorbeeld kan niet worden gelezen. Gebruik geldige RTF of TXT met UTF-8 of UTF-16LE.</value></data>
+  <data name="DocumentPreviewLarge" xml:space="preserve"><value>Dit document is te groot voor het voorbeeld (maximaal 4 MB).</value></data>
+  <data name="DocumentRemoveVariants" xml:space="preserve"><value>Ook {0} documentvarianten worden uit dit project verwijderd. De bronbestanden blijven behouden.</value></data>
+  <data name="PageConfigure" xml:space="preserve"><value>Pagina instellen</value></data>
+  <data name="PageSettingsInvalid" xml:space="preserve"><value>Ongeldige pagina-instellingen. Gebruik tekst zonder regeleinden.</value></data>
+  <data name="GroupNameInvalid" xml:space="preserve"><value>De startmenumapnaam bevat ongeldige tekens.</value></data>
+  <data name="UserInfoEnabled" xml:space="preserve"><value>Gebruikersinformatie tonen</value></data>
+  <data name="UserInfoDefaultName" xml:space="preserve"><value>Naam</value></data>
+  <data name="UserInfoDefaultOrganization" xml:space="preserve"><value>Organisatie</value></data>
+  <data name="UserInfoPrevious" xml:space="preserve"><value>Eerder ingevoerde gebruikersgegevens gebruiken</value></data>
+  <data name="UserInfoHint" xml:space="preserve"><value>Native constanten zijn toegestaan. Bij een update kunnen eerdere gegevens de beginwaarden vervangen. Serienummers vereisen validatiescripting en volgen later.</value></data>
+  <data name="UserInfoConfigured" xml:space="preserve"><value>Gebruikersinformatie is ingeschakeld. De installer vraagt om naam en organisatie.</value></data>
+  <data name="GroupPolicy" xml:space="preserve"><value>Startmenumapkeuze</value></data>
+  <data name="GroupModeAuto" xml:space="preserve"><value>Automatisch (doorgaans verborgen bij updates)</value></data>
+  <data name="GroupModeShow" xml:space="preserve"><value>Tonen als er snelkoppelingen zijn</value></data>
+  <data name="GroupModeHide" xml:space="preserve"><value>Verbergen en standaardmap gebruiken</value></data>
+  <data name="GroupDefaultName" xml:space="preserve"><value>Startmenumapnaam</value></data>
+  <data name="GroupDefaultHint" xml:space="preserve"><value>Leeg gebruikt de native standaardnaam. {AppName} en {AppVersion} verwijzen naar applicatiegegevens.</value></data>
+  <data name="GroupAllowNoIcons" xml:space="preserve"><value>Gebruiker mag afzien van een startmenumap</value></data>
+  <data name="GroupPrevious" xml:space="preserve"><value>Vorige mapkeuze gebruiken bij een update</value></data>
+  <data name="GroupRequiresIcons" xml:space="preserve"><value>Er zijn nog geen snelkoppelingen. Het beleid wordt bewaard, maar de mapkeuzepagina verschijnt pas met snelkoppelingen.</value></data>
+  <data name="PageInputPreview" xml:space="preserve"><value>Invoervoorbeeld</value></data>
+  <data name="PageInputPreviewHint" xml:space="preserve"><value>Proefinvoer wordt niet opgeslagen. Native constanten blijven expressies; de echte installer bepaalt hun waarden. Dit is geen volledige wizardweergave.</value></data>
+  <data name="DocumentDisabled" xml:space="preserve"><value>Deze pagina is uitgeschakeld. Het algemene document en de taalvarianten blijven bewaard. Schakel de pagina weer in om ze te gebruiken.</value></data>
+  <data name="CompletionView" xml:space="preserve"><value>Fase bekijken</value></data>
+  <data name="CompletionPreviewTitle" xml:space="preserve"><value>Afsluitfasen — simulatie</value></data>
+  <data name="CompletionPreviewHint" xml:space="preserve"><value>Dit is alleen een simulatie van de afsluitfasen. Er worden geen bestanden geïnstalleerd of programma’s gestart. Overige pagina’s worden hier overgeslagen; constanten blijven expressies.</value></data>
+  <data name="CompletionPreparationProblem" xml:space="preserve"><value>Een voorbereidingsprobleem simuleren</value></data>
+  <data name="CompletionResolvePreparation" xml:space="preserve"><value>Simulatieprobleem oplossen en verdergaan</value></data>
+  <data name="CompletionProgressHint" xml:space="preserve"><value>Gesimuleerde voortgang (handmatig)</value></data>
+  <data name="CompletionComplete" xml:space="preserve"><value>Simulatie bij 100% afronden</value></data>
+  <data name="CompletionClose" xml:space="preserve"><value>Simulatie sluiten</value></data>
+  <data name="CompletionLoading" xml:space="preserve"><value>Native taalteksten laden…</value></data>
+  <data name="CompletionSourceFallback" xml:space="preserve"><value>Niet alle native taalteksten zijn beschikbaar. Ontbrekende teksten gebruiken het Engelse voorbeeld.</value></data>
+  <data name="CompletionNativeSource" xml:space="preserve"><value>Teksten uit de geselecteerde Inno Setup-taalbron.</value></data>
+  <data name="ExportOverwriteConfirm" xml:space="preserve"><value>Dit .iss-bestand bestaat al:
+
+{0}
+
+Vervangen door de huidige export? De bestaande inhoud, inclusief eventuele handmatige wijzigingen, wordt vervangen.</value></data>
+  <data name="ExportChangedSinceConfirmation" xml:space="preserve"><value>Het .iss-bestand is gewijzigd of verwijderd na de bevestigingsvraag. Er is niets vervangen. Exporteer opnieuw om de huidige versie te bevestigen.</value></data>
+  <data name="ScopeSharedBackCancel" xml:space="preserve"><value>Gedeeld in deze voorbeeldtaal, waar de knop zichtbaar is. Een lokale pagina-afwijking gaat voor.</value></data>
+  <data name="ScopeSharedNext" xml:space="preserve"><value>Gedeeld op gewone Volgende-pagina’s in deze taal. Installeren, Voltooien en runtimevoorbereiding behouden hun native rol.</value></data>
+  <data name="ScopeLocalButton" xml:space="preserve"><value>Alleen deze pagina en voorbeeldtaal. Herstellen verwijdert de lokale tekst en toont weer de gedeelde of standaardtekst.</value></data>
+  <data name="ScopePageText" xml:space="preserve"><value>Alleen deze pagina en voorbeeldtaal; geen overerving uit Basisontwerp.</value></data>
+  <data name="ScopeDirectory" xml:space="preserve"><value>Projectinstelling voor Installatiemap, onafhankelijk van de taal. Native Inno Setup-constanten blijven expressies.</value></data>
+  <data name="ScopeBrowse" xml:space="preserve"><value>Alleen Bladeren op Installatiemap, in deze voorbeeldtaal. De tekst en tooltip hebben afzonderlijke afwijkingen.</value></data>
+  <data name="ScopeUnavailable" xml:space="preserve"><value>Deze eigenschap heeft hier geen ondersteunde native bewerking.</value></data>
+  <data name="TrialTitle" xml:space="preserve"><value>Wizard uitproberen</value></data>
+  <data name="TrialHint" xml:space="preserve"><value>Doorloop de ingeschakelde pagina’s. Alle invoer is tijdelijk; er worden geen installatieacties uitgevoerd.</value></data>
+  <data name="TrialExpressions" xml:space="preserve"><value>Windows- en Inno Setup-constanten blijven hier als expressie zichtbaar. Vul eventueel een tijdelijke proefwaarde in.</value></data>
+  <data name="TrialMessageFallback" xml:space="preserve"><value>Ontbrekende native paginaberichten gebruiken Engelse voorbeeldtekst.</value></data>
+  <data name="TrialDocumentLoading" xml:space="preserve"><value>Document laden…</value></data>
+  <data name="DocumentRefresh" xml:space="preserve"><value>Voorbeeld vernieuwen</value></data>
+  <data name="DocumentError" xml:space="preserve"><value>Documentfout</value></data>
 </root>

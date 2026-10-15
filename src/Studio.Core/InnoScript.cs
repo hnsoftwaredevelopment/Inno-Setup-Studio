@@ -36,7 +36,41 @@ public static class InnoScript
             "",
             "[Languages]"
         };
-        lines.AddRange(languages.Select(language => "Name: " + Parameter(language.Name) + "; MessagesFile: " + Parameter(language.MessagesFile)));
+        var settings = project.PageSettings;
+        string PageValue(string value)
+        {
+            var expanded = System.Text.RegularExpressions.Regex.Replace(value, @"\{AppName\}|\{AppVersion\}",
+                match => Literal(match.Value == "{AppName}" ? project.Name : project.AppVersion));
+            if (expanded.Contains("{#", StringComparison.Ordinal)) throw Error("ExportPreprocessorUnsupported");
+            return SetupValue(expanded);
+        }
+        var pageLines = new List<string>();
+        if (settings.UserInfoEnabled) pageLines.AddRange([
+            "UserInfoPage=yes", "DefaultUserInfoName=" + PageValue(settings.DefaultName),
+            "DefaultUserInfoOrg=" + PageValue(settings.DefaultOrganization),
+            "UsePreviousUserInfo=" + (settings.UsePreviousUserInfo ? "yes" : "no")]);
+        if (settings.GroupMode != ProgramGroupPageMode.Auto)
+            pageLines.Add("DisableProgramGroupPage=" + (settings.GroupMode == ProgramGroupPageMode.Show ? "no" : "yes"));
+        if (settings.DefaultGroup.Length > 0)
+        {
+            if (WizardTexts.Expand(settings.DefaultGroup, project).IndexOfAny(['"', ':', '*', '?', '<', '>', '|', '/']) >= 0)
+                throw Error("GroupNameInvalid");
+            pageLines.Add("DefaultGroupName=" + PageValue(settings.DefaultGroup));
+        }
+        if (settings.AllowNoIcons) pageLines.Add("AllowNoIcons=yes");
+        if (!settings.UsePreviousGroup) pageLines.Add("UsePreviousGroup=no");
+        lines.InsertRange(lines.IndexOf("[Languages]") - 1, pageLines);
+        var documentLines = project.Documents.Where(p => WizardDocuments.IsActive(p.Value))
+            .Select(p => p.Key + "=" + SetupValue(WizardDocuments.Resolve(p.Value.Source, projectDirectory))).ToArray();
+        lines.InsertRange(lines.IndexOf("[Languages]") - 1, documentLines);
+        foreach (var language in languages)
+        {
+            var line = "Name: " + Parameter(language.Name) + "; MessagesFile: " + Parameter(language.MessagesFile);
+            foreach (var (kind, document) in project.Documents)
+                if (WizardDocuments.IsActive(document) && document.Translations.TryGetValue(language.Language.Id, out var variant)
+                    && !string.IsNullOrWhiteSpace(variant)) line += "; " + kind + ": " + Parameter(WizardDocuments.Resolve(variant, projectDirectory));
+            lines.Add(line);
+        }
         lines.AddRange([
             "",
             "[Files]",
@@ -60,7 +94,13 @@ public static class InnoScript
         return resolved;
     }
 
-    public static async Task ExportAsync(string path, StudioProject project, string? projectDirectory)
+    public static async Task<byte[]> ReadExportFingerprintAsync(string path)
+    {
+        await using var stream = File.OpenRead(path);
+        return await System.Security.Cryptography.SHA256.HashDataAsync(stream);
+    }
+
+    public static async Task ExportAsync(string path, StudioProject project, string? projectDirectory, byte[]? confirmedExistingHash = null)
     {
         if (!string.Equals(Path.GetExtension(path), ".iss", StringComparison.OrdinalIgnoreCase))
             throw Error("ExportExtensionInvalid");
@@ -71,14 +111,22 @@ public static class InnoScript
         if (File.Exists(fullPath))
         {
             if (await File.ReadAllTextAsync(fullPath) == script) return;
-            throw Error("ExportExistingProtected");
+            if (confirmedExistingHash is null) throw Error("ExportExistingProtected");
         }
+        async Task VerifyConfirmation()
+        {
+            if (confirmedExistingHash is not null && (!File.Exists(fullPath)
+                || !(await ReadExportFingerprintAsync(fullPath)).SequenceEqual(confirmedExistingHash)))
+                throw Error("ExportChangedSinceConfirmation");
+        }
+        await VerifyConfirmation();
         var temporaryPath = fullPath + $".{Guid.NewGuid():N}.tmp";
         try
         {
             await File.WriteAllTextAsync(temporaryPath, script, new UTF8Encoding(encoderShouldEmitUTF8Identifier: true));
-            // Never replace a file that appeared while the temporary script was being written.
-            File.Move(temporaryPath, fullPath, overwrite: false);
+            await VerifyConfirmation();
+            // Without confirmation, a file appearing on this path is still preserved.
+            File.Move(temporaryPath, fullPath, overwrite: confirmedExistingHash is not null);
         }
         finally { if (File.Exists(temporaryPath)) File.Delete(temporaryPath); }
     }
