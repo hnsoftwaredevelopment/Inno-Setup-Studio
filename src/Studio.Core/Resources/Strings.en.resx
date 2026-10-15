@@ -359,4 +359,6 @@ Replace it with the current export? Existing content, including any manual chang
   <data name="TrialExpressions" xml:space="preserve"><value>Windows and Inno Setup constants remain visible as expressions here. You can enter a temporary trial value.</value></data>
   <data name="TrialMessageFallback" xml:space="preserve"><value>Missing native page messages use English preview text.</value></data>
   <data name="TrialDocumentLoading" xml:space="preserve"><value>Loading document…</value></data>
+  <data name="DocumentRefresh" xml:space="preserve"><value>Refresh preview</value></data>
+  <data name="DocumentError" xml:space="preserve"><value>Document error</value></data>
 </root>

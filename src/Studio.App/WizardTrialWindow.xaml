@@ -28,8 +28,8 @@
       <StackPanel><TextBlock Text="{Binding Title}" FontSize="19" FontWeight="SemiBold" TextWrapping="Wrap"/>
        <TextBlock Text="{Binding Body}" TextWrapping="Wrap" Margin="0,14,0,12"/>
        <StackPanel Visibility="{Binding IsDocument,Converter={StaticResource Visibility}}">
+        <TextBlock x:Name="DocumentStatus" Style="{StaticResource MutedText}" FontSize="12" Margin="0,0,0,4"/>
         <RichTextBox x:Name="DocumentPreview" IsReadOnly="True" Height="150" VerticalScrollBarVisibility="Auto" IsDocumentEnabled="False"/>
-        <TextBlock x:Name="DocumentStatus" Style="{StaticResource MutedText}" FontSize="12" Margin="0,4,0,0"/>
        </StackPanel>
        <StackPanel Visibility="{Binding IsLicense,Converter={StaticResource Visibility}}" Margin="0,8,0,0">
         <RadioButton Content="{Binding LicenseAcceptCaption}" GroupName="License" IsChecked="{Binding LicenseAccepted}" IsEnabled="{Binding DocumentAvailable}" Margin="0,0,0,5"/>

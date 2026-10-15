@@ -1,9 +1,9 @@
 using System.ComponentModel;
 using System.IO;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Media;
 using Studio.Core;
 namespace Studio.App;
 public partial class WizardTrialWindow : Window
@@ -39,27 +39,29 @@ public partial class WizardTrialWindow : Window
         if(key==_documentKey) return;
         _documentKey=key; var request=++_documentRequest;
         _preview.DocumentAvailable=false; DocumentPreview.Document.Blocks.Clear(); DocumentStatus.Text="";
+        DocumentStatus.Foreground=(Brush)FindResource("Muted");
         if(!_preview.IsDocument) return;
         DocumentStatus.Text=_editor.Text["TrialDocumentLoading"];
         try
         {
-            var path=WizardDocuments.Resolve(_preview.DocumentSource,_projectDirectory);
-            await using var stream=File.OpenRead(path);
-            if(stream.Length>4_194_304) { DocumentStatus.Text=_editor.Text["DocumentPreviewLarge"]; return; }
-            var bytes=new byte[(int)stream.Length]; await stream.ReadExactlyAsync(bytes);
+            var content=await WizardDocumentContent.LoadAsync(_preview.DocumentSource,_projectDirectory);
             if(_closed || request!=_documentRequest) return;
-            if(Path.GetExtension(path).Equals(".rtf",StringComparison.OrdinalIgnoreCase))
-                new TextRange(DocumentPreview.Document.ContentStart,DocumentPreview.Document.ContentEnd).Load(new MemoryStream(bytes),DataFormats.Rtf);
+            if(content.IsRtf)
+                new TextRange(DocumentPreview.Document.ContentStart,DocumentPreview.Document.ContentEnd).Load(new MemoryStream(content.Bytes),DataFormats.Rtf);
             else
             {
-                using var reader=new StreamReader(new MemoryStream(bytes),new UTF8Encoding(false,true),true);
-                DocumentPreview.Document.Blocks.Add(new Paragraph(new Run(reader.ReadToEnd())));
+                DocumentPreview.Document.Blocks.Add(new Paragraph(new Run(content.Text)));
             }
             DocumentStatus.Text=_preview.DocumentSource; _preview.DocumentAvailable=true;
         }
-        catch(Exception error) when(error is IOException or UnauthorizedAccessException or ArgumentException or DecoderFallbackException or NotSupportedException)
+        catch(Exception error) when(error is InvalidDataException or IOException or UnauthorizedAccessException or ArgumentException or NotSupportedException or FormatException)
         {
-            if(!_closed && request==_documentRequest) DocumentStatus.Text=_editor.Text[ProjectFile.ErrorResourceKey(error) ?? "DocumentPreviewFailed"];
+            if(!_closed && request==_documentRequest)
+            {
+                DocumentPreview.Document.Blocks.Clear();
+                DocumentStatus.Foreground=new SolidColorBrush(Color.FromRgb(180,35,24));
+                DocumentStatus.Text=_editor.Text["DocumentError"]+" — "+_editor.Text[ProjectFile.ErrorResourceKey(error) ?? "DocumentPreviewFailed"];
+            }
         }
     }
     private void Next_Click(object sender,RoutedEventArgs e)=>_preview.Next();

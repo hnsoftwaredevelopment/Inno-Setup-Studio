@@ -7,8 +7,12 @@
   <StackPanel Grid.Row="1"><TextBlock Text="{loc:Loc DocumentGeneral}" Margin="0,0,0,6"/><DockPanel><Button DockPanel.Dock="Right" Content="{loc:Loc DocumentChoose}" Click="GeneralChoose_Click" Margin="8,0,0,0"/><TextBox x:Name="GeneralSource" TextChanged="GeneralSource_Changed"/></DockPanel></StackPanel>
   <ComboBox Grid.Row="2" x:Name="Languages" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="Language_Changed" Margin="0,14,0,8" AutomationProperties.Name="{loc:Loc PreviewLanguage}"/>
   <StackPanel Grid.Row="3"><TextBlock Text="{loc:Loc DocumentVariant}" Margin="0,0,0,6"/><DockPanel><Button DockPanel.Dock="Right" Content="{loc:Loc DocumentChoose}" Click="VariantChoose_Click" Margin="8,0,0,0"/><TextBox x:Name="VariantSource" TextChanged="VariantSource_Changed"/></DockPanel><TextBlock Text="{loc:Loc DocumentFallback}" Style="{StaticResource MutedText}" FontSize="12" Margin="0,8,0,0"/></StackPanel>
-  <Button Grid.Row="4" Content="{loc:Loc DocumentPreview}" Click="Preview_Click" HorizontalAlignment="Left" Margin="0,12,0,8"/>
-  <RichTextBox Grid.Row="5" x:Name="Preview" IsReadOnly="True" VerticalScrollBarVisibility="Auto" AutomationProperties.Name="{loc:Loc DocumentPreview}"/>
+  <StackPanel Grid.Row="4" Margin="0,12,0,8">
+   <Button Content="{loc:Loc DocumentRefresh}" Click="Preview_Click" HorizontalAlignment="Left"/>
+   <TextBlock x:Name="PreviewStatus" Style="{StaticResource MutedText}" FontSize="12" Margin="0,6,0,0"/>
+   <TextBlock x:Name="PreviewError" Foreground="#B42318" TextWrapping="Wrap" Margin="0,6,0,0" AutomationProperties.Name="{loc:Loc DocumentError}"/>
+  </StackPanel>
+  <RichTextBox Grid.Row="5" x:Name="Preview" IsReadOnly="True" IsDocumentEnabled="False" VerticalScrollBarVisibility="Auto" AutomationProperties.Name="{loc:Loc DocumentPreview}"/>
   <Button Grid.Row="6" Content="{loc:Loc PageOverviewClose}" Click="Close_Click" IsCancel="True" HorizontalAlignment="Right" Margin="0,14,0,0"/>
  </Grid>
 </Window>

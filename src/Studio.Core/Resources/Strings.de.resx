@@ -359,4 +359,6 @@ Durch den aktuellen Export ersetzen? Der bisherige Inhalt einschließlich manuel
   <data name="TrialExpressions" xml:space="preserve"><value>Windows- und Inno Setup-Konstanten bleiben hier als Ausdruck sichtbar. Sie können einen vorübergehenden Testwert eingeben.</value></data>
   <data name="TrialMessageFallback" xml:space="preserve"><value>Fehlende native Seitentexte verwenden englischen Vorschautext.</value></data>
   <data name="TrialDocumentLoading" xml:space="preserve"><value>Dokument wird geladen…</value></data>
+  <data name="DocumentRefresh" xml:space="preserve"><value>Vorschau aktualisieren</value></data>
+  <data name="DocumentError" xml:space="preserve"><value>Dokumentfehler</value></data>
 </root>

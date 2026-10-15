@@ -359,4 +359,6 @@ Vervangen door de huidige export? De bestaande inhoud, inclusief eventuele handm
   <data name="TrialExpressions" xml:space="preserve"><value>Windows- en Inno Setup-constanten blijven hier als expressie zichtbaar. Vul eventueel een tijdelijke proefwaarde in.</value></data>
   <data name="TrialMessageFallback" xml:space="preserve"><value>Ontbrekende native paginaberichten gebruiken Engelse voorbeeldtekst.</value></data>
   <data name="TrialDocumentLoading" xml:space="preserve"><value>Document laden…</value></data>
+  <data name="DocumentRefresh" xml:space="preserve"><value>Voorbeeld vernieuwen</value></data>
+  <data name="DocumentError" xml:space="preserve"><value>Documentfout</value></data>
 </root>
