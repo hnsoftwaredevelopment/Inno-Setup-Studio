@@ -242,6 +242,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
     }
     public string FileRuleSummary => Text.Format("FilesRuleCount",Project.AdditionalFiles.Count+1);
     public string DirectoryRuleSummary => Text.Format("DirectoryRuleCount",Project.DirectoryRules.Count);
+    public string ShortcutSummary=>Text.Format("ShortcutCount",Project.Shortcuts.Count);
 
     public string FileDestination
     {

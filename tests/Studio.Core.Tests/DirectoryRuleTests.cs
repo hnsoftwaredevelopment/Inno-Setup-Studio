@@ -20,7 +20,7 @@ public class DirectoryRuleTests : IDisposable
             Assert.Equal("DirectoryRuleInvalid",ProjectFile.ErrorResourceKey(error));
         }
         var path=Path.Combine(_folder,"schema.issstudio"); await ProjectFile.SaveAsync(path,Project());
-        var json=JsonNode.Parse(await File.ReadAllTextAsync(path))!; json.AsObject().Remove("DirectoryRules");
+        var json=JsonNode.Parse(await File.ReadAllTextAsync(path))!; json.AsObject().Remove("DirectoryRules"); json.AsObject().Remove("Shortcuts");
         await File.WriteAllTextAsync(path,json.ToJsonString());
         var missing=await Assert.ThrowsAsync<InvalidDataException>(()=>ProjectFile.LoadAsync(path));
         Assert.Equal("DirectoryRuleInvalid",ProjectFile.ErrorResourceKey(missing));
@@ -53,7 +53,7 @@ public class DirectoryRuleTests : IDisposable
         var elsewhere=Path.Combine(_folder,"other"); Directory.CreateDirectory(elsewhere);
         var other=Path.Combine(elsewhere,"copy.issstudio"); await ProjectFile.SaveAsync(other,loaded,_folder);
         Assert.Equal(@"{app}\Logs",Assert.Single((await ProjectFile.LoadAsync(other)).DirectoryRules).Name);
-        var legacy=JsonNode.Parse(await File.ReadAllTextAsync(path))!; legacy["Version"]=10; legacy.AsObject().Remove("DirectoryRules");
+        var legacy=JsonNode.Parse(await File.ReadAllTextAsync(path))!; legacy["Version"]=10; legacy.AsObject().Remove("DirectoryRules"); legacy.AsObject().Remove("Shortcuts");
         await File.WriteAllTextAsync(path,legacy.ToJsonString()); loaded=await ProjectFile.LoadAsync(path);
         Assert.True(loaded.WasMigrated); Assert.Empty(loaded.DirectoryRules); Assert.Equal(project.AppId,loaded.AppId);
         Assert.True(loaded.InstallFile.RecurseSubdirectories); Assert.Equal("*.pdb",Assert.Single(loaded.InstallFile.Excludes));

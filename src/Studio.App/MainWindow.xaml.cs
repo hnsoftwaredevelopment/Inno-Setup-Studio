@@ -108,6 +108,11 @@ public partial class MainWindow : Window
         if(_busy || !_editor.IsDesign) return;
         new DirectoryRulesWindow(_editor) { Owner=this }.ShowDialog();
     }
+    private void Shortcuts_Click(object sender,RoutedEventArgs e)
+    {
+        if(_busy || !_editor.IsDesign) return;
+        new ShortcutRulesWindow(_editor,_path is null ? null : Path.GetDirectoryName(_path)) { Owner=this }.ShowDialog();
+    }
 
     private async void Export_Click(object sender, RoutedEventArgs e)
     {
@@ -212,6 +217,8 @@ public partial class MainWindow : Window
         if (error.Data["Studio.LanguageId"] is string id && _editor.Project.Languages.FirstOrDefault(language => language.Id == id) is { } language)
             message += Environment.NewLine + Environment.NewLine + language.DisplayName(Text) + Environment.NewLine + language.Source;
         if (error.Data["Studio.DocumentPath"] is string documentPath) message += Environment.NewLine + documentPath;
+        if(error.Data["Studio.ShortcutName"] is string shortcutName) message+=Environment.NewLine+shortcutName;
+        if(error.Data["Studio.ShortcutTarget"] is string shortcutTarget) message+=Environment.NewLine+shortcutTarget;
         return message;
     }
 }

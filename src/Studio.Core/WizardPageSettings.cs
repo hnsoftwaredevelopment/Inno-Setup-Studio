@@ -25,6 +25,7 @@ public sealed class WizardPageSettingsEditor(EditorSession editor, PageSettingsS
     public bool IsUserInfo => section == PageSettingsSection.UserInfo;
     public bool IsProgramGroup => !IsUserInfo;
     public string Title => Text[IsUserInfo ? "PageOverviewUserInfo" : "PageOverviewProgramGroup"];
+    public string GroupAvailabilityHint=>Text[editor.Project.Shortcuts.Count==0 ? "GroupRequiresIcons" : Settings.GroupMode switch { ProgramGroupPageMode.Hide=>"GroupConfiguredHidden",ProgramGroupPageMode.Show=>"GroupConfigured",_=>"GroupConfiguredAuto" }];
     public IReadOnlyList<GroupModeChoice> GroupModes { get; } = Enum.GetValues<ProgramGroupPageMode>()
         .Select(mode => new GroupModeChoice(mode, editor.Text["GroupMode" + mode])).ToArray();
     public bool UserInfoEnabled { get => Settings.UserInfoEnabled; set => Set(Settings.UserInfoEnabled, value, v => Settings.UserInfoEnabled = v); }
@@ -37,7 +38,7 @@ public sealed class WizardPageSettingsEditor(EditorSession editor, PageSettingsS
     public bool UsePreviousGroup { get => Settings.UsePreviousGroup; set => Set(Settings.UsePreviousGroup,value,v=>Settings.UsePreviousGroup=v); }
     public string TrialName { get => _trialName ?? WizardTexts.Expand(DefaultName,editor.Project); set { _trialName=value; Refresh(); } }
     public string TrialOrganization { get => _trialOrganization ?? WizardTexts.Expand(DefaultOrganization,editor.Project); set { _trialOrganization=value; Refresh(); } }
-    public string TrialGroup { get => _trialGroup ?? WizardTexts.Expand(DefaultGroup,editor.Project); set { _trialGroup=value; Refresh(); } }
+    public string TrialGroup { get => _trialGroup ?? (DefaultGroup.Length==0 ? "(Default)" : WizardTexts.Expand(DefaultGroup,editor.Project)); set { _trialGroup=value; Refresh(); } }
     public event PropertyChangedEventHandler? PropertyChanged;
     private bool Set<T>(T current,T value,Action<T> assign)
     {

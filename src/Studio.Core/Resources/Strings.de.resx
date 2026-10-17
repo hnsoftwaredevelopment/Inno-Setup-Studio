@@ -406,4 +406,35 @@ Durch den aktuellen Export ersetzen? Der bisherige Inhalt einschließlich manuel
   <data name="DirectoryUninstallHintRemoveExistingEmpty" xml:space="preserve"><value>Der Uninstaller versucht das Verzeichnis zu entfernen, wenn es leer ist, auch wenn es vor der Installation existierte. Nicht leere Verzeichnisse werden nicht entfernt.</value></data>
   <data name="DirectoryDeleteAfterInstall" xml:space="preserve"><value>Nach Installation entfernen, falls leer</value></data>
   <data name="DirectoryDeleteAfterInstallHint" xml:space="preserve"><value>Nur ein während der Installation erstelltes, leeres Verzeichnis wird nach Abschluss oder Abbruch entfernt. Vorhandene Verzeichnisse bleiben erhalten.</value></data>
+  <data name="ShortcutsHeading" xml:space="preserve"><value>Verknüpfungen</value></data>
+  <data name="ShortcutsManage" xml:space="preserve"><value>Verknüpfungen verwalten</value></data>
+  <data name="ShortcutCount" xml:space="preserve"><value>{0} Verknüpfung(en)</value></data>
+  <data name="ShortcutsHint" xml:space="preserve"><value>Legen Sie eine Verknüpfung an, wählen Sie eine Datei aus Ihren Dateiregeln und legen Sie den Ablageort fest.</value></data>
+  <data name="ShortcutName" xml:space="preserve"><value>Name der Verknüpfung</value></data>
+  <data name="ShortcutNameHint" xml:space="preserve"><value>Sie können {AppName} oder {AppVersion} verwenden. Geben Sie den Namen ohne Verzeichnis an; den Unterordner legen Sie unten fest.</value></data>
+  <data name="ShortcutFolderLabel" xml:space="preserve"><value>Ablageort</value></data>
+  <data name="ShortcutFolderStartMenu" xml:space="preserve"><value>Startmenü</value></data>
+  <data name="ShortcutFolderDesktop" xml:space="preserve"><value>Desktop</value></data>
+  <data name="ShortcutSubfolder" xml:space="preserve"><value>Unterordner (optional)</value></data>
+  <data name="ShortcutTarget" xml:space="preserve"><value>Zieldatei aus Ihrem Installationsprojekt</value></data>
+  <data name="ShortcutParameters" xml:space="preserve"><value>Parameter (optional)</value></data>
+  <data name="ShortcutWorkingDirectory" xml:space="preserve"><value>Arbeitsverzeichnis (optional, unter {app})</value></data>
+  <data name="ShortcutRefresh" xml:space="preserve"><value>Zieldateien aktualisieren</value></data>
+  <data name="ShortcutLoading" xml:space="preserve"><value>Installierte Ziele werden geprüft…</value></data>
+  <data name="ShortcutReferenceCount" xml:space="preserve"><value>{0} installierte Ziele; {1} fehlende Zielreferenz(en).</value></data>
+  <data name="ShortcutInvalid" xml:space="preserve"><value>Ungültige Verknüpfung. Prüfen Sie Name, Unterordner und Ziel unter {app}; verwenden Sie keine ungültigen Pfadzeichen, Punktsegmente oder Skripteingaben.</value></data>
+  <data name="ShortcutTargetMissing" xml:space="preserve"><value>Die Zieldatei wird von den aktuellen Dateiregeln nicht installiert. Prüfen Sie Quellen, Ziele und Ausschlüsse.</value></data>
+  <data name="ShortcutDuplicate" xml:space="preserve"><value>Dieser Verknüpfungsname existiert bereits am selben Ort. Wählen Sie einen eindeutigen Namen oder Unterordner.</value></data>
+  <data name="ShortcutIndexTooLarge" xml:space="preserve"><value>Der Zielindex enthält mehr als 100.000 Dateien. Grenzen Sie die Quellen ein, um Verknüpfungsziele zu prüfen.</value></data>
+  <data name="ShortcutGroupSettings" xml:space="preserve"><value>Startmenü konfigurieren</value></data>
+  <data name="ShortcutGroupDefault" xml:space="preserve"><value>Standard-Startmenüordner: {0}. Seitenrichtlinie und Ordnername können separat festgelegt werden.</value></data>
+  <data name="GroupConfigured" xml:space="preserve"><value>Verknüpfungen sind vorhanden und die Startmenüseite steht auf Anzeigen. Die Seite ist in Vorschau und Installer verfügbar.</value></data>
+  <data name="GroupConfiguredAuto" xml:space="preserve"><value>Verknüpfungen sind vorhanden. Bei Automatisch kann Inno Setup die Startmenüseite bei einer bestehenden Installation überspringen. Die Vorschau zeigt eine Erstinstallation.</value></data>
+  <data name="GroupConfiguredHidden" xml:space="preserve"><value>Die Startmenüseite steht auf Ausblenden. Verknüpfungen verwenden den Standardordner oder die zuvor gespeicherte native Auswahl.</value></data>
+  <data name="GroupTrialHint" xml:space="preserve"><value>Vorschau einer Erstinstallation: Frühere Windows-Installationsdaten und Startmenüordner werden nicht gelesen. Eingaben bleiben vorübergehend.</value></data>
+  <data name="ShortcutTargetHint" xml:space="preserve"><value>Diese Liste enthält die Quelldateien, die Ihr Installer installieren wird, einschließlich Dokumenten. Der Pfad zeigt den zukünftigen Speicherort; eine vorherige Installation ist nicht erforderlich.</value></data>
+  <data name="ShortcutChooseTarget" xml:space="preserve"><value>Wählen Sie eine Zieldatei aus der Liste. Fehlt eine Datei? Prüfen Sie die Dateiregeln und klicken Sie auf Aktualisieren.</value></data>
+  <data name="ShortcutExtraOptions" xml:space="preserve"><value>Weitere Optionen</value></data>
+  <data name="ShortcutTargetPath" xml:space="preserve"><value>Zielpfad manüll ändern (zum Beispiel {app}\SVGViewer.exe)</value></data>
+  <data name="ShortcutDesktopTaskHint" xml:space="preserve"><value>Diese Desktopverknüpfung wird derzeit immer erstellt. Die optionale Erstellung durch eine Auswahl auf der Aufgabenseite folgt mit Aufgaben und Regelverknüpfungen. Startmenüeinstellungen gelten hier nicht.</value></data>
 </root>

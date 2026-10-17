@@ -10,16 +10,19 @@ public static class InnoScript
         ProjectFile.Validate(project);
         var languages = LanguageScript.Create(project, projectDirectory);
         var fileLines=new List<string>();
+        var installedTargets=new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach(var rule in FileCollections.Rules(project))
         {
             var source=FileCollections.ResolvePattern(rule,projectDirectory);
-            _=FileCollections.Preview(rule,projectDirectory);
+            foreach(var file in FileCollections.Preview(rule,projectDirectory))
+                if(project.Shortcuts.Count>0) { installedTargets.Add(file.Destination); ShortcutRule.CheckIndexSize(installedTargets.Count); }
             var line="Source: "+Parameter(source)+"; DestDir: "+Parameter(FileCollections.Destination(rule.Destination));
             if(rule.Excludes.Count>0) line+="; Excludes: "+Parameter(string.Join(",",rule.Excludes));
             if(rule.RecurseSubdirectories) line+="; Flags: recursesubdirs";
             fileLines.Add(line);
         }
         var directory = project.Pages.Single(p => p.Kind == PageKind.Destination).Destination!.DefaultDirectory;
+        foreach(var shortcut in project.Shortcuts) ShortcutRule.CheckTarget(shortcut,installedTargets);
         foreach (var value in new[] { project.Name, project.AppId, project.AppVersion, directory })
             if (value.Contains("{#", StringComparison.Ordinal)) throw Error("ExportPreprocessorUnsupported");
 
@@ -82,6 +85,7 @@ public static class InnoScript
         }
         lines.AddRange(["","[Files]"]);
         lines.AddRange(fileLines); lines.Add("");
+        if(project.Shortcuts.Count>0) { lines.Add("[Icons]"); lines.AddRange(project.Shortcuts.Select(s=>s.Script(project))); lines.Add(""); }
         return string.Join("\r\n", lines) + WizardScript.Generate(project, languages);
     }
 
@@ -137,7 +141,7 @@ public static class InnoScript
         finally { if (File.Exists(temporaryPath)) File.Delete(temporaryPath); }
     }
 
-    private static string Literal(string value) => value.Replace("{", "{{", StringComparison.Ordinal);
+    internal static string Literal(string value) => value.Replace("{", "{{", StringComparison.Ordinal);
     private static string SetupValue(string value) => "\"" + value + "\"";
     internal static string Parameter(string value) => "\"" + value.Replace("\"", "\"\"", StringComparison.Ordinal) + "\"";
     internal static InvalidDataException Error(string key)

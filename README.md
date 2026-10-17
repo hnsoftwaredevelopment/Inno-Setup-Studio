@@ -14,7 +14,7 @@ De Studio-interface is beschikbaar in Nederlands, Engels en Duits. Rechtsboven w
 
 Het uitklapbare paneel **Applicatiegegevens** boven de ontwerpruimte bevat productnaam, AppId en versie. Die worden met het project opgeslagen. Oude projecten worden bij openen in het geheugen bijgewerkt en pas bij opslaan naar het nieuwe formaat geschreven. Zie [M01-S01 en teststappen](docs/slices/M01-S01-Applicatiegegevens.md).
 
-Het paneel **Bestandsregels** opent via **Bestanden beheren** een overzicht van lokale bestandsregels. Iedere regel heeft een bronbestand of wildcard, een doel onder {app}, een keuze voor submappen en uitsluitingen. Een automatische voorbeeldlijst toont de geselecteerde regel. **Exporteer .iss** en **Compiler en bouwen** gebruiken alle regels, actieve projecttalen en ingestelde wizardpagina’s. Oude projecten migreren bij openen; opslaan gebruikt nu formaat 11 (inclusief mapregels). [M04-S01 en teststappen](docs/slices/M04-S01-Bestandsverzamelingen.md).
+Het paneel **Bestandsregels** opent via **Bestanden beheren** een overzicht van lokale bestandsregels. Iedere regel heeft een bronbestand of wildcard, een doel onder {app}, een keuze voor submappen en uitsluitingen. Een automatische voorbeeldlijst toont de geselecteerde regel. **Exporteer .iss** en **Compiler en bouwen** gebruiken alle regels, actieve projecttalen en ingestelde wizardpagina’s. Oude projecten migreren bij openen; opslaan gebruikt nu formaat 12 (inclusief mapregels en snelkoppelingen). [M04-S01 en teststappen](docs/slices/M04-S01-Bestandsverzamelingen.md).
 
 Het beoogde eindproduct is beschreven in de geaccepteerde [productspecificatie](docs/Productspecificatie.md).
 
@@ -89,3 +89,5 @@ De documentvensters controleren nu automatisch de algemene bron en ingevulde taa
 M03 is na gebruikersacceptatie naar main gemerged als 84c8a06. M04-S01 is geïmplementeerd op m04-installatiekeuzes en door de gebruiker geaccepteerd: Release-build zonder fouten/waarschuwingen, alle 244 tests geslaagd. De gebruiker heeft regelbeheer, uitsluitingen en de echte installatie gecontroleerd.
 
 M04-S02 voegt **Mapregels → Mapregels beheren** toe voor expliciete, onder andere lege doelmappen. Mapkenmerken, NTFS-compressie en native opruimgedrag zijn instelbaar. Projectformaat 11 bewaart deze regels en migreert bestaande projecten. Release-build zonder fouten/waarschuwingen; 253 tests geslaagd. [Scope en handmatige controles](docs/slices/M04-S02-Mapregels.md). Deze slice is door de gebruiker geaccepteerd na controle in Studio en de uitgevoerde installer.
+
+M04-S03 voegt **Snelkoppelingen → Snelkoppelingen beheren** toe: Startmenu/Bureaublad, naam, doel, parameters en werkmap. Ontbrekende geïnstalleerde doelen worden gemeld en blokkeren bouwen. De startmenupagina volgt native beleid en is opgenomen in de wizardproef. [Scope en teststappen](docs/slices/M04-S03-Snelkoppelingen.md). Deze slice wacht op gebruikersacceptatie.

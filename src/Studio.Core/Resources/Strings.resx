@@ -406,4 +406,35 @@ Vervangen door de huidige export? De bestaande inhoud, inclusief eventuele handm
   <data name="DirectoryUninstallHintRemoveExistingEmpty" xml:space="preserve"><value>De uninstaller probeert de map te verwijderen als deze leeg is, ook wanneer deze al vóór de installatie bestond. Niet-lege mappen worden niet verwijderd.</value></data>
   <data name="DirectoryDeleteAfterInstall" xml:space="preserve"><value>Na installatie verwijderen als leeg</value></data>
   <data name="DirectoryDeleteAfterInstallHint" xml:space="preserve"><value>Alleen een tijdens installatie aangemaakte, lege map wordt na afloop of afbreken verwijderd. Vooraf bestaande mappen blijven behouden.</value></data>
+  <data name="ShortcutsHeading" xml:space="preserve"><value>Snelkoppelingen</value></data>
+  <data name="ShortcutsManage" xml:space="preserve"><value>Snelkoppelingen beheren</value></data>
+  <data name="ShortcutCount" xml:space="preserve"><value>{0} snelkoppeling(en)</value></data>
+  <data name="ShortcutsHint" xml:space="preserve"><value>Voeg een snelkoppeling toe, kies een bestand uit je bestandsregels en bepaal waar de snelkoppeling verschijnt.</value></data>
+  <data name="ShortcutName" xml:space="preserve"><value>Naam van de snelkoppeling</value></data>
+  <data name="ShortcutNameHint" xml:space="preserve"><value>Gebruik eventueel {AppName} of {AppVersion}. Geef de naam zonder map op; de submap staat hieronder.</value></data>
+  <data name="ShortcutFolderLabel" xml:space="preserve"><value>Plaatsing</value></data>
+  <data name="ShortcutFolderStartMenu" xml:space="preserve"><value>Startmenu</value></data>
+  <data name="ShortcutFolderDesktop" xml:space="preserve"><value>Bureaublad</value></data>
+  <data name="ShortcutSubfolder" xml:space="preserve"><value>Submap (optioneel)</value></data>
+  <data name="ShortcutTarget" xml:space="preserve"><value>Doelbestand uit je installatieproject</value></data>
+  <data name="ShortcutParameters" xml:space="preserve"><value>Parameters (optioneel)</value></data>
+  <data name="ShortcutWorkingDirectory" xml:space="preserve"><value>Werkmap (optioneel, onder {app})</value></data>
+  <data name="ShortcutRefresh" xml:space="preserve"><value>Doelbestanden vernieuwen</value></data>
+  <data name="ShortcutLoading" xml:space="preserve"><value>Geïnstalleerde doelen controleren…</value></data>
+  <data name="ShortcutReferenceCount" xml:space="preserve"><value>{0} geïnstalleerde doelen; {1} ontbrekende doelverwijzing(en).</value></data>
+  <data name="ShortcutInvalid" xml:space="preserve"><value>Ongeldige snelkoppeling. Controleer naam, submap en doelpad onder {app}; gebruik geen ongeldige padtekens, puntsegmenten of scriptinvoer.</value></data>
+  <data name="ShortcutTargetMissing" xml:space="preserve"><value>Het doelbestand wordt niet door de huidige bestandsregels geïnstalleerd. Controleer bron, doel en uitsluitingen.</value></data>
+  <data name="ShortcutDuplicate" xml:space="preserve"><value>Deze snelkoppelingsnaam bestaat al op dezelfde plaats. Kies een unieke naam of submap.</value></data>
+  <data name="ShortcutIndexTooLarge" xml:space="preserve"><value>De doelindex bevat meer dan 100.000 bestanden. Verklein de bronverzameling voor controleerbare snelkoppelingsverwijzingen.</value></data>
+  <data name="ShortcutGroupSettings" xml:space="preserve"><value>Startmenu instellen</value></data>
+  <data name="ShortcutGroupDefault" xml:space="preserve"><value>Standaard startmenumap: {0}. Het paginabeleid en de mapnaam zijn afzonderlijk instelbaar.</value></data>
+  <data name="GroupConfigured" xml:space="preserve"><value>Er zijn snelkoppelingen en de startmenupagina staat op Tonen. De pagina is beschikbaar in de wizardproef en installer.</value></data>
+  <data name="GroupConfiguredAuto" xml:space="preserve"><value>Er zijn snelkoppelingen. Bij Automatisch kan Inno Setup de startmenupagina overslaan bij een bestaande installatie. De proef toont de eerste installatie.</value></data>
+  <data name="GroupConfiguredHidden" xml:space="preserve"><value>De startmenupagina staat op Verbergen. Snelkoppelingen gebruiken de standaardmap of de eerder opgeslagen native keuze.</value></data>
+  <data name="GroupTrialHint" xml:space="preserve"><value>Proef van een eerste installatie: eerdere Windows-installatiegegevens en startmenumappen worden niet uitgelezen. De invoer blijft tijdelijk.</value></data>
+  <data name="ShortcutTargetHint" xml:space="preserve"><value>Deze lijst bevat de bronbestanden die je installer straks installeert, inclusief documenten. Het pad toont hun toekomstige locatie; vooraf installeren is niet nodig.</value></data>
+  <data name="ShortcutChooseTarget" xml:space="preserve"><value>Kies een doelbestand uit de lijst. Ontbreekt je bestand? Controleer de bestandsregels en klik op Vernieuwen.</value></data>
+  <data name="ShortcutExtraOptions" xml:space="preserve"><value>Extra opties</value></data>
+  <data name="ShortcutTargetPath" xml:space="preserve"><value>Doelpad handmatig aanpassen (bijvoorbeeld {app}\SVGViewer.exe)</value></data>
+  <data name="ShortcutDesktopTaskHint" xml:space="preserve"><value>Deze bureaubladsnelkoppeling wordt nu altijd aangemaakt. Optioneel aanmaken via een keuze op de takenpagina volgt bij Taken en regelkoppelingen. Startmenu-instellingen gelden hier niet.</value></data>
 </root>

@@ -59,7 +59,7 @@ public class BuildDiagnosticsTests
             original.InstallFile.Source = "payload.txt";
             await ProjectFile.SaveAsync(path, original);
             var json = JsonNode.Parse(await File.ReadAllTextAsync(path))!.AsObject();
-            json["Version"] = 3; json.AsObject().Remove("AdditionalFiles"); json.AsObject().Remove("DirectoryRules");
+            json["Version"] = 3; json.AsObject().Remove("AdditionalFiles"); json.AsObject().Remove("DirectoryRules"); json.AsObject().Remove("Shortcuts");
             json.Remove("OutputBaseFileName");
             json.Remove("Languages");
             json.Remove("TextLanguageId");

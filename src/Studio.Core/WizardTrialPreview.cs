@@ -8,7 +8,8 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     private readonly WizardCompletionPreview _completion;
     private int _index;
     private bool _accepted, _documentAvailable, _disposed;
-    private string _directory, _name, _organization;
+    private string _directory, _name, _organization, _group;
+    private bool _noIcons;
     private static readonly Dictionary<string,string> English = new()
     {
         ["WizardLicense"]="License Agreement", ["LicenseLabel3"]="Please read the following License Agreement. You must accept the terms of this agreement before continuing with the installation.",
@@ -16,16 +17,19 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
         ["WizardInfoBefore"]="Information", ["InfoBeforeLabel"]="Please read the following important information before continuing.",
         ["WizardInfoAfter"]="Information", ["InfoAfterLabel"]="Please read the following important information before continuing.",
         ["WizardUserInfo"]="User Information", ["UserInfoDesc"]="Please enter your information.",
-        ["UserInfoName"]="User Name:", ["UserInfoOrg"]="Organization:"
+        ["UserInfoName"]="User Name:", ["UserInfoOrg"]="Organization:",
+        ["WizardSelectProgramGroup"]="Select Start Menu Folder",["SelectStartMenuFolderLabel3"]="Setup will create the program's shortcuts in the following Start Menu folder.",
+        ["NoProgramGroupCheck2"]="Don't create a Start Menu folder",["ReadyMemoGroup"]="Start Menu folder:"
     };
     public WizardTrialPreview(EditorSession editor)
     {
         if(editor.IsPreview) throw new InvalidOperationException("A trial is already active.");
         _editor=editor;
-        Route=WizardPageOverview.Create(editor.Text,editor.Project).Where(p=>p.State is WizardPageState.Enabled or WizardPageState.Runtime).ToArray();
+        Route=WizardPageOverview.Create(editor.Text,editor.Project).Where(p=>p.State is WizardPageState.Enabled or WizardPageState.Runtime || p.Id=="ProgramGroup" && p.State==WizardPageState.Conditional).ToArray();
         _directory=WizardTexts.Expand(editor.Project.Pages[1].Destination!.DefaultDirectory,editor.Project);
         _name=WizardTexts.Expand(editor.Project.PageSettings.DefaultName,editor.Project);
         _organization=WizardTexts.Expand(editor.Project.PageSettings.DefaultOrganization,editor.Project);
+        _group=editor.Project.PageSettings.DefaultGroup.Length==0 ? "(Default)" : WizardTexts.Expand(editor.Project.PageSettings.DefaultGroup,editor.Project);
         _completion=new WizardCompletionPreview(editor,CompletionPhase.Ready);
         _completion.PropertyChanged+=CompletionChanged;
         editor.IsPreview=true;
@@ -43,6 +47,12 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     public bool IsLicense => PageId=="License";
     public bool IsUserInfo => PageId=="UserInfo";
     public bool IsDestination => PageId=="Destination";
+    public bool IsProgramGroup=>PageId=="ProgramGroup";
+    public bool AllowNoIcons=>_editor.Project.PageSettings.AllowNoIcons;
+    public bool CanEditGroup=>!NoIcons;
+    public string Group { get=>_group; set { if(_group==value) return; _group=value; Refresh(); } }
+    public bool NoIcons { get=>_noIcons; set { if(_noIcons==value) return; _noIcons=value; Refresh(); } }
+    public string NoIconsCaption=>Native("NoProgramGroupCheck2");
     public bool IsReady => PageId=="Ready";
     public bool IsPreparing => PageId=="Preparing";
     public bool IsInstalling => PageId=="Installing";
@@ -62,7 +72,8 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     public int Progress { get=>_completion.Progress; set=>_completion.Progress=value; }
     public bool PreparationProblem { get=>_completion.PreparationProblem; set=>_completion.PreparationProblem=value; }
     public string WindowTitle => _completion.WindowTitle;
-    public string SourceHint => _completion.SourceHint + (English.Keys.Any(k=>!_completion.HasNativeMessage(k)) ? "\n"+_editor.Text["TrialMessageFallback"] : "");
+    public string SourceHint => _completion.SourceHint + (English.Keys.Any(k=>!_completion.HasNativeMessage(k)) ? "\n"+_editor.Text["TrialMessageFallback"] : "")
+        +(IsProgramGroup ? "\n"+_editor.Text["GroupTrialHint"] : "");
     private string Native(string key) => _completion.Message(key,English[key]);
     private PageKind? DesignPage => PageId switch { "Welcome"=>PageKind.Welcome,"Destination"=>PageKind.Destination,_=>null };
     private string Resolve(ElementKind element) => WizardTexts.Resolve(_editor.Project,LanguageId,WizardTexts.Slot(DesignPage,element)).Text;
@@ -70,12 +81,12 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     {
         "Welcome" or "Destination"=>Resolve(ElementKind.Title),
         "License"=>Native("WizardLicense"),"InfoBefore"=>Native("WizardInfoBefore"),"InfoAfter"=>Native("WizardInfoAfter"),
-        "UserInfo"=>Native("WizardUserInfo"),_=>_completion.Title
+        "UserInfo"=>Native("WizardUserInfo"),"ProgramGroup"=>Native("WizardSelectProgramGroup"),_=>_completion.Title
     };
     public string Body => PageId switch
     {
         "Welcome" or "Destination"=>Resolve(ElementKind.Body),"License"=>Native("LicenseLabel3"),
-        "InfoBefore"=>Native("InfoBeforeLabel"),"InfoAfter"=>Native("InfoAfterLabel"),"UserInfo"=>Native("UserInfoDesc"),_=>_completion.Body
+        "InfoBefore"=>Native("InfoBeforeLabel"),"InfoAfter"=>Native("InfoAfterLabel"),"UserInfo"=>Native("UserInfoDesc"),"ProgramGroup"=>Native("SelectStartMenuFolderLabel3"),_=>_completion.Body
     };
     public string LicenseAcceptCaption => Native("LicenseAccepted");
     public string LicenseDeclineCaption => Native("LicenseNotAccepted");
@@ -92,10 +103,12 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     public bool CanBack => CanInteract && (IsPreparing || _index>0 && !IsInstalling && PageId!="InfoAfter" && !IsFinished);
     public bool CanNext => CanInteract && !IsInstalling && !IsPreparing
         && (!IsDocument || DocumentAvailable) && (!IsLicense || LicenseAccepted)
-        && (!IsUserInfo || !string.IsNullOrWhiteSpace(UserName)) && (!IsDestination || !string.IsNullOrWhiteSpace(Directory));
+        && (!IsUserInfo || !string.IsNullOrWhiteSpace(UserName)) && (!IsDestination || !string.IsNullOrWhiteSpace(Directory))
+        && (!IsProgramGroup || AllowNoIcons && NoIcons || !string.IsNullOrWhiteSpace(Group) && Group.IndexOfAny(['"',':','*','?','<','>','|','/'])<0);
     public bool CanComplete => CanInteract && IsInstalling && _completion.CanComplete;
     public string Summary => string.Join("\n",new[]{_completion.Message("ReadyMemoDir","Destination location:"),Directory}
-        .Concat(_editor.Project.PageSettings.UserInfoEnabled ? new[]{"",_completion.Message("ReadyMemoUserInfo","User information:"),UserName,Organization} : []));
+        .Concat(_editor.Project.PageSettings.UserInfoEnabled ? new[]{"",_completion.Message("ReadyMemoUserInfo","User information:"),UserName,Organization} : [])
+        .Concat(Route.Any(p=>p.Id=="ProgramGroup") ? new[]{"",Native("ReadyMemoGroup"),NoIcons && AllowNoIcons ? Native("NoProgramGroupCheck2") : Group} : []));
     public void Next()
     {
         if(!CanNext) return;

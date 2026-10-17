@@ -406,4 +406,35 @@ Replace it with the current export? Existing content, including any manual chang
   <data name="DirectoryUninstallHintRemoveExistingEmpty" xml:space="preserve"><value>The uninstaller attempts removal if the directory is empty, even if it existed before installation. Non-empty directories are not removed.</value></data>
   <data name="DirectoryDeleteAfterInstall" xml:space="preserve"><value>Remove after installation if empty</value></data>
   <data name="DirectoryDeleteAfterInstallHint" xml:space="preserve"><value>Only an empty directory created during installation is removed after completion or abort. Pre-existing directories are kept.</value></data>
+  <data name="ShortcutsHeading" xml:space="preserve"><value>Shortcuts</value></data>
+  <data name="ShortcutsManage" xml:space="preserve"><value>Manage shortcuts</value></data>
+  <data name="ShortcutCount" xml:space="preserve"><value>{0} shortcut(s)</value></data>
+  <data name="ShortcutsHint" xml:space="preserve"><value>Add a shortcut, choose a file from your file rules and select where the shortcut appears.</value></data>
+  <data name="ShortcutName" xml:space="preserve"><value>Shortcut name</value></data>
+  <data name="ShortcutNameHint" xml:space="preserve"><value>You can use {AppName} or {AppVersion}. Enter a name without a directory; set the subfolder below.</value></data>
+  <data name="ShortcutFolderLabel" xml:space="preserve"><value>Location</value></data>
+  <data name="ShortcutFolderStartMenu" xml:space="preserve"><value>Start Menu</value></data>
+  <data name="ShortcutFolderDesktop" xml:space="preserve"><value>Desktop</value></data>
+  <data name="ShortcutSubfolder" xml:space="preserve"><value>Subfolder (optional)</value></data>
+  <data name="ShortcutTarget" xml:space="preserve"><value>Target file from your installation project</value></data>
+  <data name="ShortcutParameters" xml:space="preserve"><value>Parameters (optional)</value></data>
+  <data name="ShortcutWorkingDirectory" xml:space="preserve"><value>Working directory (optional, under {app})</value></data>
+  <data name="ShortcutRefresh" xml:space="preserve"><value>Refresh target files</value></data>
+  <data name="ShortcutLoading" xml:space="preserve"><value>Checking installed targets…</value></data>
+  <data name="ShortcutReferenceCount" xml:space="preserve"><value>{0} installed targets; {1} missing target reference(s).</value></data>
+  <data name="ShortcutInvalid" xml:space="preserve"><value>Invalid shortcut. Check the name, subfolder and target under {app}; do not use invalid path characters, dot segments or script input.</value></data>
+  <data name="ShortcutTargetMissing" xml:space="preserve"><value>The target file is not installed by the current file rules. Check sources, destinations and exclusions.</value></data>
+  <data name="ShortcutDuplicate" xml:space="preserve"><value>This shortcut name already exists at the same location. Choose a unique name or subfolder.</value></data>
+  <data name="ShortcutIndexTooLarge" xml:space="preserve"><value>The target index exceeds 100,000 files. Narrow the source collection to verify shortcut references.</value></data>
+  <data name="ShortcutGroupSettings" xml:space="preserve"><value>Configure Start Menu</value></data>
+  <data name="ShortcutGroupDefault" xml:space="preserve"><value>Default Start Menu folder: {0}. Page policy and folder name can be configured separately.</value></data>
+  <data name="GroupConfigured" xml:space="preserve"><value>Shortcuts exist and the Start Menu page policy is Show. The page is available in the trial and installer.</value></data>
+  <data name="GroupConfiguredAuto" xml:space="preserve"><value>Shortcuts exist. With Auto, Inno Setup may skip the Start Menu page for an existing installation. The trial shows a first installation.</value></data>
+  <data name="GroupConfiguredHidden" xml:space="preserve"><value>The Start Menu page policy is Hide. Shortcuts use the default folder or the previously stored native choice.</value></data>
+  <data name="GroupTrialHint" xml:space="preserve"><value>First-installation trial: previous Windows installation data and Start Menu folders are not read. Input remains temporary.</value></data>
+  <data name="ShortcutTargetHint" xml:space="preserve"><value>This list contains source files your installer will install, including documents. The path shows their future location; nothing needs to be installed yet.</value></data>
+  <data name="ShortcutChooseTarget" xml:space="preserve"><value>Choose a target file from the list. Missing a file? Check the file rules and click Refresh.</value></data>
+  <data name="ShortcutExtraOptions" xml:space="preserve"><value>Extra options</value></data>
+  <data name="ShortcutTargetPath" xml:space="preserve"><value>Edit target path manually (for example {app}\SVGViewer.exe)</value></data>
+  <data name="ShortcutDesktopTaskHint" xml:space="preserve"><value>This desktop shortcut is currently always created. Optional creation through a choice on the tasks page will follow with Tasks and rule linking. Start menu settings do not apply here.</value></data>
 </root>

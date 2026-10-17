@@ -23,7 +23,7 @@
     <TextBlock Text="{loc:Loc GroupDefaultHint}" Style="{StaticResource MutedText}" FontSize="12" Margin="0,6,0,0"/>
     <CheckBox Content="{loc:Loc GroupAllowNoIcons}" IsChecked="{Binding AllowNoIcons}" Margin="0,12,0,0"/>
     <CheckBox Content="{loc:Loc GroupPrevious}" IsChecked="{Binding UsePreviousGroup}" Margin="0,12,0,0"/>
-    <TextBlock Text="{loc:Loc GroupRequiresIcons}" Style="{StaticResource MutedText}" Margin="0,14,0,0"/>
+    <TextBlock Text="{Binding GroupAvailabilityHint}" Style="{StaticResource MutedText}" Margin="0,14,0,0"/>
    </StackPanel>
    <Border Background="White" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="8" Padding="14" Margin="0,18,0,0">
     <StackPanel>

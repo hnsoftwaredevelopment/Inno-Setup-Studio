@@ -48,6 +48,9 @@
                         <TextBlock Text="{Binding DirectoryRuleSummary}" VerticalAlignment="Center"/>
                     </DockPanel>
                 </Expander>
+                <Expander Header="{loc:Loc ShortcutsHeading}" Margin="0,8,0,0">
+                    <DockPanel Margin="0,10,0,0"><Button Content="{loc:Loc ShortcutsManage}" Click="Shortcuts_Click" IsEnabled="{Binding IsDesign}" DockPanel.Dock="Right" Margin="12,0,0,0"/><TextBlock Text="{Binding ShortcutSummary}" VerticalAlignment="Center"/></DockPanel>
+                </Expander>
                 <Expander Header="{loc:Loc CompilerHeading}" Margin="0,8,0,0">
                     <StackPanel Margin="0,10,0,0">
                         <Label Content="{loc:Loc OutputNameLabel}" Target="{Binding ElementName=OutputName}" Padding="0" Margin="0,0,0,6" />

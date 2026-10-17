@@ -81,7 +81,7 @@ public class ApplicationDetailsTests
             Assert.Equal(project.Pages[1].Destination!.DefaultDirectory, restored.Pages[1].Destination!.DefaultDirectory);
             Assert.Equal(project.Buttons, restored.Buttons);
             var saved = JsonNode.Parse(await File.ReadAllTextAsync(path))!.AsObject();
-            saved["Version"] = 1; saved.AsObject().Remove("AdditionalFiles"); saved.AsObject().Remove("DirectoryRules");
+            saved["Version"] = 1; saved.AsObject().Remove("AdditionalFiles"); saved.AsObject().Remove("DirectoryRules"); saved.AsObject().Remove("Shortcuts");
             saved.Remove("AppId");
             saved.Remove("AppVersion");
             saved.Remove("InstallFile");
