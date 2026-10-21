@@ -59,7 +59,7 @@ public class FileCollectionTests : IDisposable
         var saveAs=Path.Combine(elsewhere,"copy.issstudio"); await ProjectFile.SaveAsync(saveAs,loaded,_folder);
         Assert.Equal(InnoScript.Generate(project,_folder),InnoScript.Generate(await ProjectFile.LoadAsync(saveAs),elsewhere));
         var legacy=JsonNode.Parse(await File.ReadAllTextAsync(path))!;
-        legacy["Version"]=9; legacy.AsObject().Remove("AdditionalFiles"); legacy.AsObject().Remove("DirectoryRules"); legacy.AsObject().Remove("Shortcuts");
+        legacy["Version"]=9; legacy.AsObject().Remove("AdditionalFiles"); legacy.AsObject().Remove("DirectoryRules"); legacy.AsObject().Remove("Shortcuts"); legacy.AsObject().Remove("InstallTypes"); legacy.AsObject().Remove("SelectedInstallTypeId");
         legacy["InstallFile"]!.AsObject().Remove("RecurseSubdirectories"); legacy["InstallFile"]!.AsObject().Remove("Excludes");
         await File.WriteAllTextAsync(path,legacy.ToJsonString()); var migrated=await ProjectFile.LoadAsync(path);
         Assert.True(migrated.WasMigrated); Assert.Empty(migrated.AdditionalFiles); Assert.Equal("a.txt",migrated.InstallFile.Source);

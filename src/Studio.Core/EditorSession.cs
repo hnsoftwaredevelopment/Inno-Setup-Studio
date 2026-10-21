@@ -138,7 +138,8 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
     public int OwnTextCount(string id)
     {
         var language = Project.Languages.Single(l => l.Id == id);
-        return Enum.GetValues<WizardTextSlot>().Count(slot => WizardTexts.Own(Project, language, slot) is not null);
+        return Enum.GetValues<WizardTextSlot>().Count(slot => WizardTexts.Own(Project, language, slot) is not null)
+            + Project.InstallTypes.Count(t=>t.Translations.TryGetValue(id,out var text) && !string.IsNullOrWhiteSpace(text));
     }
     public bool RemoveLanguage(string id)
     {
@@ -157,6 +158,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
                 if (value is not null) WizardTexts.Set(Project, successor, slot, value);
         }
         foreach (var document in Project.Documents.Values) document.Translations.Remove(id);
+        foreach(var type in Project.InstallTypes) type.Translations.Remove(id);
         Project.Languages.RemoveAll(l => l.Id == id);
         if (_previewLanguageId == id) _previewLanguageId = Project.Languages.First(l => l.Enabled).Id;
         RebuildPreviewLanguages(); IsDirty = true; Refresh();
@@ -242,6 +244,7 @@ public sealed class EditorSession : INotifyPropertyChanged, IDisposable
     }
     public string FileRuleSummary => Text.Format("FilesRuleCount",Project.AdditionalFiles.Count+1);
     public string DirectoryRuleSummary => Text.Format("DirectoryRuleCount",Project.DirectoryRules.Count);
+    public string InstallTypeSummary=>Text.Format("InstallTypeCount",Project.InstallTypes.Count);
     public string ShortcutSummary=>Text.Format("ShortcutCount",Project.Shortcuts.Count);
 
     public string FileDestination

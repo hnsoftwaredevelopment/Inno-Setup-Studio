@@ -437,4 +437,24 @@ Replace it with the current export? Existing content, including any manual chang
   <data name="ShortcutExtraOptions" xml:space="preserve"><value>Extra options</value></data>
   <data name="ShortcutTargetPath" xml:space="preserve"><value>Edit target path manually (for example {app}\SVGViewer.exe)</value></data>
   <data name="ShortcutDesktopTaskHint" xml:space="preserve"><value>This desktop shortcut is currently always created. Optional creation through a choice on the tasks page will follow with Tasks and rule linking. Start menu settings do not apply here.</value></data>
+  <data name="InstallTypesHeading" xml:space="preserve"><value>Setup types</value></data>
+  <data name="InstallTypesManage" xml:space="preserve"><value>Manage setup types</value></data>
+  <data name="InstallTypeCount" xml:space="preserve"><value>{0} setup types</value></data>
+  <data name="InstallTypesHint" xml:space="preserve"><value>Offer choices such as Full, Compact and Custom. Add a type and give it a clear description.</value></data>
+  <data name="InstallTypesStageHint" xml:space="preserve"><value>Types appear on the component selection page in the installer. Components will be added in the next step; these types do not yet determine which files are installed.</value></data>
+  <data name="InstallTypeDescription" xml:space="preserve"><value>Default description</value></data>
+  <data name="InstallTypeDescriptionHint" xml:space="preserve"><value>This text is shown to the user. For example: Full installation.</value></data>
+  <data name="InstallTypeName" xml:space="preserve"><value>Internal name</value></data>
+  <data name="InstallTypeNameHint" xml:space="preserve"><value>Unique name for linking, for example full. Start with a letter or underscore; then use letters, digits or underscores.</value></data>
+  <data name="InstallTypeCustom" xml:space="preserve"><value>Custom type</value></data>
+  <data name="InstallTypeCustomHint" xml:space="preserve"><value>Use this for the type that will allow users to choose individual components. Only one custom type is allowed.</value></data>
+  <data name="InstallTypeTranslations" xml:space="preserve"><value>Translations</value></data>
+  <data name="InstallTypeLanguage" xml:space="preserve"><value>Installer language</value></data>
+  <data name="InstallTypeTranslationHint" xml:space="preserve"><value>Select each installer language separately and enter its description. An empty field uses the default description above.</value></data>
+  <data name="InstallTypeNew" xml:space="preserve"><value>New setup type</value></data>
+  <data name="InstallTypeInvalid" xml:space="preserve"><value>Invalid setup types or design selection. Check the list.</value></data>
+  <data name="InstallTypeNameInvalid" xml:space="preserve"><value>Invalid internal name. Start with a letter or underscore and use only letters, digits and underscores. The words and, or and not are reserved.</value></data>
+  <data name="InstallTypeDescriptionInvalid" xml:space="preserve"><value>Enter a default description. Descriptions and translations must be a single line of at most 4096 characters without preprocessor input.</value></data>
+  <data name="InstallTypeDuplicate" xml:space="preserve"><value>Internal names must be unique, regardless of letter case.</value></data>
+  <data name="InstallTypeCustomDuplicate" xml:space="preserve"><value>Only one custom setup type is allowed.</value></data>
 </root>

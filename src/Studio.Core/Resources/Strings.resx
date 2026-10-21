@@ -437,4 +437,24 @@ Vervangen door de huidige export? De bestaande inhoud, inclusief eventuele handm
   <data name="ShortcutExtraOptions" xml:space="preserve"><value>Extra opties</value></data>
   <data name="ShortcutTargetPath" xml:space="preserve"><value>Doelpad handmatig aanpassen (bijvoorbeeld {app}\SVGViewer.exe)</value></data>
   <data name="ShortcutDesktopTaskHint" xml:space="preserve"><value>Deze bureaubladsnelkoppeling wordt nu altijd aangemaakt. Optioneel aanmaken via een keuze op de takenpagina volgt bij Taken en regelkoppelingen. Startmenu-instellingen gelden hier niet.</value></data>
+  <data name="InstallTypesHeading" xml:space="preserve"><value>Installatietypen</value></data>
+  <data name="InstallTypesManage" xml:space="preserve"><value>Installatietypen beheren</value></data>
+  <data name="InstallTypeCount" xml:space="preserve"><value>{0} installatietypen</value></data>
+  <data name="InstallTypesHint" xml:space="preserve"><value>Bied keuzes aan zoals Volledig, Compact en Aangepast. Voeg een type toe en geef het een herkenbare beschrijving.</value></data>
+  <data name="InstallTypesStageHint" xml:space="preserve"><value>Typen verschijnen in de installer op de componentenpagina. Componenten worden in de volgende stap toegevoegd; deze typen bepalen nu nog niet welke bestanden worden geïnstalleerd.</value></data>
+  <data name="InstallTypeDescription" xml:space="preserve"><value>Standaardbeschrijving</value></data>
+  <data name="InstallTypeDescriptionHint" xml:space="preserve"><value>Deze tekst ziet de gebruiker. Gebruik bijvoorbeeld Volledige installatie.</value></data>
+  <data name="InstallTypeName" xml:space="preserve"><value>Interne naam</value></data>
+  <data name="InstallTypeNameHint" xml:space="preserve"><value>Unieke naam voor koppelingen, bijvoorbeeld full. Begin met een letter of underscore; gebruik daarna letters, cijfers of underscores.</value></data>
+  <data name="InstallTypeCustom" xml:space="preserve"><value>Aangepast type</value></data>
+  <data name="InstallTypeCustomHint" xml:space="preserve"><value>Kies dit voor het type waarbij de gebruiker later zelf componenten mag kiezen. Er mag maar één aangepast type zijn.</value></data>
+  <data name="InstallTypeTranslations" xml:space="preserve"><value>Vertalingen</value></data>
+  <data name="InstallTypeLanguage" xml:space="preserve"><value>Installertaal</value></data>
+  <data name="InstallTypeTranslationHint" xml:space="preserve"><value>Selecteer iedere installertaal afzonderlijk en vul de omschrijving voor die taal in. Een leeg veld gebruikt de standaardomschrijving hierboven.</value></data>
+  <data name="InstallTypeNew" xml:space="preserve"><value>Nieuw installatietype</value></data>
+  <data name="InstallTypeInvalid" xml:space="preserve"><value>Ongeldige installatietypen of ontwerpselectie. Controleer het overzicht.</value></data>
+  <data name="InstallTypeNameInvalid" xml:space="preserve"><value>Ongeldige interne naam. Begin met een letter of underscore en gebruik alleen letters, cijfers en underscores. De woorden and, or en not zijn gereserveerd.</value></data>
+  <data name="InstallTypeDescriptionInvalid" xml:space="preserve"><value>Vul een standaardbeschrijving in. Beschrijvingen en vertalingen moeten op één regel staan, maximaal 4096 tekens bevatten en mogen geen preprocessorinvoer bevatten.</value></data>
+  <data name="InstallTypeDuplicate" xml:space="preserve"><value>Interne namen moeten uniek zijn, ook bij verschillende hoofdletters.</value></data>
+  <data name="InstallTypeCustomDuplicate" xml:space="preserve"><value>Er mag maar één aangepast installatietype zijn.</value></data>
 </root>

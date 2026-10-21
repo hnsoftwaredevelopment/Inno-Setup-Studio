@@ -66,7 +66,7 @@ public class ShortcutTests : IDisposable
         var loaded=await ProjectFile.LoadAsync(path); Assert.Equal(ShortcutFolder.Desktop,Assert.Single(loaded.Shortcuts).Folder);
         var other=Path.Combine(_folder,"other"); Directory.CreateDirectory(other); var copy=Path.Combine(other,"copy.issstudio");
         await ProjectFile.SaveAsync(copy,loaded,_folder); Assert.Equal(@"{app}\demo.exe",Assert.Single((await ProjectFile.LoadAsync(copy)).Shortcuts).Target);
-        var legacy=JsonNode.Parse(await File.ReadAllTextAsync(path))!; legacy["Version"]=11; legacy.AsObject().Remove("Shortcuts");
+        var legacy=JsonNode.Parse(await File.ReadAllTextAsync(path))!; legacy["Version"]=11; legacy.AsObject().Remove("Shortcuts"); legacy.AsObject().Remove("InstallTypes"); legacy.AsObject().Remove("SelectedInstallTypeId");
         await File.WriteAllTextAsync(path,legacy.ToJsonString()); loaded=await ProjectFile.LoadAsync(path);
         Assert.True(loaded.WasMigrated); Assert.Empty(loaded.Shortcuts); Assert.Single(loaded.DirectoryRules); Assert.Equal(project.AppId,loaded.AppId);
     }

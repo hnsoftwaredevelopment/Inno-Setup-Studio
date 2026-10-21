@@ -104,7 +104,7 @@ public sealed class ScriptExportTests : IDisposable
         originalProject.AppVersion = "9.2-beta";
         originalProject.Buttons[ElementKind.Next] = "Doorgaan";
         var legacy = JsonNode.Parse(JsonSerializer.Serialize(originalProject, options))!.AsObject();
-        legacy["Version"] = 2; legacy.AsObject().Remove("AdditionalFiles"); legacy.AsObject().Remove("DirectoryRules"); legacy.AsObject().Remove("Shortcuts");
+        legacy["Version"] = 2; legacy.AsObject().Remove("AdditionalFiles"); legacy.AsObject().Remove("DirectoryRules"); legacy.AsObject().Remove("Shortcuts"); legacy.AsObject().Remove("InstallTypes"); legacy.AsObject().Remove("SelectedInstallTypeId");
         legacy.Remove("InstallFile");
         legacy.Remove("OutputBaseFileName");
         legacy.Remove("Languages");
@@ -195,7 +195,7 @@ public sealed class ScriptExportTests : IDisposable
         var path = Path.Combine(_folder, "project.issstudio");
         await ProjectFile.SaveAsync(path, project);
         var json = JsonNode.Parse(await File.ReadAllTextAsync(path))!.AsObject();
-        json["Version"] = 2; json.AsObject().Remove("AdditionalFiles"); json.AsObject().Remove("DirectoryRules"); json.AsObject().Remove("Shortcuts");
+        json["Version"] = 2; json.AsObject().Remove("AdditionalFiles"); json.AsObject().Remove("DirectoryRules"); json.AsObject().Remove("Shortcuts"); json.AsObject().Remove("InstallTypes"); json.AsObject().Remove("SelectedInstallTypeId");
         await File.WriteAllTextAsync(path, json.ToJsonString());
         await Assert.ThrowsAsync<InvalidDataException>(() => ProjectFile.LoadAsync(path));
     }

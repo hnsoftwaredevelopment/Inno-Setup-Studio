@@ -437,4 +437,24 @@ Durch den aktuellen Export ersetzen? Der bisherige Inhalt einschließlich manuel
   <data name="ShortcutExtraOptions" xml:space="preserve"><value>Weitere Optionen</value></data>
   <data name="ShortcutTargetPath" xml:space="preserve"><value>Zielpfad manüll ändern (zum Beispiel {app}\SVGViewer.exe)</value></data>
   <data name="ShortcutDesktopTaskHint" xml:space="preserve"><value>Diese Desktopverknüpfung wird derzeit immer erstellt. Die optionale Erstellung durch eine Auswahl auf der Aufgabenseite folgt mit Aufgaben und Regelverknüpfungen. Startmenüeinstellungen gelten hier nicht.</value></data>
+  <data name="InstallTypesHeading" xml:space="preserve"><value>Installationstypen</value></data>
+  <data name="InstallTypesManage" xml:space="preserve"><value>Installationstypen verwalten</value></data>
+  <data name="InstallTypeCount" xml:space="preserve"><value>{0} Installationstypen</value></data>
+  <data name="InstallTypesHint" xml:space="preserve"><value>Bieten Sie Optionen wie Vollständig, Kompakt und Benutzerdefiniert an. Legen Sie einen Typ mit einer verständlichen Beschreibung an.</value></data>
+  <data name="InstallTypesStageHint" xml:space="preserve"><value>Typen erscheinen im Installer auf der Komponentenseite. Komponenten folgen im nächsten Schritt; diese Typen bestimmen noch nicht, welche Dateien installiert werden.</value></data>
+  <data name="InstallTypeDescription" xml:space="preserve"><value>Standardbeschreibung</value></data>
+  <data name="InstallTypeDescriptionHint" xml:space="preserve"><value>Diesen Text sieht der Benutzer. Zum Beispiel: Vollständige Installation.</value></data>
+  <data name="InstallTypeName" xml:space="preserve"><value>Interner Name</value></data>
+  <data name="InstallTypeNameHint" xml:space="preserve"><value>Eindeutiger Name für Verknüpfungen, zum Beispiel full. Beginnen Sie mit einem Buchstaben oder Unterstrich; danach sind Buchstaben, Ziffern und Unterstriche erlaubt.</value></data>
+  <data name="InstallTypeCustom" xml:space="preserve"><value>Benutzerdefinierter Typ</value></data>
+  <data name="InstallTypeCustomHint" xml:space="preserve"><value>Mit diesem Typ kann der Benutzer später einzelne Komponenten auswählen. Nur ein benutzerdefinierter Typ ist erlaubt.</value></data>
+  <data name="InstallTypeTranslations" xml:space="preserve"><value>Übersetzungen</value></data>
+  <data name="InstallTypeLanguage" xml:space="preserve"><value>Installersprache</value></data>
+  <data name="InstallTypeTranslationHint" xml:space="preserve"><value>Wählen Sie jede Installersprache einzeln und geben Sie die Beschreibung für diese Sprache ein. Ein leeres Feld verwendet die Standardbeschreibung oben.</value></data>
+  <data name="InstallTypeNew" xml:space="preserve"><value>Neuer Installationstyp</value></data>
+  <data name="InstallTypeInvalid" xml:space="preserve"><value>Ungültige Installationstypen oder Entwurfsauswahl. Prüfen Sie die Liste.</value></data>
+  <data name="InstallTypeNameInvalid" xml:space="preserve"><value>Ungültiger interner Name. Beginnen Sie mit einem Buchstaben oder Unterstrich und verwenden Sie nur Buchstaben, Ziffern und Unterstriche. Die Wörter and, or und not sind reserviert.</value></data>
+  <data name="InstallTypeDescriptionInvalid" xml:space="preserve"><value>Geben Sie eine Standardbeschreibung ein. Beschreibungen und Übersetzungen müssen einzeilig sein, dürfen höchstens 4096 Zeichen und keine Präprozessoranweisungen enthalten.</value></data>
+  <data name="InstallTypeDuplicate" xml:space="preserve"><value>Interne Namen müssen unabhängig von der Groß-/Kleinschreibung eindeutig sein.</value></data>
+  <data name="InstallTypeCustomDuplicate" xml:space="preserve"><value>Nur ein benutzerdefinierter Installationstyp ist erlaubt.</value></data>
 </root>

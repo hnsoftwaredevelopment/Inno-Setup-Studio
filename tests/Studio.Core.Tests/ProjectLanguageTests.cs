@@ -160,7 +160,7 @@ public class ProjectLanguageTests
             original.Pages[0].Title = "Mijn eigen welkom";
             await ProjectFile.SaveAsync(path, original);
             var json = JsonNode.Parse(await File.ReadAllTextAsync(path))!.AsObject();
-            json["Version"] = 4; json.AsObject().Remove("AdditionalFiles"); json.AsObject().Remove("DirectoryRules"); json.AsObject().Remove("Shortcuts");
+            json["Version"] = 4; json.AsObject().Remove("AdditionalFiles"); json.AsObject().Remove("DirectoryRules"); json.AsObject().Remove("Shortcuts"); json.AsObject().Remove("InstallTypes"); json.AsObject().Remove("SelectedInstallTypeId");
             json.Remove("Documents"); json.Remove("PageSettings");
             json.Remove("Languages");
             json.Remove("TextLanguageId");

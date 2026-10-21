@@ -51,7 +51,7 @@ public class PageSettingsTests
    Assert.True(loaded.PageSettings.UserInfoEnabled); Assert.Equal("Naam",loaded.PageSettings.DefaultName);
    Assert.Equal(ProgramGroupPageMode.Hide,loaded.PageSettings.GroupMode); Assert.True(loaded.PageSettings.AllowNoIcons);
    var json=System.Text.Json.Nodes.JsonNode.Parse(await File.ReadAllTextAsync(path))!;
-   json["Version"]=7; json.AsObject().Remove("AdditionalFiles"); json.AsObject().Remove("DirectoryRules"); json.AsObject().Remove("Shortcuts"); json.AsObject().Remove("PageSettings"); await File.WriteAllTextAsync(path,json.ToJsonString());
+   json["Version"]=7; json.AsObject().Remove("AdditionalFiles"); json.AsObject().Remove("DirectoryRules"); json.AsObject().Remove("Shortcuts"); json.AsObject().Remove("InstallTypes"); json.AsObject().Remove("SelectedInstallTypeId"); json.AsObject().Remove("PageSettings"); await File.WriteAllTextAsync(path,json.ToJsonString());
    loaded=await ProjectFile.LoadAsync(path); Assert.True(loaded.WasMigrated); Assert.False(loaded.PageSettings.UserInfoEnabled);
    Assert.Equal("license.txt",loaded.Documents[WizardDocumentKind.LicenseFile].Source);
   }

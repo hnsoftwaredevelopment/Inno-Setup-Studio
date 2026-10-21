@@ -78,6 +78,7 @@ public static class InnoScript
                     && !string.IsNullOrWhiteSpace(variant)) line += "; " + kind + ": " + Parameter(WizardDocuments.Resolve(variant, projectDirectory));
             lines.Add(line);
         }
+        lines.AddRange(InstallType.Script(project,languages));
         if(project.DirectoryRules.Count>0)
         {
             lines.AddRange(["","[Dirs]"]);
