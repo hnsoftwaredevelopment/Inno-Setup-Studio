@@ -27,7 +27,7 @@ public static class ProjectFile
             var root = json.RootElement;
             if (root.GetProperty("Version").ValueKind != JsonValueKind.Number
                 || !root.GetProperty("Version").TryGetInt32(out var version)
-                || version is not (1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or 10 or 11 or 12 or 13 or StudioProject.CurrentVersion))
+                || version is not (1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or 10 or 11 or 12 or 13 or 14 or StudioProject.CurrentVersion))
                 throw InvalidProject("UnsupportedProject");
             if (version >= 2
                 && (!root.TryGetProperty("AppId", out _) || !root.TryGetProperty("AppVersion", out _)))
@@ -46,6 +46,8 @@ public static class ProjectFile
             if(version<13 && (root.TryGetProperty("InstallTypes",out _) || root.TryGetProperty("SelectedInstallTypeId",out _))) throw InvalidProject("UnsupportedProject");
             if(version>=14 && !root.TryGetProperty("Components",out _)) throw InvalidProject("ComponentInvalid");
             if(version<14 && root.TryGetProperty("Components",out _)) throw InvalidProject("UnsupportedProject");
+            if(version>=15 && !root.TryGetProperty("Tasks",out _)) throw InvalidProject("TaskInvalid");
+            if(version<15 && root.TryGetProperty("Tasks",out _)) throw InvalidProject("UnsupportedProject");
             if (version >= 4 && !root.TryGetProperty("OutputBaseFileName", out _))
                 throw InvalidProject("InvalidOutputName");
             if (version < 4 && root.TryGetProperty("OutputBaseFileName", out _))
@@ -183,6 +185,7 @@ public static class ProjectFile
         foreach(var rule in project.DirectoryRules) DirectoryRule.Validate(rule);
         InstallType.ValidateProject(project);
         ComponentRule.ValidateProject(project);
+        TaskRule.ValidateProject(project);
         if(project.Shortcuts is null || project.Shortcuts.Count>1000) throw InvalidProject("ShortcutInvalid");
         foreach(var shortcut in project.Shortcuts) ShortcutRule.Validate(shortcut,project);
         if(project.Shortcuts.Select(s=>s.IconName(project)).Distinct(StringComparer.OrdinalIgnoreCase).Count()!=project.Shortcuts.Count) throw InvalidProject("ShortcutDuplicate");

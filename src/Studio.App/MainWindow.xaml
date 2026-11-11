@@ -1,6 +1,17 @@
 <Window x:Class="Studio.App.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:loc="clr-namespace:Studio.App" xmlns:views="clr-namespace:Studio.App.Views" xmlns:core="clr-namespace:Studio.Core;assembly=Studio.Core"
-        Title="Inno Setup Studio" Icon="Resources/AppIcon.ico" Width="1360" Height="860" MinWidth="1120" MinHeight="680" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+        Title="Inno Setup Studio" Icon="Resources/AppIcon.ico" Width="1360" Height="860" MinWidth="950" MinHeight="520" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Window.Resources>
+        <DataTemplate x:Key="OutputNameSettings">
+            <StackPanel>
+                <Label Content="{loc:Loc OutputNameLabel}" Target="{Binding ElementName=OutputName}" Padding="0" Margin="0,0,0,6"/>
+                <TextBox x:Name="OutputName" Text="{Binding OutputBaseFileName,UpdateSourceTrigger=PropertyChanged}" MaxLength="120"
+                         AutomationProperties.Name="{loc:Loc OutputNameLabel}"/>
+                <TextBlock Text="{loc:Loc SetupNameWarning}" TextWrapping="Wrap" Foreground="#9B5700" Margin="0,6,0,0"
+                           Visibility="{Binding HasSetupNameWarning,Converter={StaticResource Visibility}}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.New" Executed="New_Executed" />
         <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
@@ -9,11 +20,11 @@
     </Window.CommandBindings>
     <Grid x:Name="Workspace">
         <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /><RowDefinition Height="36" /></Grid.RowDefinitions>
-        <Border Background="White" BorderBrush="{StaticResource Line}" BorderThickness="0,0,0,1" Padding="24,14">
+        <Border Background="White" BorderBrush="{StaticResource Line}" BorderThickness="0,0,0,1" Padding="12,6">
             <StackPanel>
             <DockPanel LastChildFill="False">
                 <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
-                    <Border Width="38" Height="38" Margin="0,0,12,0">
+                    <Border Width="30" Height="30" Margin="0,0,12,0">
                         <Image Source="{StaticResource AppLogo}" Stretch="Uniform" AutomationProperties.Name="Inno Setup Studio" />
                     </Border>
                     <StackPanel VerticalAlignment="Center">
@@ -29,70 +40,44 @@
                               AutomationProperties.Name="{loc:Loc LanguageLabel}" />
                 </StackPanel>
             </DockPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
-                    <Button Content="{loc:Loc New}" Command="ApplicationCommands.New" ToolTip="{loc:Loc NewTip}" Margin="0,0,8,0" />
-                    <Button Content="{loc:Loc Open}" Command="ApplicationCommands.Open" ToolTip="{loc:Loc OpenTip}" Margin="0,0,8,0" />
-                    <Button Content="{loc:Loc ExportScript}" Click="Export_Click" IsEnabled="{Binding IsDesign}" ToolTip="{loc:Loc ExportScopeHint}" Margin="0,0,8,0" />
-                    <Button Content="{loc:Loc SaveAs}" Command="ApplicationCommands.SaveAs" Margin="0,0,8,0" />
-                    <Button Content="{loc:Loc Save}" Command="ApplicationCommands.Save" Style="{StaticResource AccentButton}" ToolTip="{loc:Loc SaveTip}" />
-                </StackPanel>
-                <Expander Header="{loc:Loc ApplicationDetails}" Margin="0,12,0,0" AutomationProperties.Name="{loc:Loc ApplicationDetails}">
-                    <views:ApplicationDetails Margin="0,12,0,0" />
-                </Expander>
-                <Expander Header="{loc:Loc InstallFileHeading}" Margin="0,8,0,0" AutomationProperties.Name="{loc:Loc InstallFileHeading}">
-                    <views:InstallFileDetails Margin="0,12,0,0" />
-                </Expander>
-                <Expander Header="{loc:Loc DirectoryRulesHeading}" Margin="0,8,0,0">
-                    <DockPanel Margin="0,10,0,0">
-                        <Button Content="{loc:Loc DirectoryRulesManage}" Click="DirectoryRules_Click" IsEnabled="{Binding IsDesign}" DockPanel.Dock="Right" Margin="12,0,0,0"/>
-                        <TextBlock Text="{Binding DirectoryRuleSummary}" VerticalAlignment="Center"/>
-                    </DockPanel>
-                </Expander>
-                <Expander Header="{loc:Loc ShortcutsHeading}" Margin="0,8,0,0">
-                    <DockPanel Margin="0,10,0,0"><Button Content="{loc:Loc ShortcutsManage}" Click="Shortcuts_Click" IsEnabled="{Binding IsDesign}" DockPanel.Dock="Right" Margin="12,0,0,0"/><TextBlock Text="{Binding ShortcutSummary}" VerticalAlignment="Center"/></DockPanel>
-                </Expander>
-                <Expander Header="{loc:Loc InstallTypesHeading}" Margin="0,8,0,0">
-                    <DockPanel Margin="0,10,0,0"><Button Content="{loc:Loc InstallTypesManage}" Click="InstallTypes_Click" IsEnabled="{Binding IsDesign}" DockPanel.Dock="Right" Margin="12,0,0,0"/><TextBlock Text="{Binding InstallTypeSummary}" VerticalAlignment="Center"/></DockPanel>
-                </Expander>
-                <Expander Header="{loc:Loc ComponentsHeading}" Margin="0,8,0,0">
-                    <DockPanel Margin="0,10,0,0"><Button Content="{loc:Loc ComponentsManage}" Click="Components_Click" IsEnabled="{Binding IsDesign}" DockPanel.Dock="Right" Margin="12,0,0,0"/><TextBlock Text="{Binding ComponentSummary}" VerticalAlignment="Center"/></DockPanel>
-                </Expander>
-                <Expander Header="{loc:Loc CompilerHeading}" Margin="0,8,0,0">
-                    <StackPanel Margin="0,10,0,0">
-                        <Label Content="{loc:Loc OutputNameLabel}" Target="{Binding ElementName=OutputName}" Padding="0" Margin="0,0,0,6" />
-                        <TextBox x:Name="OutputName" Text="{Binding OutputBaseFileName, UpdateSourceTrigger=PropertyChanged}" MaxLength="120"
-                                 IsReadOnly="{Binding IsPreview}" AutomationProperties.Name="{loc:Loc OutputNameLabel}" />
-                        <TextBlock Text="{loc:Loc SetupNameWarning}" TextWrapping="Wrap" Foreground="#9B5700" Margin="0,6,0,8">
-                            <TextBlock.Style><Style TargetType="TextBlock"><Setter Property="Visibility" Value="Collapsed" />
-                                <Style.Triggers><DataTrigger Binding="{Binding HasSetupNameWarning}" Value="True"><Setter Property="Visibility" Value="Visible" /></DataTrigger></Style.Triggers>
-                            </Style></TextBlock.Style>
-                        </TextBlock>
-                        <DockPanel>
-                            <Button DockPanel.Dock="Right" Content="{loc:Loc ChooseCompiler}" Click="ChooseCompiler_Click" Margin="8,0,0,0" />
-                            <Button DockPanel.Dock="Right" Content="{loc:Loc CheckCompiler}" Click="CheckCompiler_Click" Margin="8,0,0,0" />
-                            <TextBox x:Name="CompilerLocation" IsReadOnly="True" AutomationProperties.Name="{loc:Loc CompilerHeading}" />
-                        </DockPanel>
-                        <TextBlock x:Name="CompilerState" TextWrapping="Wrap" Margin="0,6,0,6" />
-                        <WrapPanel>
-                            <Button Content="{loc:Loc BuildInstaller}" Click="Build_Click" IsEnabled="{Binding IsDesign}" Margin="0,0,8,0" />
-                            <Button x:Name="OpenBuildFolder" Content="{loc:Loc OpenBuildFolder}" Click="OpenBuildFolder_Click" IsEnabled="False" />
-                            <Button Content="{loc:Loc BuildMessages}" Click="BuildMessages_Click" Margin="8,0,0,0" />
-                            <Button Content="{loc:Loc LanguageSources}" Click="LanguageSources_Click" Margin="8,0,0,0" />
-                            <Button Content="{loc:Loc ProjectLanguages}" Click="ProjectLanguages_Click" IsEnabled="{Binding IsDesign}" Margin="8,0,0,0"/>
-                        </WrapPanel>
-                        <TextBox x:Name="BuildResult" IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0" Margin="0,6,0,0" />
-                    </StackPanel>
-                </Expander>
+                <Menu Background="White" Margin="0,4,0,0">
+                    <MenuItem Header="{loc:Loc ProjectMenu}">
+                        <MenuItem Header="{loc:Loc New}" Command="ApplicationCommands.New" CommandTarget="{Binding ElementName=Workspace}"/>
+                        <MenuItem Header="{loc:Loc Open}" Command="ApplicationCommands.Open" CommandTarget="{Binding ElementName=Workspace}"/>
+                        <MenuItem Header="{loc:Loc Save}" Command="ApplicationCommands.Save" CommandTarget="{Binding ElementName=Workspace}"/>
+                        <MenuItem Header="{loc:Loc SaveAs}" Command="ApplicationCommands.SaveAs" CommandTarget="{Binding ElementName=Workspace}"/>
+                        <Separator/>
+                        <MenuItem Header="{loc:Loc ApplicationDetails}" Click="ApplicationDetails_Click" IsEnabled="{Binding IsDesign}"/>
+                        <MenuItem Header="{loc:Loc ProjectLanguages}" Click="ProjectLanguages_Click" IsEnabled="{Binding IsDesign}"/>
+                    </MenuItem>
+                    <MenuItem Header="{loc:Loc InstallationMenu}">
+                        <MenuItem Header="{loc:Loc InstallFileHeading}" Click="FileRules_Click" IsEnabled="{Binding IsDesign}"/>
+                        <MenuItem Header="{loc:Loc DirectoryRulesHeading}" Click="DirectoryRules_Click" IsEnabled="{Binding IsDesign}"/>
+                        <MenuItem Header="{loc:Loc ShortcutsHeading}" Click="Shortcuts_Click" IsEnabled="{Binding IsDesign}"/>
+                        <Separator/>
+                        <MenuItem Header="{loc:Loc InstallTypesHeading}" Click="InstallTypes_Click" IsEnabled="{Binding IsDesign}"/>
+                        <MenuItem Header="{loc:Loc ComponentsHeading}" Click="Components_Click" IsEnabled="{Binding IsDesign}"/>
+                        <MenuItem Header="{loc:Loc TasksHeading}" Click="Tasks_Click" IsEnabled="{Binding IsDesign}"/>
+                    </MenuItem>
+                    <MenuItem Header="{loc:Loc BuildMenu}">
+                        <MenuItem Header="{loc:Loc BuildInstaller}" Click="Build_Click" IsEnabled="{Binding IsDesign}"/>
+                        <MenuItem Header="{loc:Loc ExportScript}" Click="Export_Click" IsEnabled="{Binding IsDesign}"/>
+                        <MenuItem x:Name="OpenBuildFolder" Header="{loc:Loc OpenBuildFolder}" Click="OpenBuildFolder_Click" IsEnabled="False"/>
+                        <MenuItem x:Name="BuildMessagesMenu" Header="{loc:Loc BuildMessages}" Click="BuildMessages_Click"/>
+                        <Separator/>
+                        <MenuItem Header="{loc:Loc OutputNameLabel}" Click="OutputName_Click" IsEnabled="{Binding IsDesign}"/>
+                        <MenuItem Header="{loc:Loc ChooseCompiler}" Click="ChooseCompiler_Click"/>
+                        <MenuItem Header="{loc:Loc CheckCompiler}" Click="CheckCompiler_Click"/>
+                        <MenuItem x:Name="CompilerStatus" IsEnabled="False" ToolTipService.ShowOnDisabled="True"/>
+                        <MenuItem Header="{loc:Loc LanguageSources}" Click="LanguageSources_Click"/>
+                    </MenuItem>
+                </Menu>
             </StackPanel>
         </Border>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions><ColumnDefinition Width="222" MinWidth="180" /><ColumnDefinition Width="5" /><ColumnDefinition Width="*" MinWidth="400" /><ColumnDefinition Width="5" /><ColumnDefinition Width="292" MinWidth="240" /></Grid.ColumnDefinitions>
-            <Border Background="White" Padding="16,24" BorderBrush="{StaticResource Line}" BorderThickness="0,0,1,0">
+            <Border Background="White" Padding="12,12" BorderBrush="{StaticResource Line}" BorderThickness="0,0,1,0">
                 <DockPanel>
-                    <StackPanel DockPanel.Dock="Bottom" Margin="0,24,0,0">
-                        <TextBlock Text="{loc:Loc FirstVersion}" Style="{StaticResource SectionLabel}" />
-                        <TextBlock Text="{loc:Loc FirstVersionHint}" Style="{StaticResource MutedText}" FontSize="12" />
-                    </StackPanel>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" />
@@ -107,7 +92,7 @@
                                 <TextBlock Text="{Binding Name}" TextWrapping="Wrap" /><TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontSize="11" FontWeight="Normal" Foreground="{StaticResource Muted}" Margin="0,4,0,0" />
                             </StackPanel></DataTemplate></ListBox.ItemTemplate>
                         </ListBox>
-                        <Border Grid.Row="2" Height="1" Background="{StaticResource Line}" Margin="0,24" />
+                        <Border Grid.Row="2" Height="1" Background="{StaticResource Line}" Margin="0,12" />
                         <TextBlock Grid.Row="3" Text="{loc:Loc Elements}" Style="{StaticResource SectionLabel}" />
                         <ListBox Grid.Row="4" ItemsSource="{Binding Elements}" SelectedValuePath="Kind" SelectedValue="{Binding SelectedElement}" IsEnabled="{Binding IsDesign}" AutomationProperties.Name="{loc:Loc ElementsAccessible}" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <ListBox.ItemTemplate><DataTemplate><TextBlock Text="{Binding Name}" TextWrapping="Wrap" /></DataTemplate></ListBox.ItemTemplate>
@@ -118,7 +103,7 @@
             <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="Transparent" AutomationProperties.Name="{loc:Loc PagesWidth}" />
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
-                <StackPanel Margin="24,24,24,16">
+                <StackPanel Margin="16,12,16,10">
                     <TextBlock Text="{Binding PageName}" FontSize="23" FontWeight="SemiBold" TextWrapping="Wrap" />
                     <TextBlock Text="{Binding PageDescription}" Style="{StaticResource MutedText}" Margin="0,5,0,0" />
                 </StackPanel>

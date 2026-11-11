@@ -284,7 +284,7 @@ Select a navigation button below to edit its shared text.</value></data>
   <data name="PageOverviewProgramGroup" xml:space="preserve"><value>Start Menu folder</value></data>
   <data name="PageReasonProgramGroup" xml:space="preserve"><value>There are no shortcuts yet. The policy is saved, but the folder selection page only appears when shortcuts exist.</value></data>
   <data name="PageOverviewTasks" xml:space="preserve"><value>Tasks</value></data>
-  <data name="PageReasonTasks" xml:space="preserve"><value>No tasks defined. Tasks and component conditions follow later.</value></data>
+  <data name="PageReasonTasks" xml:space="preserve"><value>No tasks defined. Add a task to show this page.</value></data>
   <data name="PageOverviewReady" xml:space="preserve"><value>Ready to install</value></data>
   <data name="PageReasonReady" xml:space="preserve"><value>Shown by default before installation. View phase shows the summary and Install button.</value></data>
   <data name="PageOverviewPreparing" xml:space="preserve"><value>Preparing to install</value></data>
@@ -480,4 +480,26 @@ Replace it with the current export? Existing content, including any manual chang
   <data name="ComponentTypeUsed" xml:space="preserve"><value>This type is used by: {0}. Update their type assignments before renaming or deleting it.</value></data>
   <data name="ComponentConfigured" xml:space="preserve"><value>Shown because the project contains components.</value></data>
   <data name="ComponentTrialHint" xml:space="preserve"><value>First installation without previous choices. Only component selection is simulated; file and shortcut links will follow later.</value></data>
+  <data name="TasksHeading" xml:space="preserve"><value>Tasks</value></data>
+  <data name="TasksHint" xml:space="preserve"><value>Offer extra choices such as a desktop shortcut.</value></data>
+  <data name="TasksStageHint" xml:space="preserve"><value>Links from tasks to files and shortcuts will be available later.</value></data>
+  <data name="TasksManage" xml:space="preserve"><value>Manage tasks</value></data>
+  <data name="TaskCount" xml:space="preserve"><value>{0} tasks</value></data>
+  <data name="TaskNew" xml:space="preserve"><value>New task</value></data>
+  <data name="TaskInitialLabel" xml:space="preserve"><value>Initial selection</value></data>
+  <data name="TaskInitialChecked" xml:space="preserve"><value>Checked</value></data>
+  <data name="TaskInitialUnchecked" xml:space="preserve"><value>Unchecked</value></data>
+  <data name="TaskInitialCheckedOnce" xml:space="preserve"><value>Checked only on first installation</value></data>
+  <data name="TaskRestart" xml:space="preserve"><value>Ask for a restart when this task is selected</value></data>
+  <data name="TaskDescriptionHint" xml:space="preserve"><value>This description appears on the tasks page.</value></data>
+  <data name="TaskInvalid" xml:space="preserve"><value>Invalid tasks. Check the list.</value></data>
+  <data name="TaskNameInvalid" xml:space="preserve"><value>Invalid internal task name. Start with a letter or underscore; then use letters, digits or underscores.</value></data>
+  <data name="TaskDuplicate" xml:space="preserve"><value>Internal task names must be unique, regardless of letter case.</value></data>
+  <data name="TaskDescriptionInvalid" xml:space="preserve"><value>Enter a default description. Use one line per description or translation without preprocessor input.</value></data>
+  <data name="TaskConfigured" xml:space="preserve"><value>Shown because the project contains tasks.</value></data>
+  <data name="TaskTrialHint" xml:space="preserve"><value>This trial shows a first installation. Tasks are not performed here.</value></data>
+  <data name="TaskNameHint" xml:space="preserve"><value>Choose a unique name, for example desktopicon. Use letters, digits and underscores.</value></data>
+  <data name="ProjectMenu" xml:space="preserve"><value>_Project</value></data>
+  <data name="InstallationMenu" xml:space="preserve"><value>_Installation</value></data>
+  <data name="BuildMenu" xml:space="preserve"><value>_Build</value></data>
 </root>

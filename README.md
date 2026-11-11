@@ -6,15 +6,17 @@ De bestaande variant in `C:\Devops\hnsoftwaredevelopment\InnoSetupStudio\InnoSet
 
 Het doel is dat Studio `.iss`-scripts genereert die met de lokaal geïnstalleerde Inno Setup 7.1-compiler kunnen worden gebouwd, rechtstreeks of vanuit Studio. Inno Setup verzorgt de uiteindelijke installerinterface en installatiehandelingen.
 
+Boven de editor staan drie menu’s: **Project** voor openen, bewaren en projectgegevens, **Installatie** voor de installatieregels en **Bouwen** voor export, compiler en bouwacties. De menu’s nemen geen extra ruimte in als je ze opent.
+
 ## Status
 
 De eerste WPF-werkplek werkt: Basisontwerp, Welkom en Installatiemap, direct selecteerbare elementen, gedeelde knopteksten met pagina-afwijkingen, een uitprobeermodus en opslaan/openen van `.issstudio`-projecten. Installatiemap, Bladeren-tekst en tooltip zijn instelbaar. Een mapkeuze in Uitproberen wijzigt het opgeslagen standaardpad niet.
 
 De Studio-interface is beschikbaar in Nederlands, Engels en Duits. Rechtsboven wisselt **Studio-taal** direct van taal; de keuze wordt per Windows-gebruiker onthouden. Installerinhoud blijft onafhankelijk van deze keuze. Zie [meertaligheid en ResXManager](docs/Meertaligheid.md).
 
-Het uitklapbare paneel **Applicatiegegevens** boven de ontwerpruimte bevat productnaam, AppId en versie. Die worden met het project opgeslagen. Oude projecten worden bij openen in het geheugen bijgewerkt en pas bij opslaan naar het nieuwe formaat geschreven. Zie [M01-S01 en teststappen](docs/slices/M01-S01-Applicatiegegevens.md).
+**Project → Applicatiegegevens** opent een venster voor productnaam, AppId en versie. Die worden met het project opgeslagen. Oude projecten worden bij openen in het geheugen bijgewerkt en pas bij opslaan naar het nieuwe formaat geschreven. Zie [M01-S01 en teststappen](docs/slices/M01-S01-Applicatiegegevens.md).
 
-Het paneel **Bestandsregels** opent via **Bestanden beheren** een overzicht van lokale bestandsregels. Iedere regel heeft een bronbestand of wildcard, een doel onder {app}, een keuze voor submappen en uitsluitingen. Een automatische voorbeeldlijst toont de geselecteerde regel. **Exporteer .iss** en **Compiler en bouwen** gebruiken alle regels, actieve projecttalen en ingestelde wizardpagina’s. Oude projecten migreren bij openen; opslaan gebruikt nu formaat 14 (inclusief mapregels, snelkoppelingen, installatietypen en componenten). [M04-S01 en teststappen](docs/slices/M04-S01-Bestandsverzamelingen.md).
+**Installatie → Bestandsregels** opent een overzicht van lokale bestandsregels. Iedere regel heeft een bronbestand of wildcard, een doel onder {app}, een keuze voor submappen en uitsluitingen. Een automatische voorbeeldlijst toont de geselecteerde regel. De acties voor exporteren en bouwen in het menu **Bouwen** gebruiken alle regels, actieve projecttalen en ingestelde wizardpagina’s. Oude projecten migreren bij openen; opslaan gebruikt nu formaat 15 (inclusief mapregels, snelkoppelingen, installatietypen, componenten en taken). [M04-S01 en teststappen](docs/slices/M04-S01-Bestandsverzamelingen.md).
 
 Het beoogde eindproduct is beschreven in de geaccepteerde [productspecificatie](docs/Productspecificatie.md).
 
@@ -95,3 +97,5 @@ M04-S03 voegt **Snelkoppelingen → Snelkoppelingen beheren** toe: Startmenu/Bur
 **Installatietypen** beheert geordende typen met een interne naam, standaardbeschrijving, vertalingen en maximaal één aangepast type. De geselecteerde ontwerpregel wordt bewaard; export gebruikt native Types en CustomMessages. De componentenpagina volgt de gedefinieerde componenten; inhoudskoppelingen volgen in S07. [Beginnersuitleg](docs/gebruikershandleiding/Installatietypen.md) · [M04-S04 en teststappen](docs/slices/M04-S04-Installatietypen.md).
 
 **Componenten** beheert onderdelen, onderliggende groepen, typekoppelingen, vertalingen en vaste/afzonderlijk selecteerbare onderdelen. Paginaoverzicht en Uitproberen tonen de native componentenstap; de proef bewaart tijdelijke type- en componentkeuzes. Bestanden en snelkoppelingen worden pas in S07 gekoppeld. [Beginnersuitleg](docs/gebruikershandleiding/Componenten.md) · [M04-S05 en teststappen](docs/slices/M04-S05-Componenten.md).
+
+**Taken** beheert extra installatiekeuzes met een beginselectie en vertaalde omschrijving. Uitproberen toont de takenpagina en bewaart keuzes alleen tijdens de proef. [Handleiding](docs/gebruikershandleiding/Taken.md) · [M04-S06 en teststappen](docs/slices/M04-S06-Taken.md).

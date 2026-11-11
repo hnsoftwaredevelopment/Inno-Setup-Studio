@@ -67,7 +67,7 @@ public class ComponentTests : IDisposable
         var start=new System.Diagnostics.ProcessStartInfo(@"C:\Program Files\Inno Setup 7\ISCC.exe"){UseShellExecute=false,RedirectStandardOutput=true,RedirectStandardError=true,WorkingDirectory=_folder};
         start.ArgumentList.Add("/Qp");start.ArgumentList.Add(iss);using var process=System.Diagnostics.Process.Start(start)!;
         var output=process.StandardOutput.ReadToEndAsync();var errors=process.StandardError.ReadToEndAsync();await process.WaitForExitAsync();Assert.True(process.ExitCode==0,await output+await errors);
-        var json=System.Text.Json.Nodes.JsonNode.Parse(await File.ReadAllTextAsync(path))!;json["Version"]=13;json.AsObject().Remove("Components");await File.WriteAllTextAsync(path,json.ToJsonString());
+        var json=System.Text.Json.Nodes.JsonNode.Parse(await File.ReadAllTextAsync(path))!;json["Version"]=13;json.AsObject().Remove("Components"); json.AsObject().Remove("Tasks");await File.WriteAllTextAsync(path,json.ToJsonString());
         loaded=await ProjectFile.LoadAsync(path);Assert.True(loaded.WasMigrated);Assert.Empty(loaded.Components);Assert.Equal(3,loaded.InstallTypes.Count);
     }
     [Fact] public async Task InvalidInputCannotOverwriteSavedComponents()

@@ -284,7 +284,7 @@ Wählen Sie unten eine Navigationsschaltfläche aus, um ihren gemeinsamen Text z
   <data name="PageOverviewProgramGroup" xml:space="preserve"><value>Startmenüordner</value></data>
   <data name="PageReasonProgramGroup" xml:space="preserve"><value>Es gibt noch keine Verknüpfungen. Die Richtlinie wird gespeichert, die Ordnerauswahl erscheint erst mit Verknüpfungen.</value></data>
   <data name="PageOverviewTasks" xml:space="preserve"><value>Aufgaben</value></data>
-  <data name="PageReasonTasks" xml:space="preserve"><value>Keine Aufgaben definiert. Aufgaben und Komponentenbedingungen folgen später.</value></data>
+  <data name="PageReasonTasks" xml:space="preserve"><value>Keine Aufgaben definiert. Fügen Sie eine Aufgabe hinzu, um diese Seite anzuzeigen.</value></data>
   <data name="PageOverviewReady" xml:space="preserve"><value>Bereit zur Installation</value></data>
   <data name="PageReasonReady" xml:space="preserve"><value>Wird standardmäßig vor der Installation angezeigt. Phase ansehen zeigt die Zusammenfassung und die Installieren-Schaltfläche.</value></data>
   <data name="PageOverviewPreparing" xml:space="preserve"><value>Installation vorbereiten</value></data>
@@ -480,4 +480,26 @@ Durch den aktuellen Export ersetzen? Der bisherige Inhalt einschließlich manuel
   <data name="ComponentTypeUsed" xml:space="preserve"><value>Dieser Typ wird verwendet von: {0}. Ändern Sie zuerst die Typzuordnungen, bevor Sie ihn umbenennen oder löschen.</value></data>
   <data name="ComponentConfigured" xml:space="preserve"><value>Wird angezeigt, weil das Projekt Komponenten enthält.</value></data>
   <data name="ComponentTrialHint" xml:space="preserve"><value>Erstinstallation ohne vorherige Auswahl. Nur die Komponentenauswahl wird simuliert; Datei- und Verknüpfungszuordnungen folgen später.</value></data>
+  <data name="TasksHeading" xml:space="preserve"><value>Aufgaben</value></data>
+  <data name="TasksHint" xml:space="preserve"><value>Bieten Sie zusätzliche Optionen an, etwa eine Desktopverknüpfung.</value></data>
+  <data name="TasksStageHint" xml:space="preserve"><value>Zuordnungen von Aufgaben zu Dateien und Verknüpfungen folgen später.</value></data>
+  <data name="TasksManage" xml:space="preserve"><value>Aufgaben verwalten</value></data>
+  <data name="TaskCount" xml:space="preserve"><value>{0} Aufgaben</value></data>
+  <data name="TaskNew" xml:space="preserve"><value>Neue Aufgabe</value></data>
+  <data name="TaskInitialLabel" xml:space="preserve"><value>Anfangsauswahl</value></data>
+  <data name="TaskInitialChecked" xml:space="preserve"><value>Aktiviert</value></data>
+  <data name="TaskInitialUnchecked" xml:space="preserve"><value>Nicht aktiviert</value></data>
+  <data name="TaskInitialCheckedOnce" xml:space="preserve"><value>Nur bei der Erstinstallation aktiviert</value></data>
+  <data name="TaskRestart" xml:space="preserve"><value>Bei ausgewählter Aufgabe einen Neustart anfordern</value></data>
+  <data name="TaskDescriptionHint" xml:space="preserve"><value>Diese Beschreibung erscheint auf der Aufgabenseite.</value></data>
+  <data name="TaskInvalid" xml:space="preserve"><value>Ungültige Aufgaben. Prüfen Sie die Liste.</value></data>
+  <data name="TaskNameInvalid" xml:space="preserve"><value>Ungültiger interner Aufgabenname. Beginnen Sie mit einem Buchstaben oder Unterstrich; danach sind Buchstaben, Ziffern und Unterstriche erlaubt.</value></data>
+  <data name="TaskDuplicate" xml:space="preserve"><value>Interne Aufgabennamen müssen unabhängig von der Groß- und Kleinschreibung eindeutig sein.</value></data>
+  <data name="TaskDescriptionInvalid" xml:space="preserve"><value>Geben Sie eine Standardbeschreibung ein. Verwenden Sie eine Zeile pro Beschreibung oder Übersetzung ohne Präprozessoranweisungen.</value></data>
+  <data name="TaskConfigured" xml:space="preserve"><value>Wird angezeigt, weil das Projekt Aufgaben enthält.</value></data>
+  <data name="TaskTrialHint" xml:space="preserve"><value>Die Vorschau zeigt eine Erstinstallation. Aufgaben werden hier nicht ausgeführt.</value></data>
+  <data name="TaskNameHint" xml:space="preserve"><value>Wählen Sie einen eindeutigen Namen, zum Beispiel desktopicon. Verwenden Sie Buchstaben, Ziffern und Unterstriche.</value></data>
+  <data name="ProjectMenu" xml:space="preserve"><value>_Projekt</value></data>
+  <data name="InstallationMenu" xml:space="preserve"><value>_Installation</value></data>
+  <data name="BuildMenu" xml:space="preserve"><value>_Erstellen</value></data>
 </root>

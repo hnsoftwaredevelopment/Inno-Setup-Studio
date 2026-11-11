@@ -21,6 +21,9 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
         ["WizardSelectProgramGroup"]="Select Start Menu Folder",["SelectStartMenuFolderLabel3"]="Setup will create the program's shortcuts in the following Start Menu folder.",
         ["WizardSelectComponents"]="Select Components",["SelectComponentsLabel2"]="Select the components you want to install; clear the components you do not want to install. Click Next when you are ready to continue.",
         ["FullInstallation"]="Full installation",["CompactInstallation"]="Compact installation",["CustomInstallation"]="Custom installation",
+        ["WizardSelectTasks"]="Select Additional Tasks",
+        ["SelectTasksLabel2"]="Select the additional tasks you would like Setup to perform while installing [name], then click Next.",
+        ["ReadyMemoTasks"]="Additional tasks:",
         ["NoProgramGroupCheck2"]="Don't create a Start Menu folder",["ReadyMemoGroup"]="Start Menu folder:"
     };
     public WizardTrialPreview(EditorSession editor)
@@ -39,6 +42,8 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
             ComponentSelection=new(editor.Project,()=>LanguageId,Native);
             ComponentSelection.PropertyChanged+=ComponentSelectionChanged;
         }
+        TaskChoices=editor.Project.Tasks.Select(t=>new TaskPreviewItem(t,()=>LanguageId)).ToArray();
+        foreach(var task in TaskChoices) task.PropertyChanged+=TaskChanged;
         editor.IsPreview=true;
     }
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -54,6 +59,8 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     public bool IsLicense => PageId=="License";
     public bool IsUserInfo => PageId=="UserInfo";
     public bool IsDestination => PageId=="Destination";
+    public bool IsTasks=>PageId=="Tasks";
+    public IReadOnlyList<TaskPreviewItem> TaskChoices { get; }
     public bool IsComponents=>PageId=="Components";
     public ComponentSelectionPreview? ComponentSelection { get; }
     public bool IsProgramGroup=>PageId=="ProgramGroup";
@@ -82,6 +89,7 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     public bool PreparationProblem { get=>_completion.PreparationProblem; set=>_completion.PreparationProblem=value; }
     public string WindowTitle => _completion.WindowTitle;
     public string SourceHint => _completion.SourceHint + (English.Keys.Any(k=>!_completion.HasNativeMessage(k)) ? "\n"+_editor.Text["TrialMessageFallback"] : "")
+        +(IsTasks ? "\n"+_editor.Text["TaskTrialHint"] : "")
         +(IsComponents ? "\n"+_editor.Text["ComponentTrialHint"] : "")
         +(IsProgramGroup ? "\n"+_editor.Text["GroupTrialHint"] : "");
     private string Native(string key) => _completion.Message(key,English[key]);
@@ -91,12 +99,12 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     {
         "Welcome" or "Destination"=>Resolve(ElementKind.Title),
         "License"=>Native("WizardLicense"),"InfoBefore"=>Native("WizardInfoBefore"),"InfoAfter"=>Native("WizardInfoAfter"),
-        "Components"=>Native("WizardSelectComponents"),"UserInfo"=>Native("WizardUserInfo"),"ProgramGroup"=>Native("WizardSelectProgramGroup"),_=>_completion.Title
+        "Tasks"=>Native("WizardSelectTasks"),"Components"=>Native("WizardSelectComponents"),"UserInfo"=>Native("WizardUserInfo"),"ProgramGroup"=>Native("WizardSelectProgramGroup"),_=>_completion.Title
     };
     public string Body => PageId switch
     {
         "Welcome" or "Destination"=>Resolve(ElementKind.Body),"License"=>Native("LicenseLabel3"),
-        "InfoBefore"=>Native("InfoBeforeLabel"),"InfoAfter"=>Native("InfoAfterLabel"),"Components"=>Native("SelectComponentsLabel2"),"UserInfo"=>Native("UserInfoDesc"),"ProgramGroup"=>Native("SelectStartMenuFolderLabel3"),_=>_completion.Body
+        "InfoBefore"=>Native("InfoBeforeLabel"),"InfoAfter"=>Native("InfoAfterLabel"),"Tasks"=>Native("SelectTasksLabel2"),"Components"=>Native("SelectComponentsLabel2"),"UserInfo"=>Native("UserInfoDesc"),"ProgramGroup"=>Native("SelectStartMenuFolderLabel3"),_=>_completion.Body
     };
     public string LicenseAcceptCaption => Native("LicenseAccepted");
     public string LicenseDeclineCaption => Native("LicenseNotAccepted");
@@ -119,7 +127,8 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     public string Summary => string.Join("\n",new[]{_completion.Message("ReadyMemoDir","Destination location:"),Directory}
         .Concat(_editor.Project.PageSettings.UserInfoEnabled ? new[]{"",_completion.Message("ReadyMemoUserInfo","User information:"),UserName,Organization} : [])
          .Concat(ComponentSelection is not null ? new[]{"",_editor.Text["ComponentsHeading"],ComponentSelection.Summary} : [])
-        .Concat(Route.Any(p=>p.Id=="ProgramGroup") ? new[]{"",Native("ReadyMemoGroup"),NoIcons && AllowNoIcons ? Native("NoProgramGroupCheck2") : Group} : []));
+        .Concat(Route.Any(p=>p.Id=="ProgramGroup") ? new[]{"",Native("ReadyMemoGroup"),NoIcons && AllowNoIcons ? Native("NoProgramGroupCheck2") : Group} : [])
+        .Concat(TaskChoices.Any(t=>t.IsSelected) ? new[]{"",Native("ReadyMemoTasks")}.Concat(TaskChoices.Where(t=>t.IsSelected).Select(t=>t.Description)) : []));
     public void Next()
     {
         if(!CanNext) return;
@@ -155,12 +164,19 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
         await _completion.LoadLanguageAsync(id,compilerDirectory,projectDirectory); Refresh();
     }
     private void ComponentSelectionChanged(object? sender,PropertyChangedEventArgs e)=>Refresh();
-    private void CompletionChanged(object? sender,PropertyChangedEventArgs e) { ComponentSelection?.Refresh();Refresh(); }
+    private void TaskChanged(object? sender,PropertyChangedEventArgs e) { if(e.PropertyName==nameof(TaskPreviewItem.IsSelected)) Refresh(); }
+    private void CompletionChanged(object? sender,PropertyChangedEventArgs e)
+    {
+        ComponentSelection?.Refresh();
+        foreach(var task in TaskChoices) task.RefreshDescription();
+        Refresh();
+    }
     private void Refresh() => PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(string.Empty));
     public void Dispose()
     {
         if(_disposed) return;
         if(ComponentSelection is not null) ComponentSelection.PropertyChanged-=ComponentSelectionChanged;
+        foreach(var task in TaskChoices) task.PropertyChanged-=TaskChanged;
         _disposed=true; _completion.PropertyChanged-=CompletionChanged; _editor.IsPreview=false;
     }
 }

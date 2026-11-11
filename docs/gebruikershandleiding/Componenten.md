@@ -7,7 +7,7 @@ In de huidige versie kun je componenten en hun typekeuzes instellen en uitprober
 ## Voorbeeld: programma en handleiding
 
 1. Maak bij **Installatietypen** de typen `full` (Volledig), `compact` (Compact) en `custom` (Aangepast). Markeer alleen `custom` als aangepast type.
-2. Open **Componenten → Componenten beheren** en klik op **Toevoegen**.
+2. Open **Installatie → Componenten** en klik op **Toevoegen**.
 3. Geef de standaardomschrijving `Programma` en de interne naam `main` op.
 4. Vink bij de typekoppelingen alle drie de typen aan. Open **Extra opties** en kies **Vast onderdeel**. Daarmee kan de gebruiker dit onderdeel niet zelf uitvinken.
 5. Voeg een tweede component toe met de omschrijving `Handleiding` en de interne naam `help`. Koppel deze aan `full`. Laat Vast onderdeel uit.

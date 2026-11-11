@@ -41,7 +41,7 @@ V = visuele bediening; G = gecontroleerde geavanceerde opties; S = officiële sc
 | Snelkoppelingen en metadata | V, G | [Icons](https://jrsoftware.org/ishelp/topic_iconssection.htm) | M04, M07 | Compiler gecontroleerd voor Startmenu/Bureaublad met Name, Filename, Parameters en WorkingDir; overige metadata volgt later |
 | Installatietypen | V, G | [Types](https://jrsoftware.org/ishelp/topic_typessection.htm) | M04-S04 | Compiler gecontroleerd: naam, beschrijving/vertalingen, volgorde en iscustom; componentenpagina beschikbaar bij componenten |
 | Componenten | V, G | [Components](https://jrsoftware.org/ishelp/topic_componentssection.htm) | M04-S05 | Compiler gecontroleerd: structuur, typekoppeling, beschrijvingen/vertalingen, fixed en checkablealone; inhoudskoppelingen volgen in S07 |
-| Taken | V, G | [Tasks](https://jrsoftware.org/ishelp/topic_taskssection.htm) | M04 | Gepland |
+| Taken | V, G | [Tasks](https://jrsoftware.org/ishelp/topic_taskssection.htm) | M04-S06 | Zelfstandige taken met vertalingen, beginselectie en herstartverzoek; koppelingen volgen in S07 |
 | Register | V, G | [Registry](https://jrsoftware.org/ishelp/topic_registrysection.htm) | M05, M07 | Gepland |
 | INI-configuratie | V, G | [INI](https://jrsoftware.org/ishelp/topic_inisection.htm) | M05 | Gepland |
 | Programma-acties | V, G | [Run / UninstallRun](https://jrsoftware.org/ishelp/topic_runsection.htm) | M05 | Gepland |

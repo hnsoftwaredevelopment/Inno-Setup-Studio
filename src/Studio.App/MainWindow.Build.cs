@@ -37,15 +37,15 @@ public partial class MainWindow
 
     private void UpdateCompilerState()
     {
-        CompilerLocation.Text = _compilerPath ?? "";
-        CompilerState.Text = Text[_compilerStateKey] + (_compilerVersion is null ? "" : " " + _compilerVersion);
+        CompilerStatus.ToolTip = _compilerPath;
+        CompilerStatus.Header = Text[_compilerStateKey] + (_compilerVersion is null ? "" : " " + _compilerVersion);
         _buildOutput?.SetState(Text[_buildStateKey], _buildCancellation is null ? null : () => _buildCancellation?.Cancel());
     }
 
     private void ClearBuildResult()
     {
         _buildDirectory = null;
-        BuildResult.Text = "";
+        BuildMessagesMenu.ToolTip = null;
         OpenBuildFolder.IsEnabled = false;
         _buildMessages.Clear();
         _buildStateKey = "BuildNoMessages";
@@ -104,7 +104,7 @@ public partial class MainWindow
         if ((_path is null || _editor.IsDirty) && !await SaveAsync(false)) return;
         var directory = Path.GetDirectoryName(_path!)!;
         SetBusy(true);
-        BuildResult.Text = Text["BuildRunning"];
+        BuildMessagesMenu.ToolTip = Text["BuildRunning"];
         _buildStateKey = "BuildRunning";
         using var cancellation = new CancellationTokenSource();
         _buildCancellation = cancellation;
@@ -126,7 +126,7 @@ public partial class MainWindow
             OpenBuildFolder.IsEnabled = true;
             _buildStateKey = result.Canceled ? "BuildCanceled" : result.InstallerPath is null ? "BuildFailed"
                 : result.Messages.Any(m => m.Severity == CompilerMessageSeverity.Warning) ? "BuildSucceededWithWarnings" : "BuildSucceeded";
-            BuildResult.Text = Text[_buildStateKey]
+            BuildMessagesMenu.ToolTip = Text[_buildStateKey]
                 + Environment.NewLine + (_path ?? "") + Environment.NewLine
                 + (result.InstallerPath ?? result.ScriptPath);
             _buildMessages.Clear();
@@ -137,12 +137,12 @@ public partial class MainWindow
         catch (OperationCanceledException)
         {
             _buildStateKey = "BuildCanceled";
-            BuildResult.Text = Text[_buildStateKey];
+            BuildMessagesMenu.ToolTip = Text[_buildStateKey];
         }
         catch (Exception error) when (IsCompilerError(error))
         {
             _buildStateKey = "BuildFailed";
-            BuildResult.Text = Text["BuildFailed"];
+            BuildMessagesMenu.ToolTip = Text["BuildFailed"];
             var key = ProjectFile.ErrorResourceKey(error);
             var message = new CompilerMessage(CompilerMessageSeverity.Error,
                 key is null ? Text["CompilerBuildError"] + Environment.NewLine + error.Message : FileErrorDescription(error, key), null, null, error.Message);

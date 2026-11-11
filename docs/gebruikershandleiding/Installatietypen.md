@@ -6,7 +6,7 @@ Typen verschijnen op de componentenpagina zodra er ook [componenten](Componenten
 
 ## Een type toevoegen
 
-1. Open **Installatietypen → Installatietypen beheren** en klik op **Toevoegen**.
+1. Open **Installatie → Installatietypen** en klik op **Toevoegen**.
 2. Vul bij **Standaardbeschrijving** bijvoorbeeld `Volledige installatie` in. Dit is de tekst die de gebruiker straks ziet.
 3. Geef het type een unieke **Interne naam**, bijvoorbeeld `full`. Die naam gebruik je later om onderdelen aan dit type te koppelen. Hij hoeft niet te worden vertaald.
 4. Voeg eventueel een tweede type toe, bijvoorbeeld `compact` met de beschrijving `Compacte installatie`.

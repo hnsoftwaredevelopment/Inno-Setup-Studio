@@ -284,7 +284,7 @@ Selecteer hieronder een navigatieknop om de gedeelde tekst aan te passen.</value
   <data name="PageOverviewProgramGroup" xml:space="preserve"><value>Startmenumap</value></data>
   <data name="PageReasonProgramGroup" xml:space="preserve"><value>Er zijn nog geen snelkoppelingen. Het beleid wordt bewaard, maar de mapkeuzepagina verschijnt pas met snelkoppelingen.</value></data>
   <data name="PageOverviewTasks" xml:space="preserve"><value>Taken</value></data>
-  <data name="PageReasonTasks" xml:space="preserve"><value>Geen taken gedefinieerd. Taken en componentvoorwaarden volgen later.</value></data>
+  <data name="PageReasonTasks" xml:space="preserve"><value>Geen taken gedefinieerd. Voeg een taak toe om deze pagina te tonen.</value></data>
   <data name="PageOverviewReady" xml:space="preserve"><value>Gereed voor installatie</value></data>
   <data name="PageReasonReady" xml:space="preserve"><value>Wordt standaard getoond vóór installatie. Fase bekijken toont de samenvatting en de Installeren-knop.</value></data>
   <data name="PageOverviewPreparing" xml:space="preserve"><value>Voorbereiden</value></data>
@@ -480,4 +480,26 @@ Vervangen door de huidige export? De bestaande inhoud, inclusief eventuele handm
   <data name="ComponentTypeUsed" xml:space="preserve"><value>Dit type wordt gebruikt door: {0}. Pas eerst hun typekoppelingen aan om de interne naam te wijzigen of het type te verwijderen.</value></data>
   <data name="ComponentConfigured" xml:space="preserve"><value>Getoond omdat het project componenten bevat.</value></data>
   <data name="ComponentTrialHint" xml:space="preserve"><value>Eerste installatie, zonder eerdere keuzes. Alleen de componentselectie wordt gesimuleerd; bestanden en snelkoppelingen worden later gekoppeld.</value></data>
+  <data name="TasksHeading" xml:space="preserve"><value>Taken</value></data>
+  <data name="TasksHint" xml:space="preserve"><value>Bied extra keuzes aan, zoals een snelkoppeling op het bureaublad.</value></data>
+  <data name="TasksStageHint" xml:space="preserve"><value>Koppelingen van taken aan bestanden en snelkoppelingen volgen later.</value></data>
+  <data name="TasksManage" xml:space="preserve"><value>Taken beheren</value></data>
+  <data name="TaskCount" xml:space="preserve"><value>{0} taken</value></data>
+  <data name="TaskNew" xml:space="preserve"><value>Nieuwe taak</value></data>
+  <data name="TaskInitialLabel" xml:space="preserve"><value>Beginselectie</value></data>
+  <data name="TaskInitialChecked" xml:space="preserve"><value>Aangevinkt</value></data>
+  <data name="TaskInitialUnchecked" xml:space="preserve"><value>Niet aangevinkt</value></data>
+  <data name="TaskInitialCheckedOnce" xml:space="preserve"><value>Alleen aangevinkt bij de eerste installatie</value></data>
+  <data name="TaskRestart" xml:space="preserve"><value>Vraag om opnieuw opstarten als deze taak is gekozen</value></data>
+  <data name="TaskDescriptionHint" xml:space="preserve"><value>Deze omschrijving verschijnt op de takenpagina.</value></data>
+  <data name="TaskInvalid" xml:space="preserve"><value>Ongeldige taken. Controleer het overzicht.</value></data>
+  <data name="TaskNameInvalid" xml:space="preserve"><value>Ongeldige interne taaknaam. Begin met een letter of underscore; gebruik daarna letters, cijfers of underscores.</value></data>
+  <data name="TaskDuplicate" xml:space="preserve"><value>Interne taaknamen moeten uniek zijn, ook bij verschillende hoofdletters.</value></data>
+  <data name="TaskDescriptionInvalid" xml:space="preserve"><value>Vul een standaardomschrijving in. Gebruik één regel per omschrijving of vertaling, zonder preprocessorinvoer.</value></data>
+  <data name="TaskConfigured" xml:space="preserve"><value>Getoond omdat het project taken bevat.</value></data>
+  <data name="TaskTrialHint" xml:space="preserve"><value>De proef toont een eerste installatie. Taken worden hier niet uitgevoerd.</value></data>
+  <data name="TaskNameHint" xml:space="preserve"><value>Kies een unieke naam, bijvoorbeeld desktopicon. Gebruik letters, cijfers en underscores.</value></data>
+  <data name="ProjectMenu" xml:space="preserve"><value>_Project</value></data>
+  <data name="InstallationMenu" xml:space="preserve"><value>_Installatie</value></data>
+  <data name="BuildMenu" xml:space="preserve"><value>_Bouwen</value></data>
 </root>

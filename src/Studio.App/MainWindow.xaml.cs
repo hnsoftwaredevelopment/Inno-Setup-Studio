@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Controls;
 using Microsoft.Win32;
 using Studio.Core;
 
@@ -98,6 +99,42 @@ public partial class MainWindow : Window
     private async void Save_Executed(object sender, ExecutedRoutedEventArgs e) { if (!_busy) await SaveAsync(false); }
     private async void SaveAs_Executed(object sender, ExecutedRoutedEventArgs e) { if (!_busy) await SaveAsync(true); }
 
+    private void ApplicationDetails_Click(object sender, RoutedEventArgs e) =>
+        ShowProjectSettings("ApplicationDetails", new Views.ApplicationDetails());
+
+    private void OutputName_Click(object sender, RoutedEventArgs e) =>
+        ShowProjectSettings("OutputNameLabel", new ContentControl
+        {
+            Content = _editor, ContentTemplate = (DataTemplate)FindResource("OutputNameSettings")
+        });
+
+    private void ShowProjectSettings(string titleKey, FrameworkElement content)
+    {
+        if (_busy || !_editor.IsDesign) return;
+        var dialog = new Window
+        {
+            Owner = this, Title = Text[titleKey], Icon = Icon, DataContext = _editor,
+            WindowStartupLocation = WindowStartupLocation.CenterOwner,
+            Width = 640, SizeToContent = SizeToContent.Height,
+            MaxHeight = SystemParameters.WorkArea.Height, ShowInTaskbar = false,
+            ResizeMode = ResizeMode.NoResize
+        };
+        var panel = new DockPanel { Margin = new Thickness(20) };
+        var close = new Button
+        {
+            Content = Text["PageOverviewClose"], IsCancel = true,
+            HorizontalAlignment = HorizontalAlignment.Right, Margin = new Thickness(0, 16, 0, 0)
+        };
+        close.Click += (_, _) => dialog.Close();
+        DockPanel.SetDock(close, Dock.Bottom);
+        panel.Children.Add(close);
+        panel.Children.Add(new ScrollViewer { Content = content, VerticalScrollBarVisibility = ScrollBarVisibility.Auto });
+        dialog.Content = panel;
+        dialog.ShowDialog();
+    }
+
+    private void FileRules_Click(object sender, RoutedEventArgs e) => ManageFileRules();
+
     internal void ManageFileRules()
     {
         if(_busy || !_editor.IsDesign) return;
@@ -107,6 +144,11 @@ public partial class MainWindow : Window
     {
         if(_busy || !_editor.IsDesign) return;
         new DirectoryRulesWindow(_editor) { Owner=this }.ShowDialog();
+    }
+    private void Tasks_Click(object sender,RoutedEventArgs e)
+    {
+        if(_busy || !_editor.IsDesign) return;
+        new TasksWindow(_editor){Owner=this}.ShowDialog();
     }
     private void Components_Click(object sender,RoutedEventArgs e)
     {

@@ -58,6 +58,9 @@
         <TextBox Text="{Binding Group,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEditGroup}" AutomationProperties.Name="{loc:Loc PageOverviewProgramGroup}"/>
         <CheckBox Content="{Binding NoIconsCaption}" IsChecked="{Binding NoIcons}" Visibility="{Binding AllowNoIcons,Converter={StaticResource Visibility}}" Margin="0,10,0,0"/>
        </StackPanel>
+       <ItemsControl Visibility="{Binding IsTasks,Converter={StaticResource Visibility}}" ItemsSource="{Binding TaskChoices}">
+        <ItemsControl.ItemTemplate><DataTemplate><CheckBox IsChecked="{Binding IsSelected}" Margin="0,4"><TextBlock Text="{Binding Description}" TextWrapping="Wrap"/></CheckBox></DataTemplate></ItemsControl.ItemTemplate>
+       </ItemsControl>
        <TextBox Text="{Binding Summary,Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" MaxHeight="170" Margin="0,10,0,0" Visibility="{Binding IsReady,Converter={StaticResource Visibility}}"/>
        <ProgressBar Minimum="0" Maximum="100" Value="{Binding Progress}" Height="20" Margin="0,20,0,0" Visibility="{Binding IsInstalling,Converter={StaticResource Visibility}}"/>
       </StackPanel>
