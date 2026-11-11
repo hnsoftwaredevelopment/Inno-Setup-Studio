@@ -19,6 +19,8 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
         ["WizardUserInfo"]="User Information", ["UserInfoDesc"]="Please enter your information.",
         ["UserInfoName"]="User Name:", ["UserInfoOrg"]="Organization:",
         ["WizardSelectProgramGroup"]="Select Start Menu Folder",["SelectStartMenuFolderLabel3"]="Setup will create the program's shortcuts in the following Start Menu folder.",
+        ["WizardSelectComponents"]="Select Components",["SelectComponentsLabel2"]="Select the components you want to install; clear the components you do not want to install. Click Next when you are ready to continue.",
+        ["FullInstallation"]="Full installation",["CompactInstallation"]="Compact installation",["CustomInstallation"]="Custom installation",
         ["NoProgramGroupCheck2"]="Don't create a Start Menu folder",["ReadyMemoGroup"]="Start Menu folder:"
     };
     public WizardTrialPreview(EditorSession editor)
@@ -32,6 +34,11 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
         _group=editor.Project.PageSettings.DefaultGroup.Length==0 ? "(Default)" : WizardTexts.Expand(editor.Project.PageSettings.DefaultGroup,editor.Project);
         _completion=new WizardCompletionPreview(editor,CompletionPhase.Ready);
         _completion.PropertyChanged+=CompletionChanged;
+        if(editor.Project.Components.Count>0)
+        {
+            ComponentSelection=new(editor.Project,()=>LanguageId,Native);
+            ComponentSelection.PropertyChanged+=ComponentSelectionChanged;
+        }
         editor.IsPreview=true;
     }
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -47,6 +54,8 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     public bool IsLicense => PageId=="License";
     public bool IsUserInfo => PageId=="UserInfo";
     public bool IsDestination => PageId=="Destination";
+    public bool IsComponents=>PageId=="Components";
+    public ComponentSelectionPreview? ComponentSelection { get; }
     public bool IsProgramGroup=>PageId=="ProgramGroup";
     public bool AllowNoIcons=>_editor.Project.PageSettings.AllowNoIcons;
     public bool CanEditGroup=>!NoIcons;
@@ -73,6 +82,7 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     public bool PreparationProblem { get=>_completion.PreparationProblem; set=>_completion.PreparationProblem=value; }
     public string WindowTitle => _completion.WindowTitle;
     public string SourceHint => _completion.SourceHint + (English.Keys.Any(k=>!_completion.HasNativeMessage(k)) ? "\n"+_editor.Text["TrialMessageFallback"] : "")
+        +(IsComponents ? "\n"+_editor.Text["ComponentTrialHint"] : "")
         +(IsProgramGroup ? "\n"+_editor.Text["GroupTrialHint"] : "");
     private string Native(string key) => _completion.Message(key,English[key]);
     private PageKind? DesignPage => PageId switch { "Welcome"=>PageKind.Welcome,"Destination"=>PageKind.Destination,_=>null };
@@ -81,12 +91,12 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     {
         "Welcome" or "Destination"=>Resolve(ElementKind.Title),
         "License"=>Native("WizardLicense"),"InfoBefore"=>Native("WizardInfoBefore"),"InfoAfter"=>Native("WizardInfoAfter"),
-        "UserInfo"=>Native("WizardUserInfo"),"ProgramGroup"=>Native("WizardSelectProgramGroup"),_=>_completion.Title
+        "Components"=>Native("WizardSelectComponents"),"UserInfo"=>Native("WizardUserInfo"),"ProgramGroup"=>Native("WizardSelectProgramGroup"),_=>_completion.Title
     };
     public string Body => PageId switch
     {
         "Welcome" or "Destination"=>Resolve(ElementKind.Body),"License"=>Native("LicenseLabel3"),
-        "InfoBefore"=>Native("InfoBeforeLabel"),"InfoAfter"=>Native("InfoAfterLabel"),"UserInfo"=>Native("UserInfoDesc"),"ProgramGroup"=>Native("SelectStartMenuFolderLabel3"),_=>_completion.Body
+        "InfoBefore"=>Native("InfoBeforeLabel"),"InfoAfter"=>Native("InfoAfterLabel"),"Components"=>Native("SelectComponentsLabel2"),"UserInfo"=>Native("UserInfoDesc"),"ProgramGroup"=>Native("SelectStartMenuFolderLabel3"),_=>_completion.Body
     };
     public string LicenseAcceptCaption => Native("LicenseAccepted");
     public string LicenseDeclineCaption => Native("LicenseNotAccepted");
@@ -108,6 +118,7 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
     public bool CanComplete => CanInteract && IsInstalling && _completion.CanComplete;
     public string Summary => string.Join("\n",new[]{_completion.Message("ReadyMemoDir","Destination location:"),Directory}
         .Concat(_editor.Project.PageSettings.UserInfoEnabled ? new[]{"",_completion.Message("ReadyMemoUserInfo","User information:"),UserName,Organization} : [])
+         .Concat(ComponentSelection is not null ? new[]{"",_editor.Text["ComponentsHeading"],ComponentSelection.Summary} : [])
         .Concat(Route.Any(p=>p.Id=="ProgramGroup") ? new[]{"",Native("ReadyMemoGroup"),NoIcons && AllowNoIcons ? Native("NoProgramGroupCheck2") : Group} : []));
     public void Next()
     {
@@ -143,11 +154,13 @@ public sealed class WizardTrialPreview : INotifyPropertyChanged, IDisposable
         _accepted=false; _documentAvailable=false;
         await _completion.LoadLanguageAsync(id,compilerDirectory,projectDirectory); Refresh();
     }
-    private void CompletionChanged(object? sender,PropertyChangedEventArgs e)=>Refresh();
+    private void ComponentSelectionChanged(object? sender,PropertyChangedEventArgs e)=>Refresh();
+    private void CompletionChanged(object? sender,PropertyChangedEventArgs e) { ComponentSelection?.Refresh();Refresh(); }
     private void Refresh() => PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(string.Empty));
     public void Dispose()
     {
         if(_disposed) return;
+        if(ComponentSelection is not null) ComponentSelection.PropertyChanged-=ComponentSelectionChanged;
         _disposed=true; _completion.PropertyChanged-=CompletionChanged; _editor.IsPreview=false;
     }
 }

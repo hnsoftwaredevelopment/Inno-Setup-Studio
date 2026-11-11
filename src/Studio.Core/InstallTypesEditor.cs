@@ -26,27 +26,31 @@ public sealed class InstallTypesEditor : INotifyPropertyChanged
     private InstallType? Selected=>HasSelection ? _editor.Project.InstallTypes[_index] : null;
     public bool HasSelection=>_index>=0 && _index<_editor.Project.InstallTypes.Count;
     public bool CanAdd=>_editor.IsDesign && Types.Count<1000;
-    public bool CanRemove=>_editor.IsDesign && HasSelection;
-    public bool CanMoveUp=>CanRemove && _index>0;
-    public bool CanMoveDown=>CanRemove && _index<Types.Count-1;
+    public bool CanEdit=>_editor.IsDesign && HasSelection;
+    public bool NameReadOnly=>References.Count>0;
+    private IReadOnlyList<string> References=>Selected is null ? [] : _editor.Project.Components.Where(c=>c.Types.Contains(Selected.Name,StringComparer.OrdinalIgnoreCase)).Select(c=>c.Name).ToArray();
+    public string ReferenceHint=>References.Count==0 ? "" : _editor.Text.Format("ComponentTypeUsed",string.Join(", ",References));
+    public bool CanRemove=>CanEdit && !NameReadOnly;
+    public bool CanMoveUp=>CanEdit && _index>0;
+    public bool CanMoveDown=>CanEdit && _index<Types.Count-1;
     public int SelectedIndex
     {
         get=>_index;
         set { if(!_editor.IsDesign || value<0 || value>=Types.Count || value==_index) return; _index=value; Changed(); }
     }
-    public string Name { get=>Selected?.Name ?? ""; set { if(!CanRemove || Name==value) return; Selected!.Name=value; Changed(); } }
-    public string Description { get=>Selected?.Description ?? ""; set { if(!CanRemove || Description==value) return; Selected!.Description=value; Changed(); } }
-    public bool IsCustom { get=>Selected?.IsCustom ?? false; set { if(!CanRemove || IsCustom==value) return; Selected!.IsCustom=value; Changed(); } }
+    public string Name { get=>Selected?.Name ?? ""; set { if(!CanEdit || NameReadOnly || Name==value) return; Selected!.Name=value; Changed(); } }
+    public string Description { get=>Selected?.Description ?? ""; set { if(!CanEdit || Description==value) return; Selected!.Description=value; Changed(); } }
+    public bool IsCustom { get=>Selected?.IsCustom ?? false; set { if(!CanEdit || IsCustom==value) return; Selected!.IsCustom=value; Changed(); } }
     public string LanguageId { get=>_languageId; set { if(value is null || !Languages.Any(l=>l.Id==value) || value==_languageId) return; _languageId=value; Refresh(); } }
     public string Translation
     {
         get=>Selected?.Translations.GetValueOrDefault(_languageId) ?? "";
-        set { if(!CanRemove || Translation==value) return; if(string.IsNullOrWhiteSpace(value)) Selected!.Translations.Remove(_languageId); else Selected!.Translations[_languageId]=value; Changed(); }
+        set { if(!CanEdit || Translation==value) return; if(string.IsNullOrWhiteSpace(value)) Selected!.Translations.Remove(_languageId); else Selected!.Translations[_languageId]=value; Changed(); }
     }
     public string EffectiveDescription=>Selected?.DescriptionFor(_languageId) ?? "";
     public string Error
     {
-        get { try { InstallType.ValidateProject(_editor.Project); return ""; } catch(InvalidDataException error) { return _editor.Text[ProjectFile.ErrorResourceKey(error)!]; } }
+        get { try { InstallType.ValidateProject(_editor.Project); ComponentRule.ValidateProject(_editor.Project); return ""; } catch(InvalidDataException error) { return _editor.Text[ProjectFile.ErrorResourceKey(error)!]; } }
     }
     public void Add()
     {
@@ -62,7 +66,7 @@ public sealed class InstallTypesEditor : INotifyPropertyChanged
     }
     public void Move(int direction)
     {
-        if(!CanRemove || direction is not (-1 or 1) || _index+direction<0 || _index+direction>=Types.Count) return;
+        if(!CanEdit || direction is not (-1 or 1) || _index+direction<0 || _index+direction>=Types.Count) return;
         var target=_index+direction; var list=_editor.Project.InstallTypes;
         (list[_index],list[target])=(list[target],list[_index]); _index=target; Rebuild(); Changed();
     }

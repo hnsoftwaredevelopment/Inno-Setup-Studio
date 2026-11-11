@@ -48,6 +48,12 @@
         </DockPanel>
         <TextBlock Text="{loc:Loc TrialExpressions}" Style="{StaticResource MutedText}" FontSize="12" Margin="0,8,0,0"/>
        </StackPanel>
+       <StackPanel Visibility="{Binding IsComponents,Converter={StaticResource Visibility}}">
+        <StackPanel DataContext="{Binding ComponentSelection}">
+         <ComboBox x:Name="TrialTypePicker" Visibility="{Binding ShowTypePicker,Converter={StaticResource Visibility}}" ItemsSource="{Binding Types}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding TypeId}" AutomationProperties.Name="{loc:Loc InstallTypesHeading}" Margin="0,0,0,12"/>
+         <ItemsControl Visibility="{Binding HasCustomType,Converter={StaticResource Visibility}}" ItemsSource="{Binding Items}"><ItemsControl.ItemTemplate><DataTemplate><CheckBox Content="{Binding Name}" IsChecked="{Binding CheckState}" IsEnabled="{Binding CanToggle}" Margin="0,4,0,4"/></DataTemplate></ItemsControl.ItemTemplate></ItemsControl>
+        </StackPanel>
+       </StackPanel>
        <StackPanel Visibility="{Binding IsProgramGroup,Converter={StaticResource Visibility}}">
         <TextBox Text="{Binding Group,UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding CanEditGroup}" AutomationProperties.Name="{loc:Loc PageOverviewProgramGroup}"/>
         <CheckBox Content="{Binding NoIconsCaption}" IsChecked="{Binding NoIcons}" Visibility="{Binding AllowNoIcons,Converter={StaticResource Visibility}}" Margin="0,10,0,0"/>

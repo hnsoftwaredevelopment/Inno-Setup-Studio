@@ -441,7 +441,7 @@ Vervangen door de huidige export? De bestaande inhoud, inclusief eventuele handm
   <data name="InstallTypesManage" xml:space="preserve"><value>Installatietypen beheren</value></data>
   <data name="InstallTypeCount" xml:space="preserve"><value>{0} installatietypen</value></data>
   <data name="InstallTypesHint" xml:space="preserve"><value>Bied keuzes aan zoals Volledig, Compact en Aangepast. Voeg een type toe en geef het een herkenbare beschrijving.</value></data>
-  <data name="InstallTypesStageHint" xml:space="preserve"><value>Typen verschijnen in de installer op de componentenpagina. Componenten worden in de volgende stap toegevoegd; deze typen bepalen nu nog niet welke bestanden worden geïnstalleerd.</value></data>
+  <data name="InstallTypesStageHint" xml:space="preserve"><value>Typen verschijnen op de componentenpagina zodra je componenten definieert. Alleen typen toevoegen verandert de installatie-inhoud niet.</value></data>
   <data name="InstallTypeDescription" xml:space="preserve"><value>Standaardbeschrijving</value></data>
   <data name="InstallTypeDescriptionHint" xml:space="preserve"><value>Deze tekst ziet de gebruiker. Gebruik bijvoorbeeld Volledige installatie.</value></data>
   <data name="InstallTypeName" xml:space="preserve"><value>Interne naam</value></data>
@@ -457,4 +457,27 @@ Vervangen door de huidige export? De bestaande inhoud, inclusief eventuele handm
   <data name="InstallTypeDescriptionInvalid" xml:space="preserve"><value>Vul een standaardbeschrijving in. Beschrijvingen en vertalingen moeten op één regel staan, maximaal 4096 tekens bevatten en mogen geen preprocessorinvoer bevatten.</value></data>
   <data name="InstallTypeDuplicate" xml:space="preserve"><value>Interne namen moeten uniek zijn, ook bij verschillende hoofdletters.</value></data>
   <data name="InstallTypeCustomDuplicate" xml:space="preserve"><value>Er mag maar één aangepast installatietype zijn.</value></data>
+  <data name="ComponentsHeading" xml:space="preserve"><value>Componenten</value></data>
+  <data name="ComponentsManage" xml:space="preserve"><value>Componenten beheren</value></data>
+  <data name="ComponentCount" xml:space="preserve"><value>{0} componenten</value></data>
+  <data name="ComponentsHint" xml:space="preserve"><value>Verdeel je programma in onderdelen, bijvoorbeeld Programma en Handleiding. Koppel ieder onderdeel aan de gewenste installatietypen.</value></data>
+  <data name="ComponentsStageHint" xml:space="preserve"><value>De componentenpagina wordt getoond zodra je componenten toevoegt. Bestanden en snelkoppelingen worden later gekoppeld; deze keuzes veranderen de installatie-inhoud nu nog niet.</value></data>
+  <data name="ComponentDescriptionHint" xml:space="preserve"><value>Deze omschrijving verschijnt op de componentenpagina.</value></data>
+  <data name="ComponentNameHint" xml:space="preserve"><value>Unieke naam, bijvoorbeeld main of help. Voeg een onderliggend onderdeel toe met de knop links.</value></data>
+  <data name="ComponentTranslationHint" xml:space="preserve"><value>Selecteer iedere installertaal afzonderlijk en vul de omschrijving voor die taal in. Leeg gebruikt de standaardomschrijving hierboven.</value></data>
+  <data name="ComponentTypes" xml:space="preserve"><value>Opnemen bij deze installatietypen</value></data>
+  <data name="ComponentFixed" xml:space="preserve"><value>Vast onderdeel: gebruiker kan dit niet zelf aan- of uitzetten</value></data>
+  <data name="ComponentCheckableAlone" xml:space="preserve"><value>Ook selecteerbaar zonder geselecteerde onderliggende onderdelen</value></data>
+  <data name="ComponentAddChild" xml:space="preserve"><value>Onderdeel toevoegen</value></data>
+  <data name="ComponentNew" xml:space="preserve"><value>Nieuw component</value></data>
+  <data name="ComponentHasChildren" xml:space="preserve"><value>Dit onderdeel heeft onderliggende onderdelen. Verwijder die eerst om de interne naam te wijzigen of dit onderdeel te verwijderen. Bij verplaatsen gaat de hele groep mee.</value></data>
+  <data name="ComponentInvalid" xml:space="preserve"><value>Ongeldige componenten. Controleer het overzicht.</value></data>
+  <data name="ComponentNameInvalid" xml:space="preserve"><value>Ongeldige interne componentnaam. Gebruik letters, cijfers en underscores; begin elk naamsegment met een letter of underscore.</value></data>
+  <data name="ComponentDuplicate" xml:space="preserve"><value>Interne componentnamen moeten uniek zijn, ook bij verschillende hoofdletters.</value></data>
+  <data name="ComponentHierarchyInvalid" xml:space="preserve"><value>Ongeldige componentstructuur. Plaats ieder onderliggend onderdeel direct binnen de groep van zijn bovenliggende onderdeel.</value></data>
+  <data name="ComponentDescriptionInvalid" xml:space="preserve"><value>Vul een standaardomschrijving in. Gebruik voor omschrijvingen en vertalingen één regel van maximaal 4096 tekens zonder preprocessorinvoer.</value></data>
+  <data name="ComponentTypeMissing" xml:space="preserve"><value>Een component verwijst naar een onbekend of dubbel installatietype. Controleer de typekoppelingen.</value></data>
+  <data name="ComponentTypeUsed" xml:space="preserve"><value>Dit type wordt gebruikt door: {0}. Pas eerst hun typekoppelingen aan om de interne naam te wijzigen of het type te verwijderen.</value></data>
+  <data name="ComponentConfigured" xml:space="preserve"><value>Getoond omdat het project componenten bevat.</value></data>
+  <data name="ComponentTrialHint" xml:space="preserve"><value>Eerste installatie, zonder eerdere keuzes. Alleen de componentselectie wordt gesimuleerd; bestanden en snelkoppelingen worden later gekoppeld.</value></data>
 </root>

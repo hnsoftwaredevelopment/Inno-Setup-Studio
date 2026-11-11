@@ -2,7 +2,7 @@
 
 Met installatietypen bied je de gebruiker een paar begrijpelijke keuzes aan. Denk aan **Volledig** voor je programma met alle extra onderdelen, **Compact** voor alleen de basis en **Aangepast** voor zelf onderdelen kiezen. Voor een klein programma zonder optionele onderdelen heb je dit niet nodig; je mag de lijst leeg laten.
 
-In de huidige stap leg je de typen alvast vast. Ze verschijnen pas op de componentenpagina wanneer er ook componenten zijn ingesteld. Die mogelijkheid volgt in de volgende stap. Alleen een type toevoegen verandert dus nog niet welke bestanden worden geïnstalleerd.
+Typen verschijnen op de componentenpagina zodra er ook [componenten](Componenten.md) zijn ingesteld. Alleen een type toevoegen verandert niet welke bestanden worden geïnstalleerd. Koppelingen tussen componenten en installatiebestanden volgen in een latere stap.
 
 ## Een type toevoegen
 
@@ -20,7 +20,7 @@ De geselecteerde rij blijft bij opslaan en heropenen geselecteerd. Dat is je ple
 
 Vink **Aangepast type** aan voor bijvoorbeeld de beschrijving `Aangepaste installatie` met de interne naam `custom`. Daarmee geef je aan welk type hoort bij het zelf aan- en uitzetten van afzonderlijke componenten. Er mag maar één aangepast type zijn.
 
-Zonder aangepast type kan de gebruiker straks wel een vooraf ingesteld type kiezen, maar niet zelf vrij onderdelen aan- en uitvinken. De onderdelen en hun koppelingen worden later ingesteld.
+Zonder aangepast type kan de gebruiker straks wel een vooraf ingesteld type kiezen, maar niet zelf vrij onderdelen aan- en uitvinken. De onderdelen en hun typekoppelingen stel je in bij Componenten. De koppeling aan bestanden volgt later.
 
 ## Beschrijvingen vertalen
 

@@ -45,6 +45,7 @@ public static class WizardPageOverview
             {
                 var kind = DocumentKindForPage(pages[i].Id);
                 if (pages[i].Id == "UserInfo" && project.PageSettings.UserInfoEnabled) pages[i].State = WizardPageState.Enabled;
+                if(pages[i].Id=="Components" && project.Components.Count>0) pages[i].State=WizardPageState.Enabled;
                 if(pages[i].Id=="ProgramGroup" && project.Shortcuts.Count>0)
                     pages[i].State=project.PageSettings.GroupMode switch { ProgramGroupPageMode.Hide=>WizardPageState.Disabled,ProgramGroupPageMode.Show=>WizardPageState.Enabled,_=>WizardPageState.Conditional };
                 if (kind is { } document && WizardDocuments.IsActive(project.Documents[document]))
@@ -56,6 +57,7 @@ public static class WizardPageOverview
                 && !string.IsNullOrWhiteSpace(project.Documents[kind].Source)) return "DocumentDisabled";
             return (id, state) switch
             {
+                ("Components",WizardPageState.Enabled)=>"ComponentConfigured",
                 ("ProgramGroup",WizardPageState.Enabled)=>"GroupConfigured",
                 ("ProgramGroup",WizardPageState.Conditional)=>"GroupConfiguredAuto",
                 ("ProgramGroup",WizardPageState.Disabled) when project?.Shortcuts.Count>0=>"GroupConfiguredHidden",

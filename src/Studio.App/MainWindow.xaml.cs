@@ -108,6 +108,11 @@ public partial class MainWindow : Window
         if(_busy || !_editor.IsDesign) return;
         new DirectoryRulesWindow(_editor) { Owner=this }.ShowDialog();
     }
+    private void Components_Click(object sender,RoutedEventArgs e)
+    {
+        if(_busy || !_editor.IsDesign) return;
+        new ComponentsWindow(_editor){Owner=this}.ShowDialog();
+    }
     private void InstallTypes_Click(object sender,RoutedEventArgs e)
     {
         if(_busy || !_editor.IsDesign) return;

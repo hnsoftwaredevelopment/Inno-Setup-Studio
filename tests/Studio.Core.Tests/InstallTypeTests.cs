@@ -97,7 +97,7 @@ public class InstallTypeTests : IDisposable
         await ProjectFile.SaveAsync(Path.Combine(other,"copy.issstudio"),loaded,_folder);
         Assert.Equal("custom",(await ProjectFile.LoadAsync(Path.Combine(other,"copy.issstudio"))).SelectedInstallTypeId);
         var json=JsonNode.Parse(await File.ReadAllTextAsync(path))!; json["Version"]=12;
-        json.AsObject().Remove("InstallTypes"); json.AsObject().Remove("SelectedInstallTypeId"); await File.WriteAllTextAsync(path,json.ToJsonString());
+        json.AsObject().Remove("InstallTypes"); json.AsObject().Remove("SelectedInstallTypeId"); json.AsObject().Remove("Components"); await File.WriteAllTextAsync(path,json.ToJsonString());
         loaded=await ProjectFile.LoadAsync(path); Assert.True(loaded.WasMigrated); Assert.Empty(loaded.InstallTypes); Assert.Equal("",loaded.SelectedInstallTypeId);
         types.Remove(); types.Remove(); Assert.Empty(editor.Project.InstallTypes); Assert.Equal("",editor.Project.SelectedInstallTypeId);
     }

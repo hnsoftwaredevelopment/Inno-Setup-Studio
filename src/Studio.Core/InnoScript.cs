@@ -79,6 +79,7 @@ public static class InnoScript
             lines.Add(line);
         }
         lines.AddRange(InstallType.Script(project,languages));
+        lines.AddRange(ComponentRule.Script(project,languages));
         if(project.DirectoryRules.Count>0)
         {
             lines.AddRange(["","[Dirs]"]);

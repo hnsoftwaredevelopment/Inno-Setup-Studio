@@ -441,7 +441,7 @@ Replace it with the current export? Existing content, including any manual chang
   <data name="InstallTypesManage" xml:space="preserve"><value>Manage setup types</value></data>
   <data name="InstallTypeCount" xml:space="preserve"><value>{0} setup types</value></data>
   <data name="InstallTypesHint" xml:space="preserve"><value>Offer choices such as Full, Compact and Custom. Add a type and give it a clear description.</value></data>
-  <data name="InstallTypesStageHint" xml:space="preserve"><value>Types appear on the component selection page in the installer. Components will be added in the next step; these types do not yet determine which files are installed.</value></data>
+  <data name="InstallTypesStageHint" xml:space="preserve"><value>Types appear on the component page once components are defined. Adding types alone does not change the installed contents.</value></data>
   <data name="InstallTypeDescription" xml:space="preserve"><value>Default description</value></data>
   <data name="InstallTypeDescriptionHint" xml:space="preserve"><value>This text is shown to the user. For example: Full installation.</value></data>
   <data name="InstallTypeName" xml:space="preserve"><value>Internal name</value></data>
@@ -457,4 +457,27 @@ Replace it with the current export? Existing content, including any manual chang
   <data name="InstallTypeDescriptionInvalid" xml:space="preserve"><value>Enter a default description. Descriptions and translations must be a single line of at most 4096 characters without preprocessor input.</value></data>
   <data name="InstallTypeDuplicate" xml:space="preserve"><value>Internal names must be unique, regardless of letter case.</value></data>
   <data name="InstallTypeCustomDuplicate" xml:space="preserve"><value>Only one custom setup type is allowed.</value></data>
+  <data name="ComponentsHeading" xml:space="preserve"><value>Components</value></data>
+  <data name="ComponentsManage" xml:space="preserve"><value>Manage components</value></data>
+  <data name="ComponentCount" xml:space="preserve"><value>{0} components</value></data>
+  <data name="ComponentsHint" xml:space="preserve"><value>Divide your application into parts such as Program and Manual. Assign each part to the appropriate setup types.</value></data>
+  <data name="ComponentsStageHint" xml:space="preserve"><value>The component page appears when components are added. File and shortcut links will follow later; these choices do not yet change the installed contents.</value></data>
+  <data name="ComponentDescriptionHint" xml:space="preserve"><value>This description appears on the component selection page.</value></data>
+  <data name="ComponentNameHint" xml:space="preserve"><value>Unique name, for example main or help. Add a child component using the button on the left.</value></data>
+  <data name="ComponentTranslationHint" xml:space="preserve"><value>Select each installer language separately and enter its description. An empty field uses the default description above.</value></data>
+  <data name="ComponentTypes" xml:space="preserve"><value>Include in these setup types</value></data>
+  <data name="ComponentFixed" xml:space="preserve"><value>Fixed component: users cannot manually select or clear it</value></data>
+  <data name="ComponentCheckableAlone" xml:space="preserve"><value>Allow selection without selected child components</value></data>
+  <data name="ComponentAddChild" xml:space="preserve"><value>Add child component</value></data>
+  <data name="ComponentNew" xml:space="preserve"><value>New component</value></data>
+  <data name="ComponentHasChildren" xml:space="preserve"><value>This component has children. Remove them before renaming or removing it. Moving a component moves its entire group.</value></data>
+  <data name="ComponentInvalid" xml:space="preserve"><value>Invalid components. Check the list.</value></data>
+  <data name="ComponentNameInvalid" xml:space="preserve"><value>Invalid internal component name. Use letters, digits and underscores; start each name segment with a letter or underscore.</value></data>
+  <data name="ComponentDuplicate" xml:space="preserve"><value>Internal component names must be unique, regardless of letter case.</value></data>
+  <data name="ComponentHierarchyInvalid" xml:space="preserve"><value>Invalid component hierarchy. Place each child within the contiguous group of its parent.</value></data>
+  <data name="ComponentDescriptionInvalid" xml:space="preserve"><value>Enter a default description. Descriptions and translations must be a single line of at most 4096 characters without preprocessor input.</value></data>
+  <data name="ComponentTypeMissing" xml:space="preserve"><value>A component references an unknown or duplicate setup type. Check its type assignments.</value></data>
+  <data name="ComponentTypeUsed" xml:space="preserve"><value>This type is used by: {0}. Update their type assignments before renaming or deleting it.</value></data>
+  <data name="ComponentConfigured" xml:space="preserve"><value>Shown because the project contains components.</value></data>
+  <data name="ComponentTrialHint" xml:space="preserve"><value>First installation without previous choices. Only component selection is simulated; file and shortcut links will follow later.</value></data>
 </root>
